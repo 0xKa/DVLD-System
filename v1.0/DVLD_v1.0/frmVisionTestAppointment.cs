@@ -80,5 +80,15 @@ namespace DVLD_v1._0
             frmSVT.FormClosed += FrmSVT_FormClosed;
             frmSVT.Show();
         }
+
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTakeTest frmTT = new frmTakeTest();
+            frmTT.MdiParent = this.MdiParent;
+
+            frmTT.FormClosed += FrmSVT_FormClosed;
+            frmTT.Show();
+
+        }
     }
 }
