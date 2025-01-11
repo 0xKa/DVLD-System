@@ -48,6 +48,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
+            this.lblAppointmentLockMessage = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.gbRetakeTestInfo.SuspendLayout();
             this.SuspendLayout();
@@ -289,12 +290,25 @@
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // lblAppointmentLockMessage
+            // 
+            this.lblAppointmentLockMessage.Font = new System.Drawing.Font("Consolas", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblAppointmentLockMessage.ForeColor = System.Drawing.Color.Red;
+            this.lblAppointmentLockMessage.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblAppointmentLockMessage.ImageKey = "(none)";
+            this.lblAppointmentLockMessage.Location = new System.Drawing.Point(135, 345);
+            this.lblAppointmentLockMessage.Name = "lblAppointmentLockMessage";
+            this.lblAppointmentLockMessage.Size = new System.Drawing.Size(206, 20);
+            this.lblAppointmentLockMessage.TabIndex = 60;
+            this.lblAppointmentLockMessage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmScheduleVisionTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gray;
             this.ClientSize = new System.Drawing.Size(477, 364);
+            this.Controls.Add(this.lblAppointmentLockMessage);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.gbRetakeTestInfo);
@@ -344,5 +358,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Button btnSave;
+        private System.Windows.Forms.Label lblAppointmentLockMessage;
     }
 }

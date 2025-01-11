@@ -20,7 +20,7 @@ namespace DVLD_v1._0
         private clsApplication _Application = null;
         private clsTestAppointment _TestAppointment = null;
 
-        public frmScheduleVisionTest(int TestAppointmentID, int LDLApplicationID)
+        public frmScheduleVisionTest(int TestAppointmentID, int LDLApplicationID, bool IsLocked = false)
         {
             InitializeComponent();
             
@@ -34,6 +34,15 @@ namespace DVLD_v1._0
                 _TestAppointment = clsTestAppointment.Find(TestAppointmentID);
             }
 
+            if (IsLocked)
+                _DisableSave();
+        }
+
+        private void _DisableSave()
+        {
+            btnSave.Enabled = false;
+            dtpTestDateTime.Enabled = false;
+            lblAppointmentLockMessage.Text = "This Appointment is Locked.";
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -96,6 +105,7 @@ namespace DVLD_v1._0
                 this.Text = "Edit Vision Test Appointment";
                 dtpTestDateTime.Value = _TestAppointment.AppointmentDate;
             }
+
         }
 
         private void frmScheduleVisionTest_Load(object sender, EventArgs e)

@@ -25,6 +25,8 @@ namespace DVLD_v1._0
             dgvAppointmentsList.DataSource = clsTestAppointment.GetTestAppointments(_LDLApplicationID,1);
             lblNumberOfRecords.Text = "Number of Records: " + dgvAppointmentsList.RowCount.ToString();
 
+            dgvAppointmentsList.Sort(dgvAppointmentsList.Columns[0], ListSortDirection.Descending);
+
             if (dgvAppointmentsList.RowCount > 0)
                 dgvAppointmentsList.Columns["AppointmentDate"].DefaultCellStyle.Format = "dd/MMM/yyyy [HH:mm:ss tt]";
         }
@@ -45,12 +47,12 @@ namespace DVLD_v1._0
 
             if (clsTest.IsPassedThisTest(1, _LDLApplicationID))
             {
-                MessageBox.Show("This Person Already Passed Vision Test.");
+                MessageBox.Show("This Person Already Passed Vision Test.", "Already Passed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (clsTestAppointment.DoesHasAnActiveAppointment(1, _LDLApplicationID))
             {
-                MessageBox.Show("This Person Has An Active Vision Test Appointment.");
+                MessageBox.Show("This Person Has An Active Vision Test Appointment.", "Alredy Scheduled", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -69,34 +71,30 @@ namespace DVLD_v1._0
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (clsTest.IsPassedThisTest(1, _LDLApplicationID))
-            {
-                MessageBox.Show("This Person Already Passed Vision Test.");
-                return;
-            }
-            else if (clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
-            {
-                MessageBox.Show("This Appointment Is Locked.");
-                return;
-            }
-
-            frmScheduleVisionTest frmSVT = new frmScheduleVisionTest((int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID);
+            frmScheduleVisionTest frmSVT = null;
+            
+            if (clsTest.IsPassedThisTest(1, _LDLApplicationID) || clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
+                frmSVT = new frmScheduleVisionTest((int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID, true);
+            else 
+                frmSVT = new frmScheduleVisionTest((int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID);
+            
             frmSVT.MdiParent = this.MdiParent;
 
             frmSVT.FormClosed += FrmSVT_FormClosed;
             frmSVT.Show();
+
         }
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (clsTest.IsPassedThisTest(1, _LDLApplicationID))
             {
-                MessageBox.Show("This Person Already Passed Vision Test.");
+                MessageBox.Show("This Person Already Passed Vision Test.", "Already Passed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
             {
-                MessageBox.Show("This Appointment Is Locked.");
+                MessageBox.Show("This Appointment Is Locked.", "Locked", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

@@ -20,6 +20,7 @@ namespace DVLD_v1._0
         private clsLocalDLApplication _LDLApplication = null;
         private clsApplication _Application = null;
         private clsTestAppointment _TestAppointment = null;
+        private clsTest _Test = null;
 
         public frmTakeTest(enTestType TestType, int TestAppointmentID, int LDLApplicationID)
         {
@@ -90,6 +91,29 @@ namespace DVLD_v1._0
         private void frmTakeTest_Load(object sender, EventArgs e)
         {
             _LoadInfo();
+        }
+
+        private void _FillTestObject()
+        {
+            _Test = new clsTest();
+
+            _Test.TestAppointmentID = _TestAppointment.ID;
+            _Test.TestResult = rbPass.Checked ? true : false;
+            _Test.Notes = txbNotes.Text;
+            _Test.CreatedByUserID = clsGlobalSettings.CurrentUser.ID;
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            _FillTestObject();
+
+            _TestAppointment.IsLocked = true;
+
+            if (_Test.Save() && _TestAppointment.Save())
+                MessageBox.Show("Test Data Saved Successfully.", "Done");
+            else
+                MessageBox.Show("Error: Test Data was NOT Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
         }
     }
 }

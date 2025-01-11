@@ -53,13 +53,16 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"
-UPDATE [dbo].[Tests]
-   SET [TestAppointmentID] = @TestAppointmentID
-      ,[TestResult] = @TestResult
-      ,[Notes] = @Notes
-      ,[CreatedByUserID] = @CreatedByUserID
- WHERE TestID = @TestID
+            string query = @"INSERT INTO [dbo].[Tests]
+           ([TestAppointmentID]
+           ,[TestResult]
+           ,[Notes]
+           ,[CreatedByUserID])
+     VALUES
+           (@TestAppointmentID
+           ,@TestResult
+           ,@Notes
+           ,@CreatedByUserID)
 SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -67,7 +70,6 @@ SELECT SCOPE_IDENTITY();";
             command.Parameters.AddWithValue("@TestResult", TestResult);
             command.Parameters.AddWithValue("@Notes", Notes);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
-            command.Parameters.AddWithValue("@TestID", TestID);
 
             try
             {
