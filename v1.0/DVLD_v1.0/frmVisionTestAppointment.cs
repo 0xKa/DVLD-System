@@ -89,7 +89,18 @@ namespace DVLD_v1._0
 
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmTakeTest frmTT = new frmTakeTest();
+            if (clsTest.IsPassedThisTest(1, _LDLApplicationID))
+            {
+                MessageBox.Show("This Person Already Passed Vision Test.");
+                return;
+            }
+            else if (clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
+            {
+                MessageBox.Show("This Appointment Is Locked.");
+                return;
+            }
+
+            frmTakeTest frmTT = new frmTakeTest(frmTakeTest.enTestType.Vision, (int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID);
             frmTT.MdiParent = this.MdiParent;
 
             frmTT.FormClosed += FrmSVT_FormClosed;
