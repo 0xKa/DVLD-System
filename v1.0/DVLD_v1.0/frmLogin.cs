@@ -12,7 +12,7 @@ namespace DVLD_v1._0
             InitializeComponent();
         }
 
-        private string _RememberMeFilePath = @"F:\ProgrammingAdvices\Course 19 - Full Real Project\DVLD\DVLD_v1.0\RememberMeLoginCredentials.txt";
+        private string _RememberMeFilePath = @"F:\ProgrammingAdvices\Course 19 - Full Real Project\DVLD\v1.0\DVLD_v1.0\RememberMeLoginCredentials.txt";
         private void _LoadCredentials()
         {
             if (File.Exists(_RememberMeFilePath))

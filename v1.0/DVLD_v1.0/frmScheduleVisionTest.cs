@@ -132,7 +132,6 @@ namespace DVLD_v1._0
 
             };
         }
-        int test = 9994839;
 
         private void btnSave_Click(object sender, EventArgs e)
         {
@@ -165,6 +164,5 @@ namespace DVLD_v1._0
             this.Text = "Edit Vision Test Appointment";
 
         }
-        int test2 = 9992;
     }
 }
