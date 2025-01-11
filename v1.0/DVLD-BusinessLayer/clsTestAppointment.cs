@@ -110,6 +110,11 @@ namespace DVLD_BusinessLayer
             return clsTestAppointmentData.GetTestAppointments(LocalDrivingLicenseApplicationID, TestTypeID);
         }
 
-        
+        public static bool IsAppointmentLocked(int TestAppointmentID)
+        {
+            return clsTestAppointmentData.IsAppointmentLocked(TestAppointmentID);
+        }
+
+
     }
 }

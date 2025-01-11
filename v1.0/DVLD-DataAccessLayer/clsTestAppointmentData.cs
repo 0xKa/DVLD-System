@@ -232,7 +232,29 @@ WHERE TestTypeID = @TestTypeID AND IsLocked = 0  AND LocalDrivingLicenseApplicat
             return dtAppointments;
 
         }
-    
+
+        public static bool IsAppointmentLocked(int TestAppointmentID)
+        {
+            bool IsLocked = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM TestAppointments WHERE IsLocked = 1 AND TestAppointmentID = @TestAppointmentID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@TestAppointmentID", TestAppointmentID);
+
+            try
+            {
+                connection.Open();
+                IsLocked = command.ExecuteScalar() != null;
+            }
+            catch { return false; }
+            finally { connection.Close(); }
+
+
+            return IsLocked;
+        }
     
     }
 }

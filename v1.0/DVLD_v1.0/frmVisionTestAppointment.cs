@@ -24,15 +24,16 @@ namespace DVLD_v1._0
         {
             dgvAppointmentsList.DataSource = clsTestAppointment.GetTestAppointments(_LDLApplicationID,1);
             lblNumberOfRecords.Text = "Number of Records: " + dgvAppointmentsList.RowCount.ToString();
+
+            if (dgvAppointmentsList.RowCount > 0)
+                dgvAppointmentsList.Columns["AppointmentDate"].DefaultCellStyle.Format = "dd/MMM/yyyy [HH:mm:ss tt]";
         }
 
         private void frmVisionTestAppointment_Load(object sender, EventArgs e)
         {
             _RefreshDgvList();
             ctrlLDLApplicationInfoCard1.LoadInfo(_LDLApplicationID);
-
-            dgvAppointmentsList.Columns["AppointmentDate"].DefaultCellStyle.Format = "dd/MMM/yyyy [HH:mm:ss tt]";
-        }
+          }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -71,6 +72,11 @@ namespace DVLD_v1._0
             if (clsTest.IsPassedThisTest(1, _LDLApplicationID))
             {
                 MessageBox.Show("This Person Already Passed Vision Test.");
+                return;
+            }
+            else if (clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
+            {
+                MessageBox.Show("This Appointment Is Locked.");
                 return;
             }
 
