@@ -8,22 +8,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-//vision test type id = 1
 
 namespace DVLD_v1._0
 {
-    public partial class frmScheduleVisionTest : Form
+    public partial class frmScheduleTests : Form
     {
+        clsGlobalSettings.enTestType _TestType;
         clsGlobalSettings.enMode _Mode = clsGlobalSettings.enMode.AddNew;
 
         private clsLocalDLApplication _LDLApplication = null;
         private clsApplication _Application = null;
         private clsTestAppointment _TestAppointment = null;
 
-        public frmScheduleVisionTest(int TestAppointmentID, int LDLApplicationID, bool IsLocked = false)
+        public frmScheduleTests(int TestAppointmentID, int LDLApplicationID, clsGlobalSettings.enTestType TestType, bool IsLocked = false)
         {
             InitializeComponent();
-            
+            _TestType = TestType;
+
             _LDLApplication = clsLocalDLApplication.Find(LDLApplicationID);
 
             if (TestAppointmentID == -1)
@@ -36,6 +37,7 @@ namespace DVLD_v1._0
 
             if (IsLocked)
                 _DisableSave();
+
         }
 
         private void _DisableSave()
@@ -44,82 +46,99 @@ namespace DVLD_v1._0
             dtpTestDateTime.Enabled = false;
             lblAppointmentLockMessage.Text = "This Appointment is Locked.";
         }
-
+        
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
         }
-
-        private byte _NumberOfTrials = 0;
-        private double _VisionTestFees = 0;
+       
+        private bool _IsRetakeTest = false;
+        private double _TestTypeFees = 0;
         private double _RetakeTestFees = 0;
         private double _TotalFees = 0;
         private void _CalculateFees()
         {
             if (_IsRetakeTest)
                 _RetakeTestFees = clsApplicationType.Find(8).Fees;
-    
-            _VisionTestFees = clsTestType.Find(1).Fees;
-            _TotalFees = _VisionTestFees + _RetakeTestFees;
+
+            _TestTypeFees = clsTestType.Find((int)_TestType).Fees;
+            _TotalFees = _RetakeTestFees + _TestTypeFees;
         }
 
+        private byte _NumberOfTrials = 0;
         private void _FillBasicInfo()
         {
             lblLDLApplicationID.Text = _LDLApplication.ID.ToString();
             lblLicenseClass.Text = clsLicenseClass.GetClassName(_LDLApplication.LicenseClassID);
-            
-            _NumberOfTrials = clsTestAppointment.GetTestTrials(_LDLApplication.ID, 1);
+
+            _NumberOfTrials = clsTestAppointment.GetTestTrials(_LDLApplication.ID, (int)_TestType);
             lblTrials.Text = _NumberOfTrials.ToString();
 
-            lblFees.Text = _VisionTestFees.ToString();
-            _TotalFees = _VisionTestFees;
+            lblFees.Text = _TestTypeFees.ToString();
         }
-
         private void _FillRetakeTestInfo()
         {
             gbRetakeTestInfo.Visible = true;
 
-            _TotalFees = _RetakeTestFees + _VisionTestFees;
-
-            lblRetakeTestFees.Text = _RetakeTestFees.ToString(); //8 for retake test application
+            _TotalFees = _RetakeTestFees + _TestTypeFees;
+            lblRetakeTestFees.Text = _RetakeTestFees.ToString(); 
             lblTotalFees.Text = _TotalFees.ToString();
             lblRetakeTestAppID.Text = _LDLApplication.ApplicationID.ToString();
         }
 
-        private bool _IsRetakeTest = false;
         private void _LoadInfo()
         {
-            _IsRetakeTest = clsTest.IsFailedThisTestBefore(1, _LDLApplication.ID);
+            _IsRetakeTest = clsTest.IsFailedThisTestBefore((int)_TestType, _LDLApplication.ID);
             _CalculateFees();
             _FillBasicInfo();
 
             if (_IsRetakeTest)
                 _FillRetakeTestInfo();
-        
+
             if (_Mode == clsGlobalSettings.enMode.AddNew)
             {
-                this.Text = "Add New Vision Test Appointment";
+                this.Text = "Add New Test Appointment";
                 _TestAppointment = new clsTestAppointment();
             }
             else
             {
-                this.Text = "Edit Vision Test Appointment";
+                this.Text = "Edit Test Appointment";
                 dtpTestDateTime.Value = _TestAppointment.AppointmentDate;
             }
 
-        }
-
-        private void frmScheduleVisionTest_Load(object sender, EventArgs e)
-        {
-            _LoadInfo();
+            //appointment allowed date range 
             dtpTestDateTime.MinDate = DateTime.Now.AddHours(1);
             dtpTestDateTime.MaxDate = DateTime.Now.AddMonths(3);
-        
+        }
+
+        private void _InitiateTitleAndImage()
+        {
+            switch (_TestType)
+            {
+                case clsGlobalSettings.enTestType.Vision:
+                    this.Text = "Schedule Vision Test";
+                    pictureBox1.Image = Properties.Resources.shared_vision;
+                    break;
+                case clsGlobalSettings.enTestType.Writing:
+                    this.Text = "Schedule Writing Test";
+                    pictureBox1.Image = Properties.Resources.writing;
+                    break;
+                case clsGlobalSettings.enTestType.Street:
+                    this.Text = "Schedule Street Test";
+                    pictureBox1.Image = Properties.Resources.motorway;
+                    break;
+            }
+        }
+
+        private void frmScheduleTests_Load(object sender, EventArgs e)
+        {
+            _InitiateTitleAndImage();
+            _LoadInfo();
         }
 
         private void _FillTestAppointmentObject()
         {
-            _TestAppointment.TestTypeID = 1;
+            _TestAppointment.TestTypeID = (int)_TestType;
             _TestAppointment.LDLAppID = _LDLApplication.ID;
             _TestAppointment.AppointmentDate = dtpTestDateTime.Value;
             _TestAppointment.PaidFees = _TotalFees;
@@ -148,7 +167,7 @@ namespace DVLD_v1._0
         {
             _FillTestAppointmentObject();
 
-            if(_IsRetakeTest)
+            if (_IsRetakeTest)
             {
                 _FillRetakeTestApplicationObject();
 
@@ -164,15 +183,15 @@ namespace DVLD_v1._0
                 }
             }
 
- 
+
             if (_TestAppointment.Save())
                 MessageBox.Show("Appointment Data Saved Successfully.", "Done");
             else
                 MessageBox.Show("Error: Appointment Data was NOT Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            
+
 
             _Mode = clsGlobalSettings.enMode.Update;
-            this.Text = "Edit Vision Test Appointment";
+            this.Text = "Edit Test Appointment";
 
         }
     }

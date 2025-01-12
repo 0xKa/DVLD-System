@@ -22,7 +22,7 @@ namespace DVLD_v1._0
             _LDLApplicationID = LDLApplicationID;
         }
 
-        private void _InitiateTitle()
+        private void _InitiateTitleAndImage()
         {
             switch (_TestType)
             {
@@ -55,7 +55,7 @@ namespace DVLD_v1._0
 
         private void frmTestsAppointment_Load(object sender, EventArgs e)
         {
-            _InitiateTitle();
+            _InitiateTitleAndImage();
             _RefreshDgvList();
             ctrlLDLApplicationInfoCard1.LoadInfo(_LDLApplicationID);
         }
@@ -78,109 +78,52 @@ namespace DVLD_v1._0
                 return;
             }
 
-            Form frmSchduleTest = null;
-            switch (_TestType)
-            {
-                case clsGlobalSettings.enTestType.Vision:
-                    frmSchduleTest = new frmScheduleVisionTest(-1, _LDLApplicationID);
-                    break;
-                case clsGlobalSettings.enTestType.Writing:
-                    //
-                    break;
-                case clsGlobalSettings.enTestType.Street:
-                    //
-                    break;
-            }
+            frmScheduleTests frmST = new frmScheduleTests(-1, _LDLApplicationID, _TestType);
+            frmST.MdiParent = this.MdiParent;
 
-            frmSchduleTest.MdiParent = this.MdiParent;
-
-            frmSchduleTest.FormClosed += frmSchduleTest_FormClosed;
-            frmSchduleTest.Show();
+            frmST.FormClosed += frmSchduleTest_FormClosed;
+            frmST.Show();
         }
         private void frmSchduleTest_FormClosed(object sender, FormClosedEventArgs e)
         {
             _RefreshDgvList();
         }
 
-        private void _ShowVisionTestEditForm() 
-        {
-            frmScheduleVisionTest frmSVT = null;
-
-            if (clsTest.IsPassedThisTest(1, _LDLApplicationID) || clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
-                frmSVT = new frmScheduleVisionTest((int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID, true);
-            else
-                frmSVT = new frmScheduleVisionTest((int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID);
-
-            frmSVT.MdiParent = this.MdiParent;
-
-            frmSVT.FormClosed += frmSchduleTest_FormClosed;
-            frmSVT.Show();
-        }
-        private void _ShowWritingTestEditForm() 
-        {
-            
-        }
-        private void _ShowStreetTestEditForm() 
-        {
-            
-        }
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            switch (_TestType)
-            {
-                case clsGlobalSettings.enTestType.Vision:
-                    _ShowVisionTestEditForm();
-                    break;
-                case clsGlobalSettings.enTestType.Writing:
-                    _ShowWritingTestEditForm();//
-                    break;
-                case clsGlobalSettings.enTestType.Street:
-                    _ShowStreetTestEditForm();//
-                    break;
-            }
+            frmScheduleTests frmST = null;
+
+            if (clsTest.IsPassedThisTest((int)_TestType, _LDLApplicationID) || clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
+                frmST = new frmScheduleTests((int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID, _TestType, true);
+            else
+                frmST = new frmScheduleTests((int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID, _TestType);
+
+            frmST.MdiParent = this.MdiParent;
+
+            frmST.FormClosed += frmSchduleTest_FormClosed;
+            frmST.Show();
+
         }
 
-        private void _ShowVisionTakeTestForm()
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (clsTest.IsPassedThisTest(1, _LDLApplicationID))
+            if (clsTest.IsPassedThisTest((int)_TestType, _LDLApplicationID))
             {
-                MessageBox.Show("This Person Already Passed Vision Test.", "Already Passed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The Person Already Passed This Test.", "Already Passed", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             else if (clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
             {
-                MessageBox.Show("This Appointment Is Locked.", "Locked", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("This Appointment is Locked.", "Locked", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            frmTakeTest frmTT = new frmTakeTest(clsGlobalSettings.enTestType.Vision, (int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID);
+            frmTakeTest frmTT = new frmTakeTest(_TestType, (int)dgvAppointmentsList.CurrentRow.Cells[0].Value, _LDLApplicationID);
             frmTT.MdiParent = this.MdiParent;
 
             frmTT.FormClosed += frmSchduleTest_FormClosed;
             frmTT.Show();
-        }
-        private void _ShowWritingTakeTestForm()
-        {
 
-        }
-        private void _ShowStreetTakeTestForm()
-        {
-
-        }
-        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            switch (_TestType)
-            {
-                case clsGlobalSettings.enTestType.Vision:
-                    _ShowVisionTakeTestForm();
-                    break;
-                case clsGlobalSettings.enTestType.Writing:
-                    _ShowWritingTakeTestForm();//
-                    break;
-                case clsGlobalSettings.enTestType.Street:
-                    _ShowStreetTakeTestForm();//
-                    break;
-            }
         }
     }
 }

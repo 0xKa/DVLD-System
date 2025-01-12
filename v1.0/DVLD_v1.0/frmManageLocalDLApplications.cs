@@ -193,12 +193,20 @@ namespace DVLD_v1._0
 
         private void sechduleWrittenTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmTestsAppointment frmVTP = new frmTestsAppointment((int)dgvApplicationsList.CurrentRow.Cells[0].Value, clsGlobalSettings.enTestType.Writing);
+            frmVTP.MdiParent = this.MdiParent;
 
+            frmVTP.FormClosed += FrmAddApplication_FormClosed;
+            frmVTP.Show();
         }
 
         private void sechduleStreetTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmTestsAppointment frmVTP = new frmTestsAppointment((int)dgvApplicationsList.CurrentRow.Cells[0].Value, clsGlobalSettings.enTestType.Street);
+            frmVTP.MdiParent = this.MdiParent;
 
+            frmVTP.FormClosed += FrmAddApplication_FormClosed;
+            frmVTP.Show();
         }
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
@@ -228,7 +236,9 @@ namespace DVLD_v1._0
             }
             else
             {
-                //later...
+                sechduleVisionTestToolStripMenuItem.Enabled = false;
+                sechduleWrittenTestToolStripMenuItem.Enabled = false;
+                sechduleStreetTestToolStripMenuItem.Enabled = false;
             }
 
         }

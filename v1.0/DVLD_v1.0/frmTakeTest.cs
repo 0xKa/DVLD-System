@@ -110,7 +110,12 @@ namespace DVLD_v1._0
             _TestAppointment.IsLocked = true;
 
             if (_Test.Save() && _TestAppointment.Save())
+            {
+                if (_TestType == clsGlobalSettings.enTestType.Street)
+                    _Application.ChangeApplicationStatus(clsGlobalSettings.enApplicationStatus.Completed);
+               
                 MessageBox.Show("Test Data Saved Successfully.", "Done");
+            }
             else
                 MessageBox.Show("Error: Test Data was NOT Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
