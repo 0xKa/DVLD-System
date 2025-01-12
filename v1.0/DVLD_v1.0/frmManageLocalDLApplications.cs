@@ -200,5 +200,33 @@ namespace DVLD_v1._0
         {
 
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            int passedTests = (int)dgvApplicationsList.CurrentRow.Cells["PassedTestCount"].Value;
+            if ( passedTests == 0)
+            {
+                sechduleVisionTestToolStripMenuItem.Enabled = true;
+                sechduleWrittenTestToolStripMenuItem.Enabled = false;
+                sechduleStreetTestToolStripMenuItem.Enabled = false;
+            }
+            else if (passedTests == 1)
+            {
+                sechduleVisionTestToolStripMenuItem.Enabled = false;
+                sechduleWrittenTestToolStripMenuItem.Enabled = true;
+                sechduleStreetTestToolStripMenuItem.Enabled = false;
+            }
+            else if (passedTests == 2)
+            {
+                sechduleVisionTestToolStripMenuItem.Enabled = false;
+                sechduleWrittenTestToolStripMenuItem.Enabled = false;
+                sechduleStreetTestToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                //later...
+            }
+
+        }
     }
 }
