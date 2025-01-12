@@ -134,16 +134,15 @@ namespace DVLD_BusinessLayer
             return clsApplicationData.IsApplicationExist(ApplicationID);
         }
 
-        public enum enApplicationStatus {Cancelled = 2, Completed = 3 }
-        public bool ChangeApplicationStatus(enApplicationStatus status)
+        public bool ChangeApplicationStatus(clsGlobalSettings.enApplicationStatus status)
         {
-            if (status == enApplicationStatus.Cancelled)
+            if (status == clsGlobalSettings.enApplicationStatus.Cancelled)
             {
                 ApplicationStatus = 2;
                 LastStatusDate = DateTime.Now;
                 return this.Save();
             }
-            else if (status == enApplicationStatus.Completed)
+            else if (status == clsGlobalSettings.enApplicationStatus.Completed)
             {
                 ApplicationStatus = 3;
                 LastStatusDate = DateTime.Now;
@@ -154,6 +153,9 @@ namespace DVLD_BusinessLayer
 
         }
 
-
+        public static clsGlobalSettings.enApplicationStatus GetApplicationStatus(int ApplicationID)
+        {
+            return (clsGlobalSettings.enApplicationStatus) clsApplicationData.GetApplicationStatus(ApplicationID);
+        }
     }
 }

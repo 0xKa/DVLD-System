@@ -126,7 +126,7 @@ namespace DVLD_v1._0
             
             clsApplication application = clsApplication.Find(ApplicationID);
             
-            application.ChangeApplicationStatus(clsApplication.enApplicationStatus.Cancelled);
+            application.ChangeApplicationStatus(clsGlobalSettings.enApplicationStatus.Cancelled);
             _RefreshDGVList();
         }
 
@@ -184,7 +184,7 @@ namespace DVLD_v1._0
 
         private void sechduleVisionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmVisionTestAppointment frmVTP = new frmVisionTestAppointment((int)dgvApplicationsList.CurrentRow.Cells[0].Value);
+            frmTestsAppointment frmVTP = new frmTestsAppointment((int)dgvApplicationsList.CurrentRow.Cells[0].Value, clsGlobalSettings.enTestType.Vision);
             frmVTP.MdiParent = this.MdiParent;
 
             frmVTP.FormClosed += FrmAddApplication_FormClosed;
@@ -203,6 +203,10 @@ namespace DVLD_v1._0
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
+            int ApplicationID = clsLocalDLApplication.Find((int)dgvApplicationsList.CurrentRow.Cells[0].Value).ApplicationID;
+            if (clsApplication.GetApplicationStatus(ApplicationID) != clsGlobalSettings.enApplicationStatus.New)
+                return;
+
             int passedTests = (int)dgvApplicationsList.CurrentRow.Cells["PassedTestCount"].Value;
             if ( passedTests == 0)
             {

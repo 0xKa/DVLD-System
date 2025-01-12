@@ -10,6 +10,8 @@ namespace DVLD_BusinessLayer
     {
         public enum enMode { AddNew = 0, Update = 1 }
         public static clsUser CurrentUser { get; set; }
+        public enum enTestType { Vision = 1, Writing = 2, Street = 3 }
+        public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 }
 
     }
 }

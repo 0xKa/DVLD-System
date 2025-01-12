@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 namespace DVLD_DataAccessLayer
 {
@@ -240,6 +241,28 @@ namespace DVLD_DataAccessLayer
             return IsFound;
         }
 
+        public static byte GetApplicationStatus(int ApplicationID)
+        {
+            byte status = 1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT ApplicationStatus FROM Applications WHERE ApplicationID = @ApplicationID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                connection.Open();
+                status = Convert.ToByte(command.ExecuteScalar());
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return status;
+        }
 
     }
 }

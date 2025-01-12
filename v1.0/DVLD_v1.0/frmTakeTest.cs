@@ -14,15 +14,15 @@ namespace DVLD_v1._0
 {
     public partial class frmTakeTest : Form
     {
-        public enum enTestType { Vision = 1, Writing = 2, Street = 3 }
-        private enTestType _TestType;
+        
+        private clsGlobalSettings.enTestType _TestType;
 
         private clsLocalDLApplication _LDLApplication = null;
         private clsApplication _Application = null;
         private clsTestAppointment _TestAppointment = null;
         private clsTest _Test = null;
 
-        public frmTakeTest(enTestType TestType, int TestAppointmentID, int LDLApplicationID)
+        public frmTakeTest(clsGlobalSettings.enTestType TestType, int TestAppointmentID, int LDLApplicationID)
         {
             InitializeComponent();
             _TestType = TestType;
@@ -60,7 +60,7 @@ namespace DVLD_v1._0
             lblLDLApplicationID.Text = _LDLApplication.ID.ToString();
             lblLicenseClass.Text = clsLicenseClass.GetClassName(_LDLApplication.LicenseClassID);
             lblApplicantPerson.Text = clsPerson.Find(_Application.ApplicantID).GetFullName();
-            lblTrials.Text = clsTestAppointment.GetTestTrials(_LDLApplication.ID, (int)enTestType.Vision).ToString();
+            lblTrials.Text = clsTestAppointment.GetTestTrials(_LDLApplication.ID, (int)clsGlobalSettings.enTestType.Vision).ToString();
             lblDate.Text = _TestAppointment.AppointmentDate.ToString("dd/MMM/yyyy [HH:mm:ss tt]");
             lblFees.Text = _TestAppointment.PaidFees.ToString();
             lblTestAppointmentID.Text = _TestAppointment.ID.ToString();
@@ -70,15 +70,15 @@ namespace DVLD_v1._0
         {
             switch(_TestType)
             {
-                case enTestType.Vision:
+                case clsGlobalSettings.enTestType.Vision:
                     _LoadVisionTestInfo();
                     break;
                     
-                case enTestType.Writing:
+                case clsGlobalSettings.enTestType.Writing:
                     _LoadWritingTestInfo();
                     break;
                     
-                case enTestType.Street:
+                case clsGlobalSettings.enTestType.Street:
                     _LoadStreetTestInfo();
                     break;
             }
