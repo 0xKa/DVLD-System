@@ -83,6 +83,7 @@ namespace DVLD_v1._0
 
             lblRetakeTestFees.Text = _RetakeTestFees.ToString(); //8 for retake test application
             lblTotalFees.Text = _TotalFees.ToString();
+            lblRetakeTestAppID.Text = _LDLApplication.ApplicationID.ToString();
         }
 
         private bool _IsRetakeTest = false;

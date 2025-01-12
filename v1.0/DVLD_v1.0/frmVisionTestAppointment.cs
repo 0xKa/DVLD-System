@@ -25,10 +25,12 @@ namespace DVLD_v1._0
             dgvAppointmentsList.DataSource = clsTestAppointment.GetTestAppointments(_LDLApplicationID,1);
             lblNumberOfRecords.Text = "Number of Records: " + dgvAppointmentsList.RowCount.ToString();
 
-            dgvAppointmentsList.Sort(dgvAppointmentsList.Columns[0], ListSortDirection.Descending);
 
             if (dgvAppointmentsList.RowCount > 0)
+            {
                 dgvAppointmentsList.Columns["AppointmentDate"].DefaultCellStyle.Format = "dd/MMM/yyyy [HH:mm:ss tt]";
+                dgvAppointmentsList.Sort(dgvAppointmentsList.Columns[0], ListSortDirection.Descending);
+            }
         }
 
         private void frmVisionTestAppointment_Load(object sender, EventArgs e)
