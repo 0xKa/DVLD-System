@@ -255,6 +255,7 @@
             // 
             // issueDrivingLicenseFisrtTimeToolStripMenuItem
             // 
+            this.issueDrivingLicenseFisrtTimeToolStripMenuItem.Enabled = false;
             this.issueDrivingLicenseFisrtTimeToolStripMenuItem.Image = global::DVLD_v1._0.Properties.Resources.magic;
             this.issueDrivingLicenseFisrtTimeToolStripMenuItem.Name = "issueDrivingLicenseFisrtTimeToolStripMenuItem";
             this.issueDrivingLicenseFisrtTimeToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
@@ -267,6 +268,7 @@
             // 
             // showLicenseToolStripMenuItem
             // 
+            this.showLicenseToolStripMenuItem.Enabled = false;
             this.showLicenseToolStripMenuItem.Image = global::DVLD_v1._0.Properties.Resources.driving_license__1_;
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(264, 22);

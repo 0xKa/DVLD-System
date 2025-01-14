@@ -211,12 +211,18 @@ namespace DVLD_v1._0
 
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
+            issueDrivingLicenseFisrtTimeToolStripMenuItem.Enabled = false;
+            sechduleTestsToolStripMenuItem.Enabled = false;
+
+
             int ApplicationID = clsLocalDLApplication.Find((int)dgvApplicationsList.CurrentRow.Cells[0].Value).ApplicationID;
             if (clsApplication.GetApplicationStatus(ApplicationID) != clsGlobalSettings.enApplicationStatus.New)
                 return;
+            
 
+            sechduleTestsToolStripMenuItem.Enabled = true;
             int passedTests = (int)dgvApplicationsList.CurrentRow.Cells["PassedTestCount"].Value;
-            if ( passedTests == 0)
+            if (passedTests == 0)
             {
                 sechduleVisionTestToolStripMenuItem.Enabled = true;
                 sechduleWrittenTestToolStripMenuItem.Enabled = false;
@@ -234,11 +240,10 @@ namespace DVLD_v1._0
                 sechduleWrittenTestToolStripMenuItem.Enabled = false;
                 sechduleStreetTestToolStripMenuItem.Enabled = true;
             }
-            else
+            else 
             {
-                sechduleVisionTestToolStripMenuItem.Enabled = false;
-                sechduleWrittenTestToolStripMenuItem.Enabled = false;
-                sechduleStreetTestToolStripMenuItem.Enabled = false;
+                sechduleTestsToolStripMenuItem.Enabled = false;
+                issueDrivingLicenseFisrtTimeToolStripMenuItem.Enabled = true;
             }
 
         }
