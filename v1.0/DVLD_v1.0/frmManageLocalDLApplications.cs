@@ -266,5 +266,15 @@ namespace DVLD_v1._0
 
             showLicenseToolStripMenuItem.Enabled = status == clsGlobalSettings.enApplicationStatus.Completed ? true : false;
         }
+
+        private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

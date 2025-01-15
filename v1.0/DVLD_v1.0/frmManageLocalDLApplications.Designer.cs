@@ -210,40 +210,40 @@
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(261, 6);
             // 
-            // sechduleTestsToolStripMenuItem
+            // scheduleTestsToolStripMenuItem
             // 
             this.scheduleTestsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.scheduleVisionTestToolStripMenuItem,
             this.scheduleWrittenTestToolStripMenuItem,
             this.scheduleStreetTestToolStripMenuItem});
             this.scheduleTestsToolStripMenuItem.Image = global::DVLD_v1._0.Properties.Resources.schedule;
-            this.scheduleTestsToolStripMenuItem.Name = "sechduleTestsToolStripMenuItem";
+            this.scheduleTestsToolStripMenuItem.Name = "scheduleTestsToolStripMenuItem";
             this.scheduleTestsToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
             this.scheduleTestsToolStripMenuItem.Text = "Sechdule Tests";
             // 
-            // sechduleVisionTestToolStripMenuItem
+            // scheduleVisionTestToolStripMenuItem
             // 
             this.scheduleVisionTestToolStripMenuItem.Enabled = false;
             this.scheduleVisionTestToolStripMenuItem.Image = global::DVLD_v1._0.Properties.Resources.shared_vision;
-            this.scheduleVisionTestToolStripMenuItem.Name = "sechduleVisionTestToolStripMenuItem";
+            this.scheduleVisionTestToolStripMenuItem.Name = "scheduleVisionTestToolStripMenuItem";
             this.scheduleVisionTestToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.scheduleVisionTestToolStripMenuItem.Text = "Sechdule Vision Test";
             this.scheduleVisionTestToolStripMenuItem.Click += new System.EventHandler(this.sechduleVisionTestToolStripMenuItem_Click);
             // 
-            // sechduleWrittenTestToolStripMenuItem
+            // scheduleWrittenTestToolStripMenuItem
             // 
             this.scheduleWrittenTestToolStripMenuItem.Enabled = false;
             this.scheduleWrittenTestToolStripMenuItem.Image = global::DVLD_v1._0.Properties.Resources.writing;
-            this.scheduleWrittenTestToolStripMenuItem.Name = "sechduleWrittenTestToolStripMenuItem";
+            this.scheduleWrittenTestToolStripMenuItem.Name = "scheduleWrittenTestToolStripMenuItem";
             this.scheduleWrittenTestToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.scheduleWrittenTestToolStripMenuItem.Text = "Sechdule Written Test";
             this.scheduleWrittenTestToolStripMenuItem.Click += new System.EventHandler(this.sechduleWrittenTestToolStripMenuItem_Click);
             // 
-            // sechduleStreetTestToolStripMenuItem
+            // scheduleStreetTestToolStripMenuItem
             // 
             this.scheduleStreetTestToolStripMenuItem.Enabled = false;
             this.scheduleStreetTestToolStripMenuItem.Image = global::DVLD_v1._0.Properties.Resources.motorway;
-            this.scheduleStreetTestToolStripMenuItem.Name = "sechduleStreetTestToolStripMenuItem";
+            this.scheduleStreetTestToolStripMenuItem.Name = "scheduleStreetTestToolStripMenuItem";
             this.scheduleStreetTestToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.scheduleStreetTestToolStripMenuItem.Text = "Sechdule Street Test";
             this.scheduleStreetTestToolStripMenuItem.Click += new System.EventHandler(this.sechduleStreetTestToolStripMenuItem_Click);
@@ -253,13 +253,14 @@
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Size = new System.Drawing.Size(261, 6);
             // 
-            // issueDrivingLicenseFisrtTimeToolStripMenuItem
+            // issueDrivingLicenseFirstTimeToolStripMenuItem
             // 
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Image = global::DVLD_v1._0.Properties.Resources.magic;
-            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Name = "issueDrivingLicenseFisrtTimeToolStripMenuItem";
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Name = "issueDrivingLicenseFirstTimeToolStripMenuItem";
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
             this.issueDrivingLicenseFirstTimeToolStripMenuItem.Text = "Issue Driving License (Fisrt Time)";
+            this.issueDrivingLicenseFirstTimeToolStripMenuItem.Click += new System.EventHandler(this.issueDrivingLicenseFirstTimeToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
@@ -273,6 +274,7 @@
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(264, 22);
             this.showLicenseToolStripMenuItem.Text = "Show License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem5
             // 
