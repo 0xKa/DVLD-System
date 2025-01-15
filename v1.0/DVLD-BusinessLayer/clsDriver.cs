@@ -58,6 +58,20 @@ namespace DVLD_BusinessLayer
 
         }
 
+        public static clsDriver FindByPersonID(int PersonID)
+        {
+            int DriverID = -1;
+            int CreatedByUserID = -1;
+            DateTime CreatedDate = DateTime.Now;
+
+            if (clsDriversData.GetDriverInfoByPersonID(PersonID, ref DriverID, ref CreatedByUserID, ref CreatedDate))
+                return new clsDriver(DriverID, PersonID, CreatedByUserID, CreatedDate);
+            else
+                return null;
+
+        }
+
+
         public bool Save()
         {
             switch (_Mode)
@@ -79,6 +93,10 @@ namespace DVLD_BusinessLayer
             return clsDriversData.DeleteDriver(DriverID);
         }
 
+        public static bool IsPersonDriver(int PersonID)
+        {
+            return clsDriversData.IsPersonDriver(PersonID);
+        }
 
     }
 }

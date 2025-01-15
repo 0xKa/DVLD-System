@@ -11,7 +11,7 @@ namespace DVLD_DataAccessLayer
     public class clsLicenseData
     {
         public static bool GetLicenseInfo(int LicenseID, ref int ApplicationID, ref int DriverID,
-            ref int LicenseClassID, ref DateTime IssueDate, ref DateTime ExpirationDate,
+            ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate,
             ref string Notes, ref double PaidFees, ref bool IsActive, ref byte IssueReason,
             ref int CreatedByUserID)
         {
@@ -34,7 +34,7 @@ namespace DVLD_DataAccessLayer
                     isFound = true;
                     ApplicationID = (int)reader["ApplicationID"];
                     DriverID = (int)reader["DriverID"];
-                    LicenseClassID = (int)reader["LicenseClassID"];
+                    LicenseClass = (int)reader["LicenseClass"];
                     IssueDate = (DateTime)reader["IssueDate"];
                     ExpirationDate = (DateTime)reader["ExpirationDate"];
                     Notes =  (string)reader["Notes"];
@@ -56,7 +56,7 @@ namespace DVLD_DataAccessLayer
 
 
         public static int AddNewLicense(int ApplicationID, int DriverID,
-            int LicenseClassID, DateTime IssueDate, DateTime ExpirationDate,
+            int LicenseClass, DateTime IssueDate, DateTime ExpirationDate,
             string Notes, double PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int LicenseID = -1;
@@ -90,7 +90,7 @@ SELECT SCOPE_IDENTITY();";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
             command.Parameters.AddWithValue("@DriverID", DriverID);
-            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            command.Parameters.AddWithValue("@LicenseClass", LicenseClass);
             command.Parameters.AddWithValue("@IssueDate", IssueDate);
             command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
             command.Parameters.AddWithValue("@Notes", Notes);
@@ -119,7 +119,7 @@ SELECT SCOPE_IDENTITY();";
         }
 
         public static bool UpdateLicense(int LicenseID, int ApplicationID, int DriverID,
-            int LicenseClassID, DateTime IssueDate, DateTime ExpirationDate,
+            int LicenseClass, DateTime IssueDate, DateTime ExpirationDate,
             string Notes, double PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int RowsAffected = 0;
@@ -142,7 +142,7 @@ SELECT SCOPE_IDENTITY();";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
             command.Parameters.AddWithValue("@DriverID", DriverID);
-            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            command.Parameters.AddWithValue("@LicenseClass", LicenseClass);
             command.Parameters.AddWithValue("@IssueDate", IssueDate);
             command.Parameters.AddWithValue("@ExpirationDate", ExpirationDate);
             command.Parameters.AddWithValue("@Notes", Notes);

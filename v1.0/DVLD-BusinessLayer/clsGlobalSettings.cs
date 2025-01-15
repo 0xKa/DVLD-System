@@ -13,5 +13,7 @@ namespace DVLD_BusinessLayer
         public enum enTestType { Vision = 1, Writing = 2, Street = 3 }
         public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 }
 
+        public static int LicenseDurationInYears = 2;
+
     }
 }

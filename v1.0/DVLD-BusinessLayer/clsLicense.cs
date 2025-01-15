@@ -11,7 +11,7 @@ namespace DVLD_BusinessLayer
     {
         clsGlobalSettings.enMode _Mode = clsGlobalSettings.enMode.AddNew;
 
-        public int LicenseID { get; set; }
+        public int ID { get; set; }
         public int ApplicationID { get; set; }
         public int DriverID { get; set; }
         public int LicenseClassID { get; set; }
@@ -26,7 +26,7 @@ namespace DVLD_BusinessLayer
         public clsLicense()
         {
             _Mode = clsGlobalSettings.enMode.AddNew;
-            LicenseID = -1;
+            ID = -1;
             ApplicationID = -1;
             DriverID = -1;
             LicenseClassID = -1;
@@ -42,7 +42,7 @@ namespace DVLD_BusinessLayer
         private clsLicense(int LicenseID, int ApplicationID, int DriverID, int LicenseClassID, DateTime IssueDate, DateTime ExpirationDate, string Notes, double PaidFees, bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             _Mode = clsGlobalSettings.enMode.Update;
-            this.LicenseID = LicenseID;
+            this.ID = LicenseID;
             this.ApplicationID = ApplicationID;
             this.DriverID = DriverID;
             this.LicenseClassID = LicenseClassID;
@@ -57,13 +57,13 @@ namespace DVLD_BusinessLayer
 
         private bool _AddNewLicense()
         {
-            this.LicenseID = clsLicenseData.AddNewLicense(ApplicationID, DriverID, LicenseClassID, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
-            return LicenseID != -1;
+            this.ID = clsLicenseData.AddNewLicense(ApplicationID, DriverID, LicenseClassID, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
+            return ID != -1;
         }
 
         private bool _UpdateLicense()
         {
-            return clsLicenseData.UpdateLicense(LicenseID, ApplicationID, DriverID, LicenseClassID, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
+            return clsLicenseData.UpdateLicense(ID, ApplicationID, DriverID, LicenseClassID, IssueDate, ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
         }
 
         public static clsLicense Find(int LicenseID)

@@ -269,7 +269,11 @@ namespace DVLD_v1._0
 
         private void issueDrivingLicenseFirstTimeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmIssueDrivingLicense frmIDL = new frmIssueDrivingLicense((int)dgvApplicationsList.CurrentRow.Cells[0].Value);
+            frmIDL.MdiParent = this.MdiParent;
 
+            frmIDL.FormClosed += FrmAddApplication_FormClosed;
+            frmIDL.Show();
         }
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)

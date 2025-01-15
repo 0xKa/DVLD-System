@@ -39,6 +39,37 @@ namespace DVLD_DataAccessLayer
 
             return isFound;
         }
+        
+        public static bool GetDriverInfoByPersonID(int PersonID, ref int DriverID, ref int CreatedByUserID, ref DateTime CreatedDate)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Drivers WHERE PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    DriverID = (int)reader["DriverID"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    CreatedDate = (DateTime)reader["CreatedDate"];
+                }
+                reader.Close();
+            }
+            catch { isFound = false; }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
 
         public static int AddNewDriver(int PersonID, int CreatedByUserID, DateTime CreatedDate)
         {
@@ -130,6 +161,29 @@ WHERE DriverID = @DriverID";
             finally { connection.Close(); }
 
             return RowsAffected > 0;
+        }
+
+        public static bool IsPersonDriver(int PersonID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM Drivers WHERE PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                IsFound = (command.ExecuteScalar() != null);
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return IsFound;
         }
 
     }
