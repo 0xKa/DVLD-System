@@ -209,43 +209,62 @@ namespace DVLD_v1._0
             frmVTP.Show();
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        private void _ManageScheduleTestsMenuItems()
         {
-            issueDrivingLicenseFisrtTimeToolStripMenuItem.Enabled = false;
-            sechduleTestsToolStripMenuItem.Enabled = false;
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = false;
 
-
-            int ApplicationID = clsLocalDLApplication.Find((int)dgvApplicationsList.CurrentRow.Cells[0].Value).ApplicationID;
-            if (clsApplication.GetApplicationStatus(ApplicationID) != clsGlobalSettings.enApplicationStatus.New)
-                return;
-            
-
-            sechduleTestsToolStripMenuItem.Enabled = true;
             int passedTests = (int)dgvApplicationsList.CurrentRow.Cells["PassedTestCount"].Value;
             if (passedTests == 0)
             {
-                sechduleVisionTestToolStripMenuItem.Enabled = true;
-                sechduleWrittenTestToolStripMenuItem.Enabled = false;
-                sechduleStreetTestToolStripMenuItem.Enabled = false;
+                scheduleVisionTestToolStripMenuItem.Enabled = true;
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
             }
             else if (passedTests == 1)
             {
-                sechduleVisionTestToolStripMenuItem.Enabled = false;
-                sechduleWrittenTestToolStripMenuItem.Enabled = true;
-                sechduleStreetTestToolStripMenuItem.Enabled = false;
+                scheduleVisionTestToolStripMenuItem.Enabled = false;
+                scheduleWrittenTestToolStripMenuItem.Enabled = true;
+                scheduleStreetTestToolStripMenuItem.Enabled = false;
             }
             else if (passedTests == 2)
             {
-                sechduleVisionTestToolStripMenuItem.Enabled = false;
-                sechduleWrittenTestToolStripMenuItem.Enabled = false;
-                sechduleStreetTestToolStripMenuItem.Enabled = true;
+                scheduleVisionTestToolStripMenuItem.Enabled = false;
+                scheduleWrittenTestToolStripMenuItem.Enabled = false;
+                scheduleStreetTestToolStripMenuItem.Enabled = true;
             }
-            else 
+            else
             {
-                sechduleTestsToolStripMenuItem.Enabled = false;
-                issueDrivingLicenseFisrtTimeToolStripMenuItem.Enabled = true;
+                scheduleTestsToolStripMenuItem.Enabled = false;
+                issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = true;
+            }
+        }
+        private void _EnableDisableMenuOperations(bool IsEnabled)
+        {
+            editToolStripMenuItem.Enabled = IsEnabled;
+            deleteToolStripMenuItem.Enabled = IsEnabled;
+            cancelToolStripMenuItem.Enabled = IsEnabled;
+            scheduleTestsToolStripMenuItem.Enabled = IsEnabled;
+            issueDrivingLicenseFirstTimeToolStripMenuItem.Enabled = IsEnabled;
+            showLicenseToolStripMenuItem.Enabled = IsEnabled;
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+            int ApplicationID = clsLocalDLApplication.Find((int)dgvApplicationsList.CurrentRow.Cells[0].Value).ApplicationID;
+            clsGlobalSettings.enApplicationStatus status = clsApplication.GetApplicationStatus(ApplicationID);
+
+            if (status == clsGlobalSettings.enApplicationStatus.New)
+            {
+                _EnableDisableMenuOperations(true);
+                _ManageScheduleTestsMenuItems();
+            }
+            else
+            {
+                _EnableDisableMenuOperations(false);
             }
 
+            showLicenseToolStripMenuItem.Enabled = status == clsGlobalSettings.enApplicationStatus.Completed ? true : false;
         }
     }
 }
