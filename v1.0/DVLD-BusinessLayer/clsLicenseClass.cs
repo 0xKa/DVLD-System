@@ -19,5 +19,15 @@ namespace DVLD_BusinessLayer
         {
             return clsLicenseClassesData.GetClassName(LicenseClassID);
         }
+
+        public static byte GetLicenseLengthInYears(int LicenseClassID)
+        {
+            return clsLicenseClassesData.GetLicenseLengthInYears(LicenseClassID);
+        }
+        public static byte GetMinimumAllowedAge(int LicenseClassID)
+        {
+            return clsLicenseClassesData.GetMinimumAllowedAge(LicenseClassID);
+        }
+
     }
 }

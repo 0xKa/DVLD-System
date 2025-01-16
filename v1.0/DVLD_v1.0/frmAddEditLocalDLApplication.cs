@@ -147,8 +147,26 @@ namespace DVLD_v1._0
             lblCreatedByUsername.Text = clsUser.Find(_Application.CreatedByUserID).Username;
         }
 
+        private bool _IsAgeAllowed()
+        {
+            DateTime DateOfBirth = clsPerson.Find(ctrlPersonCardWithFilter1.PersonID).DateOfBirth;
+            int age = DateTime.Now.Year - DateOfBirth.Year;
+
+            //check if birth day haven't ouccerd yet
+            if (DateOfBirth > DateTime.Now.AddYears(-age))
+                age--;
+
+            return  age >= clsLicenseClass.GetMinimumAllowedAge(cbLicenseClasses.SelectedIndex + 1);
+        }
+
         private void btnSave_Click(object sender, EventArgs e)
         {
+            if (! _IsAgeAllowed())
+            {
+                MessageBox.Show("This person age is below the allowed age for this license class.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (! clsLocalDLApplication.IsApplicationAllowed(ctrlPersonCardWithFilter1.PersonID, cbLicenseClasses.SelectedIndex + 1))
             {
                 MessageBox.Show("This person already has an active or completed application for the selected license class. Please choose a different class.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -73,7 +73,7 @@ namespace DVLD_v1._0
                 DriverID = _Driver.ID,
                 LicenseClassID = _LDLApplication.LicenseClassID,
                 IssueDate = DateTime.Now,
-                ExpirationDate = DateTime.Now.AddYears(clsGlobalSettings.LicenseDurationInYears),
+                ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.GetLicenseLengthInYears(_LDLApplication.LicenseClassID)),
                 Notes = txbNotes.Text,
                 PaidFees = _Application.PaidFees,
                 IsActive = true,
