@@ -37,7 +37,7 @@ namespace DVLD_DataAccessLayer
                     LicenseClass = (int)reader["LicenseClass"];
                     IssueDate = (DateTime)reader["IssueDate"];
                     ExpirationDate = (DateTime)reader["ExpirationDate"];
-                    Notes =  (string)reader["Notes"];
+                    Notes =  Convert.ToString(reader["Notes"]);
                     PaidFees = Convert.ToDouble(reader["PaidFees"]);
                     IsActive = (bool)reader["IsActive"];
                     IssueReason = (byte)reader["IssueReason"];
@@ -188,5 +188,27 @@ SELECT SCOPE_IDENTITY();";
             return RowsAffected > 0;
         }
 
+        public static int GetLicenseIDByApplicationID(int ApplicationID)
+        {
+            int ID = -1;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT LicenseID FROM Licenses WHERE ApplicationID = @ApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                connection.Open();
+                ID = (int)command.ExecuteScalar();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return ID;
+        }
     }
 }

@@ -278,6 +278,12 @@ namespace DVLD_v1._0
 
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int ApplicationID = clsLocalDLApplication.Find((int)dgvApplicationsList.CurrentRow.Cells[0].Value).ApplicationID;
+            frmLicenseDetails frmLD = new frmLicenseDetails(clsLicense.GetLicenseIDByApplicationID(ApplicationID));
+            
+            frmLD.MdiParent = this.MdiParent;
+
+            frmLD.Show();
 
         }
     }

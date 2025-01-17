@@ -106,5 +106,21 @@ namespace DVLD_BusinessLayer
             return clsLicenseData.DeleteLicense(LicenseID);
         }
 
+        //this func is not done...
+        public static string GetIssueReason(byte IssueReason)
+        {
+            switch (IssueReason)
+            {
+                case 0:
+                    return "First Time";
+                default:
+                    return "First Time";
+            }
+        }
+
+        public static int GetLicenseIDByApplicationID(int ApplicationID)
+        {
+            return clsLicenseData.GetLicenseIDByApplicationID(ApplicationID);
+        }
     }
 }
