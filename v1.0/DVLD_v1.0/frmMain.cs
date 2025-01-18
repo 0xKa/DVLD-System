@@ -140,5 +140,10 @@ namespace DVLD_v1._0
             else
                 _CurrentScreen.BringToFront();
         }
+
+        private void internationalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
