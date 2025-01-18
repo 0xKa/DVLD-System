@@ -1,5 +1,5 @@
 # DVLD-System
-Driving and Vehicle License Department System (DVLD) Desktop Application
+Driver and Vehicle License Department System (DVLD) Desktop Application
 
 ## Structure
 - `DVLD_v1.0`: Presentation Layer
