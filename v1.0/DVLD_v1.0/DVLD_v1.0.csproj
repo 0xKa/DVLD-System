@@ -136,6 +136,12 @@
     <Compile Include="frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmManageDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmManageDrivers.Designer.cs">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmManageLocalDLApplications.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmManageDrivers.resx">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmManageLocalDLApplications.resx">
       <DependentUpon>frmManageLocalDLApplications.cs</DependentUpon>

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -207,6 +208,32 @@ WHERE DriverID = @DriverID";
 
 
             return IsFound;
+        }
+
+        public static DataTable GetDriversView()
+        {
+            DataTable dtDrivers = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Drivers_View;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    dtDrivers.Load(reader);
+
+                reader.Close();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return dtDrivers;
         }
 
 
