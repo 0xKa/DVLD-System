@@ -289,6 +289,24 @@ namespace DVLD_v1._0
 
         private void showPersonsLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            int PersonID = clsPerson.Find(dgvApplicationsList.CurrentRow.Cells[2].Value.ToString()).ID;
+
+            if (clsDriver.IsPersonDriver(PersonID))
+            {
+                frmPersonLicenseHistory frmPLH = new frmPersonLicenseHistory(PersonID);
+
+                frmPLH.MdiParent = this.MdiParent;
+                frmPLH.Show();
+
+            }
+            else
+            {
+                MessageBox.Show("This Person does not have Driving License.", "Not a Driver", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+            }
+
+
+
 
         }
     }
