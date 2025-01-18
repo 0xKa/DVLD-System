@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccessLayer;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -121,6 +122,11 @@ namespace DVLD_BusinessLayer
         public static int GetLicenseIDByApplicationID(int ApplicationID)
         {
             return clsLicenseData.GetLicenseIDByApplicationID(ApplicationID);
+        }
+
+        public static DataTable GetLicensesOfADriver(int DriverID)
+        {
+            return clsLicenseData.GetLicensesOfADriver(DriverID);
         }
     }
 }
