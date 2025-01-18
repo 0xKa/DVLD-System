@@ -28,8 +28,8 @@ namespace DVLD_v1._0
         private void frmPersonLicenseHistory_Load(object sender, EventArgs e)
         {
             ctrlPersonCard1.LoadPersonInfo(_PersonID);
-            dgvLicenseList.DataSource = clsLicense.GetLicensesOfADriver(clsDriver.FindByPersonID(_PersonID).ID);
-            lblNumberOfRecords.Text += dgvLicenseList.RowCount.ToString();
+            dgvLocalLicenseList.DataSource = clsLicense.GetLicensesOfADriver(clsDriver.FindByPersonID(_PersonID).ID);
+            lblLocalLicenseNumberOfRecords.Text += dgvLocalLicenseList.RowCount.ToString();
         }
     }
 }

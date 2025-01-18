@@ -300,13 +300,7 @@ namespace DVLD_v1._0
 
             }
             else
-            {
                 MessageBox.Show("This Person does not have Driving License.", "Not a Driver", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-            }
-
-
-
 
         }
     }
