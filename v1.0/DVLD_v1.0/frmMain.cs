@@ -143,7 +143,14 @@ namespace DVLD_v1._0
 
         private void internationalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (_CurrentScreen == null || _CurrentScreen.IsDisposed)
+            {
+                _CurrentScreen = new frmManageInternationalLicenses();
+                _CurrentScreen.MdiParent = this;
+                _CurrentScreen.Show();
+            }
+            else
+                _CurrentScreen.BringToFront();
         }
     }
 }
