@@ -98,5 +98,10 @@ namespace DVLD_BusinessLayer
             return clsDriversData.IsPersonDriver(PersonID);
         }
 
+        public static bool IsDriverExists(int DriverID)
+        {
+            return clsDriversData.IsDriverExists(DriverID);
+        }
+
     }
 }
