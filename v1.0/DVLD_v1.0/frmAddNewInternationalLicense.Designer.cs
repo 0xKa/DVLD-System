@@ -31,20 +31,20 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.ctrlLicenseCardWithFilter1 = new DVLD_v1._0.ctrlLicenseCardWithFilter();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblInternationalLicenseApplicationID = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblInternationalLicenseID = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblLocalLicenseID = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblIssueDate = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblExpirationDate = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
             this.lblCreatedByUsername = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblApplicationFees = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblIssueDate = new System.Windows.Forms.Label();
+            this.lblExpirationDate = new System.Windows.Forms.Label();
+            this.lblLocalLicenseID = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblInternationalLicenseID = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblInternationalLicenseApplicationID = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.btnIssue = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.llShowLicenseHistory = new System.Windows.Forms.LinkLabel();
@@ -96,116 +96,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "International License Application Info";
             // 
-            // lblInternationalLicenseApplicationID
-            // 
-            this.lblInternationalLicenseApplicationID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInternationalLicenseApplicationID.ForeColor = System.Drawing.Color.Black;
-            this.lblInternationalLicenseApplicationID.Location = new System.Drawing.Point(219, 33);
-            this.lblInternationalLicenseApplicationID.Name = "lblInternationalLicenseApplicationID";
-            this.lblInternationalLicenseApplicationID.Size = new System.Drawing.Size(123, 20);
-            this.lblInternationalLicenseApplicationID.TabIndex = 48;
-            this.lblInternationalLicenseApplicationID.Text = "[????]";
-            // 
-            // label3
-            // 
-            this.label3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label3.Location = new System.Drawing.Point(6, 33);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(207, 20);
-            this.label3.TabIndex = 49;
-            this.label3.Text = "I.L. Application ID:";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblInternationalLicenseID
-            // 
-            this.lblInternationalLicenseID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInternationalLicenseID.ForeColor = System.Drawing.Color.Black;
-            this.lblInternationalLicenseID.Location = new System.Drawing.Point(219, 66);
-            this.lblInternationalLicenseID.Name = "lblInternationalLicenseID";
-            this.lblInternationalLicenseID.Size = new System.Drawing.Size(123, 20);
-            this.lblInternationalLicenseID.TabIndex = 50;
-            this.lblInternationalLicenseID.Text = "[????]";
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(5, 65);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(208, 20);
-            this.label2.TabIndex = 51;
-            this.label2.Text = "International License ID:";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblLocalLicenseID
-            // 
-            this.lblLocalLicenseID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblLocalLicenseID.ForeColor = System.Drawing.Color.Black;
-            this.lblLocalLicenseID.Location = new System.Drawing.Point(219, 98);
-            this.lblLocalLicenseID.Name = "lblLocalLicenseID";
-            this.lblLocalLicenseID.Size = new System.Drawing.Size(123, 20);
-            this.lblLocalLicenseID.TabIndex = 52;
-            this.lblLocalLicenseID.Text = "[????]";
-            // 
-            // label20
-            // 
-            this.label20.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.ForeColor = System.Drawing.Color.White;
-            this.label20.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label20.Location = new System.Drawing.Point(6, 97);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(207, 20);
-            this.label20.TabIndex = 53;
-            this.label20.Text = "Local License ID:";
-            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblIssueDate
-            // 
-            this.lblIssueDate.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueDate.ForeColor = System.Drawing.Color.Black;
-            this.lblIssueDate.Location = new System.Drawing.Point(788, 41);
-            this.lblIssueDate.Name = "lblIssueDate";
-            this.lblIssueDate.Size = new System.Drawing.Size(180, 20);
-            this.lblIssueDate.TabIndex = 54;
-            this.lblIssueDate.Text = "[????]";
-            // 
-            // label7
-            // 
-            this.label7.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label7.Location = new System.Drawing.Point(634, 41);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(148, 20);
-            this.label7.TabIndex = 55;
-            this.label7.Text = "Issue Date:";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblExpirationDate
-            // 
-            this.lblExpirationDate.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExpirationDate.ForeColor = System.Drawing.Color.Black;
-            this.lblExpirationDate.Location = new System.Drawing.Point(788, 79);
-            this.lblExpirationDate.Name = "lblExpirationDate";
-            this.lblExpirationDate.Size = new System.Drawing.Size(180, 20);
-            this.lblExpirationDate.TabIndex = 60;
-            this.lblExpirationDate.Text = "[????]";
-            // 
-            // label13
-            // 
-            this.label13.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label13.Location = new System.Drawing.Point(634, 79);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(148, 20);
-            this.label13.TabIndex = 61;
-            this.label13.Text = "Expiration Date:";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
             // lblCreatedByUsername
             // 
             this.lblCreatedByUsername.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -250,6 +140,116 @@
             this.label11.Text = "Fees:";
             this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // label13
+            // 
+            this.label13.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label13.Location = new System.Drawing.Point(634, 79);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(148, 20);
+            this.label13.TabIndex = 61;
+            this.label13.Text = "Expiration Date:";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label7
+            // 
+            this.label7.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label7.Location = new System.Drawing.Point(634, 41);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(148, 20);
+            this.label7.TabIndex = 55;
+            this.label7.Text = "Issue Date:";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblIssueDate
+            // 
+            this.lblIssueDate.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueDate.ForeColor = System.Drawing.Color.Black;
+            this.lblIssueDate.Location = new System.Drawing.Point(788, 41);
+            this.lblIssueDate.Name = "lblIssueDate";
+            this.lblIssueDate.Size = new System.Drawing.Size(180, 20);
+            this.lblIssueDate.TabIndex = 54;
+            this.lblIssueDate.Text = "[????]";
+            // 
+            // lblExpirationDate
+            // 
+            this.lblExpirationDate.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExpirationDate.ForeColor = System.Drawing.Color.Black;
+            this.lblExpirationDate.Location = new System.Drawing.Point(788, 79);
+            this.lblExpirationDate.Name = "lblExpirationDate";
+            this.lblExpirationDate.Size = new System.Drawing.Size(180, 20);
+            this.lblExpirationDate.TabIndex = 60;
+            this.lblExpirationDate.Text = "[????]";
+            // 
+            // lblLocalLicenseID
+            // 
+            this.lblLocalLicenseID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLocalLicenseID.ForeColor = System.Drawing.Color.Black;
+            this.lblLocalLicenseID.Location = new System.Drawing.Point(219, 98);
+            this.lblLocalLicenseID.Name = "lblLocalLicenseID";
+            this.lblLocalLicenseID.Size = new System.Drawing.Size(123, 20);
+            this.lblLocalLicenseID.TabIndex = 52;
+            this.lblLocalLicenseID.Text = "[????]";
+            // 
+            // label20
+            // 
+            this.label20.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label20.ForeColor = System.Drawing.Color.White;
+            this.label20.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label20.Location = new System.Drawing.Point(6, 97);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(207, 20);
+            this.label20.TabIndex = 53;
+            this.label20.Text = "Local License ID:";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblInternationalLicenseID
+            // 
+            this.lblInternationalLicenseID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInternationalLicenseID.ForeColor = System.Drawing.Color.Black;
+            this.lblInternationalLicenseID.Location = new System.Drawing.Point(219, 66);
+            this.lblInternationalLicenseID.Name = "lblInternationalLicenseID";
+            this.lblInternationalLicenseID.Size = new System.Drawing.Size(123, 20);
+            this.lblInternationalLicenseID.TabIndex = 50;
+            this.lblInternationalLicenseID.Text = "[????]";
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.Location = new System.Drawing.Point(5, 65);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(208, 20);
+            this.label2.TabIndex = 51;
+            this.label2.Text = "International License ID:";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblInternationalLicenseApplicationID
+            // 
+            this.lblInternationalLicenseApplicationID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInternationalLicenseApplicationID.ForeColor = System.Drawing.Color.Black;
+            this.lblInternationalLicenseApplicationID.Location = new System.Drawing.Point(219, 33);
+            this.lblInternationalLicenseApplicationID.Name = "lblInternationalLicenseApplicationID";
+            this.lblInternationalLicenseApplicationID.Size = new System.Drawing.Size(123, 20);
+            this.lblInternationalLicenseApplicationID.TabIndex = 48;
+            this.lblInternationalLicenseApplicationID.Text = "[????]";
+            // 
+            // label3
+            // 
+            this.label3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label3.Location = new System.Drawing.Point(6, 33);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(207, 20);
+            this.label3.TabIndex = 49;
+            this.label3.Text = "I.L. Application ID:";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // btnIssue
             // 
             this.btnIssue.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -286,6 +286,7 @@
             this.llShowLicenseHistory.TabIndex = 78;
             this.llShowLicenseHistory.TabStop = true;
             this.llShowLicenseHistory.Text = "Show License History";
+            this.llShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseHistory_LinkClicked);
             // 
             // llShowInternationalLicense
             // 
@@ -298,6 +299,7 @@
             this.llShowInternationalLicense.TabIndex = 79;
             this.llShowInternationalLicense.TabStop = true;
             this.llShowInternationalLicense.Text = "Show International License Info";
+            this.llShowInternationalLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowInternationalLicense_LinkClicked);
             // 
             // frmAddNewInternationalLicense
             // 

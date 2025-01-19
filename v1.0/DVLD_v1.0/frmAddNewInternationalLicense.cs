@@ -101,7 +101,7 @@ namespace DVLD_v1._0
                 if (InternationalLicense.Save())
                 {
                     _UpdateFormControls();
-                    MessageBox.Show("License Saved Successfully.", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("License Saved Successfully.", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
                     MessageBox.Show("License Data Was Not Saved.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -109,6 +109,23 @@ namespace DVLD_v1._0
             }
             else
                 MessageBox.Show("This License is Not Valid to Apply for International License.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            if (!ctrlLicenseCardWithFilter1.IsCardFilled)
+                { MessageBox.Show("Choose a License by Typing the License ID", "Choose License", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
+            
+            frmPersonLicenseHistory frmPLH = new frmPersonLicenseHistory(clsDriver.Find(ctrlLicenseCardWithFilter1.License.DriverID).PersonID);
+            frmPLH.MdiParent = this.MdiParent;
+
+            frmPLH.Show();
+
+        }
+
+        private void llShowInternationalLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
         }
     }
 }

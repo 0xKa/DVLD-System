@@ -25,11 +25,26 @@ namespace DVLD_v1._0
             this.Close();
         }
 
+        private void _LoadLocalLicenseInfo(int DriverID)
+        {
+            dgvLocalLicenseList.DataSource = clsLicense.GetLicensesOfADriver(DriverID);
+            lblLocalLicenseNumberOfRecords.Text += dgvLocalLicenseList.RowCount.ToString();
+        }
+
+        private void _LoadInternationalLicenseInfo(int DriverID)
+        {
+            dgvInternationalLicenseList.DataSource = clsInternationalLicense.GetInternationalLicensesOfADriver(DriverID);
+            lblInternationalLicenseNumberOfRecords.Text += dgvInternationalLicenseList.RowCount.ToString();
+        }
+
         private void frmPersonLicenseHistory_Load(object sender, EventArgs e)
         {
             ctrlPersonCard1.LoadPersonInfo(_PersonID);
-            dgvLocalLicenseList.DataSource = clsLicense.GetLicensesOfADriver(clsDriver.FindByPersonID(_PersonID).ID);
-            lblLocalLicenseNumberOfRecords.Text += dgvLocalLicenseList.RowCount.ToString();
+            
+            int DriverID = clsDriver.FindByPersonID(_PersonID).ID;
+
+            _LoadLocalLicenseInfo(DriverID);
+            _LoadInternationalLicenseInfo(DriverID);
         }
     }
 }
