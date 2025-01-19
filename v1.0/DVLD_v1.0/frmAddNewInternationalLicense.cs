@@ -125,7 +125,9 @@ namespace DVLD_v1._0
 
         private void llShowInternationalLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
+            frmInternationalLicenseDetails frmILD = new frmInternationalLicenseDetails(InternationalLicense.ID);
+            frmILD.MdiParent = this.MdiParent; 
+            frmILD.Show();
         }
     }
 }

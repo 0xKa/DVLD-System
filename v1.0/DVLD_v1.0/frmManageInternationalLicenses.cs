@@ -114,5 +114,32 @@ namespace DVLD_v1._0
             _RefreshDGVList();
             _SetFilterOptions();
         }
+
+        private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = clsApplication.Find((int)dgvLicensesList.CurrentRow.Cells[1].Value).ApplicantID;
+            frmPersonDetails frmPD = new frmPersonDetails(PersonID);
+
+            frmPD.MdiParent = this.MdiParent;
+            frmPD.Show();
+
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmInternationalLicenseDetails frmILD = new frmInternationalLicenseDetails((int)dgvLicensesList.CurrentRow.Cells[0].Value);
+            frmILD.MdiParent = this.MdiParent;
+            frmILD.Show();
+        }
+
+        private void showPersonsLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int PersonID = clsApplication.Find((int)dgvLicensesList.CurrentRow.Cells[1].Value).ApplicantID;
+            frmPersonLicenseHistory frmPLH = new frmPersonLicenseHistory(PersonID);
+            
+            frmPLH.MdiParent = this.MdiParent;
+            frmPLH.Show();
+
+        }
     }
 }

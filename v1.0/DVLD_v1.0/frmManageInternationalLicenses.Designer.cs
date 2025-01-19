@@ -198,14 +198,15 @@
             this.showPersonDetailsToolStripMenuItem.Name = "showPersonDetailsToolStripMenuItem";
             this.showPersonDetailsToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.showPersonDetailsToolStripMenuItem.Text = "Show Person Details";
+            this.showPersonDetailsToolStripMenuItem.Click += new System.EventHandler(this.showPersonDetailsToolStripMenuItem_Click);
             // 
             // showLicenseToolStripMenuItem
             // 
-            this.showLicenseToolStripMenuItem.Enabled = false;
             this.showLicenseToolStripMenuItem.Image = global::DVLD_v1._0.Properties.Resources.driving_license__1_;
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.showLicenseToolStripMenuItem.Text = "Show License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // showPersonsLicenseHistoryToolStripMenuItem
             // 
@@ -213,6 +214,7 @@
             this.showPersonsLicenseHistoryToolStripMenuItem.Name = "showPersonsLicenseHistoryToolStripMenuItem";
             this.showPersonsLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.showPersonsLicenseHistoryToolStripMenuItem.Text = "Show Person\'s License History";
+            this.showPersonsLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonsLicenseHistoryToolStripMenuItem_Click);
             // 
             // frmManageInternationalLicenses
             // 
