@@ -30,6 +30,7 @@ namespace DVLD_v1._0
             lblNationalNo.Text = LicenseOwner.NationalNumber.ToString();
             lblGender.Text = LicenseOwner.Gender == 0 ? "Male" : "Female";
             lblDateOfBirth.Text = LicenseOwner.DateOfBirth.ToString("dd-MMM-yyyy");
+            pbPersonImage.ImageLocation = LicenseOwner.ImagePath;
 
             lblDriverID.Text = License.DriverID.ToString();
             lblIssueDate.Text = License.IssueDate.ToString("dd-MMM-yyyy");
@@ -40,6 +41,7 @@ namespace DVLD_v1._0
 
             lblLicenseClass.Text = clsLicenseClass.GetClassName(License.LicenseClassID);
             lblIssueReason.Text = clsLicense.GetIssueReason(License.IssueReason);
+
         }
 
         
