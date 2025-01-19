@@ -101,7 +101,7 @@ namespace DVLD_v1._0
 
         private void btnAddNewLicense_Click(object sender, EventArgs e)
         {
-            frmAddNewInternationalLicense frmANIL = new frmAddNewInternationalLicense(-1);
+            frmAddNewInternationalLicense frmANIL = new frmAddNewInternationalLicense();
             frmANIL.MdiParent = this.MdiParent;
 
             frmANIL.FormClosed += FrmANIL_FormClosed;

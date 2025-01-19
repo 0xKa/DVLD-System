@@ -108,6 +108,11 @@ namespace DVLD_BusinessLayer
         {
             return clsInternationalLicenseData.GetAllInternationalLicenses();
         }
+
+        public static bool DoesDriverHasInternationalLicense(int DriverID)
+        {
+            return clsInternationalLicenseData.DoesDriverHasInternationalLicense(DriverID);
+        }
     }
 
 }

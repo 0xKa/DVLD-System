@@ -100,7 +100,7 @@
             // 
             this.lblInternationalLicenseApplicationID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInternationalLicenseApplicationID.ForeColor = System.Drawing.Color.Black;
-            this.lblInternationalLicenseApplicationID.Location = new System.Drawing.Point(169, 33);
+            this.lblInternationalLicenseApplicationID.Location = new System.Drawing.Point(219, 33);
             this.lblInternationalLicenseApplicationID.Name = "lblInternationalLicenseApplicationID";
             this.lblInternationalLicenseApplicationID.Size = new System.Drawing.Size(123, 20);
             this.lblInternationalLicenseApplicationID.TabIndex = 48;
@@ -111,18 +111,18 @@
             this.label3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.White;
             this.label3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label3.Location = new System.Drawing.Point(14, 33);
+            this.label3.Location = new System.Drawing.Point(6, 33);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(154, 20);
+            this.label3.Size = new System.Drawing.Size(207, 20);
             this.label3.TabIndex = 49;
-            this.label3.Text = "IL Application ID:";
+            this.label3.Text = "I.L. Application ID:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblInternationalLicenseID
             // 
             this.lblInternationalLicenseID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblInternationalLicenseID.ForeColor = System.Drawing.Color.Black;
-            this.lblInternationalLicenseID.Location = new System.Drawing.Point(169, 66);
+            this.lblInternationalLicenseID.Location = new System.Drawing.Point(219, 66);
             this.lblInternationalLicenseID.Name = "lblInternationalLicenseID";
             this.lblInternationalLicenseID.Size = new System.Drawing.Size(123, 20);
             this.lblInternationalLicenseID.TabIndex = 50;
@@ -133,18 +133,18 @@
             this.label2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.Location = new System.Drawing.Point(14, 65);
+            this.label2.Location = new System.Drawing.Point(5, 65);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(154, 20);
+            this.label2.Size = new System.Drawing.Size(208, 20);
             this.label2.TabIndex = 51;
-            this.label2.Text = "Inter. License ID:";
+            this.label2.Text = "International License ID:";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblLocalLicenseID
             // 
             this.lblLocalLicenseID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLocalLicenseID.ForeColor = System.Drawing.Color.Black;
-            this.lblLocalLicenseID.Location = new System.Drawing.Point(169, 98);
+            this.lblLocalLicenseID.Location = new System.Drawing.Point(219, 98);
             this.lblLocalLicenseID.Name = "lblLocalLicenseID";
             this.lblLocalLicenseID.Size = new System.Drawing.Size(123, 20);
             this.lblLocalLicenseID.TabIndex = 52;
@@ -155,9 +155,9 @@
             this.label20.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label20.ForeColor = System.Drawing.Color.White;
             this.label20.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label20.Location = new System.Drawing.Point(14, 97);
+            this.label20.Location = new System.Drawing.Point(6, 97);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(154, 20);
+            this.label20.Size = new System.Drawing.Size(207, 20);
             this.label20.TabIndex = 53;
             this.label20.Text = "Local License ID:";
             this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -261,6 +261,7 @@
             this.btnIssue.Text = "Issue";
             this.btnIssue.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnIssue.UseVisualStyleBackColor = true;
+            this.btnIssue.Click += new System.EventHandler(this.btnIssue_Click);
             // 
             // btnClose
             // 
@@ -273,6 +274,7 @@
             this.btnClose.Text = "Close";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // llShowLicenseHistory
             // 
