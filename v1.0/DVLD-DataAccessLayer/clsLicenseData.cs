@@ -190,6 +190,31 @@ SELECT SCOPE_IDENTITY();";
             return RowsAffected > 0;
         }
 
+
+        public static bool IsLicenseExists(int LicenseID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM Licenses WHERE LicenseID = @LicenseID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+            try
+            {
+                connection.Open();
+                IsFound = (command.ExecuteScalar() != null);
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return IsFound;
+        }
+
+
         public static int GetLicenseIDByApplicationID(int ApplicationID)
         {
             int ID = -1;

@@ -31,13 +31,13 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlPersonCardWithFilter));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnAddPerson = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.btnFind = new System.Windows.Forms.Button();
             this.txbFilter = new System.Windows.Forms.TextBox();
             this.cbFilter = new System.Windows.Forms.ComboBox();
             this.lbl1 = new System.Windows.Forms.Label();
             this.ctrlPersonCard1 = new DVLD_v1._0.ctrlPersonCard();
+            this.btnAddPerson = new System.Windows.Forms.Button();
+            this.btnFind = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,48 +58,12 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filter";
             // 
-            // btnAddPerson
-            // 
-            this.btnAddPerson.BackColor = System.Drawing.Color.White;
-            this.btnAddPerson.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnAddPerson.FlatAppearance.BorderSize = 2;
-            this.btnAddPerson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAddPerson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPerson.ForeColor = System.Drawing.Color.Black;
-            this.btnAddPerson.ImageKey = "add.png";
-            this.btnAddPerson.ImageList = this.imageList1;
-            this.btnAddPerson.Location = new System.Drawing.Point(641, 32);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(64, 42);
-            this.btnAddPerson.TabIndex = 45;
-            this.btnAddPerson.UseVisualStyleBackColor = false;
-            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
-            // 
             // imageList1
             // 
             this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "find.png");
             this.imageList1.Images.SetKeyName(1, "add.png");
-            // 
-            // btnFind
-            // 
-            this.btnFind.BackColor = System.Drawing.Color.White;
-            this.btnFind.FlatAppearance.BorderColor = System.Drawing.Color.Black;
-            this.btnFind.FlatAppearance.BorderSize = 2;
-            this.btnFind.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
-            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnFind.ForeColor = System.Drawing.Color.Black;
-            this.btnFind.ImageKey = "find.png";
-            this.btnFind.ImageList = this.imageList1;
-            this.btnFind.Location = new System.Drawing.Point(567, 32);
-            this.btnFind.Name = "btnFind";
-            this.btnFind.Size = new System.Drawing.Size(64, 42);
-            this.btnFind.TabIndex = 44;
-            this.btnFind.UseVisualStyleBackColor = false;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // txbFilter
             // 
@@ -143,6 +107,42 @@
             this.ctrlPersonCard1.Name = "ctrlPersonCard1";
             this.ctrlPersonCard1.Size = new System.Drawing.Size(754, 365);
             this.ctrlPersonCard1.TabIndex = 0;
+            // 
+            // btnAddPerson
+            // 
+            this.btnAddPerson.BackColor = System.Drawing.Color.White;
+            this.btnAddPerson.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnAddPerson.FlatAppearance.BorderSize = 2;
+            this.btnAddPerson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnAddPerson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddPerson.ForeColor = System.Drawing.Color.Black;
+            this.btnAddPerson.ImageKey = "add.png";
+            this.btnAddPerson.ImageList = this.imageList1;
+            this.btnAddPerson.Location = new System.Drawing.Point(641, 32);
+            this.btnAddPerson.Name = "btnAddPerson";
+            this.btnAddPerson.Size = new System.Drawing.Size(64, 42);
+            this.btnAddPerson.TabIndex = 45;
+            this.btnAddPerson.UseVisualStyleBackColor = false;
+            this.btnAddPerson.Click += new System.EventHandler(this.btnAddPerson_Click);
+            // 
+            // btnFind
+            // 
+            this.btnFind.BackColor = System.Drawing.Color.White;
+            this.btnFind.FlatAppearance.BorderColor = System.Drawing.Color.Black;
+            this.btnFind.FlatAppearance.BorderSize = 2;
+            this.btnFind.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnFind.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Gray;
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFind.ForeColor = System.Drawing.Color.Black;
+            this.btnFind.ImageKey = "find.png";
+            this.btnFind.ImageList = this.imageList1;
+            this.btnFind.Location = new System.Drawing.Point(567, 32);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(64, 42);
+            this.btnFind.TabIndex = 44;
+            this.btnFind.UseVisualStyleBackColor = false;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // ctrlPersonCardWithFilter
             // 

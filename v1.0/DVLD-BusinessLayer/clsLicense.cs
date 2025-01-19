@@ -107,6 +107,11 @@ namespace DVLD_BusinessLayer
             return clsLicenseData.DeleteLicense(LicenseID);
         }
 
+        public static bool IsLicenseExists(int LicenseID)
+        {
+            return clsLicenseData.IsLicenseExists(LicenseID);
+        }
+
         //this func is not done...
         public static string GetIssueReason(byte IssueReason)
         {
