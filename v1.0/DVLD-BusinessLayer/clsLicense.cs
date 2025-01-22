@@ -112,13 +112,17 @@ namespace DVLD_BusinessLayer
             return clsLicenseData.IsLicenseExists(LicenseID);
         }
 
-        //this func is not done...
-        public static string GetIssueReason(byte IssueReason)
+        public static string GetIssueReasonString(byte IssueReason)
         {
-            switch (IssueReason)
+            clsGlobalSettings.enIssueReason enIssueReason = (clsGlobalSettings.enIssueReason)IssueReason;
+            switch (enIssueReason)
             {
-                case 0:
+                case clsGlobalSettings.enIssueReason.FirstTime:
                     return "First Time";
+                    
+                case clsGlobalSettings.enIssueReason.Renew:
+                    return "Renew";
+
                 default:
                     return "First Time";
             }

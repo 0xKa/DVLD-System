@@ -40,7 +40,7 @@ namespace DVLD_v1._0
             lblIsDetained.Text = License.IsActive ? "No" : "Yes";
 
             lblLicenseClass.Text = clsLicenseClass.GetClassName(License.LicenseClassID);
-            lblIssueReason.Text = clsLicense.GetIssueReason(License.IssueReason);
+            lblIssueReason.Text = clsLicense.GetIssueReasonString(License.IssueReason);
 
         }
 
