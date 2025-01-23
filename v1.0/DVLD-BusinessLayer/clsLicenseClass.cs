@@ -29,5 +29,10 @@ namespace DVLD_BusinessLayer
             return clsLicenseClassesData.GetMinimumAllowedAge(LicenseClassID);
         }
 
+        public static double GetClassFees(int LicenseClassID)
+        {
+            return clsLicenseClassesData.GetClassFees(LicenseClassID);
+        }
+
     }
 }

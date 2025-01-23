@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lblTitle = new System.Windows.Forms.Label();
-            this.ctrlLicenseCardWithFilter1 = new DVLD_v1._0.ctrlLicenseCardWithFilter();
             this.llShowNewLicense = new System.Windows.Forms.LinkLabel();
             this.llShowLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.btnRenew = new System.Windows.Forms.Button();
@@ -55,6 +54,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblRenewedLicenseApplicationID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.ctrlLicenseCardWithFilter1 = new DVLD_v1._0.ctrlLicenseCardWithFilter();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,14 +69,6 @@
             this.lblTitle.Text = "Renew Driving License";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // ctrlLicenseCardWithFilter1
-            // 
-            this.ctrlLicenseCardWithFilter1.BackColor = System.Drawing.Color.Gray;
-            this.ctrlLicenseCardWithFilter1.Location = new System.Drawing.Point(8, 32);
-            this.ctrlLicenseCardWithFilter1.Name = "ctrlLicenseCardWithFilter1";
-            this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(995, 356);
-            this.ctrlLicenseCardWithFilter1.TabIndex = 14;
-            // 
             // llShowNewLicense
             // 
             this.llShowNewLicense.AutoSize = true;
@@ -88,6 +80,7 @@
             this.llShowNewLicense.TabIndex = 84;
             this.llShowNewLicense.TabStop = true;
             this.llShowNewLicense.Text = "Show New License Info";
+            this.llShowNewLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowNewLicense_LinkClicked);
             // 
             // llShowLicenseHistory
             // 
@@ -100,6 +93,7 @@
             this.llShowLicenseHistory.TabIndex = 83;
             this.llShowLicenseHistory.TabStop = true;
             this.llShowLicenseHistory.Text = "Show License History";
+            this.llShowLicenseHistory.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowLicenseHistory_LinkClicked);
             // 
             // btnRenew
             // 
@@ -113,6 +107,7 @@
             this.btnRenew.Text = "Renew";
             this.btnRenew.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnRenew.UseVisualStyleBackColor = true;
+            this.btnRenew.Click += new System.EventHandler(this.btnRenew_Click);
             // 
             // btnClose
             // 
@@ -125,6 +120,7 @@
             this.btnClose.Text = "Close";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // groupBox1
             // 
@@ -376,6 +372,14 @@
             this.label3.Text = "R.L. Application ID:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
+            // ctrlLicenseCardWithFilter1
+            // 
+            this.ctrlLicenseCardWithFilter1.BackColor = System.Drawing.Color.Gray;
+            this.ctrlLicenseCardWithFilter1.Location = new System.Drawing.Point(8, 32);
+            this.ctrlLicenseCardWithFilter1.Name = "ctrlLicenseCardWithFilter1";
+            this.ctrlLicenseCardWithFilter1.Size = new System.Drawing.Size(995, 356);
+            this.ctrlLicenseCardWithFilter1.TabIndex = 14;
+            // 
             // frmRenewDrivingLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -395,7 +399,6 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Renew Driving License";
-            this.Load += new System.EventHandler(this.frmRenewDrivingLicense_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -107,5 +107,29 @@ namespace DVLD_DataAccessLayer
             return LicenseAge;
         }
 
+        public static double GetClassFees(int LicenseClassID)
+        {
+            double Fees = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT ClassFees FROM LicenseClasses WHERE LicenseClassID = @LicenseClassID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+                Fees = Convert.ToDouble(command.ExecuteScalar());
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return Fees;
+        }
+
+
     }
 }

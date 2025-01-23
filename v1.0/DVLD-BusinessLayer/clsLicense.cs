@@ -137,5 +137,12 @@ namespace DVLD_BusinessLayer
         {
             return clsLicenseData.GetLicensesOfADriver(DriverID);
         }
+
+        public bool ChangeActiveState(bool IsActive)
+        {
+            this.IsActive = IsActive;
+            return this.Save();
+        }
+
     }
 }
