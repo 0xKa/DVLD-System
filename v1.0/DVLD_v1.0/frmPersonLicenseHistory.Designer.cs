@@ -31,14 +31,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tpLocalLicenses = new System.Windows.Forms.TabPage();
             this.dgvLocalLicenseList = new System.Windows.Forms.DataGridView();
-            this.btnClose = new System.Windows.Forms.Button();
             this.lblLocalLicenseNumberOfRecords = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tpInternationalLicenses = new System.Windows.Forms.TabPage();
-            this.ctrlPersonCard1 = new DVLD_v1._0.ctrlPersonCard();
             this.dgvInternationalLicenseList = new System.Windows.Forms.DataGridView();
             this.lblInternationalLicenseNumberOfRecords = new System.Windows.Forms.Label();
             this.s = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.ctrlPersonCard1 = new DVLD_v1._0.ctrlPersonCard();
             this.tabControl1.SuspendLayout();
             this.tpLocalLicenses.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLocalLicenseList)).BeginInit();
@@ -84,19 +84,7 @@
             this.dgvLocalLicenseList.ReadOnly = true;
             this.dgvLocalLicenseList.Size = new System.Drawing.Size(697, 153);
             this.dgvLocalLicenseList.TabIndex = 39;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ImageKey = "(none)";
-            this.btnClose.Location = new System.Drawing.Point(610, 534);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(119, 34);
-            this.btnClose.TabIndex = 37;
-            this.btnClose.Text = "Close";
-            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.dgvLocalLicenseList.DoubleClick += new System.EventHandler(this.dgvLocalLicenseList_DoubleClick);
             // 
             // lblLocalLicenseNumberOfRecords
             // 
@@ -133,14 +121,6 @@
             this.tpInternationalLicenses.TabIndex = 1;
             this.tpInternationalLicenses.Text = "International";
             // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.Gray;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, -42);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(754, 365);
-            this.ctrlPersonCard1.TabIndex = 0;
-            // 
             // dgvInternationalLicenseList
             // 
             this.dgvInternationalLicenseList.AllowUserToAddRows = false;
@@ -156,6 +136,7 @@
             this.dgvInternationalLicenseList.ReadOnly = true;
             this.dgvInternationalLicenseList.Size = new System.Drawing.Size(697, 153);
             this.dgvInternationalLicenseList.TabIndex = 43;
+            this.dgvInternationalLicenseList.DoubleClick += new System.EventHandler(this.dgvInternationalLicenseList_DoubleClick);
             // 
             // lblInternationalLicenseNumberOfRecords
             // 
@@ -178,6 +159,27 @@
             this.s.TabIndex = 42;
             this.s.Text = "International License History";
             this.s.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // btnClose
+            // 
+            this.btnClose.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ImageKey = "(none)";
+            this.btnClose.Location = new System.Drawing.Point(610, 534);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(119, 34);
+            this.btnClose.TabIndex = 37;
+            this.btnClose.Text = "Close";
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.Gray;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(3, -42);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(754, 365);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // frmPersonLicenseHistory
             // 

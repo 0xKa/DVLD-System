@@ -46,5 +46,19 @@ namespace DVLD_v1._0
             _LoadLocalLicenseInfo(DriverID);
             _LoadInternationalLicenseInfo(DriverID);
         }
+
+        private void dgvLocalLicenseList_DoubleClick(object sender, EventArgs e)
+        {
+            frmLicenseDetails frmLD = new frmLicenseDetails((int)dgvLocalLicenseList.CurrentRow.Cells[0].Value);
+            frmLD.MdiParent = this.MdiParent;
+            frmLD.Show();
+        }
+
+        private void dgvInternationalLicenseList_DoubleClick(object sender, EventArgs e)
+        {
+            frmInternationalLicenseDetails frmILD = new frmInternationalLicenseDetails((int)dgvInternationalLicenseList.CurrentRow.Cells[0].Value);
+            frmILD.MdiParent = this.MdiParent;
+            frmILD.Show();
+        }
     }
 }
