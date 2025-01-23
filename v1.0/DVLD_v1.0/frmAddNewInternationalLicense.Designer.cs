@@ -252,6 +252,7 @@
             // 
             // btnIssue
             // 
+            this.btnIssue.Enabled = false;
             this.btnIssue.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIssue.ImageKey = "(none)";
             this.btnIssue.Location = new System.Drawing.Point(908, 522);
@@ -279,6 +280,7 @@
             // llShowLicenseHistory
             // 
             this.llShowLicenseHistory.AutoSize = true;
+            this.llShowLicenseHistory.Enabled = false;
             this.llShowLicenseHistory.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llShowLicenseHistory.Location = new System.Drawing.Point(12, 532);
             this.llShowLicenseHistory.Name = "llShowLicenseHistory";

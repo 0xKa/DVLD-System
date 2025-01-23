@@ -13,6 +13,9 @@ namespace DVLD_v1._0
 {
     public partial class ctrlLicenseCardWithFilter : UserControl
     {
+        public delegate void FindButtonEventHandler();
+        public event FindButtonEventHandler LicenseFound;
+
         public ctrlLicenseCardWithFilter()
         {
             InitializeComponent();
@@ -39,6 +42,7 @@ namespace DVLD_v1._0
         }
         private void btnFind_Click(object sender, EventArgs e)
         {
+
             string Filter = txbFilter.Text;
             if (string.IsNullOrWhiteSpace(Filter))
             { return; }
@@ -50,6 +54,7 @@ namespace DVLD_v1._0
                     ctrlLicenseCard1.LoadInfo(LicenseID);
                     this.License = ctrlLicenseCard1.License;
                     IsCardFilled = true;
+                    LicenseFound?.Invoke();
                 }
                 else
                     MessageBox.Show("License ID not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -18,8 +18,24 @@ namespace DVLD_v1._0
         public frmAddNewInternationalLicense()
         {
             InitializeComponent();
-
+            ctrlLicenseCardWithFilter1.LicenseFound += CtrlLicenseCardWithFilter1_LicenseFound;
         }
+
+        private void CtrlLicenseCardWithFilter1_LicenseFound()
+        {
+            llShowLicenseHistory.Enabled = true;
+
+            if (DateTime.Now < ctrlLicenseCardWithFilter1.License.ExpirationDate)
+            {
+                btnIssue.Enabled = true;
+            }
+            else
+            {
+                btnIssue.Enabled = false;
+                MessageBox.Show("This License is Expired.", "Expired License", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
 
         private void _LoadInfo()
         {
@@ -90,9 +106,6 @@ namespace DVLD_v1._0
 
         private void btnIssue_Click(object sender, EventArgs e)
         {
-            if (!ctrlLicenseCardWithFilter1.IsCardFilled)
-                { MessageBox.Show("Choose a License by Typing the License ID", "Choose License", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
-
 
             if (_IsLicenseValid() && _ApplyForInternationLicense())
             {
@@ -113,8 +126,6 @@ namespace DVLD_v1._0
 
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            if (!ctrlLicenseCardWithFilter1.IsCardFilled)
-                { MessageBox.Show("Choose a License by Typing the License ID", "Choose License", MessageBoxButtons.OK, MessageBoxIcon.Information); return; }
             
             frmPersonLicenseHistory frmPLH = new frmPersonLicenseHistory(clsDriver.Find(ctrlLicenseCardWithFilter1.License.DriverID).PersonID);
             frmPLH.MdiParent = this.MdiParent;

@@ -15,6 +15,16 @@ namespace DVLD_v1._0
         public frmRenewDrivingLicense()
         {
             InitializeComponent();
+            ctrlLicenseCardWithFilter1.LicenseFound += CtrlLicenseCardWithFilter1_FindButtonClicked;
+        }
+
+        private void CtrlLicenseCardWithFilter1_FindButtonClicked()
+        {
+            MessageBox.Show("Done");
+        }
+
+        private void frmRenewDrivingLicense_Load(object sender, EventArgs e)
+        {
         }
     }
 }

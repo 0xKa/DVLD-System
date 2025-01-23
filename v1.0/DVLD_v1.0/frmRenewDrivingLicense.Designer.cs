@@ -35,6 +35,8 @@
             this.btnRenew = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txbNotes = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.lblTotalFees = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.lblLicenseFees = new System.Windows.Forms.Label();
@@ -53,8 +55,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.lblRenewedLicenseApplicationID = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.txbNotes = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -92,6 +92,7 @@
             // llShowLicenseHistory
             // 
             this.llShowLicenseHistory.AutoSize = true;
+            this.llShowLicenseHistory.Enabled = false;
             this.llShowLicenseHistory.Font = new System.Drawing.Font("Consolas", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llShowLicenseHistory.Location = new System.Drawing.Point(12, 536);
             this.llShowLicenseHistory.Name = "llShowLicenseHistory";
@@ -155,6 +156,27 @@
             this.groupBox1.TabIndex = 80;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Renew License Application Info";
+            // 
+            // txbNotes
+            // 
+            this.txbNotes.Location = new System.Drawing.Point(786, 32);
+            this.txbNotes.Multiline = true;
+            this.txbNotes.Name = "txbNotes";
+            this.txbNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txbNotes.Size = new System.Drawing.Size(195, 98);
+            this.txbNotes.TabIndex = 73;
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.ForeColor = System.Drawing.Color.White;
+            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label8.Location = new System.Drawing.Point(830, 11);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(106, 20);
+            this.label8.TabIndex = 72;
+            this.label8.Text = "Notes:";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // lblTotalFees
             // 
@@ -354,27 +376,6 @@
             this.label3.Text = "R.L. Application ID:";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // label8
-            // 
-            this.label8.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label8.Location = new System.Drawing.Point(830, 11);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(106, 20);
-            this.label8.TabIndex = 72;
-            this.label8.Text = "Notes:";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // txbNotes
-            // 
-            this.txbNotes.Location = new System.Drawing.Point(786, 32);
-            this.txbNotes.Multiline = true;
-            this.txbNotes.Name = "txbNotes";
-            this.txbNotes.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txbNotes.Size = new System.Drawing.Size(195, 98);
-            this.txbNotes.TabIndex = 73;
-            // 
             // frmRenewDrivingLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -394,6 +395,7 @@
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Renew Driving License";
+            this.Load += new System.EventHandler(this.frmRenewDrivingLicense_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
