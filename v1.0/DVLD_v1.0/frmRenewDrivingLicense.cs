@@ -13,6 +13,7 @@ namespace DVLD_v1._0
 {
     public partial class frmRenewDrivingLicense : Form
     {
+        private clsLocalDLApplication _LDLApplication = null;
         private clsApplication _RenewApplication = null;
         private clsLicense _RenewedLicense = null;
 
@@ -85,7 +86,11 @@ namespace DVLD_v1._0
                 CreatedByUserID = clsGlobalSettings.CurrentUser.ID
             };
 
-            return _RenewApplication.Save();
+            _RenewApplication.Save();
+
+            _LDLApplication = clsLocalDLApplication.FindByApplicationID(ctrlLicenseCardWithFilter1.License.ApplicationID);
+            _LDLApplication.ApplicationID = _RenewApplication.ID; //link the renew application with the original LDL application
+            return _LDLApplication.Save();
 
         }
 

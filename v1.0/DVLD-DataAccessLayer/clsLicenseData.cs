@@ -55,6 +55,50 @@ namespace DVLD_DataAccessLayer
 
             return isFound;
         }
+        
+        public static bool GetLicenseInfoByApplicationID(int ApplicationID, ref int LicenseID, ref int DriverID,
+            ref int LicenseClass, ref DateTime IssueDate, ref DateTime ExpirationDate,
+            ref string Notes, ref double PaidFees, ref bool IsActive, ref byte IssueReason,
+            ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Licenses WHERE ApplicationID = @ApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    LicenseID = (int)reader["LicenseID"];
+                    DriverID = (int)reader["DriverID"];
+                    LicenseClass = (int)reader["LicenseClass"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+                    Notes =  Convert.ToString(reader["Notes"]);
+                    PaidFees = Convert.ToDouble(reader["PaidFees"]);
+                    IsActive = (bool)reader["IsActive"];
+                    IssueReason = (byte)reader["IssueReason"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+
+                }
+                reader.Close();
+
+            }
+            catch { isFound = false; }
+            finally { connection.Close(); }
+
+
+            return isFound;
+        }
 
 
         public static int AddNewLicense(int ApplicationID, int DriverID,

@@ -71,7 +71,10 @@ namespace DVLD_v1._0
 
         private void llShowLicenseInfo_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("License is not available yet...");
+            frmLicenseDetails frmLD = new frmLicenseDetails(clsLicense.FindByApplicationID(_application.ID).ID);
+            frmLD.MdiParent = this.ParentForm.MdiParent;
+
+            frmLD.Show();
         }
     }
 }

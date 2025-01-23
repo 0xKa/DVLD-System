@@ -75,7 +75,7 @@ namespace DVLD_v1._0
                 IssueDate = DateTime.Now,
                 ExpirationDate = DateTime.Now.AddYears(clsLicenseClass.GetLicenseLengthInYears(_LDLApplication.LicenseClassID)),
                 Notes = txbNotes.Text,
-                PaidFees = _Application.PaidFees,
+                PaidFees = clsLicenseClass.GetClassFees(_LDLApplication.LicenseClassID),
                 IsActive = true,
                 IssueReason = 1,
                 CreatedByUserID = clsGlobalSettings.CurrentUser.ID

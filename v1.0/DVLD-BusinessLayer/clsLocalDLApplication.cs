@@ -65,6 +65,20 @@ namespace DVLD_BusinessLayer
                 return null;
 
         }
+        
+        public static clsLocalDLApplication FindByApplicationID(int ApplicationID)
+        {
+            int LocalDLApplicationID = -1;
+            int LicenseClassID = -1;
+
+            if (clsLocalDLApplicationData.GetLDLApplicationInfoByApplicationID(ApplicationID, ref LocalDLApplicationID, ref LicenseClassID))
+            {
+                return new clsLocalDLApplication(LocalDLApplicationID, ApplicationID, LicenseClassID);
+            }
+            else
+                return null;
+
+        }
 
         public bool Save()
         {

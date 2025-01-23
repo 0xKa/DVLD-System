@@ -42,6 +42,39 @@ namespace DVLD_DataAccessLayer
             return IsFound;
         }
 
+        public static bool GetLDLApplicationInfoByApplicationID(int ApplicationID, 
+            ref int LocalDrivingLicenseApplicationID, ref int LicenseClassID)
+        {
+            bool IsFound = false;
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM LocalDrivingLicenseApplications WHERE ApplicationID = @ApplicationID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    IsFound = true;
+
+                    LocalDrivingLicenseApplicationID = (int)reader["LocalDrivingLicenseApplicationID"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                }
+                reader.Close();
+
+            }
+            catch { return false; }
+            finally { connection.Close(); }
+
+            return IsFound;
+        }
+
+
         public static int AddNewLDLApplication(int ApplicationID, int LicenseClassID)
         {
             int LDL_ApplicationID = -1;
