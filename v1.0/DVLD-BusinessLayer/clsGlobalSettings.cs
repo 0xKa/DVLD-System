@@ -13,7 +13,7 @@ namespace DVLD_BusinessLayer
         public enum enTestType { Vision = 1, Writing = 2, Street = 3 }
         public enum enApplicationStatus { New = 1, Cancelled = 2, Completed = 3 }
 
-        public enum enIssueReason { FirstTime = 1, Renew = 2 }//
+        public enum enIssueReason { FirstTime = 1, Renew = 2, ReplaceForLost = 3, ReplaceForDamage = 4 }//
 
 
     }

@@ -47,7 +47,8 @@ namespace DVLD_v1._0
         private void CtrlLicenseCardWithFilter1_LicenseFound()
         {
             llShowLicenseHistory.Enabled = true;
-                _LoadRenewInfo();
+                
+            _LoadRenewInfo();
             if (DateTime.Today >= ctrlLicenseCardWithFilter1.License.ExpirationDate)
             {
                 btnRenew.Enabled = true;

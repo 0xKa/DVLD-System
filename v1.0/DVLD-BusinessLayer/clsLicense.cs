@@ -141,6 +141,12 @@ namespace DVLD_BusinessLayer
                     
                 case clsGlobalSettings.enIssueReason.Renew:
                     return "Renew";
+                    
+                case clsGlobalSettings.enIssueReason.ReplaceForLost:
+                    return "Replacment For Lost";
+                    
+                case clsGlobalSettings.enIssueReason.ReplaceForDamage:
+                    return "Replacment For Damage";
 
                 default:
                     return "First Time";

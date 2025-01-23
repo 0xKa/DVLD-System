@@ -29,12 +29,19 @@ namespace DVLD_v1._0
         {
             dgvLocalLicenseList.DataSource = clsLicense.GetLicensesOfADriver(DriverID);
             lblLocalLicenseNumberOfRecords.Text += dgvLocalLicenseList.RowCount.ToString();
+
+            if (dgvLocalLicenseList.RowCount > 0)
+                dgvLocalLicenseList.Sort(dgvLocalLicenseList.Columns[0], ListSortDirection.Descending);
+
         }
 
         private void _LoadInternationalLicenseInfo(int DriverID)
         {
             dgvInternationalLicenseList.DataSource = clsInternationalLicense.GetInternationalLicensesOfADriver(DriverID);
             lblInternationalLicenseNumberOfRecords.Text += dgvInternationalLicenseList.RowCount.ToString();
+            
+            if (dgvInternationalLicenseList.RowCount > 0)
+                dgvInternationalLicenseList.Sort(dgvInternationalLicenseList.Columns[0], ListSortDirection.Descending);
         }
 
         private void frmPersonLicenseHistory_Load(object sender, EventArgs e)
