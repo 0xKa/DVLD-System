@@ -71,6 +71,7 @@
             this.btnClose.Text = "Close";
             this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // lblNumberOfRecords
             // 
@@ -116,10 +117,13 @@
             this.cbFilterOptions.FormattingEnabled = true;
             this.cbFilterOptions.Items.AddRange(new object[] {
             "None",
-            "ID",
             "NationalNo",
             "FullName",
-            "Status"});
+            "DetainID",
+            "LicenseID",
+            "FineFees",
+            "IsReleased",
+            "ReleaseApplicationID"});
             this.cbFilterOptions.Location = new System.Drawing.Point(105, 156);
             this.cbFilterOptions.Name = "cbFilterOptions";
             this.cbFilterOptions.Size = new System.Drawing.Size(121, 21);

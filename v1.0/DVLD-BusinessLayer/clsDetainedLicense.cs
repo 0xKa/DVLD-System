@@ -112,5 +112,10 @@ namespace DVLD_BusinessLayer
         {
             return clsDetainedLicensesData.GetAllDetainedLicenses();
         }
+
+        public static DataTable GetDetainedLicenses_People_view()
+        {
+            return clsDetainedLicensesData.GetDetainedLicenses_People_view();
+        }
     }
 }

@@ -192,6 +192,32 @@ namespace DVLD_DataAccessLayer
 
             return dtDetainedLicenses;
         }
+        
+        public static DataTable GetDetainedLicenses_People_view()
+        {
+            DataTable dtDetainedLicenses = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM DetainedLicenses_People_view;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    dtDetainedLicenses.Load(reader);
+
+                reader.Close();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return dtDetainedLicenses;
+        }
     }
 
 }
