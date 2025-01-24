@@ -10,7 +10,7 @@ namespace DVLD_DataAccessLayer
 {
     public class clsDetainedLicensesData
     {
-        public static bool GetDetainedLicenseInfo(int DetainID, ref int LicenseID, ref DateTime DetainDate, ref double FineFees, ref int CreatedByUserID, ref bool IsReleased, ref DateTime? ReleasedDate, ref int ReleasedByUserID, ref int ReleaseApplicationID)
+        public static bool GetDetainedLicenseInfo(int DetainID, ref int LicenseID, ref DateTime DetainDate, ref double FineFees, ref int CreatedByUserID, ref bool IsReleased, ref DateTime? ReleaseDate, ref int ReleasedByUserID, ref int ReleaseApplicationID)
         {
             bool isFound = false;
 
@@ -34,7 +34,7 @@ namespace DVLD_DataAccessLayer
                     FineFees = Convert.ToDouble(reader["FineFees"]);
                     CreatedByUserID = (int)reader["CreatedByUserID"];
                     IsReleased = (bool)reader["IsReleased"];
-                    ReleasedDate = Convert.ToDateTime(reader["ReleasedDate"]);
+                    ReleaseDate = Convert.ToDateTime(reader["ReleaseDate"]);
                     ReleasedByUserID = Convert.ToInt32(reader["ReleasedByUserID"]);
                     ReleaseApplicationID = Convert.ToInt32(reader["ReleaseApplicationID"]);
                 }
@@ -46,16 +46,16 @@ namespace DVLD_DataAccessLayer
             return isFound;
         }
 
-        public static int AddNewDetainedLicense(int LicenseID, DateTime DetainDate, double FineFees, int CreatedByUserID, bool IsReleased, DateTime? ReleasedDate, int ReleasedByUserID, int ReleaseApplicationID)
+        public static int AddNewDetainedLicense(int LicenseID, DateTime DetainDate, double FineFees, int CreatedByUserID, bool IsReleased, DateTime? ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
         {
             int DetainID = -1;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"INSERT INTO DetainedLicenses
-           ([LicenseID], [DetainDate], [FineFees], [CreatedByUserID], [IsReleased], [ReleasedDate], [ReleasedByUserID], [ReleaseApplicationID])
+           ([LicenseID], [DetainDate], [FineFees], [CreatedByUserID], [IsReleased], [ReleaseDate], [ReleasedByUserID], [ReleaseApplicationID])
            VALUES
-           (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleasedDate, @ReleasedByUserID, @ReleaseApplicationID)
+           (@LicenseID, @DetainDate, @FineFees, @CreatedByUserID, @IsReleased, @ReleaseDate, @ReleasedByUserID, @ReleaseApplicationID)
            SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);
@@ -64,7 +64,7 @@ namespace DVLD_DataAccessLayer
             command.Parameters.AddWithValue("@FineFees", FineFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             command.Parameters.AddWithValue("@IsReleased", IsReleased);
-            command.Parameters.AddWithValue("@ReleasedDate", (object)ReleasedDate ?? DBNull.Value);
+            command.Parameters.AddWithValue("@ReleaseDate", (object)ReleaseDate ?? DBNull.Value);
             command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID == -1 ? (object)DBNull.Value : ReleasedByUserID);
             command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID == -1 ? (object)DBNull.Value : ReleaseApplicationID);
 
@@ -84,7 +84,7 @@ namespace DVLD_DataAccessLayer
             return DetainID;
         }
 
-        public static bool UpdateDetainedLicense(int DetainID, int LicenseID, DateTime DetainDate, double FineFees, int CreatedByUserID, bool IsReleased, DateTime? ReleasedDate, int ReleasedByUserID, int ReleaseApplicationID)
+        public static bool UpdateDetainedLicense(int DetainID, int LicenseID, DateTime DetainDate, double FineFees, int CreatedByUserID, bool IsReleased, DateTime? ReleaseDate, int ReleasedByUserID, int ReleaseApplicationID)
         {
             int RowsAffected = 0;
 
@@ -96,7 +96,7 @@ namespace DVLD_DataAccessLayer
                [FineFees] = @FineFees,
                [CreatedByUserID] = @CreatedByUserID,
                [IsReleased] = @IsReleased,
-               [ReleasedDate] = @ReleasedDate,
+               [ReleaseDate] = @ReleaseDate,
                [ReleasedByUserID] = @ReleasedByUserID,
                [ReleaseApplicationID] = @ReleaseApplicationID
            WHERE DetainID = @DetainID;";
@@ -108,7 +108,7 @@ namespace DVLD_DataAccessLayer
             command.Parameters.AddWithValue("@FineFees", FineFees);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             command.Parameters.AddWithValue("@IsReleased", IsReleased);
-            command.Parameters.AddWithValue("@ReleasedDate", (object)ReleasedDate ?? DBNull.Value);
+            command.Parameters.AddWithValue("@ReleaseDate", (object)ReleaseDate ?? DBNull.Value);
             command.Parameters.AddWithValue("@ReleasedByUserID", ReleasedByUserID == -1 ? (object)DBNull.Value : ReleasedByUserID);
             command.Parameters.AddWithValue("@ReleaseApplicationID", ReleaseApplicationID == -1 ? (object)DBNull.Value : ReleaseApplicationID);
 

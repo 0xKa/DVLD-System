@@ -48,6 +48,7 @@
             this.showPersonDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showLicenseDetailsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.releaseDetainedLicecnseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cbIsReleasedAnswer = new System.Windows.Forms.ComboBox();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDetainedLicensesList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -94,7 +95,7 @@
             this.toolStripSeparator1,
             this.releaseDetainedLicecnseToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(252, 98);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(252, 120);
             // 
             // showPersonsLicenseHistoryToolStripMenuItem
             // 
@@ -102,6 +103,7 @@
             this.showPersonsLicenseHistoryToolStripMenuItem.Name = "showPersonsLicenseHistoryToolStripMenuItem";
             this.showPersonsLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.showPersonsLicenseHistoryToolStripMenuItem.Text = "Show Person\'s License History";
+            this.showPersonsLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showPersonsLicenseHistoryToolStripMenuItem_Click);
             // 
             // txbFilterBy
             // 
@@ -110,6 +112,7 @@
             this.txbFilterBy.Size = new System.Drawing.Size(139, 20);
             this.txbFilterBy.TabIndex = 25;
             this.txbFilterBy.Visible = false;
+            this.txbFilterBy.TextChanged += new System.EventHandler(this.txbFilterBy_TextChanged);
             // 
             // cbFilterOptions
             // 
@@ -128,6 +131,7 @@
             this.cbFilterOptions.Name = "cbFilterOptions";
             this.cbFilterOptions.Size = new System.Drawing.Size(121, 21);
             this.cbFilterOptions.TabIndex = 24;
+            this.cbFilterOptions.SelectedIndexChanged += new System.EventHandler(this.cbFilterOptions_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -179,6 +183,7 @@
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = true;
             this.btnClear.Visible = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // btnDetainLicense
             // 
@@ -190,6 +195,7 @@
             this.btnDetainLicense.Size = new System.Drawing.Size(86, 59);
             this.btnDetainLicense.TabIndex = 29;
             this.btnDetainLicense.UseVisualStyleBackColor = true;
+            this.btnDetainLicense.Click += new System.EventHandler(this.btnDetainLicense_Click);
             // 
             // pictureBox1
             // 
@@ -211,6 +217,7 @@
             this.btnReleaseLicense.Size = new System.Drawing.Size(86, 59);
             this.btnReleaseLicense.TabIndex = 30;
             this.btnReleaseLicense.UseVisualStyleBackColor = true;
+            this.btnReleaseLicense.Click += new System.EventHandler(this.btnReleaseLicense_Click);
             // 
             // toolStripSeparator1
             // 
@@ -223,6 +230,7 @@
             this.showPersonDetailsToolStripMenuItem.Name = "showPersonDetailsToolStripMenuItem";
             this.showPersonDetailsToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.showPersonDetailsToolStripMenuItem.Text = "Show Person Details";
+            this.showPersonDetailsToolStripMenuItem.Click += new System.EventHandler(this.showPersonDetailsToolStripMenuItem_Click);
             // 
             // showLicenseDetailsToolStripMenuItem
             // 
@@ -230,6 +238,7 @@
             this.showLicenseDetailsToolStripMenuItem.Name = "showLicenseDetailsToolStripMenuItem";
             this.showLicenseDetailsToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.showLicenseDetailsToolStripMenuItem.Text = "Show License Details";
+            this.showLicenseDetailsToolStripMenuItem.Click += new System.EventHandler(this.showLicenseDetailsToolStripMenuItem_Click);
             // 
             // releaseDetainedLicecnseToolStripMenuItem
             // 
@@ -237,6 +246,22 @@
             this.releaseDetainedLicecnseToolStripMenuItem.Name = "releaseDetainedLicecnseToolStripMenuItem";
             this.releaseDetainedLicecnseToolStripMenuItem.Size = new System.Drawing.Size(251, 22);
             this.releaseDetainedLicecnseToolStripMenuItem.Text = "Release Detained Licecnse";
+            this.releaseDetainedLicecnseToolStripMenuItem.Click += new System.EventHandler(this.releaseDetainedLicecnseToolStripMenuItem_Click);
+            // 
+            // cbIsReleasedAnswer
+            // 
+            this.cbIsReleasedAnswer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbIsReleasedAnswer.FormattingEnabled = true;
+            this.cbIsReleasedAnswer.Items.AddRange(new object[] {
+            "All Licenses",
+            "Released Licenses",
+            "Detained Licenses"});
+            this.cbIsReleasedAnswer.Location = new System.Drawing.Point(232, 156);
+            this.cbIsReleasedAnswer.Name = "cbIsReleasedAnswer";
+            this.cbIsReleasedAnswer.Size = new System.Drawing.Size(106, 21);
+            this.cbIsReleasedAnswer.TabIndex = 31;
+            this.cbIsReleasedAnswer.Visible = false;
+            this.cbIsReleasedAnswer.SelectedIndexChanged += new System.EventHandler(this.cbIsReleasedAnswer_SelectedIndexChanged);
             // 
             // frmManageDetainedLicenses
             // 
@@ -244,6 +269,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(1126, 577);
+            this.Controls.Add(this.cbIsReleasedAnswer);
             this.Controls.Add(this.btnReleaseLicense);
             this.Controls.Add(this.btnDetainLicense);
             this.Controls.Add(this.btnClose);
@@ -290,5 +316,6 @@
         private System.Windows.Forms.ToolStripMenuItem showPersonDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showLicenseDetailsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem releaseDetainedLicecnseToolStripMenuItem;
+        private System.Windows.Forms.ComboBox cbIsReleasedAnswer;
     }
 }
