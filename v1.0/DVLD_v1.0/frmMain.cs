@@ -188,5 +188,27 @@ namespace DVLD_v1._0
             else
                 _CurrentScreen.BringToFront();
         }
+
+        private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_CurrentScreen == null || _CurrentScreen.IsDisposed)
+            {
+                _CurrentScreen = new frmManageDetainedLicenses();
+                _CurrentScreen.MdiParent = this;
+                _CurrentScreen.Show();
+            }
+            else
+                _CurrentScreen.BringToFront();
+        }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

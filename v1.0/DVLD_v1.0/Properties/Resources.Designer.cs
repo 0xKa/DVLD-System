@@ -253,6 +253,16 @@ namespace DVLD_v1._0.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap evaluation {
+            get {
+                object obj = ResourceManager.GetObject("evaluation", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap file {
             get {
                 object obj = ResourceManager.GetObject("file", resourceCulture);
@@ -526,6 +536,16 @@ namespace DVLD_v1._0.Properties {
         internal static System.Drawing.Bitmap shared_vision {
             get {
                 object obj = ResourceManager.GetObject("shared-vision", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap slave {
+            get {
+                object obj = ResourceManager.GetObject("slave", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
