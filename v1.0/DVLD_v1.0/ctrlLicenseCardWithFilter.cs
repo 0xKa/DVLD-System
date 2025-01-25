@@ -33,6 +33,8 @@ namespace DVLD_v1._0
 
             IsCardFilled = true;
 
+            LicenseFound?.Invoke();
+
             return IsCardFilled;
         }
 
@@ -71,6 +73,11 @@ namespace DVLD_v1._0
                 e.SuppressKeyPress = true; //silence the bell sound
                 btnFind_Click(sender, e);
             }
+        }
+
+        public void EnableDisableFilter(bool enable)
+        {
+            groupBox1.Enabled = enable;
         }
     }
 }

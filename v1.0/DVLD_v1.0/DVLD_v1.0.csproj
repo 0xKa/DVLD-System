@@ -226,6 +226,12 @@
     <Compile Include="frmPersonLicenseHistory.Designer.cs">
       <DependentUpon>frmPersonLicenseHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReleaseDetainedLicense.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReleaseDetainedLicense.Designer.cs">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmRenewDrivingLicense.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -359,6 +365,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPersonLicenseHistory.resx">
       <DependentUpon>frmPersonLicenseHistory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReleaseDetainedLicense.resx">
+      <DependentUpon>frmReleaseDetainedLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmRenewDrivingLicense.resx">
       <DependentUpon>frmRenewDrivingLicense.cs</DependentUpon>

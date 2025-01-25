@@ -81,6 +81,27 @@ namespace DVLD_BusinessLayer
                 return null;
             }
         }
+        
+        public static clsDetainedLicense FindByLicenseID(int LicenseID)
+        {
+            int DetainID = -1;
+            DateTime DetainDate = DateTime.Now;
+            double FineFees = 0.0;
+            int CreatedByUserID = -1;
+            bool IsReleased = false;
+            DateTime? ReleaseDate = null;
+            int ReleasedByUserID = -1;
+            int ReleaseApplicationID = -1;
+
+            if (clsDetainedLicensesData.GetDetainedLicenseInfoByLicenseID(LicenseID, ref DetainID, ref DetainDate, ref FineFees, ref CreatedByUserID, ref IsReleased, ref ReleaseDate, ref ReleasedByUserID, ref ReleaseApplicationID))
+            {
+                return new clsDetainedLicense(DetainID, LicenseID, DetainDate, FineFees, CreatedByUserID, IsReleased, ReleaseDate, ReleasedByUserID, ReleaseApplicationID);
+            }
+            else
+            {
+                return null;
+            }
+        }
 
         public bool Save()
         {
@@ -116,6 +137,11 @@ namespace DVLD_BusinessLayer
         public static DataTable GetDetainedLicenses_People_view()
         {
             return clsDetainedLicensesData.GetDetainedLicenses_People_view();
+        }
+
+        public static bool IsLicenseDetained(int LicenseID)
+        {
+            return clsDetainedLicensesData.IsLicenseDetained(LicenseID);
         }
     }
 }

@@ -36,7 +36,7 @@ namespace DVLD_v1._0
             lblNotes.Text = License.Notes.ToString();
             lblIsActive.Text = License.IsActive ? "Yes" : "No";
             lblExpirationDate.Text = License.ExpirationDate.ToString("dd-MMM-yyyy");
-            lblIsDetained.Text = License.IsActive ? "No" : "Yes";
+            lblIsDetained.Text = clsDetainedLicense.IsLicenseDetained(LicenseID) ? "Yes" : "No";
 
             lblLicenseClass.Text = clsLicenseClass.GetClassName(License.LicenseClassID);
             lblIssueReason.Text = clsLicense.GetIssueReasonString(License.IssueReason);

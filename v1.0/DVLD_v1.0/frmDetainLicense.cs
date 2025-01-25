@@ -32,6 +32,11 @@ namespace DVLD_v1._0
                 txbFineFees.Enabled = true;
                 btnDetain.Enabled = true;
             }
+            else if (clsDetainedLicense.IsLicenseDetained(ctrlLicenseCardWithFilter1.License.ID))
+            {
+                btnDetain.Enabled = false;
+                MessageBox.Show("Selected License Already Detained", "License Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             else
             {
                 btnDetain.Enabled = false;

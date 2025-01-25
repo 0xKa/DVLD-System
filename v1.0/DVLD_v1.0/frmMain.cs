@@ -203,10 +203,41 @@ namespace DVLD_v1._0
 
         private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (_CurrentScreen == null || _CurrentScreen.IsDisposed)
+            {
+                _CurrentScreen = new frmDetainLicense();
+                _CurrentScreen.MdiParent = this;
+                _CurrentScreen.Show();
+            }
+            else
+                _CurrentScreen.BringToFront();
         }
 
         private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_CurrentScreen == null || _CurrentScreen.IsDisposed)
+            {
+                _CurrentScreen = new frmReleaseDetainedLicense();
+                _CurrentScreen.MdiParent = this;
+                _CurrentScreen.Show();
+            }
+            else
+                _CurrentScreen.BringToFront();
+        }
+
+        private void releaseDetainDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_CurrentScreen == null || _CurrentScreen.IsDisposed)
+            {
+                _CurrentScreen = new frmReleaseDetainedLicense();
+                _CurrentScreen.MdiParent = this;
+                _CurrentScreen.Show();
+            }
+            else
+                _CurrentScreen.BringToFront();
+        }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

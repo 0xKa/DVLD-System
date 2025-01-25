@@ -161,7 +161,12 @@ namespace DVLD_v1._0
 
         private void btnReleaseLicense_Click(object sender, EventArgs e)
         {
+            frmReleaseDetainedLicense frmRDL = new frmReleaseDetainedLicense();
+            frmRDL.MdiParent = this.MdiParent;
 
+
+            frmRDL.FormClosed += RefreshOnFormClosed;
+            frmRDL.Show();
         }
 
         private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -196,7 +201,12 @@ namespace DVLD_v1._0
 
         private void releaseDetainedLicecnseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmReleaseDetainedLicense frmRDL = new frmReleaseDetainedLicense((int)dgvDetainedLicensesList.CurrentRow.Cells[1].Value);
+            frmRDL.MdiParent = this.MdiParent;
 
+
+            frmRDL.FormClosed += RefreshOnFormClosed;
+            frmRDL.Show();
         }
     }
 }
