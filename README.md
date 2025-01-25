@@ -7,10 +7,9 @@ The DVLD System is a Windows desktop application designed to automate and stream
 
 ## **System Architecture**
 The application follows a **Three-Tier Architecture**:
-- **Data Access Layer (DAL):** ADO.NET & SQL Server database for secure and efficient data management.
-- **Business Logic Layer (BLL):** Implemented using C# to process application logic and enforce business rules.
-- **Presentation Layer (PL):** Developed using Windows Forms for an interactive and user-friendly interface.
-
+- `Data Access Layer (DAL)`: ADO.NET & SQL Server database for secure and efficient data management.
+- `Business Logic Layer (BLL)`: Implemented using C# to process application logic and enforce business rules.
+- `Presentation Layer (PL)`: Developed using Windows Forms for an interactive and user-friendly interface.
 
 
 ![Database Diagram](<DVLD Database Diagram.png>)
@@ -59,5 +58,13 @@ The DVLD System includes the following functionalities:
 
 ## **Screenshots**
 
+![login screen](screenshots/login-screen.jpg)
+![main screen](screenshots/main-screen.jpg)
+![features](screenshots/features.jpg)
+![manage local licenses screen](screenshots/manage-local-licenses.jpg)
+![manage international licenses screen](screenshots/manage-international-licenses.jpg)
+![change password screen](screenshots/change-password-screen.jpg)
+![add new person](screenshots/add-new-person-screen.jpg)
+![add new user](screenshots/add-new-user-screen.jpg)
 ---
 
