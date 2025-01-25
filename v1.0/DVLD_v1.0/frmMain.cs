@@ -239,7 +239,14 @@ namespace DVLD_v1._0
 
         private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            if (_CurrentScreen == null || _CurrentScreen.IsDisposed)
+            {
+                _CurrentScreen = new frmManageLocalDLApplications();
+                _CurrentScreen.MdiParent = this;
+                _CurrentScreen.Show();
+            }
+            else
+                _CurrentScreen.BringToFront();
         }
     }
 }
