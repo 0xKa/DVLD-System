@@ -12,7 +12,7 @@ The application follows a **Three-Tier Architecture**:
 - `Presentation Layer (PL)`: Developed using Windows Forms for an interactive and user-friendly interface.
 
 
-![Database Diagram](<DVLD Database Diagram.png>)
+![Database Diagram](<screenshots/DVLD Database Diagram.png>)
 
 ---
 
