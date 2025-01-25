@@ -47,6 +47,8 @@ namespace DVLD_v1._0
         private void frmPersonLicenseHistory_Load(object sender, EventArgs e)
         {
             ctrlPersonCard1.LoadPersonInfo(_PersonID);
+            if (!clsDriver.IsPersonDriver(_PersonID))
+                return;
             
             int DriverID = clsDriver.FindByPersonID(_PersonID).ID;
 

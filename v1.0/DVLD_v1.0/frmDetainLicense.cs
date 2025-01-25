@@ -77,7 +77,7 @@ namespace DVLD_v1._0
             {
                 LicenseID = ctrlLicenseCardWithFilter1.License.ID,
                 DetainDate = DateTime.Now,
-                FineFees = Convert.ToDouble(txbFineFees.Text),
+                FineFees = _FineFees,
                 CreatedByUserID = clsGlobalSettings.CurrentUser.ID,
                 IsReleased = false
 

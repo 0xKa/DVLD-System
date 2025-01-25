@@ -170,7 +170,12 @@ namespace DVLD_v1._0
             MessageBox.Show("This Feature is not Implemented Yet.", "Phone Calling...", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void showLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPersonLicenseHistory frmPLH = new frmPersonLicenseHistory((int)dgvPeopleList.CurrentRow.Cells[0].Value);
+            frmPLH.MdiParent = this.MdiParent;
 
-
+            frmPLH.Show();
+        }
     }
 }
