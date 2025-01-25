@@ -58,13 +58,21 @@ The DVLD System includes the following functionalities:
 
 ## **Screenshots**
 
+### login screen
 ![login screen](screenshots/login-screen.jpg)
+### main screen
 ![main screen](screenshots/main-screen.jpg)
+### features
 ![features](screenshots/features.jpg)
+### manage local licenses screen
 ![manage local licenses screen](screenshots/manage-local-licenses.jpg)
+### manage international licenses screen
 ![manage international licenses screen](screenshots/manage-international-licenses.jpg)
+### change password screen
 ![change password screen](screenshots/change-password-screen.jpg)
+### add new person
 ![add new person](screenshots/add-new-person-screen.jpg)
+### add new user
 ![add new user](screenshots/add-new-user-screen.jpg)
 ---
 
