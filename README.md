@@ -11,7 +11,8 @@ The application follows a **Three-Tier Architecture**:
 - `Business Logic Layer (BLL)`: Implemented using C# to process application logic and enforce business rules.
 - `Presentation Layer (PL)`: Developed using Windows Forms for an interactive and user-friendly interface.
 
-
+--
+## **Database ERD**
 ![Database Diagram](<screenshots/DVLD Database Diagram.png>)
 
 ---
