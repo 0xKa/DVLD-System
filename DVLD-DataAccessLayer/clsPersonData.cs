@@ -13,7 +13,7 @@ namespace DVLD_DataAccessLayer
     {
         public static bool GetPersonInfo(int ID, ref string NationalNo, ref string FirstName,
             ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth,
-            ref string Gender, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+            ref byte Gender, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
         {
             bool isFound = false;
 
@@ -38,7 +38,7 @@ namespace DVLD_DataAccessLayer
                     ThirdName = reader["ThirdName"] as string; // Allow Null
                     LastName = (string)reader["LastName"];
                     DateOfBirth = (DateTime)reader["DateOfBirth"];
-                    Gender = (string)reader["Gender"];
+                    Gender = (byte)reader["Gender"];
                     Address = (string)reader["Address"];
                     Phone = (string)reader["Phone"];
                     Email = reader["Email"] as string; // Allow Null
@@ -54,7 +54,7 @@ namespace DVLD_DataAccessLayer
         }
 
         public static int AddNewPerson(string NationalNo, string FirstName, string SecondName,
-            string ThirdName, string LastName, DateTime DateOfBirth, string Gender, string Address,
+            string ThirdName, string LastName, DateTime DateOfBirth, byte Gender, string Address,
             string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
             int ID = -1;
@@ -72,15 +72,15 @@ namespace DVLD_DataAccessLayer
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
-            command.Parameters.AddWithValue("@ThirdName", (object)ThirdName ?? DBNull.Value);
+            command.Parameters.AddWithValue("@ThirdName", string.IsNullOrEmpty(ThirdName) ? (object)DBNull.Value : ThirdName);
             command.Parameters.AddWithValue("@LastName", LastName);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             command.Parameters.AddWithValue("@Gender", Gender);
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
-            command.Parameters.AddWithValue("@Email", (object)Email ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Email", string.IsNullOrEmpty(Email) ? (object)DBNull.Value : Email);
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
-            command.Parameters.AddWithValue("@ImagePath", (object)ImagePath ?? DBNull.Value);
+            command.Parameters.AddWithValue("@ImagePath", string.IsNullOrEmpty(ImagePath) ? (object)DBNull.Value : ImagePath);
 
             try
             {
@@ -101,7 +101,7 @@ namespace DVLD_DataAccessLayer
         }
 
         public static bool UpdatePerson(int ID, string NationalNo, string FirstName, string SecondName,
-            string ThirdName, string LastName, DateTime DateOfBirth, string Gender, string Address,
+            string ThirdName, string LastName, DateTime DateOfBirth, byte Gender, string Address,
             string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
             int RowsAffected = 0;
@@ -127,15 +127,15 @@ namespace DVLD_DataAccessLayer
             command.Parameters.AddWithValue("@NationalNo", NationalNo);
             command.Parameters.AddWithValue("@FirstName", FirstName);
             command.Parameters.AddWithValue("@SecondName", SecondName);
-            command.Parameters.AddWithValue("@ThirdName", (object)ThirdName ?? DBNull.Value);
+            command.Parameters.AddWithValue("@ThirdName", string.IsNullOrEmpty(ThirdName) ? (object)DBNull.Value : ThirdName);
             command.Parameters.AddWithValue("@LastName", LastName);
             command.Parameters.AddWithValue("@DateOfBirth", DateOfBirth);
             command.Parameters.AddWithValue("@Gender", Gender);
             command.Parameters.AddWithValue("@Address", Address);
             command.Parameters.AddWithValue("@Phone", Phone);
-            command.Parameters.AddWithValue("@Email", (object)Email ?? DBNull.Value);
+            command.Parameters.AddWithValue("@Email", string.IsNullOrEmpty(Email) ? (object)DBNull.Value : Email);
             command.Parameters.AddWithValue("@NationalityCountryID", NationalityCountryID);
-            command.Parameters.AddWithValue("@ImagePath", (object)ImagePath ?? DBNull.Value);
+            command.Parameters.AddWithValue("@ImagePath", string.IsNullOrEmpty(ImagePath) ? (object)DBNull.Value : ImagePath);
             command.Parameters.AddWithValue("@ID", ID);
 
             try

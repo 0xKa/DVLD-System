@@ -16,7 +16,7 @@ namespace DVLD_BusinessLogicLayer
         public string ThirdName { get; set; }
         public string LastName { get; set; }
         public DateTime DateOfBirth { get; set; }
-        public string Gender { get; set; }
+        public byte Gender { get; set; }
         public string Address { get; set; }
         public string Phone { get; set; }
         public string Email { get; set; }
@@ -34,7 +34,7 @@ namespace DVLD_BusinessLogicLayer
             ThirdName = string.Empty;
             LastName = string.Empty;
             DateOfBirth = DateTime.MinValue;
-            Gender = string.Empty;
+            Gender = 1;
             Address = string.Empty;
             Phone = string.Empty;
             Email = string.Empty;
@@ -43,7 +43,7 @@ namespace DVLD_BusinessLogicLayer
         }
 
         private clsPerson(int ID, string NationalNo, string FirstName, string SecondName,
-            string ThirdName, string LastName, DateTime DateOfBirth, string Gender,
+            string ThirdName, string LastName, DateTime DateOfBirth, byte Gender,
             string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
             _Mode = clsGlobalSettings.enMode.Update;
@@ -85,7 +85,7 @@ namespace DVLD_BusinessLogicLayer
             string ThirdName = string.Empty;
             string LastName = string.Empty;
             DateTime DateOfBirth = DateTime.MinValue;
-            string Gender = string.Empty;
+            byte Gender = 1;
             string Address = string.Empty;
             string Phone = string.Empty;
             string Email = string.Empty;
