@@ -1,5 +1,18 @@
 USE [DVLDv2]
 
+--Get All People View
+SELECT Person.ID, Person.NationalNo, 
+FirstName + ' ' + SecondName + ' ' + COALESCE(ThirdName, '') + ' ' + LastName AS FullName,
+CASE
+	WHEN Person.Gender = 1 THEN 'Male'
+	ELSE 'Female'
+END AS Gender,
+Person.DateOfBirth,
+Country.CounrtyName AS Nationality, Person.Phone, Person.Email
+FROM [Person] JOIN [Country] ON Person.NationalityCountryID = Country.ID
+
+
+
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];

@@ -53,6 +53,49 @@ namespace DVLD_DataAccessLayer
             return isFound;
         }
 
+        public static bool GetPersonInfoByNationalNo(string NationalNo, ref int ID, ref string FirstName,
+            ref string SecondName, ref string ThirdName, ref string LastName, ref DateTime DateOfBirth,
+            ref byte Gender, ref string Address, ref string Phone, ref string Email, ref int NationalityCountryID, ref string ImagePath)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM Person WHERE NationalNo = @NationalNo;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NationalNo", NationalNo);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ID = (int)reader["ID"];
+                    FirstName = (string)reader["FirstName"];
+                    SecondName = (string)reader["SecondName"];
+                    ThirdName = reader["ThirdName"] as string; // Allow Null
+                    LastName = (string)reader["LastName"];
+                    DateOfBirth = (DateTime)reader["DateOfBirth"];
+                    Gender = (byte)reader["Gender"];
+                    Address = (string)reader["Address"];
+                    Phone = (string)reader["Phone"];
+                    Email = reader["Email"] as string; // Allow Null
+                    NationalityCountryID = (int)reader["NationalityCountryID"];
+                    ImagePath = reader["ImagePath"] as string; // Allow Null
+                }
+                reader.Close();
+            }
+            catch { isFound = false; }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
+
+
         public static int AddNewPerson(string NationalNo, string FirstName, string SecondName,
             string ThirdName, string LastName, DateTime DateOfBirth, byte Gender, string Address,
             string Phone, string Email, int NationalityCountryID, string ImagePath)
@@ -178,7 +221,7 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM Person;";
+            string query = @"SELECT * FROM vPeople;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

@@ -22,29 +22,14 @@ namespace DVLD
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_CurrentScreen == null || _CurrentScreen.IsDisposed)
-            {
-                _CurrentScreen = new frmManagePeople();
-                _CurrentScreen.ShowDialog();
-            }
-            else
-                _CurrentScreen.BringToFront();
-
-            _CurrentScreen = null;
+            _CurrentScreen = new frmManagePeople();
+            _CurrentScreen.ShowDialog();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (_CurrentScreen == null || _CurrentScreen.IsDisposed)
-            {
-                _CurrentScreen = new frmLogin();
-                _CurrentScreen.ShowDialog();
-            }
-            else
-                _CurrentScreen.BringToFront();
-
-            _CurrentScreen = null;
-
+            _CurrentScreen = new frmLogin();
+            _CurrentScreen.ShowDialog();
         }
     }
 }

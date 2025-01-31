@@ -22,6 +22,7 @@ namespace DVLD_BusinessLogicLayer
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
+        public clsCountry CountryInfo = null;
 
         public clsPerson()
         {
@@ -61,6 +62,7 @@ namespace DVLD_BusinessLogicLayer
             this.Email = Email;
             this.NationalityCountryID = NationalityCountryID;
             this.ImagePath = ImagePath;
+            this.CountryInfo = clsCountry.Find(NationalityCountryID);
         }
 
         private bool _AddNewPerson()
@@ -100,6 +102,31 @@ namespace DVLD_BusinessLogicLayer
             else
                 return null;
         }
+
+        public static clsPerson Find(string NationalNo)
+        {
+            int ID = -1;
+            string FirstName = string.Empty;
+            string SecondName = string.Empty;
+            string ThirdName = string.Empty;
+            string LastName = string.Empty;
+            DateTime DateOfBirth = DateTime.MinValue;
+            byte Gender = 1;
+            string Address = string.Empty;
+            string Phone = string.Empty;
+            string Email = string.Empty;
+            int NationalityCountryID = -1;
+            string ImagePath = string.Empty;
+
+            if (clsPersonData.GetPersonInfoByNationalNo(NationalNo, ref ID, ref FirstName, ref SecondName,
+                ref ThirdName, ref LastName, ref DateOfBirth, ref Gender, ref Address, ref Phone,
+                ref Email, ref NationalityCountryID, ref ImagePath))
+                return new clsPerson(ID, NationalNo, FirstName, SecondName, ThirdName, LastName, DateOfBirth,
+                    Gender, Address, Phone, Email, NationalityCountryID, ImagePath);
+            else
+                return null;
+        }
+
 
         public bool Save()
         {
