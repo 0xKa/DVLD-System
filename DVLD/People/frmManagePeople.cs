@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DVLD_BusinessLogicLayer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,22 @@ namespace DVLD.People
         public frmManagePeople()
         {
             InitializeComponent();
+        }
+
+        private void _RefreshDGV()
+        {
+            dgvPeopleList.DataSource = clsPerson.GetAllPeople();
+            lblNumberOfRecords.Text = "Number of Records: " + dgvPeopleList.RowCount.ToString();
+        }
+
+        private void frmManagePeople_Load(object sender, EventArgs e)
+        {
+            _RefreshDGV();
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
