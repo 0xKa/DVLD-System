@@ -18,18 +18,17 @@ namespace DVLD
             InitializeComponent();
         }
 
-        private Form _CurrentScreen = null;
 
         private void peopleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _CurrentScreen = new frmManagePeople();
-            _CurrentScreen.ShowDialog();
+            frmManagePeople frmMP = new frmManagePeople();
+            frmMP.ShowDialog();
         }
 
         private void usersToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _CurrentScreen = new frmLogin();
-            _CurrentScreen.ShowDialog();
+            frmLogin frmL = new frmLogin();
+            frmL.ShowDialog();
         }
     }
 }

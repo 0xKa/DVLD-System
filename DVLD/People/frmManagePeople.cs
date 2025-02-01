@@ -33,5 +33,11 @@ namespace DVLD.People
         {
             this.Close();
         }
+
+        private void btnAddPerson_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frmAEP = new frmAddEditPerson();
+            frmAEP.ShowDialog();
+        }
     }
 }
