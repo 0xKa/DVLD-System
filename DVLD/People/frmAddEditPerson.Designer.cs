@@ -31,7 +31,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.lblPersonID = new System.Windows.Forms.Label();
-            this.lbl1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.btnClear = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.llRemoveImage = new System.Windows.Forms.LinkLabel();
@@ -62,8 +62,11 @@
             this.txbFirstName = new System.Windows.Forms.TextBox();
             this.lblName = new System.Windows.Forms.Label();
             this.btnClose = new System.Windows.Forms.Button();
+            this.pbModeIcon = new System.Windows.Forms.PictureBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbModeIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // lblTitle
@@ -91,6 +94,7 @@
             this.btnSave.TabIndex = 8;
             this.btnSave.Text = "Save";
             this.btnSave.UseVisualStyleBackColor = false;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
             // lblPersonID
             // 
@@ -104,19 +108,19 @@
             this.lblPersonID.Text = "N/A";
             this.lblPersonID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // lbl1
+            // label2
             // 
-            this.lbl1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.lbl1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.lbl1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1.ForeColor = System.Drawing.Color.Black;
-            this.lbl1.ImageIndex = 0;
-            this.lbl1.Location = new System.Drawing.Point(12, 9);
-            this.lbl1.Name = "lbl1";
-            this.lbl1.Size = new System.Drawing.Size(91, 28);
-            this.lbl1.TabIndex = 9;
-            this.lbl1.Text = "Person ID: ";
-            this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.label2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.Black;
+            this.label2.ImageIndex = 0;
+            this.label2.Location = new System.Drawing.Point(12, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(91, 28);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Person ID: ";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnClear
             // 
@@ -132,6 +136,7 @@
             this.btnClear.TabIndex = 11;
             this.btnClear.Text = "Clear";
             this.btnClear.UseVisualStyleBackColor = false;
+            this.btnClear.Click += new System.EventHandler(this.btnClear_Click);
             // 
             // panel1
             // 
@@ -180,6 +185,7 @@
             this.llRemoveImage.Text = "Remove Image";
             this.llRemoveImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.llRemoveImage.Visible = false;
+            this.llRemoveImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llRemoveImage_LinkClicked);
             // 
             // llSetImage
             // 
@@ -191,6 +197,7 @@
             this.llSetImage.TabStop = true;
             this.llSetImage.Text = "Set Image";
             this.llSetImage.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.llSetImage.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llSetImage_LinkClicked);
             // 
             // txbAddress
             // 
@@ -288,10 +295,12 @@
             this.rbFemale.Text = "Female";
             this.rbFemale.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rbFemale.UseVisualStyleBackColor = true;
+            this.rbFemale.CheckedChanged += new System.EventHandler(this.rbFemale_CheckedChanged);
             // 
             // rbMale
             // 
             this.rbMale.AutoSize = true;
+            this.rbMale.Checked = true;
             this.rbMale.Font = new System.Drawing.Font("Consolas", 11F);
             this.rbMale.ForeColor = System.Drawing.Color.Black;
             this.rbMale.Location = new System.Drawing.Point(115, 118);
@@ -302,6 +311,7 @@
             this.rbMale.Text = "Male";
             this.rbMale.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.rbMale.UseVisualStyleBackColor = true;
+            this.rbMale.CheckedChanged += new System.EventHandler(this.rbMale_CheckedChanged);
             // 
             // lblGender
             // 
@@ -319,6 +329,7 @@
             // pbPersonImage
             // 
             this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pbPersonImage.Image = global::DVLD.Properties.Resources.default_male;
             this.pbPersonImage.Location = new System.Drawing.Point(601, 63);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(143, 143);
@@ -328,7 +339,7 @@
             // 
             // dtpDateOfBirth
             // 
-            this.dtpDateOfBirth.CustomFormat = "yyyy/MMM/dd";
+            this.dtpDateOfBirth.CustomFormat = "yyyy/MMMM/dd";
             this.dtpDateOfBirth.Font = new System.Drawing.Font("Consolas", 10F);
             this.dtpDateOfBirth.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.dtpDateOfBirth.Location = new System.Drawing.Point(420, 75);
@@ -458,6 +469,7 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.LightGray;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -471,17 +483,35 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // pbModeIcon
+            // 
+            this.pbModeIcon.Image = global::DVLD.Properties.Resources.add_user;
+            this.pbModeIcon.Location = new System.Drawing.Point(730, 3);
+            this.pbModeIcon.Name = "pbModeIcon";
+            this.pbModeIcon.Size = new System.Drawing.Size(40, 40);
+            this.pbModeIcon.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbModeIcon.TabIndex = 14;
+            this.pbModeIcon.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Title = "Select a Valid Person Image";
+            // 
             // frmAddEditPerson
             // 
+            this.AcceptButton = this.btnSave;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CancelButton = this.btnClose;
             this.ClientSize = new System.Drawing.Size(780, 368);
+            this.Controls.Add(this.pbModeIcon);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.lblPersonID);
-            this.Controls.Add(this.lbl1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.lblTitle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -496,6 +526,7 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbPersonImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbModeIcon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -505,7 +536,7 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Label lblPersonID;
-        private System.Windows.Forms.Label lbl1;
+        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.LinkLabel llRemoveImage;
@@ -536,5 +567,7 @@
         private System.Windows.Forms.TextBox txbFirstName;
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Button btnClose;
+        private System.Windows.Forms.PictureBox pbModeIcon;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

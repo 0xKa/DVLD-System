@@ -37,7 +37,20 @@ namespace DVLD.People
         private void btnAddPerson_Click(object sender, EventArgs e)
         {
             frmAddEditPerson frmAEP = new frmAddEditPerson();
+            frmAEP.FormClosed += FrmAEP_FormClosed;
             frmAEP.ShowDialog();
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditPerson frmAEP = new frmAddEditPerson((int)dgvPeopleList.CurrentRow.Cells[0].Value);
+            frmAEP.FormClosed += FrmAEP_FormClosed;
+            frmAEP.ShowDialog();
+        }
+
+        private void FrmAEP_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _RefreshDGV();
         }
     }
 }

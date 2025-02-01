@@ -29,7 +29,7 @@ namespace DVLD_DataAccessLayer
                 if (reader.Read())
                 {
                     isFound = true;
-                    Name = (string)reader["Name"];
+                    Name = (string)reader["CountryName"];
                 }
                 reader.Close();
             }

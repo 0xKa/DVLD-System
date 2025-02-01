@@ -3,12 +3,15 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 
+using static DVLD_BusinessLogicLayer.clsGlobalSettings;
+
 namespace DVLD_BusinessLogicLayer
 {
     public class clsPerson
     {
-        clsGlobalSettings.enMode _Mode = clsGlobalSettings.enMode.AddNew;
+        enMode _Mode = enMode.AddNew;
 
+        //table props
         public int ID { get; set; }
         public string NationalNo { get; set; }
         public string FirstName { get; set; }
@@ -22,11 +25,25 @@ namespace DVLD_BusinessLogicLayer
         public string Email { get; set; }
         public int NationalityCountryID { get; set; }
         public string ImagePath { get; set; }
+
+        //extra props
         public clsCountry CountryInfo = null;
+        public string FullName
+        {
+            get {
+                return string.IsNullOrEmpty(ThirdName) ? FirstName + " " + SecondName + " " + LastName
+                    : FirstName + " " + SecondName + " " + ThirdName + " " + LastName;
+            }
+        }
+        public enGender enGender { 
+            get { 
+                return Gender == 1 ? enGender.Male : enGender.Female;
+            } 
+        }
 
         public clsPerson()
         {
-            _Mode = clsGlobalSettings.enMode.AddNew;
+            _Mode = enMode.AddNew;
 
             ID = -1;
             NationalNo = string.Empty;
@@ -47,7 +64,7 @@ namespace DVLD_BusinessLogicLayer
             string ThirdName, string LastName, DateTime DateOfBirth, byte Gender,
             string Address, string Phone, string Email, int NationalityCountryID, string ImagePath)
         {
-            _Mode = clsGlobalSettings.enMode.Update;
+            _Mode = enMode.Update;
 
             this.ID = ID;
             this.NationalNo = NationalNo;
@@ -132,11 +149,11 @@ namespace DVLD_BusinessLogicLayer
         {
             switch (_Mode)
             {
-                case clsGlobalSettings.enMode.AddNew:
-                    _Mode = clsGlobalSettings.enMode.Update;
+                case enMode.AddNew:
+                    _Mode = enMode.Update;
                     return _AddNewPerson();
 
-                case clsGlobalSettings.enMode.Update:
+                case enMode.Update:
                     return _UpdatePerson();
 
                 default:
@@ -157,6 +174,10 @@ namespace DVLD_BusinessLogicLayer
         public static bool IsPersonExist(int ID)
         {
             return clsPersonData.IsPersonExist(ID);
+        }
+        public static bool IsPersonExist(string NationalNo)
+        {
+            return clsPersonData.IsPersonExist(NationalNo);
         }
     }
 
