@@ -99,7 +99,7 @@
             // 
             this.llEditDetails.AutoSize = true;
             this.llEditDetails.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llEditDetails.Location = new System.Drawing.Point(515, 172);
+            this.llEditDetails.Location = new System.Drawing.Point(515, 157);
             this.llEditDetails.Name = "llEditDetails";
             this.llEditDetails.Size = new System.Drawing.Size(87, 18);
             this.llEditDetails.TabIndex = 50;
@@ -192,7 +192,7 @@
             // lbl1
             // 
             this.lbl1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl1.ForeColor = System.Drawing.Color.Gray;
+            this.lbl1.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl1.ImageKey = "id.png";
             this.lbl1.Location = new System.Drawing.Point(13, 34);
@@ -205,7 +205,7 @@
             // lbl9
             // 
             this.lbl9.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl9.ForeColor = System.Drawing.Color.Gray;
+            this.lbl9.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl9.ImageIndex = 8;
             this.lbl9.Location = new System.Drawing.Point(271, 134);
@@ -218,7 +218,7 @@
             // lbl6
             // 
             this.lbl6.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl6.ForeColor = System.Drawing.Color.Gray;
+            this.lbl6.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl6.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl6.ImageIndex = 9;
             this.lbl6.Location = new System.Drawing.Point(13, 204);
@@ -231,7 +231,7 @@
             // lbl5
             // 
             this.lbl5.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl5.ForeColor = System.Drawing.Color.Gray;
+            this.lbl5.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl5.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl5.ImageIndex = 7;
             this.lbl5.Location = new System.Drawing.Point(13, 136);
@@ -244,7 +244,7 @@
             // lbl8
             // 
             this.lbl8.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl8.ForeColor = System.Drawing.Color.Gray;
+            this.lbl8.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl8.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl8.ImageIndex = 6;
             this.lbl8.Location = new System.Drawing.Point(271, 102);
@@ -257,7 +257,7 @@
             // lbl4
             // 
             this.lbl4.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl4.ForeColor = System.Drawing.Color.Gray;
+            this.lbl4.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl4.ImageKey = "user (2).png";
             this.lbl4.Location = new System.Drawing.Point(13, 170);
@@ -281,7 +281,7 @@
             // lbl7
             // 
             this.lbl7.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl7.ForeColor = System.Drawing.Color.Gray;
+            this.lbl7.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl7.ImageIndex = 3;
             this.lbl7.Location = new System.Drawing.Point(13, 102);
@@ -294,7 +294,7 @@
             // lbl3
             // 
             this.lbl3.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl3.ForeColor = System.Drawing.Color.Gray;
+            this.lbl3.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl3.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl3.ImageIndex = 2;
             this.lbl3.Location = new System.Drawing.Point(251, 34);
@@ -307,7 +307,7 @@
             // lbl2
             // 
             this.lbl2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2.ForeColor = System.Drawing.Color.Gray;
+            this.lbl2.ForeColor = System.Drawing.Color.DarkGray;
             this.lbl2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.lbl2.ImageIndex = 1;
             this.lbl2.Location = new System.Drawing.Point(13, 68);

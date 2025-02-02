@@ -67,6 +67,11 @@ namespace DVLD.People
             frmAEP.ShowDialog();
         }
 
+        public bool EnableEditDetailsButton 
+        { 
+            set { llEditDetails.Enabled = value; }
+        }
+
         private void FrmAEP_FormClosed(object sender, FormClosedEventArgs e)
         {
             _FillCard();

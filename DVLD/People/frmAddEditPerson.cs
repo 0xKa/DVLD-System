@@ -17,6 +17,9 @@ namespace DVLD.People
 {
     public partial class frmAddEditPerson : Form
     {
+        public delegate void NewPersonAddedHandler(int AddedPersonID);
+        public event NewPersonAddedHandler NewPersonAdded;
+
         private enMode _Mode = enMode.AddNew;
         private clsPerson _Person = null;
 
@@ -242,7 +245,10 @@ namespace DVLD.People
             _FillPersonObject();
 
             if (_Person.Save())
+            {
+                NewPersonAdded?.Invoke(_Person.ID);
                 MessageBox.Show("Person Data Saved Successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
             else
                 MessageBox.Show("Error: Person Data was NOT Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
