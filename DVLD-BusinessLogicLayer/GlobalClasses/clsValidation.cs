@@ -15,5 +15,11 @@ namespace DVLD_BusinessLogicLayer
             return Regex.IsMatch(email, pattern) || string.IsNullOrEmpty(email);
         }
 
+        public static bool ValidatePhoneNumber(string PhoneNumber)
+        {
+            string pattern = @"^(?:[0-9] ?){7,14}[0-9]$";
+            return Regex.IsMatch(PhoneNumber, pattern);
+        }
+
     }
 }

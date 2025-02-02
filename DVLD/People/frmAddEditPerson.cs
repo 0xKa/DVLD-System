@@ -183,6 +183,8 @@ namespace DVLD.People
                 MessageBox.Show("Please Fill Required Information", "Info Missing!", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else if (clsPerson.IsPersonExist(txbNationalNo.Text) && _Mode == enMode.AddNew)
                 { MessageBox.Show("This National Number Already Exists", "National Number is not Valid!", MessageBoxButtons.OK, MessageBoxIcon.Information); txbNationalNo.Focus();}
+            else if (!clsValidation.ValidatePhoneNumber(txbPhone.Text))
+                { MessageBox.Show("Please Enter a Valid Phone Number", "Phone Number is not Valid!", MessageBoxButtons.OK, MessageBoxIcon.Information); txbPhone.Focus(); }
             else if (!clsValidation.ValidateEmail(txbEmail.Text))
                 { MessageBox.Show("Please Enter a Valid Email", "Email is not Valid!", MessageBoxButtons.OK, MessageBoxIcon.Information); txbEmail.Focus(); }
             else 

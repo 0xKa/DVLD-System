@@ -40,6 +40,13 @@ namespace DVLD_BusinessLogicLayer
                 return Gender == 1 ? enGender.Male : enGender.Female;
             } 
         }
+        public string sGender
+        {
+            get
+            {
+                return Gender == 1 ? "Male" : "Female";
+            }
+        }
 
         public clsPerson()
         {

@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.gbPersonInformation = new System.Windows.Forms.GroupBox();
+            this.lblPhone = new System.Windows.Forms.Label();
             this.llEditDetails = new System.Windows.Forms.LinkLabel();
             this.lblCountry = new System.Windows.Forms.Label();
-            this.lblPhone = new System.Windows.Forms.Label();
             this.lblDateOfBirth = new System.Windows.Forms.Label();
             this.lblAddress = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -85,6 +85,16 @@
             this.gbPersonInformation.TabStop = false;
             this.gbPersonInformation.Text = "Person Information";
             // 
+            // lblPhone
+            // 
+            this.lblPhone.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPhone.ForeColor = System.Drawing.Color.White;
+            this.lblPhone.Location = new System.Drawing.Point(358, 102);
+            this.lblPhone.Name = "lblPhone";
+            this.lblPhone.Size = new System.Drawing.Size(127, 20);
+            this.lblPhone.TabIndex = 48;
+            this.lblPhone.Text = "[????]";
+            // 
             // llEditDetails
             // 
             this.llEditDetails.AutoSize = true;
@@ -95,6 +105,7 @@
             this.llEditDetails.TabIndex = 50;
             this.llEditDetails.TabStop = true;
             this.llEditDetails.Text = "Edit Details";
+            this.llEditDetails.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llEditDetails_LinkClicked);
             // 
             // lblCountry
             // 
@@ -105,16 +116,6 @@
             this.lblCountry.Size = new System.Drawing.Size(127, 54);
             this.lblCountry.TabIndex = 49;
             this.lblCountry.Text = "[????]";
-            // 
-            // lblPhone
-            // 
-            this.lblPhone.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblPhone.ForeColor = System.Drawing.Color.White;
-            this.lblPhone.Location = new System.Drawing.Point(358, 102);
-            this.lblPhone.Name = "lblPhone";
-            this.lblPhone.Size = new System.Drawing.Size(127, 20);
-            this.lblPhone.TabIndex = 48;
-            this.lblPhone.Text = "[????]";
             // 
             // lblDateOfBirth
             // 
@@ -171,7 +172,7 @@
             this.lblFullName.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblFullName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.lblFullName.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFullName.ForeColor = System.Drawing.Color.IndianRed;
+            this.lblFullName.ForeColor = System.Drawing.Color.Firebrick;
             this.lblFullName.Location = new System.Drawing.Point(120, 68);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(365, 20);
