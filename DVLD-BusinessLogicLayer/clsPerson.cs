@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
-
+using System.IO;
 using static DVLD_BusinessLogicLayer.clsGlobalSettings;
 
 namespace DVLD_BusinessLogicLayer
@@ -170,6 +170,10 @@ namespace DVLD_BusinessLogicLayer
 
         public static bool DeletePerson(int ID)
         {
+            string ImagePath = Find(ID).ImagePath;
+
+            if (File.Exists(ImagePath))
+                File.Delete(ImagePath);
             return clsPersonData.DeletePerson(ID);
         }
 

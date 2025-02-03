@@ -28,18 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
             this.btnClose = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
             this.SuspendLayout();
-            // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(10, 39);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(639, 255);
-            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // btnClose
             // 
@@ -50,7 +42,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ImageKey = "(none)";
-            this.btnClose.Location = new System.Drawing.Point(516, 248);
+            this.btnClose.Location = new System.Drawing.Point(525, 243);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(108, 34);
             this.btnClose.TabIndex = 7;
@@ -67,6 +59,14 @@
             this.lblTitle.TabIndex = 8;
             this.lblTitle.Text = "Person Details";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(10, 39);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(639, 255);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // frmPersonDetails
             // 

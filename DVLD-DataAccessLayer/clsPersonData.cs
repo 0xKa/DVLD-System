@@ -215,6 +215,7 @@ namespace DVLD_DataAccessLayer
             return RowsAffected > 0;
         }
 
+        //returns special view of Person table
         public static DataTable GetAllPeople()
         {
             DataTable dtPerson = new DataTable();

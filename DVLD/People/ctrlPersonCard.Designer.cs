@@ -99,7 +99,7 @@
             // 
             this.llEditDetails.AutoSize = true;
             this.llEditDetails.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llEditDetails.Location = new System.Drawing.Point(515, 157);
+            this.llEditDetails.Location = new System.Drawing.Point(522, 19);
             this.llEditDetails.Name = "llEditDetails";
             this.llEditDetails.Size = new System.Drawing.Size(87, 18);
             this.llEditDetails.TabIndex = 50;
@@ -271,7 +271,7 @@
             // 
             this.pbPersonImage.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pbPersonImage.Image = global::DVLD.Properties.Resources.default_male;
-            this.pbPersonImage.Location = new System.Drawing.Point(491, 19);
+            this.pbPersonImage.Location = new System.Drawing.Point(498, 53);
             this.pbPersonImage.Name = "pbPersonImage";
             this.pbPersonImage.Size = new System.Drawing.Size(135, 135);
             this.pbPersonImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
