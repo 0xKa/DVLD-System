@@ -14,6 +14,20 @@ FROM [Person] JOIN [Country] ON Person.NationalityCountryID = Country.ID;
 
 SELECT * FROM vPeople;
 
+--Get User by username and password for login
+SELECT * FROM [User] WHERE Username = 'Admin' AND Password = '1234';
+
+--change password
+UPDATE [dbo].[User] SET [Password] = '1234' WHERE Username = 'Admin';
+
+--CREATE VIEW vUsers AS
+SELECT [User].ID, vPeople.ID AS PersonID, vPeople.FullName AS 'Full Name', [User].Username, [User].IsActive AS 'Active Status'
+FROM [User] JOIN vPeople ON vPeople.ID = [User].PersonID;
+
+SELECT * FROM vUsers;
+
+SELECT * FROM [User];
+
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];

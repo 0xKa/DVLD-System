@@ -37,13 +37,13 @@ namespace DVLD.People
             dgvPeopleList.Columns["Email"].Width = 150;
 
             dgvPeopleList.Columns["DateOfBirth"].DefaultCellStyle.Format = "dd/MMM/yyyy";
+            cbSearchOptions.SelectedIndex = 0;
         }
 
         private void frmManagePeople_Load(object sender, EventArgs e)
         {
             _RefreshDGV();
             _EditDGV();
-            cbSearchOptions.SelectedIndex = 0;
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -114,6 +114,36 @@ namespace DVLD.People
 
         }
 
+        private void cbSearchOptions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            btnClearSearch.PerformClick();
+
+            switch (cbSearchOptions.SelectedItem)
+            {
+
+                case "None":
+                    txbSearchBy.Visible = false;
+                    pnlSelectGender.Visible = false;
+
+                    break;
+
+                case "Gender":
+                    txbSearchBy.Visible = false;
+                    pnlSelectGender.Visible = true;
+                    pnlSelectGender.Focus();
+                    rbMale.Checked = false;
+                    rbFemale.Checked = false;
+                    break;
+                
+                default:
+                    txbSearchBy.Visible = true;
+                    pnlSelectGender.Visible = false;
+                    txbSearchBy.Focus();
+                    break;
+            }
+
+        }
+
         private void txbSearchBy_TextChanged(object sender, EventArgs e)
         {
             string Search = txbSearchBy.Text.Trim();
@@ -141,40 +171,11 @@ namespace DVLD.People
 
         }
 
-        private void cbSearchOptions_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btnClearSearch.PerformClick();
-            _dtPeopleList.DefaultView.RowFilter = string.Empty; //disable filter
-
-            switch (cbSearchOptions.SelectedItem)
-            {
-
-                case "None":
-                    txbSearchBy.Visible = false;
-                    pnlSelectGender.Visible = false;
-
-                    break;
-
-                case "Gender":
-                    txbSearchBy.Visible = false;
-                    pnlSelectGender.Visible = true;
-                    rbMale.Checked = false;
-                    rbFemale.Checked = false;
-                    break;
-                
-                default:
-                    txbSearchBy.Visible = true;
-                    pnlSelectGender.Visible = false;
-                    txbSearchBy.Focus();
-                    break;
-            }
-
-        }
-
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
-            txbSearchBy.Text = string.Empty;
+            txbSearchBy.Clear();
             txbSearchBy.Focus();
+            _dtPeopleList.DefaultView.RowFilter = string.Empty; //disable filter
         }
 
         private void rbMale_CheckedChanged(object sender, EventArgs e)

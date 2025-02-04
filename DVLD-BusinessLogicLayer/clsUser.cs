@@ -17,6 +17,7 @@ namespace DVLD_BusinessLogicLayer
         public string Username { get; set; }
         public string Password { get; set; }
         public bool IsActive { get; set; }
+
         public clsPerson PersonInfo = null;
 
         public clsUser()
@@ -66,6 +67,30 @@ namespace DVLD_BusinessLogicLayer
             else
                 return null;
         }
+        public static clsUser FindByPersonID(int PersonID)
+        {
+            int ID = -1;
+            string Username = string.Empty;
+            string Password = string.Empty;
+            bool IsActive = true;
+
+            if (clsUserData.GetUserInfoByPersonID(PersonID, ref ID, ref Username, ref Password, ref IsActive))
+                return new clsUser(ID, PersonID, Username, Password, IsActive);
+            else
+                return null;
+        }
+        public static clsUser FindByUsernameAndPassword(string Username, string Password)
+        {
+            int ID = -1;
+            int PersonID = -1;
+            bool IsActive = true;
+
+            if (clsUserData.GetUserInfoByUsernameAndPassword(Username, Password, ref ID, ref PersonID, ref IsActive))
+                return new clsUser(ID, PersonID, Username, Password, IsActive);
+            else
+                return null;
+        }
+        
 
         public bool Save()
         {
@@ -96,6 +121,11 @@ namespace DVLD_BusinessLogicLayer
         public static bool IsUserExist(int ID)
         {
             return clsUserData.IsUserExist(ID);
+        }
+
+        public static bool ChangePassword(string Username, string Password)
+        {
+            return clsUserData.ChangePassword(Username, Password);
         }
     }
 

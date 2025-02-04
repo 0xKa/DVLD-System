@@ -85,7 +85,6 @@
             // btnClose
             // 
             this.btnClose.BackColor = System.Drawing.Color.LightGray;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -298,11 +297,12 @@
             // rbMale
             // 
             this.rbMale.AutoSize = true;
+            this.rbMale.Dock = System.Windows.Forms.DockStyle.Left;
             this.rbMale.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbMale.ForeColor = System.Drawing.Color.White;
-            this.rbMale.Location = new System.Drawing.Point(3, 3);
+            this.rbMale.Location = new System.Drawing.Point(0, 0);
             this.rbMale.Name = "rbMale";
-            this.rbMale.Size = new System.Drawing.Size(54, 20);
+            this.rbMale.Size = new System.Drawing.Size(54, 27);
             this.rbMale.TabIndex = 15;
             this.rbMale.TabStop = true;
             this.rbMale.Text = "Male";
@@ -312,11 +312,12 @@
             // rbFemale
             // 
             this.rbFemale.AutoSize = true;
+            this.rbFemale.Dock = System.Windows.Forms.DockStyle.Right;
             this.rbFemale.Font = new System.Drawing.Font("Lucida Fax", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.rbFemale.ForeColor = System.Drawing.Color.White;
-            this.rbFemale.Location = new System.Drawing.Point(63, 3);
+            this.rbFemale.Location = new System.Drawing.Point(60, 0);
             this.rbFemale.Name = "rbFemale";
-            this.rbFemale.Size = new System.Drawing.Size(70, 20);
+            this.rbFemale.Size = new System.Drawing.Size(70, 27);
             this.rbFemale.TabIndex = 16;
             this.rbFemale.TabStop = true;
             this.rbFemale.Text = "Female";
@@ -329,7 +330,7 @@
             this.pnlSelectGender.Controls.Add(this.rbFemale);
             this.pnlSelectGender.Location = new System.Drawing.Point(232, 133);
             this.pnlSelectGender.Name = "pnlSelectGender";
-            this.pnlSelectGender.Size = new System.Drawing.Size(136, 27);
+            this.pnlSelectGender.Size = new System.Drawing.Size(130, 27);
             this.pnlSelectGender.TabIndex = 17;
             this.pnlSelectGender.Visible = false;
             // 
