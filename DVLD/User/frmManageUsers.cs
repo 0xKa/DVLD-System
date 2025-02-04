@@ -81,25 +81,47 @@ namespace DVLD.User
                     txbSearch.Visible = true;
                     txbSearch.Focus();
                     break;
-
             }
+         
+            _dtAllUsers.DefaultView.RowFilter = string.Empty;
         }
 
         private void txbSearch_TextChanged(object sender, EventArgs e)
         {
+            string Search = txbSearch.Text.Trim();
+            string SearchColumn = cbSearchOptions.SelectedItem.ToString();
 
+            if (Search == string.Empty)
+            {
+                _dtAllUsers.DefaultView.RowFilter = string.Empty;
+                btnClearSearch.Visible = false;
+            }
+            else
+            {
+                btnClearSearch.Visible = true;
+
+                //search logic
+                if (SearchColumn.Contains("ID"))
+                    _dtAllUsers.DefaultView.RowFilter = $"{SearchColumn} = {Convert.ToInt32(Search)}";
+                else
+                    _dtAllUsers.DefaultView.RowFilter = $"{SearchColumn} LIKE '%{Search}%'";
+
+            }
+
+            lblNumberOfRecords.Text = dgvUsersList.RowCount.ToString();
         }
 
         private void txbSearchBy_KeyPress(object sender, KeyPressEventArgs e)
         {
-
+            if ((cbSearchOptions.SelectedIndex == 1 || cbSearchOptions.SelectedIndex == 2)
+                && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+                e.Handled = true;
         }
 
         private void rbActive_CheckedChanged(object sender, EventArgs e)
         {
             _dtAllUsers.DefaultView.RowFilter = "[Active Status] = 1 ";
         }
-
         private void rbInactive_CheckedChanged(object sender, EventArgs e)
         {
             _dtAllUsers.DefaultView.RowFilter = "[Active Status] = 0 ";
@@ -109,9 +131,6 @@ namespace DVLD.User
         {
             txbSearch.Clear();
             txbSearch.Focus();
-            rbActive.Checked = false;
-            rbInactive.Checked = false;
-            _dtAllUsers.DefaultView.RowFilter = string.Empty; 
         }
 
        
