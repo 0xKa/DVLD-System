@@ -18,11 +18,11 @@ namespace DVLD.User
             InitializeComponent();
         }
 
-        private DataTable _dtUsersList = null;
+        private DataTable _dtAllUsers = null;
         private void _RefreshDGV()
         {
-            _dtUsersList = clsUser.GetAllUsers();
-            dgvUsersList.DataSource = _dtUsersList;
+            _dtAllUsers = clsUser.GetAllUsers();
+            dgvUsersList.DataSource = _dtAllUsers;
             lblNumberOfRecords.Text = dgvUsersList.RowCount.ToString();
         }
 
@@ -64,12 +64,12 @@ namespace DVLD.User
             switch (cbSearchOptions.SelectedItem)
             {
                 case "None":
-                    txbSearchBy.Visible = false;
+                    txbSearch.Visible = false;
                     pnlSelectStatus.Visible = false;
                     break;
                     
                 case "Active Status":
-                    txbSearchBy.Visible = false;
+                    txbSearch.Visible = false;
                     pnlSelectStatus.Visible = true;
                     pnlSelectStatus.Focus();
                     rbActive.Checked = false;
@@ -78,38 +78,13 @@ namespace DVLD.User
 
                 default:
                     pnlSelectStatus.Visible = false;
-                    txbSearchBy.Visible = true;
-                    txbSearchBy.Focus();
+                    txbSearch.Visible = true;
+                    txbSearch.Focus();
                     break;
 
             }
         }
 
-        private void txbSearchBy_TextChanged(object sender, EventArgs e)
-        {
-            string Search = txbSearchBy.Text.Trim();
-            string SearchColumn = cbSearchOptions.SelectedItem.ToString();
-
-            if (Search == string.Empty)
-            {
-                _dtUsersList.DefaultView.RowFilter = null;
-                lblNumberOfRecords.Text = dgvUsersList.RowCount.ToString();
-                btnClearSearch.Visible = false;
-            }
-            else
-            {
-                btnClearSearch.Visible = true;
-
-                if (SearchColumn == "ID")
-                    _dtUsersList.DefaultView.RowFilter = $"{SearchColumn} = {Convert.ToInt32(Search)}";
-                else
-                    _dtUsersList.DefaultView.RowFilter = $"{SearchColumn} LIKE '%{Search}%'";
-
-                lblNumberOfRecords.Text = dgvUsersList.RowCount.ToString();
-
-            }
-
-        }
         private void txbSearchBy_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -127,9 +102,11 @@ namespace DVLD.User
 
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
-            txbSearchBy.Clear();
-            txbSearchBy.Focus();
-            _dtUsersList.DefaultView.RowFilter = string.Empty; 
+            txbSearch.Clear();
+            txbSearch.Focus();
+            _dtAllUsers.DefaultView.RowFilter = string.Empty; 
         }
+
+        
     }
 }

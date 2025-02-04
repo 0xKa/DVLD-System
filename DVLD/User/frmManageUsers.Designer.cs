@@ -38,7 +38,7 @@
             this.cbSearchOptions = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
-            this.txbSearchBy = new System.Windows.Forms.TextBox();
+            this.txbSearch = new System.Windows.Forms.TextBox();
             this.phoneCallToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sendEmailToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
@@ -133,7 +133,7 @@
             "None",
             "ID",
             "PersonID",
-            "FullName",
+            "Full Name",
             "Username",
             "Active Status"});
             this.cbSearchOptions.Location = new System.Drawing.Point(108, 177);
@@ -159,15 +159,14 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "add.png");
             // 
-            // txbSearchBy
+            // txbSearch
             // 
-            this.txbSearchBy.Location = new System.Drawing.Point(234, 177);
-            this.txbSearchBy.Name = "txbSearchBy";
-            this.txbSearchBy.Size = new System.Drawing.Size(139, 20);
-            this.txbSearchBy.TabIndex = 26;
-            this.txbSearchBy.Visible = false;
-            this.txbSearchBy.TextChanged += new System.EventHandler(this.txbSearchBy_TextChanged);
-            this.txbSearchBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSearchBy_KeyPress);
+            this.txbSearch.Location = new System.Drawing.Point(234, 177);
+            this.txbSearch.Name = "txbSearch";
+            this.txbSearch.Size = new System.Drawing.Size(139, 20);
+            this.txbSearch.TabIndex = 26;
+            this.txbSearch.Visible = false;
+            this.txbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSearchBy_KeyPress);
             // 
             // phoneCallToolStripMenuItem
             // 
@@ -353,7 +352,7 @@
             this.Controls.Add(this.cbSearchOptions);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddPerson);
-            this.Controls.Add(this.txbSearchBy);
+            this.Controls.Add(this.txbSearch);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.dgvUsersList);
@@ -389,7 +388,7 @@
         private System.Windows.Forms.ComboBox cbSearchOptions;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ImageList imageList1;
-        private System.Windows.Forms.TextBox txbSearchBy;
+        private System.Windows.Forms.TextBox txbSearch;
         private System.Windows.Forms.ToolStripMenuItem phoneCallToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sendEmailToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
