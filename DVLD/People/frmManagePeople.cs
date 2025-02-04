@@ -131,8 +131,8 @@ namespace DVLD.People
                     txbSearchBy.Visible = false;
                     pnlSelectGender.Visible = true;
                     pnlSelectGender.Focus();
-                    rbMale.Checked = false;
                     rbFemale.Checked = false;
+                    rbMale.Checked = false;
                     break;
                 
                 default:
@@ -141,6 +141,8 @@ namespace DVLD.People
                     txbSearchBy.Focus();
                     break;
             }
+                    
+            _dtPeopleList.DefaultView.RowFilter = string.Empty;
 
         }
 
@@ -152,7 +154,6 @@ namespace DVLD.People
             if (Search == string.Empty)
             {
                 _dtPeopleList.DefaultView.RowFilter = string.Empty;
-                lblNumberOfRecords.Text = dgvPeopleList.RowCount.ToString();
                 btnClearSearch.Visible = false;
             }
             else
@@ -165,9 +166,9 @@ namespace DVLD.People
                 else
                     _dtPeopleList.DefaultView.RowFilter = $"{SearchColumn} LIKE '%{Search}%'";
 
-                lblNumberOfRecords.Text = dgvPeopleList.RowCount.ToString();
             }
 
+            lblNumberOfRecords.Text = dgvPeopleList.RowCount.ToString();
 
         }
 
@@ -175,17 +176,20 @@ namespace DVLD.People
         {
             txbSearchBy.Clear();
             txbSearchBy.Focus();
-            _dtPeopleList.DefaultView.RowFilter = string.Empty; //disable filter
+
         }
 
         private void rbMale_CheckedChanged(object sender, EventArgs e)
         {
             _dtPeopleList.DefaultView.RowFilter = $"Gender LIKE 'Male'";
+            lblNumberOfRecords.Text = dgvPeopleList.RowCount.ToString();
+
         }
 
         private void rbFemale_CheckedChanged(object sender, EventArgs e)
         {
             _dtPeopleList.DefaultView.RowFilter = $"Gender LIKE 'Female'";
+            lblNumberOfRecords.Text = dgvPeopleList.RowCount.ToString();
 
         }
 

@@ -85,6 +85,11 @@ namespace DVLD.User
             }
         }
 
+        private void txbSearch_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
         private void txbSearchBy_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -92,21 +97,23 @@ namespace DVLD.User
 
         private void rbActive_CheckedChanged(object sender, EventArgs e)
         {
-
+            _dtAllUsers.DefaultView.RowFilter = "[Active Status] = 1 ";
         }
 
         private void rbInactive_CheckedChanged(object sender, EventArgs e)
         {
-
+            _dtAllUsers.DefaultView.RowFilter = "[Active Status] = 0 ";
         }
 
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
             txbSearch.Clear();
             txbSearch.Focus();
+            rbActive.Checked = false;
+            rbInactive.Checked = false;
             _dtAllUsers.DefaultView.RowFilter = string.Empty; 
         }
 
-        
+       
     }
 }

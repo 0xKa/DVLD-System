@@ -166,6 +166,7 @@
             this.txbSearch.Size = new System.Drawing.Size(139, 20);
             this.txbSearch.TabIndex = 26;
             this.txbSearch.Visible = false;
+            this.txbSearch.TextChanged += new System.EventHandler(this.txbSearch_TextChanged);
             this.txbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSearchBy_KeyPress);
             // 
             // phoneCallToolStripMenuItem
