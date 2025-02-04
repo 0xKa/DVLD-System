@@ -187,5 +187,13 @@ namespace DVLD.People
             _dtPeopleList.DefaultView.RowFilter = $"Gender LIKE 'Female'";
 
         }
+
+        private void txbSearchBy_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            //allow to press digits & backspaces only
+            if ((string)cbSearchOptions.SelectedItem == "ID" 
+                && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+                e.Handled = true;
+        }
     }
 }

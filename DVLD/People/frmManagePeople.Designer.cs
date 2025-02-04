@@ -252,6 +252,7 @@
             this.txbSearchBy.TabIndex = 12;
             this.txbSearchBy.Visible = false;
             this.txbSearchBy.TextChanged += new System.EventHandler(this.txbSearchBy_TextChanged);
+            this.txbSearchBy.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbSearchBy_KeyPress);
             // 
             // cbSearchOptions
             // 
@@ -343,7 +344,6 @@
             this.Controls.Add(this.pnlSelectGender);
             this.Controls.Add(this.lblNumberOfRecords);
             this.Controls.Add(this.btnClearSearch);
-            this.Controls.Add(this.txbSearchBy);
             this.Controls.Add(this.cbSearchOptions);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.btnAddPerson);
@@ -352,6 +352,7 @@
             this.Controls.Add(this.dgvPeopleList);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.txbSearchBy);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
