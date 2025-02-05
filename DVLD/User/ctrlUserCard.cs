@@ -26,8 +26,25 @@ namespace DVLD.User
             ctrlPersonCard1.LoadPersonInfo(SelectedUser.PersonID);
             lblUserID.Text = SelectedUser.ID.ToString();
             lblUsername.Text = SelectedUser.Username;
-            lblActiveStatus.Text = SelectedUser.IsActive ? "Active" : "Inactive";
-            pbActiveStatus.Image = SelectedUser.IsActive ? Resources.active : Resources.inactive;
+
+            if (SelectedUser.IsActive)
+            {
+                lblActiveStatus.Text = "Active";
+                pbActiveStatus.Image = Resources.active;
+                lblUserID.ForeColor = Color.Green;
+                lblUsername.ForeColor = Color.Green;
+                lblActiveStatus.ForeColor = Color.Green;
+            }
+            else
+            {
+                lblActiveStatus.Text = "Inactive";
+                pbActiveStatus.Image = Resources.inactive;
+                lblUserID.ForeColor = Color.Firebrick;
+                lblUsername.ForeColor = Color.Firebrick;
+                lblActiveStatus.ForeColor = Color.Firebrick;
+            }
+
+
         }
 
         public void LoadUserInfo(clsUser User)

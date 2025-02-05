@@ -178,5 +178,12 @@ namespace DVLD.User
         {
             showDetailsToolStripMenuItem.PerformClick();
         }
+
+        private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmChangePassword frmCP = new frmChangePassword((int)dgvUsersList.CurrentRow.Cells[0].Value);
+            frmCP.FormClosed += Refresh_WhenFormClosed;
+            frmCP.ShowDialog();
+        }
     }
 }

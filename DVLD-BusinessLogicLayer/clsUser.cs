@@ -127,6 +127,11 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsUserData.IsPersonAUser(PersonID);
         }
+
+        public bool ChangePassword(string NewPassword)
+        {
+            return clsUserData.ChangePassword(this.Username, NewPassword);
+        }
         public static bool ChangePassword(string Username, string Password)
         {
             return clsUserData.ChangePassword(Username, Password);

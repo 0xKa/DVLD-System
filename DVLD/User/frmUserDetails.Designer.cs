@@ -45,7 +45,7 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Copperplate Gothic Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblTitle.Location = new System.Drawing.Point(320, 9);
+            this.lblTitle.Location = new System.Drawing.Point(294, 9);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(240, 34);
             this.lblTitle.TabIndex = 9;
