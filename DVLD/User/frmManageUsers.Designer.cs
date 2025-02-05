@@ -229,7 +229,7 @@
             this.sendEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 148);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(151, 126);
             // 
             // btnClose
             // 
@@ -275,6 +275,7 @@
             this.dgvUsersList.ReadOnly = true;
             this.dgvUsersList.Size = new System.Drawing.Size(735, 346);
             this.dgvUsersList.TabIndex = 21;
+            this.dgvUsersList.DoubleClick += new System.EventHandler(this.dgvUsersList_DoubleClick);
             // 
             // lblTitle
             // 

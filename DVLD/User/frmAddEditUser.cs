@@ -70,6 +70,7 @@ namespace DVLD.User
             txbPassword.Text = _User.Password;
             txbConfirmPassword.Text = _User.Password;
             chbActive.Checked = _User.IsActive;
+            btnNext.Enabled = true;
         }
 
         private void frmAddEditUser_Load(object sender, EventArgs e)

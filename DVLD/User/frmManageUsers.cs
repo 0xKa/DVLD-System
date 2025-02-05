@@ -171,5 +171,10 @@ namespace DVLD.User
             MessageBox.Show($"This Feature is not Implemeted Yet.", "...", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
+        private void dgvUsersList_DoubleClick(object sender, EventArgs e)
+        {
+            showDetailsToolStripMenuItem.PerformClick();
+        }
     }
 }
