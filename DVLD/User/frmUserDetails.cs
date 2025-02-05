@@ -12,9 +12,28 @@ namespace DVLD.User
 {
     public partial class frmUserDetails : Form
     {
-        public frmUserDetails()
+        int _UserID = 1;
+        public frmUserDetails(int UserID)
         {
             InitializeComponent();
+            _UserID = UserID;
         }
+
+        private void frmUserDetails_Load(object sender, EventArgs e)
+        {
+            this.Activated += FrmUserDetails_Activated;
+            this.Text = $"User {_UserID} Details";
+        }
+
+        private void FrmUserDetails_Activated(object sender, EventArgs e)
+        {
+            ctrlUserCard1.LoadUserInfo(_UserID);
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
     }
 }

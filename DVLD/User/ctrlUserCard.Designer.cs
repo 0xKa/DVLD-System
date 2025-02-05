@@ -29,13 +29,13 @@
         private void InitializeComponent()
         {
             this.gbLoginInformation = new System.Windows.Forms.GroupBox();
-            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
-            this.lblUserID = new System.Windows.Forms.Label();
-            this.lbl7 = new System.Windows.Forms.Label();
-            this.lblUsername = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.lblActiveStatus = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblUserID = new System.Windows.Forms.Label();
+            this.lbl7 = new System.Windows.Forms.Label();
+            this.ctrlPersonCard1 = new DVLD.People.ctrlPersonCard();
             this.pbActiveStatus = new System.Windows.Forms.PictureBox();
             this.gbLoginInformation.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbActiveStatus)).BeginInit();
@@ -59,70 +59,13 @@
             this.gbLoginInformation.TabStop = false;
             this.gbLoginInformation.Text = "Login Information";
             // 
-            // ctrlPersonCard1
-            // 
-            this.ctrlPersonCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ctrlPersonCard1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ctrlPersonCard1.Location = new System.Drawing.Point(0, 0);
-            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
-            this.ctrlPersonCard1.Size = new System.Drawing.Size(639, 255);
-            this.ctrlPersonCard1.TabIndex = 0;
-            // 
-            // lblUserID
-            // 
-            this.lblUserID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUserID.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblUserID.Location = new System.Drawing.Point(58, 50);
-            this.lblUserID.Name = "lblUserID";
-            this.lblUserID.Size = new System.Drawing.Size(64, 20);
-            this.lblUserID.TabIndex = 49;
-            this.lblUserID.Text = "[????]";
-            this.lblUserID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lbl7
-            // 
-            this.lbl7.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl7.ForeColor = System.Drawing.Color.LightGray;
-            this.lbl7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lbl7.ImageIndex = 3;
-            this.lbl7.Location = new System.Drawing.Point(47, 27);
-            this.lbl7.Name = "lbl7";
-            this.lbl7.Size = new System.Drawing.Size(87, 20);
-            this.lbl7.TabIndex = 48;
-            this.lbl7.Text = "User ID";
-            this.lbl7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // lblUsername
-            // 
-            this.lblUsername.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblUsername.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblUsername.Location = new System.Drawing.Point(58, 130);
-            this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(64, 20);
-            this.lblUsername.TabIndex = 51;
-            this.lblUsername.Text = "[????]";
-            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label2
-            // 
-            this.label2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label2.ImageIndex = 3;
-            this.label2.Location = new System.Drawing.Point(47, 107);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 20);
-            this.label2.TabIndex = 50;
-            this.label2.Text = "Username";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // lblActiveStatus
             // 
             this.lblActiveStatus.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblActiveStatus.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblActiveStatus.Location = new System.Drawing.Point(58, 210);
+            this.lblActiveStatus.Location = new System.Drawing.Point(22, 210);
             this.lblActiveStatus.Name = "lblActiveStatus";
-            this.lblActiveStatus.Size = new System.Drawing.Size(64, 20);
+            this.lblActiveStatus.Size = new System.Drawing.Size(137, 20);
             this.lblActiveStatus.TabIndex = 53;
             this.lblActiveStatus.Text = "[????]";
             this.lblActiveStatus.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -133,12 +76,69 @@
             this.label4.ForeColor = System.Drawing.Color.LightGray;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.label4.ImageIndex = 3;
-            this.label4.Location = new System.Drawing.Point(47, 187);
+            this.label4.Location = new System.Drawing.Point(22, 187);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(87, 20);
+            this.label4.Size = new System.Drawing.Size(137, 20);
             this.label4.TabIndex = 52;
             this.label4.Text = "Status";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUsername.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblUsername.Location = new System.Drawing.Point(22, 130);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(137, 20);
+            this.lblUsername.TabIndex = 51;
+            this.lblUsername.Text = "[????]";
+            this.lblUsername.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label2
+            // 
+            this.label2.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.LightGray;
+            this.label2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label2.ImageIndex = 3;
+            this.label2.Location = new System.Drawing.Point(22, 107);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(137, 20);
+            this.label2.TabIndex = 50;
+            this.label2.Text = "Username";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lblUserID
+            // 
+            this.lblUserID.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserID.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblUserID.Location = new System.Drawing.Point(22, 50);
+            this.lblUserID.Name = "lblUserID";
+            this.lblUserID.Size = new System.Drawing.Size(137, 20);
+            this.lblUserID.TabIndex = 49;
+            this.lblUserID.Text = "[????]";
+            this.lblUserID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // lbl7
+            // 
+            this.lbl7.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbl7.ForeColor = System.Drawing.Color.LightGray;
+            this.lbl7.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lbl7.ImageIndex = 3;
+            this.lbl7.Location = new System.Drawing.Point(22, 27);
+            this.lbl7.Name = "lbl7";
+            this.lbl7.Size = new System.Drawing.Size(137, 20);
+            this.lbl7.TabIndex = 48;
+            this.lbl7.Text = "User ID";
+            this.lbl7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ctrlPersonCard1
+            // 
+            this.ctrlPersonCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ctrlPersonCard1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ctrlPersonCard1.Location = new System.Drawing.Point(0, 0);
+            this.ctrlPersonCard1.Name = "ctrlPersonCard1";
+            this.ctrlPersonCard1.Size = new System.Drawing.Size(639, 255);
+            this.ctrlPersonCard1.TabIndex = 0;
             // 
             // pbActiveStatus
             // 

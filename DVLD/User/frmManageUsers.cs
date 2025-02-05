@@ -137,7 +137,9 @@ namespace DVLD.User
 
         private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("..."); //
+            frmUserDetails frmUD = new frmUserDetails((int)dgvUsersList.CurrentRow.Cells[0].Value);
+            frmUD.FormClosed += Refresh_WhenFormClosed;
+            frmUD.ShowDialog();
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)

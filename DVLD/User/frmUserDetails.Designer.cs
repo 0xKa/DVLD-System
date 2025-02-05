@@ -28,19 +28,73 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.ctrlUserCard1 = new DVLD.User.ctrlUserCard();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.btnClose = new System.Windows.Forms.Button();
             this.SuspendLayout();
+            // 
+            // ctrlUserCard1
+            // 
+            this.ctrlUserCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ctrlUserCard1.Location = new System.Drawing.Point(5, 46);
+            this.ctrlUserCard1.Name = "ctrlUserCard1";
+            this.ctrlUserCard1.Size = new System.Drawing.Size(819, 255);
+            this.ctrlUserCard1.TabIndex = 0;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.Font = new System.Drawing.Font("Copperplate Gothic Bold", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitle.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblTitle.Location = new System.Drawing.Point(320, 9);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(240, 34);
+            this.lblTitle.TabIndex = 9;
+            this.lblTitle.Text = "User Details";
+            this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.LightGray;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ImageKey = "(none)";
+            this.btnClose.Location = new System.Drawing.Point(717, 304);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(108, 34);
+            this.btnClose.TabIndex = 10;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // frmUserDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(733, 289);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ClientSize = new System.Drawing.Size(829, 340);
+            this.Controls.Add(this.btnClose);
+            this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.ctrlUserCard1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmUserDetails";
-            this.Text = "frmUserDetails";
+            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "User Details";
+            this.Load += new System.EventHandler(this.frmUserDetails_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
+
+        private ctrlUserCard ctrlUserCard1;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button btnClose;
     }
 }
