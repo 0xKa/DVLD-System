@@ -239,6 +239,28 @@ namespace DVLD_DataAccessLayer
 
             return IsFound;
         }
+        
+        public static bool IsPersonAUser(int PersonID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM [User] WHERE PersonID = @PersonID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@PersonID", PersonID);
+
+            try
+            {
+                connection.Open();
+                IsFound = (command.ExecuteScalar() != null);
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return IsFound;
+        }
 
         public static bool ChangePassword(string Username, string Password)
         {

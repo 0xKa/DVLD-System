@@ -13,6 +13,9 @@ namespace DVLD.People
 {
     public partial class ctrlPersonCardFinder : UserControl
     {
+        public delegate void PersonSelectedEventHandler();
+        public event PersonSelectedEventHandler PersonSelected;
+
         public ctrlPersonCardFinder()
         {
             InitializeComponent();
@@ -29,6 +32,10 @@ namespace DVLD.People
         public clsPerson SelectedPerson
         {
             get { return ctrlPersonCard1.SelectedPerson; }
+        }
+        public bool IsPersonSelected
+        {
+            get { return ctrlPersonCard1.SelectedPerson != null; }
         }
 
         private void ctrlPersonCardFinder_Load(object sender, EventArgs e)
@@ -50,9 +57,12 @@ namespace DVLD.People
             switch (cbFindBy.SelectedItem)
             {
                 case "NationalNo":
-                    
+
                     if (clsPerson.IsPersonExist(Filter))
+                    {
                         ctrlPersonCard1.LoadPersonInfo(Filter);
+                        this.PersonSelected?.Invoke();
+                    }
                     else
                         MessageBox.Show("National Number not Found!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -61,7 +71,10 @@ namespace DVLD.People
                 case "PersonID":
 
                     if (int.TryParse(Filter, out int id) && clsPerson.IsPersonExist(id))
+                    {
                         ctrlPersonCard1.LoadPersonInfo(id);
+                        this.PersonSelected?.Invoke();
+                    }
                     else
                         MessageBox.Show("Person ID Not Valid/Found", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -96,6 +109,11 @@ namespace DVLD.People
                 e.SuppressKeyPress = true; //cancel the key action (make it like 'Enter' wasn't pressed)
                 btnFind.PerformClick();
             }
+        }
+
+        public void Clear()
+        {
+            ctrlPersonCard1.Clear();
         }
     }
 }

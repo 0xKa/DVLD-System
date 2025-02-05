@@ -54,7 +54,9 @@ namespace DVLD.User
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("...");
+            frmAddEditUser frmAEU = new frmAddEditUser();
+            frmAEU.FormClosed += Refresh_WhenFormClosed;
+            frmAEU.ShowDialog();
         }
 
         private void cbSearchOptions_SelectedIndexChanged(object sender, EventArgs e)
@@ -133,6 +135,41 @@ namespace DVLD.User
             txbSearch.Focus();
         }
 
-       
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("..."); //
+        }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditUser frmAEU = new frmAddEditUser((int)dgvUsersList.CurrentRow.Cells[0].Value);
+            frmAEU.FormClosed += Refresh_WhenFormClosed;
+            frmAEU.ShowDialog();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            int UserID = (int)dgvUsersList.CurrentRow.Cells[0].Value;
+
+            if (MessageBox.Show($"Are you sure you want to Delete User {UserID}?", "Delete User", MessageBoxButtons.OKCancel, MessageBoxIcon.Information) == DialogResult.OK)
+            {
+                if (clsUser.DeleteUser(UserID))
+                    _RefreshDGV();
+                else
+                    MessageBox.Show($"This User Cannot be Deleted.", "Delete User", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void sendEmailToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"This Feature is not Implemeted Yet.", "...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
+        private void phoneCallToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"This Feature is not Implemeted Yet.", "...", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+        }
     }
 }

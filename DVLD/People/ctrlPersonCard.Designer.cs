@@ -98,6 +98,7 @@
             // llEditDetails
             // 
             this.llEditDetails.AutoSize = true;
+            this.llEditDetails.Enabled = false;
             this.llEditDetails.Font = new System.Drawing.Font("Bell MT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llEditDetails.Location = new System.Drawing.Point(522, 19);
             this.llEditDetails.Name = "llEditDetails";

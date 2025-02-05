@@ -123,6 +123,10 @@ namespace DVLD_BusinessLogicLayer
             return clsUserData.IsUserExist(ID);
         }
 
+        public static bool IsPersonAUser(int PersonID)
+        {
+            return clsUserData.IsPersonAUser(PersonID);
+        }
         public static bool ChangePassword(string Username, string Password)
         {
             return clsUserData.ChangePassword(Username, Password);

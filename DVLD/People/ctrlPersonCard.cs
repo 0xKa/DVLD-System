@@ -46,6 +46,7 @@ namespace DVLD.People
             {
                 SelectedPerson = Person;
                 _FillCard();
+                EnableEditDetailsButton = true;
             }
             else
                 MessageBox.Show("Person Was Not Found", "Error",MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -75,6 +76,22 @@ namespace DVLD.People
         private void FrmAEP_FormClosed(object sender, FormClosedEventArgs e)
         {
             _FillCard();
+        }
+
+        public void Clear()
+        {
+            SelectedPerson = null;
+            lblID.Text = "[-1]";
+            lblFullName.Text = "[???? ???? ???? ????]";
+            lblNationalNo.Text = "[????]";
+            lblDateOfBirth.Text = "[????]";
+            lblPhone.Text = "[????]";
+            lblEmail.Text = "[????]";
+            lblAddress.Text = "[????]";
+            lblCountry.Text = "[????]";
+            lblGender.Text = "[????]";
+            pbPersonImage.Image = Properties.Resources.default_male;
+            EnableEditDetailsButton = false;
         }
     }
 }
