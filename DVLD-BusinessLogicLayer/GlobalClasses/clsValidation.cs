@@ -21,5 +21,10 @@ namespace DVLD_BusinessLogicLayer
             return Regex.IsMatch(PhoneNumber, pattern);
         }
 
+        public static bool IsPositiveDecimal(string sNumber)
+        {
+            return decimal.TryParse(sNumber, out decimal Fees) && Fees > 0;
+        }
+
     }
 }

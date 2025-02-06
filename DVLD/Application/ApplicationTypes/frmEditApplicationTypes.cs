@@ -44,7 +44,7 @@ namespace DVLD.Application.ApplicationTypes
         {
             return !string.IsNullOrWhiteSpace(txbApplicationTypeTitle.Text) &&
                       !string.IsNullOrWhiteSpace(txbApplicationTypeFees.Text) &&
-                      decimal.TryParse(txbApplicationTypeFees.Text, out decimal Fees) && Fees > 0;
+                      clsValidation.IsPositiveDecimal(txbApplicationTypeFees.Text);
         }
 
         private void _FillApplicationTypeObject()
