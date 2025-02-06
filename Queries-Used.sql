@@ -43,11 +43,34 @@ SELECT * FROM [User];
 UPDATE [Application] SET [Status] = 1 WHERE [ID] = 1;
 
 
-
+SELECT * FROM [User] WHERE ID = 8;
 
 
 SELECT * FROM [Application];
 
+
+--CREATE VIEW vLocalLicenseApplications AS
+SELECT 
+	[LocalLicenseApplication].ID,
+	[vPeople].NationalNo,
+	[vPeople].FullName,
+	[LicenseClass].Title,
+	[Application].ApplicationDate,
+	(
+	SELECT COUNT([TestAppointment].TestTypeID) 
+	FROM [Test] JOIN [TestAppointment] ON [TestAppointment].ID = [Test].TestAppointmentID
+	WHERE [TestAppointment].LocalLicenseApplicationID = [LocalLicenseApplication].ID AND [Test].Result = 1
+	) AS PassedTests,
+	(CASE
+			WHEN [Application].[Status] = 1 THEN 'New'
+			WHEN [Application].[Status] = 2 THEN 'Canceled'
+			WHEN [Application].[Status] = 3 THEN 'Completed'
+
+	END)
+FROM [LocalLicenseApplication]
+	JOIN [Application] ON [Application].ID = [LocalLicenseApplication].ApplicationID
+	JOIN [LicenseClass] ON [LicenseClass].ID = [LocalLicenseApplication].LicenseClass
+	JOIN [vPeople] ON [vPeople].ID = [Application].ApplicantPersonID
 
 
 
