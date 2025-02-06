@@ -23,7 +23,6 @@ FROM
 JOIN 
     [Country] ON Person.NationalityCountryID = Country.ID;
 
-
 SELECT * FROM vPeople;
 
 --Get User by username and password for login
@@ -40,13 +39,16 @@ SELECT * FROM vUsers;
 SELECT * FROM [User];
 
 
-SELECT * FROM [ApplicationType];
-SELECT * FROM [TestType];
+--change application status
+UPDATE [Application] SET [Status] = 1 WHERE [ID] = 1;
+
+
+
+
 
 SELECT * FROM [Application];
 
---change application status
-UPDATE [Application] SET [Status] = 1 WHERE [ID] = 1;
+
 
 
 SELECT * FROM [Country];

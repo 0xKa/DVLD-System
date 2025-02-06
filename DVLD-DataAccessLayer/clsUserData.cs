@@ -74,7 +74,7 @@ namespace DVLD_DataAccessLayer
             return isFound;
         }
         
-        public static bool GetUserInfoByUsernameAndPassword(string Username, string Password, ref int PersonID, ref int ID, ref bool IsActive)
+        public static bool GetUserInfoByUsernameAndPassword(string Username, string Password, ref int ID, ref int PersonID, ref bool IsActive)
         {
             bool isFound = false;
 
