@@ -37,11 +37,11 @@ SELECT [User].ID, vPeople.ID AS PersonID, vPeople.FullName AS 'Full Name', [User
 FROM [User] JOIN vPeople ON vPeople.ID = [User].PersonID;
 
 SELECT * FROM vUsers;
-
 SELECT * FROM [User];
 
 
 SELECT * FROM [ApplicationType];
+SELECT * FROM [LicenseClass];
 
 
 
