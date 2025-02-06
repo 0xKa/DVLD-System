@@ -12,9 +12,22 @@ namespace DVLD_BusinessLogicLayer
     {
         clsGlobalSettings.enMode _Mode = clsGlobalSettings.enMode.AddNew;
 
+        public enum enApplicationType
+        {
+            NewLocalDrivingLicense = 1,
+            RenewDrivingLicense = 2,
+            ReplacementforaDamagedDrivingLicense = 3,
+            ReplacementforaLostDrivingLicense = 4,
+            ReleaseDetainedDrivingLicsense = 5,
+            NewInternationalLicense = 6,
+            RetakeTest = 7
+        }
+
         public int ID { get; set; }
         public string Title { get; set; }
         public decimal Fees { get; set; }
+
+        public enApplicationType ApplicationType { get { return (enApplicationType)ID; } }
 
         public clsApplicationType()
         {

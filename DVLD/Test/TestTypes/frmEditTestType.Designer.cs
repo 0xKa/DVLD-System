@@ -119,6 +119,7 @@
             this.txbTestTypeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbTestTypeTitle.Location = new System.Drawing.Point(127, 90);
             this.txbTestTypeTitle.Name = "txbTestTypeTitle";
+            this.txbTestTypeTitle.ReadOnly = true;
             this.txbTestTypeTitle.Size = new System.Drawing.Size(303, 22);
             this.txbTestTypeTitle.TabIndex = 29;
             // 

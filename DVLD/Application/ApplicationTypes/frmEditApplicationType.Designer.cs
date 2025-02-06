@@ -56,6 +56,7 @@
             this.txbApplicationTypeTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txbApplicationTypeTitle.Location = new System.Drawing.Point(88, 107);
             this.txbApplicationTypeTitle.Name = "txbApplicationTypeTitle";
+            this.txbApplicationTypeTitle.ReadOnly = true;
             this.txbApplicationTypeTitle.Size = new System.Drawing.Size(319, 22);
             this.txbApplicationTypeTitle.TabIndex = 19;
             // 
