@@ -1,4 +1,5 @@
-﻿using DVLD.People;
+﻿using DVLD.Application.ApplicationTypes;
+using DVLD.People;
 using DVLD.User;
 using DVLD_BusinessLogicLayer;
 using System;
@@ -45,14 +46,14 @@ namespace DVLD
 
         private void currentUserInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmUserDetails frmUD = new frmUserDetails(clsGlobalSettings.LoggedInUser.ID);
-            frmUD.ShowDialog();
+            _CurrentForm = new frmUserDetails(clsGlobalSettings.LoggedInUser.ID);
+            _CurrentForm.ShowDialog();
         }
 
         private void changePasswordToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmChangePassword frmCP = new frmChangePassword(clsGlobalSettings.LoggedInUser.ID);
-            frmCP.ShowDialog();
+            _CurrentForm = new frmChangePassword(clsGlobalSettings.LoggedInUser.ID);
+            _CurrentForm.ShowDialog();
         }
 
         private void accountSettingsToolStripMenuItem_MouseHover(object sender, EventArgs e)
@@ -65,6 +66,12 @@ namespace DVLD
         private void accountSettingsToolStripMenuItem_MouseLeave(object sender, EventArgs e)
         {
             lblUserLoogedIn.Visible = false ;
+        }
+
+        private void manageApplicationTypesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmManageApplicationTypes();
+            _CurrentForm.ShowDialog();
         }
     }
 }
