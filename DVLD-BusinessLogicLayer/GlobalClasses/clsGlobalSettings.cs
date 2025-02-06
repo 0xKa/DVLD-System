@@ -11,7 +11,6 @@ namespace DVLD_BusinessLogicLayer
     {
         public static clsUser LoggedInUser = null;
         public enum enMode { AddNew, Update }
-        public enum enGender { Female = 0, Male = 1 }
 
 
         public static string PeopleImagesFolder = @"..\..\People-Images";

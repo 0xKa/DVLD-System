@@ -34,7 +34,7 @@ namespace DVLD.People
             lblGender.Text = SelectedPerson.sGender;
 
             if (string.IsNullOrEmpty(SelectedPerson.ImagePath))
-                pbPersonImage.Image = SelectedPerson.enGender == clsGlobalSettings.enGender.Male ? Properties.Resources.default_male : Properties.Resources.default_female;
+                pbPersonImage.Image = SelectedPerson.enGender == clsPerson.enumGender.Male ? Properties.Resources.default_male : Properties.Resources.default_female;
             else
                 pbPersonImage.ImageLocation = SelectedPerson.ImagePath; 
 

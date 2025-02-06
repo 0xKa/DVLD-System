@@ -98,10 +98,10 @@ namespace DVLD.People
             dtpDateOfBirth.Value = _Person.DateOfBirth;
 
             //handle gender
-            if (_Person.enGender == enGender.Male)
+            if (_Person.enGender == clsPerson.enumGender.Male)
                 rbMale.Checked = true;
             else 
-                rbFemale.Checked = false;
+                rbFemale.Checked = true;
 
             //handle image
             if (string.IsNullOrEmpty(_Person.ImagePath))

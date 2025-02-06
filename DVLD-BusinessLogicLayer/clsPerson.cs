@@ -10,6 +10,7 @@ namespace DVLD_BusinessLogicLayer
     public class clsPerson
     {
         enMode _Mode = enMode.AddNew;
+        public enum enumGender { Female = 0, Male = 1 }
 
         //table props
         public int ID { get; set; }
@@ -35,9 +36,9 @@ namespace DVLD_BusinessLogicLayer
                     : FirstName + " " + SecondName + " " + ThirdName + " " + LastName;
             }
         }
-        public enGender enGender { 
+        public enumGender enGender { 
             get { 
-                return Gender == 1 ? enGender.Male : enGender.Female;
+                return Gender == 1 ? enumGender.Male : enumGender.Female;
             } 
         }
         public string sGender

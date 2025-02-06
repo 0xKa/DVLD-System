@@ -41,8 +41,12 @@ SELECT * FROM [User];
 
 
 SELECT * FROM [ApplicationType];
-SELECT * FROM [LicenseClass];
+SELECT * FROM [TestType];
 
+SELECT * FROM [Application];
+
+--change application status
+UPDATE [Application] SET [Status] = 1 WHERE [ID] = 1;
 
 
 SELECT * FROM [Country];
