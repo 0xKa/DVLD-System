@@ -65,6 +65,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.lblUserLoogedIn = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -299,6 +300,8 @@
             this.accountSettingsToolStripMenuItem.Name = "accountSettingsToolStripMenuItem";
             this.accountSettingsToolStripMenuItem.Size = new System.Drawing.Size(185, 36);
             this.accountSettingsToolStripMenuItem.Text = "Account &Settings";
+            this.accountSettingsToolStripMenuItem.MouseLeave += new System.EventHandler(this.accountSettingsToolStripMenuItem_MouseLeave);
+            this.accountSettingsToolStripMenuItem.MouseHover += new System.EventHandler(this.accountSettingsToolStripMenuItem_MouseHover);
             // 
             // currentUserInfoToolStripMenuItem
             // 
@@ -306,6 +309,7 @@
             this.currentUserInfoToolStripMenuItem.Name = "currentUserInfoToolStripMenuItem";
             this.currentUserInfoToolStripMenuItem.Size = new System.Drawing.Size(234, 38);
             this.currentUserInfoToolStripMenuItem.Text = "&Current User Info";
+            this.currentUserInfoToolStripMenuItem.Click += new System.EventHandler(this.currentUserInfoToolStripMenuItem_Click);
             // 
             // changePasswordToolStripMenuItem
             // 
@@ -313,6 +317,7 @@
             this.changePasswordToolStripMenuItem.Name = "changePasswordToolStripMenuItem";
             this.changePasswordToolStripMenuItem.Size = new System.Drawing.Size(234, 38);
             this.changePasswordToolStripMenuItem.Text = "Change &Password";
+            this.changePasswordToolStripMenuItem.Click += new System.EventHandler(this.changePasswordToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 
@@ -325,6 +330,7 @@
             this.logOutToolStripMenuItem.Name = "logOutToolStripMenuItem";
             this.logOutToolStripMenuItem.Size = new System.Drawing.Size(234, 38);
             this.logOutToolStripMenuItem.Text = "&Log Out";
+            this.logOutToolStripMenuItem.Click += new System.EventHandler(this.logOutToolStripMenuItem_Click);
             // 
             // pictureBox1
             // 
@@ -371,11 +377,25 @@
             this.pictureBox3.TabIndex = 12;
             this.pictureBox3.TabStop = false;
             // 
+            // lblUserLoogedIn
+            // 
+            this.lblUserLoogedIn.BackColor = System.Drawing.Color.Black;
+            this.lblUserLoogedIn.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUserLoogedIn.ForeColor = System.Drawing.Color.White;
+            this.lblUserLoogedIn.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblUserLoogedIn.ImageKey = "username.png";
+            this.lblUserLoogedIn.Location = new System.Drawing.Point(12, 663);
+            this.lblUserLoogedIn.Name = "lblUserLoogedIn";
+            this.lblUserLoogedIn.Size = new System.Drawing.Size(138, 46);
+            this.lblUserLoogedIn.TabIndex = 14;
+            this.lblUserLoogedIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
+            this.Controls.Add(this.lblUserLoogedIn);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label1);
@@ -435,5 +455,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.Label lblUserLoogedIn;
     }
 }

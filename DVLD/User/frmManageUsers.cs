@@ -28,10 +28,13 @@ namespace DVLD.User
 
         private void _EditDGV()
         {
-            dgvUsersList.Columns["ID"].Width = 50;
-            dgvUsersList.Columns["PersonID"].Width = 50;
-            dgvUsersList.Columns["Username"].Width = 50;
-            dgvUsersList.Columns["Active Status"].Width = 100;
+            if (dgvUsersList.RowCount > 0)
+            {
+                dgvUsersList.Columns["ID"].Width = 50;
+                dgvUsersList.Columns["PersonID"].Width = 50;
+                dgvUsersList.Columns["Username"].Width = 50;
+                dgvUsersList.Columns["Active Status"].Width = 100;
+            }
 
             cbSearchOptions.SelectedIndex = 0;
         }

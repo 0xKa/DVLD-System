@@ -30,5 +30,14 @@ namespace DVLD_BusinessLogicLayer.GlobalClasses
 
         }
 
+        public static void SaveLoginCredentialsToFile(string username, string password)
+        {
+            File.WriteAllLines(clsGlobalSettings.RememberMeFilePath, new string[] { username, password });
+        }
+        public static void ClearLoginCredentialsFromFile()
+        {
+            if (File.Exists(clsGlobalSettings.RememberMeFilePath))
+                File.Delete(clsGlobalSettings.RememberMeFilePath);
+        }
     }
 }

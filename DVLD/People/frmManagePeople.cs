@@ -28,15 +28,18 @@ namespace DVLD.People
 
         private void _EditDGV()
         {
-            dgvPeopleList.Columns["ID"].Width = 50;
-            dgvPeopleList.Columns["NationalNo"].Width = 50;
-            dgvPeopleList.Columns["Gender"].Width = 50;
-            dgvPeopleList.Columns["DateOfBirth"].Width = 50;
-            dgvPeopleList.Columns["Nationality"].Width = 90;
-            dgvPeopleList.Columns["Phone"].Width = 50;
-            dgvPeopleList.Columns["Email"].Width = 150;
+            if (dgvPeopleList.RowCount > 0)
+            { 
+                dgvPeopleList.Columns["ID"].Width = 50;
+                dgvPeopleList.Columns["NationalNo"].Width = 50;
+                dgvPeopleList.Columns["Gender"].Width = 50;
+                dgvPeopleList.Columns["DateOfBirth"].Width = 50;
+                dgvPeopleList.Columns["Nationality"].Width = 90;
+                dgvPeopleList.Columns["Phone"].Width = 50;
+                dgvPeopleList.Columns["Email"].Width = 150;
 
-            dgvPeopleList.Columns["DateOfBirth"].DefaultCellStyle.Format = "dd/MMM/yyyy";
+                dgvPeopleList.Columns["DateOfBirth"].DefaultCellStyle.Format = "dd/MMM/yyyy";
+            }
             cbSearchOptions.SelectedIndex = 0;
         }
 

@@ -16,7 +16,23 @@ namespace DVLD
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmMain());
+
+            while (true)
+            {
+                frmLogin loginForm = new frmLogin();
+
+                if (loginForm.ShowDialog() == DialogResult.OK)
+                {
+                    frmMain mainForm = new frmMain();
+
+                    if (mainForm.ShowDialog() == DialogResult.OK) //happens when user click log out
+                        continue; //skip the remaining code in the iteration
+                }
+
+                break;
+            }
+
+
         }
     }
 }
