@@ -26,8 +26,12 @@ namespace DVLD.Application.ApplicationTypes
 
         private void _EditListColumns()
         {
-            dgvApplicationTypes.Columns["ID"].Width = 110;
-            dgvApplicationTypes.Columns["Fees"].Width = 110;
+            if (dgvApplicationTypes.RowCount > 0)
+            {
+
+                dgvApplicationTypes.Columns["ID"].Width = 110;
+                dgvApplicationTypes.Columns["Fees"].Width = 110;
+            }
         }
 
 
@@ -39,7 +43,7 @@ namespace DVLD.Application.ApplicationTypes
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmEditApplicationTypes frmEAT = new frmEditApplicationTypes((int)dgvApplicationTypes.CurrentRow.Cells[0].Value);
+            frmEditApplicationType frmEAT = new frmEditApplicationType((int)dgvApplicationTypes.CurrentRow.Cells[0].Value);
             frmEAT.ShowDialog();
             _RefreshDgvList();
         }

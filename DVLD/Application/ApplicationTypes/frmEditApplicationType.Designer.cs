@@ -1,6 +1,6 @@
 ﻿namespace DVLD.Application.ApplicationTypes
 {
-    partial class frmEditApplicationTypes
+    partial class frmEditApplicationType
     {
         /// <summary>
         /// Required designer variable.
@@ -48,7 +48,7 @@
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(349, 34);
             this.lblTitle.TabIndex = 15;
-            this.lblTitle.Text = "Manage Application Types";
+            this.lblTitle.Text = "Manage Application Type";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // txbApplicationTypeTitle
@@ -167,7 +167,7 @@
             this.btnSave.UseVisualStyleBackColor = false;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // frmEditApplicationTypes
+            // frmEditApplicationType
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -186,11 +186,11 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "frmEditApplicationTypes";
+            this.Name = "frmEditApplicationType";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "s";
+            this.Text = "Manage Application Type";
             this.Load += new System.EventHandler(this.frmEditApplicationTypes_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

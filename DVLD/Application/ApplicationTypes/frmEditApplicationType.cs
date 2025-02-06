@@ -11,12 +11,12 @@ using System.Windows.Forms;
 
 namespace DVLD.Application.ApplicationTypes
 {
-    public partial class frmEditApplicationTypes : Form
+    public partial class frmEditApplicationType : Form
     {
 
         private clsApplicationType _ApplicationType = null;
 
-        public frmEditApplicationTypes(int ApplicationTypeID)
+        public frmEditApplicationType(int ApplicationTypeID)
         {
             InitializeComponent();
             _ApplicationType = clsApplicationType.Find(ApplicationTypeID);
