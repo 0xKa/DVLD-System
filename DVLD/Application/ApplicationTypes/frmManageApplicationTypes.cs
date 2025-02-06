@@ -39,7 +39,19 @@ namespace DVLD.Application.ApplicationTypes
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmEditApplicationTypes frmEAT = new frmEditApplicationTypes((int)dgvApplicationTypes.CurrentRow.Cells[0].Value);
+            frmEAT.ShowDialog();
+            _RefreshDgvList();
+        }
 
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void dgvApplicationTypes_DoubleClick(object sender, EventArgs e)
+        {
+            editToolStripMenuItem.PerformClick();
         }
     }
 }
