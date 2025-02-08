@@ -13,7 +13,7 @@ namespace DVLD_BusinessLogicLayer
         clsGlobalSettings.enMode _Mode = clsGlobalSettings.enMode.AddNew;
         public enum enApplicationStatus { New = 1, Canceled = 2, Completed = 3 }
 
-        public int ID { get; set; }
+        public int ApplicationID { get; set; }
         public int ApplicantPersonID { get; set; }
         public int TypeID { get; set; }
         public DateTime ApplicationDate { get; set; }
@@ -35,7 +35,7 @@ namespace DVLD_BusinessLogicLayer
         {
             _Mode = clsGlobalSettings.enMode.AddNew;
 
-            ID = -1;
+            ApplicationID = -1;
             ApplicantPersonID = -1;
             TypeID = -1;
             ApplicationDate = DateTime.MinValue;
@@ -49,7 +49,7 @@ namespace DVLD_BusinessLogicLayer
         {
             _Mode = clsGlobalSettings.enMode.Update;
 
-            this.ID = ID;
+            this.ApplicationID = ID;
             this.ApplicantPersonID = ApplicantPersonID;
             this.TypeID = TypeID;
             this.ApplicationDate = ApplicationDate;
@@ -65,13 +65,13 @@ namespace DVLD_BusinessLogicLayer
 
         private bool _AddNewApplication()
         {
-            this.ID = clsApplicationData.AddNewApplication(ApplicantPersonID, TypeID, ApplicationDate, Status, LastStatusDate, Fees, CreatedByUserID);
-            return ID != -1;
+            this.ApplicationID = clsApplicationData.AddNewApplication(ApplicantPersonID, TypeID, ApplicationDate, Status, LastStatusDate, Fees, CreatedByUserID);
+            return ApplicationID != -1;
         }
 
         private bool _UpdateApplication()
         {
-            return clsApplicationData.UpdateApplication(ID, ApplicantPersonID, TypeID, ApplicationDate, Status, LastStatusDate, Fees, CreatedByUserID);
+            return clsApplicationData.UpdateApplication(ApplicationID, ApplicantPersonID, TypeID, ApplicationDate, Status, LastStatusDate, Fees, CreatedByUserID);
         }
 
         public static clsApplication Find(int ID)
