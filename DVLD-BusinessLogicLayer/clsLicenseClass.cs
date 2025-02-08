@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -101,6 +102,19 @@ namespace DVLD_BusinessLogicLayer
         public static DataTable GetAllLicenseClasses()
         {
             return clsLicenseClassData.GetAllLicenseClasses();
+        }
+
+        public static byte GetLicenseValidityYears(enLicenseClass LicenseClass)
+        {
+            return clsLicenseClassData.GetLicenseValidityYears((int)LicenseClass);
+        }
+        public static byte GetMinimumAllowedAge(enLicenseClass LicenseClass)
+        {
+            return clsLicenseClassData.GetMinimumAllowedAge((int)LicenseClass);
+        }
+        public static decimal GetClassFees(enLicenseClass LicenseClass)
+        {
+            return clsLicenseClassData.GetClassFees((int)LicenseClass);
         }
     }
 

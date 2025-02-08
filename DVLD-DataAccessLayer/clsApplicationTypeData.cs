@@ -166,6 +166,28 @@ namespace DVLD_DataAccessLayer
 
             return dtApplicationTypes;
         }
+
+        public static decimal GetApplicationFees(int ID)
+        {
+            decimal fees = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Fees FROM ApplicationType WHERE ID = @ID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", ID);
+
+            try
+            {
+                connection.Open();
+                fees = (decimal)command.ExecuteScalar();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return fees;
+        }
     }
 
 }

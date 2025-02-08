@@ -54,7 +54,7 @@ SELECT
 	[LocalLicenseApplication].ID,
 	[vPeople].NationalNo,
 	[vPeople].FullName,
-	[LicenseClass].Title,
+	[LicenseClass].Title AS LicenseClass,
 	[Application].ApplicationDate,
 	(
 	SELECT COUNT([TestAppointment].TestTypeID) 
@@ -66,12 +66,23 @@ SELECT
 			WHEN [Application].[Status] = 2 THEN 'Canceled'
 			WHEN [Application].[Status] = 3 THEN 'Completed'
 
-	END)
+	END) AS ApplicationStatus
 FROM [LocalLicenseApplication]
 	JOIN [Application] ON [Application].ID = [LocalLicenseApplication].ApplicationID
-	JOIN [LicenseClass] ON [LicenseClass].ID = [LocalLicenseApplication].LicenseClass
+	JOIN [LicenseClass] ON [LicenseClass].ID = [LocalLicenseApplication].LicenseClassID
 	JOIN [vPeople] ON [vPeople].ID = [Application].ApplicantPersonID
 
+SELECT * FROM vLocalLicenseApplications;
+
+--Get Application Type Fees
+SELECT Fees FROM ApplicationType WHERE ID = 1;
+
+--Get License Length In Years
+SELECT ValidityYears FROM LicenseClass WHERE ID = 1;
+--Get Minimum Age for license
+SELECT MinimumAge FROM LicenseClass WHERE ID = 1;
+--Get license class fees
+SELECT Fees FROM LicenseClass WHERE ID = 1;
 
 
 SELECT * FROM [Country];

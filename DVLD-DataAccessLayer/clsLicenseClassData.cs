@@ -147,6 +147,74 @@ namespace DVLD_DataAccessLayer
 
             return dtLicenseClasses;
         }
+
+        public static byte GetLicenseValidityYears(int LicenseClassID)
+        {
+            byte ValidityYears = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT ValidityYears FROM LicenseClass WHERE ID = @LicenseClassID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+                ValidityYears = (byte)command.ExecuteScalar();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return ValidityYears;
+        }
+        public static byte GetMinimumAllowedAge(int LicenseClassID)
+        {
+            byte LicenseAge = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT MinimumAge FROM LicenseClass WHERE ID = @LicenseClassID";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+                LicenseAge = (byte)command.ExecuteScalar();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return LicenseAge;
+        }
+        public static decimal GetClassFees(int LicenseClassID)
+        {
+            decimal Fees = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT Fees FROM LicenseClass WHERE ID = @LicenseClassID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+                Fees = (decimal)command.ExecuteScalar();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return Fees;
+        }
+
     }
 
 }

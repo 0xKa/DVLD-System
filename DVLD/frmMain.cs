@@ -1,4 +1,5 @@
-﻿using DVLD.Application.ApplicationTypes;
+﻿using DVLD.Application;
+using DVLD.Application.ApplicationTypes;
 using DVLD.People;
 using DVLD.Test;
 using DVLD.User;
@@ -78,6 +79,12 @@ namespace DVLD
         private void manageTestTypesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _CurrentForm = new frmManageTestType();
+            _CurrentForm.ShowDialog();
+        }
+
+        private void localLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmAddEditLocalLicenseApplication();
             _CurrentForm.ShowDialog();
         }
     }

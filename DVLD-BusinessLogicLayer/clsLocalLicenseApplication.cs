@@ -61,7 +61,7 @@ namespace DVLD_BusinessLogicLayer
 
             if (clsLocalLicenseApplicationData.GetLocalLicenseApplicationInfo(LLApplicationID, ref ApplicationID, ref LicenseClassID))
             {
-                clsApplication application = clsApplication.Find(ApplicationID); //get base application properties
+                clsApplication application = clsApplication.FindBase(ApplicationID); //get base application properties
                 return new clsLocalLicenseApplication(LLApplicationID, ApplicationID, application.ApplicantPersonID, application.TypeID, application.ApplicationDate, application.Status, application.LastStatusDate, application.Fees, application.CreatedByUserID, LicenseClassID);
             }
             else
@@ -74,7 +74,7 @@ namespace DVLD_BusinessLogicLayer
 
             if (clsLocalLicenseApplicationData.GetLocalLicenseApplicationInfoByApplicationID(ApplicationID, ref LLApplicationID, ref LicenseClassID))
             {
-                clsApplication application = clsApplication.Find(ApplicationID); //get base application properties
+                clsApplication application = clsApplication.FindBase(ApplicationID); //get base application properties
                 return new clsLocalLicenseApplication(LLApplicationID, ApplicationID, application.ApplicantPersonID, application.TypeID, application.ApplicationDate, application.Status, application.LastStatusDate, application.Fees, application.CreatedByUserID, LicenseClassID);
             }
             else
@@ -99,7 +99,7 @@ namespace DVLD_BusinessLogicLayer
         }
         public static bool DeleteLocalLicenseApplication(int LLApplicationID)
         {
-            return clsLocalLicenseApplicationData.DeleteLocalLicenseApplication(ApplicationID);
+            return clsLocalLicenseApplicationData.DeleteLocalLicenseApplication(LLApplicationID);
         }
         public static DataTable GetAllLocalLicenseApplications()
         {

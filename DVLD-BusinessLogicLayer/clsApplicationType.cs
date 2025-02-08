@@ -105,6 +105,11 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsApplicationTypeData.GetAllApplicationTypes();
         }
+
+        public static decimal GetApplicationFees(enApplicationType ApplicationType)
+        {
+            return clsApplicationTypeData.GetApplicationFees((int)ApplicationType);
+        }
     }
 
 }

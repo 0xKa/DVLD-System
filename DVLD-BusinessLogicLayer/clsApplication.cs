@@ -74,7 +74,7 @@ namespace DVLD_BusinessLogicLayer
             return clsApplicationData.UpdateApplication(ApplicationID, ApplicantPersonID, TypeID, ApplicationDate, Status, LastStatusDate, Fees, CreatedByUserID);
         }
 
-        public static clsApplication Find(int ID)
+        public static clsApplication FindBase(int ID)
         {
             int ApplicantPersonID = -1, TypeID = -1, CreatedByUserID = -1;
             DateTime ApplicationDate = DateTime.MinValue, LastStatusDate = DateTime.MinValue;
