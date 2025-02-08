@@ -38,6 +38,7 @@
             this.tpPersonalInfo = new System.Windows.Forms.TabPage();
             this.btnNext = new System.Windows.Forms.Button();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ctrlPersonCardFinder1 = new DVLD.People.ctrlPersonCardFinder();
             this.tpLoginInfo = new System.Windows.Forms.TabPage();
             this.btnPrevious = new System.Windows.Forms.Button();
             this.chbActive = new System.Windows.Forms.CheckBox();
@@ -51,7 +52,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.ctrlPersonCardFinder1 = new DVLD.People.ctrlPersonCardFinder();
             ((System.ComponentModel.ISupportInitialize)(this.pbModeIcon)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tpPersonalInfo.SuspendLayout();
@@ -158,6 +158,14 @@
             this.imageList1.Images.SetKeyName(0, "next-button.png");
             this.imageList1.Images.SetKeyName(1, "previous-button.png");
             this.imageList1.Images.SetKeyName(2, "save.png");
+            // 
+            // ctrlPersonCardFinder1
+            // 
+            this.ctrlPersonCardFinder1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ctrlPersonCardFinder1.Location = new System.Drawing.Point(8, 4);
+            this.ctrlPersonCardFinder1.Name = "ctrlPersonCardFinder1";
+            this.ctrlPersonCardFinder1.Size = new System.Drawing.Size(639, 320);
+            this.ctrlPersonCardFinder1.TabIndex = 42;
             // 
             // tpLoginInfo
             // 
@@ -329,19 +337,11 @@
             this.label5.Text = "User ID:";
             this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // ctrlPersonCardFinder1
-            // 
-            this.ctrlPersonCardFinder1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ctrlPersonCardFinder1.Location = new System.Drawing.Point(8, 4);
-            this.ctrlPersonCardFinder1.Name = "ctrlPersonCardFinder1";
-            this.ctrlPersonCardFinder1.Size = new System.Drawing.Size(639, 320);
-            this.ctrlPersonCardFinder1.TabIndex = 42;
-            // 
             // frmAddEditUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
             this.ClientSize = new System.Drawing.Size(695, 432);
             this.Controls.Add(this.pbModeIcon);
             this.Controls.Add(this.lblTitle);
