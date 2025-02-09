@@ -178,7 +178,6 @@
             // 
             // showLicenseHistoryToolStripMenuItem
             // 
-            this.showLicenseHistoryToolStripMenuItem.Enabled = false;
             this.showLicenseHistoryToolStripMenuItem.Image = global::DVLD.Properties.Resources.history;
             this.showLicenseHistoryToolStripMenuItem.Name = "showLicenseHistoryToolStripMenuItem";
             this.showLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
@@ -209,7 +208,7 @@
             this.showLicenseToolStripMenuItem,
             this.showLicenseHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 226);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 204);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // cancelApplicationToolStripMenuItem

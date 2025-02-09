@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static DVLD_BusinessLogicLayer.clsApplication;
+using static DVLD_BusinessLogicLayer.clsLocalLicenseApplication;
 
 namespace DVLD.Application.LocalLicenseApplication
 {
@@ -23,6 +25,7 @@ namespace DVLD.Application.LocalLicenseApplication
         {
             _dtLLApplicationsList = clsLocalLicenseApplication.GetAllLocalLicenseApplications();
             dgvLLApplicationsList.DataSource = _dtLLApplicationsList;
+            dgvLLApplicationsList.Sort(dgvLLApplicationsList.Columns[0], ListSortDirection.Descending);
             lblNumberOfRecords.Text = dgvLLApplicationsList.RowCount.ToString();
         }
         private void _EditDGV()
@@ -37,7 +40,6 @@ namespace DVLD.Application.LocalLicenseApplication
                 dgvLLApplicationsList.Columns["ApplicationStatus"].Width = 100;
 
                 dgvLLApplicationsList.Columns["ApplicationDate"].DefaultCellStyle.Format = "dd/MMM/yyyy, hh:mm:ss tt";
-                dgvLLApplicationsList.Sort(dgvLLApplicationsList.Columns[0], ListSortDirection.Descending);
             }
             cbSearchOptions.SelectedIndex = 0;
         }
@@ -138,9 +140,59 @@ namespace DVLD.Application.LocalLicenseApplication
                 e.Handled = true;
         }
 
+
+        private void _EnableTestsSchedule()
+        {
+            issueDrivingLicenseToolStripMenuItem.Enabled = false;
+
+            int passedTests = (int)dgvLLApplicationsList.CurrentRow.Cells["PassedTests"].Value;
+            if (passedTests == 0)
+            {
+                visionTestToolStripMenuItem.Enabled = true;
+                theoryTestToolStripMenuItem.Enabled = false;
+                practicalTestToolStripMenuItem.Enabled = false;
+            }
+            else if (passedTests == 1)
+            {
+                visionTestToolStripMenuItem.Enabled = false;
+                theoryTestToolStripMenuItem.Enabled = true;
+                practicalTestToolStripMenuItem.Enabled = false;
+            }
+            else if (passedTests == 2)
+            {
+                visionTestToolStripMenuItem.Enabled = false;
+                theoryTestToolStripMenuItem.Enabled = false;
+                practicalTestToolStripMenuItem.Enabled = true;
+            }
+            else
+            {
+                scheduleTestsToolStripMenuItem.Enabled = false;
+                issueDrivingLicenseToolStripMenuItem.Enabled = true;
+            }
+        }
+        private void _EnableMenuItems(bool IsEnabled)
+        {
+            editToolStripMenuItem.Enabled = IsEnabled;
+            deleteToolStripMenuItem.Enabled = IsEnabled;
+            cancelApplicationToolStripMenuItem.Enabled = IsEnabled;
+            scheduleTestsToolStripMenuItem.Enabled = IsEnabled;
+            issueDrivingLicenseToolStripMenuItem.Enabled = IsEnabled;
+            showLicenseToolStripMenuItem.Enabled = IsEnabled;
+        }
+
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
+            enApplicationStatus status = FindByLLApplicationID((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value).enStatus;
+            
+            if (status == enApplicationStatus.New)
+            {
+                _EnableMenuItems(true);
+                _EnableTestsSchedule();
+            }
+            else
+                _EnableMenuItems(false);
 
+            showLicenseToolStripMenuItem.Enabled = (status == enApplicationStatus.Completed);
         }
     }
 }
