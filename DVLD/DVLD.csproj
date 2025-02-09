@@ -58,11 +58,29 @@
     <Compile Include="Application\ApplicationTypes\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Application\LocalLicenseApplication\ctrlLocalLicenseApplicationCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Application\LocalLicenseApplication\ctrlLocalLicenseApplicationCard.Designer.cs">
+      <DependentUpon>ctrlLocalLicenseApplicationCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="Application\LocalLicenseApplication\frmAddEditLocalLicenseApplication.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Application\LocalLicenseApplication\frmAddEditLocalLicenseApplication.Designer.cs">
       <DependentUpon>frmAddEditLocalLicenseApplication.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application\LocalLicenseApplication\frmLocalLicenseApplicationDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application\LocalLicenseApplication\frmLocalLicenseApplicationDetails.Designer.cs">
+      <DependentUpon>frmLocalLicenseApplicationDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Application\LocalLicenseApplication\frmManageLocalLicenseApplications.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application\LocalLicenseApplication\frmManageLocalLicenseApplications.Designer.cs">
+      <DependentUpon>frmManageLocalLicenseApplications.cs</DependentUpon>
     </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
@@ -156,8 +174,17 @@
     <EmbeddedResource Include="Application\ApplicationTypes\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Application\LocalLicenseApplication\ctrlLocalLicenseApplicationCard.resx">
+      <DependentUpon>ctrlLocalLicenseApplicationCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Application\LocalLicenseApplication\frmAddEditLocalLicenseApplication.resx">
       <DependentUpon>frmAddEditLocalLicenseApplication.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application\LocalLicenseApplication\frmLocalLicenseApplicationDetails.resx">
+      <DependentUpon>frmLocalLicenseApplicationDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application\LocalLicenseApplication\frmManageLocalLicenseApplications.resx">
+      <DependentUpon>frmManageLocalLicenseApplications.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
