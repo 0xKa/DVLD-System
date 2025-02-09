@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static DVLD_BusinessLogicLayer.clsLicenseClass;
 using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_BusinessLogicLayer
@@ -105,6 +106,23 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsLocalLicenseApplicationData.GetAllLocalLicenseApplications();
         }
+
+        public static bool _IsPersonAgeValidForLicenseClassApplication(DateTime PersonDateOfBirth, enLicenseClass LicenseClass)
+        {
+            int age = DateTime.Now.Year - PersonDateOfBirth.Year;
+
+            //check if birth day haven't ouccerd yet
+            if (PersonDateOfBirth > DateTime.Now.AddYears(-age))
+                age--;
+
+            return age >= GetMinimumAllowedAge(LicenseClass);
+        }
+
+        public static bool CanAPersonApplyForThisClass(int ApplicantPersonID, clsLicenseClass.enLicenseClass LicenseClass)
+        {
+            return clsLocalLicenseApplicationData.CanAPersonApplyForThisClass(ApplicantPersonID, (int)LicenseClass);
+        }
+
     }
 
 }

@@ -166,6 +166,45 @@ namespace DVLD_DataAccessLayer
 
             return dtLocalLicenseApplications;
         }
+
+        /// <summary>
+        /// Checks if an applicant is allowed to submit a new application for a specific license class.
+        /// A person cannot apply for another application with the same class if they have an application with status 1 (New) or 3 (Completed).
+        /// </summary>
+        /// <param name="ApplicantPersonID">The ID of the applicant person.</param>
+        /// <param name="LicenseClassID">The ID of the license class.</param>
+        /// <returns>True if the application is allowed, otherwise false.</returns>
+        public static bool CanAPersonApplyForThisClass(int ApplicantPersonID, int LicenseClassID)
+        {
+            bool IsAllowed = true;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query 
+                    = @"SELECT 1
+                    FROM LocalLicenseApplication
+                    JOIN [Application] ON [Application].ID = [LocalLicenseApplication].ApplicationID
+                    JOIN [LicenseClass] ON [LocalLicenseApplication].LicenseClassID = LicenseClass.ID
+                    WHERE [Application].Status IN (1,3) 
+                    AND [Application].ApplicantPersonID = @ApplicantPersonID
+                    AND [LicenseClass].ID = @LicenseClassID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicantPersonID", ApplicantPersonID);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+
+            try
+            {
+                connection.Open();
+                IsAllowed = (command.ExecuteScalar() == null); //application allowed if query return null
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return IsAllowed;
+
+        }
+
     }
 
 }

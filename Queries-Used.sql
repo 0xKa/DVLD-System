@@ -84,6 +84,15 @@ SELECT MinimumAge FROM LicenseClass WHERE ID = 1;
 --Get license class fees
 SELECT Fees FROM LicenseClass WHERE ID = 1;
 
+--Checks if an applicant is not allowed to submit a new application for a specific license class. 
+SELECT 1
+FROM LocalLicenseApplication
+JOIN [Application] ON [Application].ID = [LocalLicenseApplication].ApplicationID
+JOIN [LicenseClass] ON [LocalLicenseApplication].LicenseClassID = LicenseClass.ID
+WHERE [Application].Status IN (1,3) 
+AND [Application].ApplicantPersonID = 1
+AND [LicenseClass].ID = 3;
+
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];

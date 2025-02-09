@@ -9,6 +9,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DVLD_BusinessLogicLayer.clsGlobalSettings;
+using static DVLD_BusinessLogicLayer.clsApplication;
+using static DVLD_BusinessLogicLayer.clsApplicationType;
+using static DVLD_BusinessLogicLayer.clsLicenseClass;
+using static DVLD_BusinessLogicLayer.clsLocalLicenseApplication;
 
 namespace DVLD.Application
 {
@@ -24,7 +28,7 @@ namespace DVLD.Application
             if (LLApplicationID == -1)
             { _LLApplication = new clsLocalLicenseApplication(); _Mode = enMode.AddNew; }
             else
-            { _LLApplication = clsLocalLicenseApplication.FindByLLApplicationID(LLApplicationID); _Mode = enMode.Update; }
+            { _LLApplication = FindByLLApplicationID(LLApplicationID); _Mode = enMode.Update; }
 
             ctrlPersonCardFinder1.PersonSelected += CtrlPersonCardFinder1_PersonSelected;
         }
@@ -37,7 +41,7 @@ namespace DVLD.Application
 
         private void _FillLicenseClassesInComboBox()
         {
-            DataTable dtLicenseClasses = clsLicenseClass.GetAllLicenseClasses();
+            DataTable dtLicenseClasses = GetAllLicenseClasses();
 
             foreach (DataRow row in dtLicenseClasses.Rows)
             {
@@ -50,7 +54,7 @@ namespace DVLD.Application
             _FillLicenseClassesInComboBox();
             tabControl1.TabPages.Remove(tpApplicationInfo);
             lblApplicationDate.Text = DateTime.Now.ToString("dd/MMM/yyyy, hh:mm:ss tt");
-            lblApplicationFees.Text = clsApplicationType.GetApplicationFees(clsApplicationType.enApplicationType.NewLocalDrivingLicense).ToString();
+            lblApplicationFees.Text = GetApplicationFees(enApplicationType.NewLocalDrivingLicense).ToString();
             lblCreatedByUserID.Text = clsGlobalSettings.LoggedInUser.Username;
 
             if (_Mode == enMode.AddNew)
@@ -111,35 +115,30 @@ namespace DVLD.Application
         }
 
 
-        private bool _IsPersonAgeValidForLicenseClass()
-        {
-            DateTime DateOfBirth = ctrlPersonCardFinder1.SelectedPerson.DateOfBirth;
-            int age = DateTime.Now.Year - DateOfBirth.Year;
-
-            //check if birth day haven't ouccerd yet
-            if (DateOfBirth > DateTime.Now.AddYears(-age))
-                age--;
-
-            return age >= clsLicenseClass.GetMinimumAllowedAge((clsLicenseClass.enLicenseClass)(cbLicenseClass.SelectedIndex + 1));
-        }
+        
         private bool _IsDataValid()
         {
             bool IsValid = false;
-            if (!_IsPersonAgeValidForLicenseClass())
+            if (!_IsPersonAgeValidForLicenseClassApplication(ctrlPersonCardFinder1.SelectedPerson.DateOfBirth, (enLicenseClass)(cbLicenseClass.SelectedIndex + 1)))
                 MessageBox.Show("Selected Person Age is Invalid for the Selected License Class", "Age Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (//here // check if application allowed)
-                MessageBox.Show("Password Confirmation does not match the Password!", "Confirm Password", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (!CanAPersonApplyForThisClass(ctrlPersonCardFinder1.SelectedPerson.ID, (enLicenseClass)(cbLicenseClass.SelectedIndex + 1)))
+                MessageBox.Show("Selected Person already has an Active/Completed Application for this License Class", "Selected Perosn Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
                 IsValid = true;
 
             return IsValid;
         }
-        private void _FillUserObject()
+        private void _FillApplicationObject()
         {
-            _User.Username = txbUsername.Text;
-            _User.Password = txbPassword.Text;
-            _User.IsActive = chbActive.Checked;
-            _User.PersonID = ctrlPersonCardFinder1.SelectedPerson.ID;
+            _LLApplication.ApplicantPersonID = ctrlPersonCardFinder1.SelectedPerson.ID;
+            _LLApplication.enType = enApplicationType.NewLocalDrivingLicense;
+            _LLApplication.ApplicationDate = DateTime.Now;
+            _LLApplication.enStatus = enApplicationStatus.New;
+            _LLApplication.LastStatusDate = DateTime.Now;
+            _LLApplication.Fees = GetApplicationFees(enApplicationType.NewLocalDrivingLicense);
+            _LLApplication.CreatedByUserID = LoggedInUser.ID;
+            _LLApplication.LicenseClassID = cbLicenseClass.SelectedIndex + 1;
+        
         }
         private void _ChangeFormMode()
         {
@@ -157,7 +156,7 @@ namespace DVLD.Application
 
             _FillApplicationObject();
 
-            if (_Application.Save())
+            if (_LLApplication.Save())
                 MessageBox.Show("Application Data Saved Successfully.", "Done", MessageBoxButtons.OK, MessageBoxIcon.Information);
             else
                 MessageBox.Show("Error: Application Data was NOT Saved Successfully.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);

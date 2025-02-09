@@ -22,6 +22,11 @@ namespace DVLD_BusinessLogicLayer
         public decimal Fees { get; set; }
         public int CreatedByUserID { get; set; }
 
+        public clsApplicationType.enApplicationType enType
+        {
+            get { return (clsApplicationType.enApplicationType)this.TypeID; }
+            set { this.TypeID = (int)value; }
+        }
         public enApplicationStatus enStatus { 
             get { return (enApplicationStatus)this.Status; } 
             set { this.Status = (byte)value; }
