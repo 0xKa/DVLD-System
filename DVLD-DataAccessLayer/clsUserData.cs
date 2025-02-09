@@ -198,7 +198,7 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM [vUsers];";
+            string query = @"SELECT * FROM [vUsers] ORDER BY ID DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

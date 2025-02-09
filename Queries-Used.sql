@@ -23,7 +23,8 @@ FROM
 JOIN 
     [Country] ON Person.NationalityCountryID = Country.ID;
 
-SELECT * FROM vPeople;
+SELECT * FROM vPeople
+ORDER BY ID DESC;
 
 --Get User by username and password for login
 SELECT * FROM [User] WHERE Username = 'Admin' AND Password = '1234';
@@ -35,18 +36,13 @@ UPDATE [dbo].[User] SET [Password] = '1234' WHERE Username = 'Admin';
 SELECT [User].ID, vPeople.ID AS PersonID, vPeople.FullName AS 'Full Name', [User].Username, [User].IsActive AS 'Active Status'
 FROM [User] JOIN vPeople ON vPeople.ID = [User].PersonID;
 
-SELECT * FROM vUsers;
+SELECT * FROM vUsers ORDER BY ID DESC;
 SELECT * FROM [User];
 
 
 --change application status
 UPDATE [Application] SET [Status] = 1 WHERE [ID] = 1;
 
-
-SELECT * FROM [User] WHERE ID = 8;
-
-
-SELECT * FROM [Application];
 
 
 --CREATE VIEW vLocalLicenseApplications AS
@@ -72,7 +68,8 @@ FROM [LocalLicenseApplication]
 	JOIN [LicenseClass] ON [LicenseClass].ID = [LocalLicenseApplication].LicenseClassID
 	JOIN [vPeople] ON [vPeople].ID = [Application].ApplicantPersonID
 
-SELECT * FROM vLocalLicenseApplications;
+SELECT * FROM vLocalLicenseApplications 
+ORDER BY ApplicationDate DESC;
 
 --Get Application Type Fees
 SELECT Fees FROM ApplicationType WHERE ID = 1;
@@ -91,7 +88,34 @@ JOIN [Application] ON [Application].ID = [LocalLicenseApplication].ApplicationID
 JOIN [LicenseClass] ON [LocalLicenseApplication].LicenseClassID = LicenseClass.ID
 WHERE [Application].Status IN (1,3) 
 AND [Application].ApplicantPersonID = 1
-AND [LicenseClass].ID = 3;
+AND [LicenseClass].ID = 1;
+
+
+--Get passed tests of the LL Application
+SELECT PassedTests FROM vLocalLicenseApplications WHERE ID = 1;
+
+
+--CREATE VIEW vTestAppointments AS
+SELECT [TestAppointment].ID, 
+[vLocalLicenseApplications].ID AS LLApplicationID,
+[TestType].Title AS TestType,
+[TestAppointment].AppointmentDate,
+[vLocalLicenseApplications].FullName,
+[vLocalLicenseApplications].LicenseClass,
+[TestAppointment].PaidFees,
+[TestAppointment].IsLocked
+FROM TestAppointment
+JOIN vLocalLicenseApplications ON vLocalLicenseApplications.ID = TestAppointment.LocalLicenseApplicationID 
+JOIN TestType ON TestType.ID = TestAppointment.TestTypeID
+
+SELECT * FROM vTestAppointments
+ORDER BY AppointmentDate DESC;
+
+--Get the Last Test Appointment of a certain applicaton
+SELECT TOP(1)* FROM TestAppointment
+WHERE TestTypeID = 1 
+AND LocalLicenseApplicationID = 1
+ORDER BY ID DESC;
 
 
 SELECT * FROM [Country];

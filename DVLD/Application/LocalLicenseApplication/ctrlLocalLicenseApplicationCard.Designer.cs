@@ -205,6 +205,7 @@
             // 
             // lblApplicantPerson
             // 
+            this.lblApplicantPerson.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblApplicantPerson.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicantPerson.ForeColor = System.Drawing.Color.Firebrick;
             this.lblApplicantPerson.Location = new System.Drawing.Point(179, 181);
@@ -301,6 +302,7 @@
             // 
             // lblApplicationType
             // 
+            this.lblApplicationType.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.lblApplicationType.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblApplicationType.ForeColor = System.Drawing.Color.White;
             this.lblApplicationType.Location = new System.Drawing.Point(179, 144);
@@ -349,8 +351,8 @@
             // 
             // lblApplicationStatus
             // 
-            this.lblApplicationStatus.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblApplicationStatus.ForeColor = System.Drawing.Color.White;
+            this.lblApplicationStatus.Font = new System.Drawing.Font("Consolas", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblApplicationStatus.ForeColor = System.Drawing.Color.Firebrick;
             this.lblApplicationStatus.Location = new System.Drawing.Point(179, 66);
             this.lblApplicationStatus.Name = "lblApplicationStatus";
             this.lblApplicationStatus.Size = new System.Drawing.Size(122, 20);

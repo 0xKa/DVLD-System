@@ -208,7 +208,7 @@
             this.showLicenseToolStripMenuItem,
             this.showLicenseHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 204);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 226);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // cancelApplicationToolStripMenuItem
@@ -218,6 +218,7 @@
             this.cancelApplicationToolStripMenuItem.Name = "cancelApplicationToolStripMenuItem";
             this.cancelApplicationToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.cancelApplicationToolStripMenuItem.Text = "Cancel Application";
+            this.cancelApplicationToolStripMenuItem.Click += new System.EventHandler(this.cancelApplicationToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -241,24 +242,27 @@
             this.visionTestToolStripMenuItem.Enabled = false;
             this.visionTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.vision_test;
             this.visionTestToolStripMenuItem.Name = "visionTestToolStripMenuItem";
-            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.visionTestToolStripMenuItem.Text = "Vision Test";
+            this.visionTestToolStripMenuItem.Click += new System.EventHandler(this.visionTestToolStripMenuItem_Click);
             // 
             // theoryTestToolStripMenuItem
             // 
             this.theoryTestToolStripMenuItem.Enabled = false;
             this.theoryTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.theory_test;
             this.theoryTestToolStripMenuItem.Name = "theoryTestToolStripMenuItem";
-            this.theoryTestToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.theoryTestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.theoryTestToolStripMenuItem.Text = "Theory Test";
+            this.theoryTestToolStripMenuItem.Click += new System.EventHandler(this.theoryTestToolStripMenuItem_Click);
             // 
             // practicalTestToolStripMenuItem
             // 
             this.practicalTestToolStripMenuItem.Enabled = false;
             this.practicalTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.practical_test;
             this.practicalTestToolStripMenuItem.Name = "practicalTestToolStripMenuItem";
-            this.practicalTestToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.practicalTestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.practicalTestToolStripMenuItem.Text = "Practical Test";
+            this.practicalTestToolStripMenuItem.Click += new System.EventHandler(this.practicalTestToolStripMenuItem_Click);
             // 
             // issueDrivingLicenseToolStripMenuItem
             // 
@@ -267,6 +271,7 @@
             this.issueDrivingLicenseToolStripMenuItem.Name = "issueDrivingLicenseToolStripMenuItem";
             this.issueDrivingLicenseToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.issueDrivingLicenseToolStripMenuItem.Text = "Issue Driving License";
+            this.issueDrivingLicenseToolStripMenuItem.Click += new System.EventHandler(this.issueDrivingLicenseToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -280,6 +285,7 @@
             this.showLicenseToolStripMenuItem.Name = "showLicenseToolStripMenuItem";
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.showLicenseToolStripMenuItem.Text = "Show License";
+            this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
             // 
             // btnClose
             // 

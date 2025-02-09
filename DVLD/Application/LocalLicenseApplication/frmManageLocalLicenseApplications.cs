@@ -64,23 +64,6 @@ namespace DVLD.Application.LocalLicenseApplication
             this.Close();
         }
 
-        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmLocalLicenseApplicationDetails frmLLAD = new frmLocalLicenseApplicationDetails((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value);
-            frmLLAD.FormClosed += Refresh_OnFormClosed;
-            frmLLAD.ShowDialog();
-        }
-        private void editToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmAddEditLocalLicenseApplication frmAELLD = new frmAddEditLocalLicenseApplication((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value);
-            frmAELLD.FormClosed += Refresh_OnFormClosed;
-            frmAELLD.ShowDialog();
-        }
-        private void dgvLLApplicationsList_DoubleClick(object sender, EventArgs e)
-        {
-            showDetailsToolStripMenuItem.PerformClick();
-        }
-
 
         private void btnClearSearch_Click(object sender, EventArgs e)
         {
@@ -179,7 +162,6 @@ namespace DVLD.Application.LocalLicenseApplication
             issueDrivingLicenseToolStripMenuItem.Enabled = IsEnabled;
             showLicenseToolStripMenuItem.Enabled = IsEnabled;
         }
-
         private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
         {
             enApplicationStatus status = FindByLLApplicationID((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value).enStatus;
@@ -193,6 +175,53 @@ namespace DVLD.Application.LocalLicenseApplication
                 _EnableMenuItems(false);
 
             showLicenseToolStripMenuItem.Enabled = (status == enApplicationStatus.Completed);
+        }
+
+
+
+        private void showDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLocalLicenseApplicationDetails frmLLAD = new frmLocalLicenseApplicationDetails((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value);
+            frmLLAD.FormClosed += Refresh_OnFormClosed;
+            frmLLAD.ShowDialog();
+        }
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddEditLocalLicenseApplication frmAELLD = new frmAddEditLocalLicenseApplication((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value);
+            frmAELLD.FormClosed += Refresh_OnFormClosed;
+            frmAELLD.ShowDialog();
+        }
+        private void dgvLLApplicationsList_DoubleClick(object sender, EventArgs e)
+        {
+            showDetailsToolStripMenuItem.PerformClick();
+        }
+        private void cancelApplicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ChangeApplicationStatus(FindByLLApplicationID((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value).ApplicationID, enApplicationStatus.Canceled);
+            _RefreshDGV();
+        }
+
+
+        private void visionTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void theoryTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void practicalTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void issueDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

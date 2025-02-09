@@ -222,7 +222,7 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM vPeople;";
+            string query = @"SELECT * FROM vPeople ORDER BY ID DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

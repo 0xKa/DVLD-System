@@ -147,7 +147,8 @@ namespace DVLD_DataAccessLayer
             DataTable dtLocalLicenseApplications = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-            string query = @"SELECT * FROM vLocalLicenseApplications;";
+            string query = @"SELECT * FROM vLocalLicenseApplications 
+ORDER BY ApplicationDate DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
 
