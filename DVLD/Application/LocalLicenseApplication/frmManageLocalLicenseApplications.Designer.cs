@@ -53,12 +53,12 @@
             this.issueDrivingLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.showLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.btnClose = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.dgvLLApplicationsList = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.btnClose = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLLApplicationsList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -208,7 +208,7 @@
             this.showLicenseToolStripMenuItem,
             this.showLicenseHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 226);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 204);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // cancelApplicationToolStripMenuItem
@@ -242,7 +242,7 @@
             this.visionTestToolStripMenuItem.Enabled = false;
             this.visionTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.vision_test;
             this.visionTestToolStripMenuItem.Name = "visionTestToolStripMenuItem";
-            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.visionTestToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.visionTestToolStripMenuItem.Text = "Vision Test";
             this.visionTestToolStripMenuItem.Click += new System.EventHandler(this.visionTestToolStripMenuItem_Click);
             // 
@@ -251,7 +251,7 @@
             this.theoryTestToolStripMenuItem.Enabled = false;
             this.theoryTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.theory_test;
             this.theoryTestToolStripMenuItem.Name = "theoryTestToolStripMenuItem";
-            this.theoryTestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.theoryTestToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.theoryTestToolStripMenuItem.Text = "Theory Test";
             this.theoryTestToolStripMenuItem.Click += new System.EventHandler(this.theoryTestToolStripMenuItem_Click);
             // 
@@ -260,7 +260,7 @@
             this.practicalTestToolStripMenuItem.Enabled = false;
             this.practicalTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.practical_test;
             this.practicalTestToolStripMenuItem.Name = "practicalTestToolStripMenuItem";
-            this.practicalTestToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.practicalTestToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.practicalTestToolStripMenuItem.Text = "Practical Test";
             this.practicalTestToolStripMenuItem.Click += new System.EventHandler(this.practicalTestToolStripMenuItem_Click);
             // 
@@ -286,23 +286,6 @@
             this.showLicenseToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.showLicenseToolStripMenuItem.Text = "Show License";
             this.showLicenseToolStripMenuItem.Click += new System.EventHandler(this.showLicenseToolStripMenuItem_Click);
-            // 
-            // btnClose
-            // 
-            this.btnClose.BackColor = System.Drawing.Color.LightGray;
-            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnClose.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.ImageKey = "(none)";
-            this.btnClose.Location = new System.Drawing.Point(1060, 515);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(108, 34);
-            this.btnClose.TabIndex = 20;
-            this.btnClose.Text = "Close";
-            this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // label2
             // 
@@ -366,6 +349,23 @@
             this.pictureBox2.TabIndex = 29;
             this.pictureBox2.TabStop = false;
             // 
+            // btnClose
+            // 
+            this.btnClose.BackColor = System.Drawing.Color.LightGray;
+            this.btnClose.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.btnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnClose.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.ImageKey = "(none)";
+            this.btnClose.Location = new System.Drawing.Point(1060, 515);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(108, 34);
+            this.btnClose.TabIndex = 20;
+            this.btnClose.Text = "Close";
+            this.btnClose.UseVisualStyleBackColor = false;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // frmManageLocalLicenseApplications
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -417,7 +417,6 @@
         private System.Windows.Forms.ToolStripMenuItem showLicenseHistoryToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showDetailsToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridView dgvLLApplicationsList;
         private System.Windows.Forms.Label lblTitle;
@@ -432,5 +431,6 @@
         private System.Windows.Forms.ToolStripMenuItem theoryTestToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem practicalTestToolStripMenuItem;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Button btnClose;
     }
 }

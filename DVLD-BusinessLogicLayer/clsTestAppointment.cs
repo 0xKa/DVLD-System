@@ -130,9 +130,9 @@ namespace DVLD_BusinessLogicLayer
             return clsTestAppointmentData.DeleteTestAppointment(ID);
         }
 
-        public static DataTable GetAllTestAppointments()
+        public static DataTable GetAllTestAppointments(int LocalLicenseApplicationID, clsTestType.enTestType TestType)
         {
-            return clsTestAppointmentData.GetAllTestAppointments();
+            return clsTestAppointmentData.GetApplicationTestAppointments(LocalLicenseApplicationID, (int)TestType);
         }
     }
 

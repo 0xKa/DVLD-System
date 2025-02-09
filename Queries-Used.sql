@@ -117,6 +117,9 @@ WHERE TestTypeID = 1
 AND LocalLicenseApplicationID = 1
 ORDER BY ID DESC;
 
+--Get all/any Test Appointments for a cerain application 
+SELECT ID, AppointmentDate, PaidFees, IsLocked FROM TestAppointment 
+WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1;
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];

@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLogicLayer;
+﻿using DVLD.Tests;
+using DVLD_BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -204,15 +205,22 @@ namespace DVLD.Application.LocalLicenseApplication
 
         private void visionTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmManageTestAppointments frmMTA = new frmManageTestAppointments((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value, clsTestType.enTestType.VisionTest);
+            frmMTA.FormClosed += Refresh_OnFormClosed;
+            frmMTA.ShowDialog();
 
         }
         private void theoryTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmManageTestAppointments frmMTA = new frmManageTestAppointments((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value, clsTestType.enTestType.TheoryTest);
+            frmMTA.FormClosed += Refresh_OnFormClosed;
+            frmMTA.ShowDialog();
         }
         private void practicalTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmManageTestAppointments frmMTA = new frmManageTestAppointments((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value, clsTestType.enTestType.PracticalTest);
+            frmMTA.FormClosed += Refresh_OnFormClosed;
+            frmMTA.ShowDialog();
         }
         private void issueDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {

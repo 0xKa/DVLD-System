@@ -177,16 +177,18 @@ namespace DVLD_DataAccessLayer
             return RowsAffected > 0;
         }
 
-        public static DataTable GetAllTestAppointments()
+        public static DataTable GetApplicationTestAppointments(int LocalLicenseApplicationID, int TestTypeID)
         {
             DataTable dtTestAppointments = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM TestAppointment;";
+            string query = @"SELECT ID, AppointmentDate, PaidFees, IsLocked FROM TestAppointment 
+                                WHERE LocalLicenseApplicationID = @LocalLicenseApplicationID AND TestTypeID = @TestTypeID;";
 
             SqlCommand command = new SqlCommand(query, connection);
-
+            command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
             try
             {
                 connection.Open();
