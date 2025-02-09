@@ -123,6 +123,10 @@ namespace DVLD_BusinessLogicLayer
             return clsLocalLicenseApplicationData.CanAPersonApplyForThisClass(ApplicantPersonID, (int)LicenseClass);
         }
 
+        public static byte GetPassedTestCount(int LocalLicenseApplicationID)
+        {
+            return clsLocalLicenseApplicationData.GetPassedTestCount(LocalLicenseApplicationID);
+        }
     }
 
 }

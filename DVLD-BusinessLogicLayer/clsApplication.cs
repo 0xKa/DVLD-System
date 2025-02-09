@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_BusinessLogicLayer
 {
@@ -121,6 +122,11 @@ namespace DVLD_BusinessLogicLayer
         public static bool ChangeApplicationStatus(int ApplicationID, enApplicationStatus NewStatus)
         {
             return clsApplicationData.ChangeApplicationStatus(ApplicationID, (byte)NewStatus);
+        }
+     
+        public string GetStatusString()
+        {
+            return this.Status == 1 ? "New" : this.Status == 2 ? "Canceled" : "Completed";
         }
     }
 

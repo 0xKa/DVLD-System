@@ -205,6 +205,29 @@ namespace DVLD_DataAccessLayer
 
         }
 
+        public static byte GetPassedTestCount(int LocalLicenseApplicationID)
+        {
+            byte PassedTestCount = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT PassedTests FROM vLocalLicenseApplications WHERE ID = @LocalLicenseApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+                PassedTestCount = Convert.ToByte(command.ExecuteScalar());
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return PassedTestCount;
+        }
+
     }
 
 }
