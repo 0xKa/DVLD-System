@@ -121,6 +121,7 @@
             this.btnAddAppointment.TabIndex = 41;
             this.btnAddAppointment.Text = "Add Appointment";
             this.btnAddAppointment.UseVisualStyleBackColor = false;
+            this.btnAddAppointment.Click += new System.EventHandler(this.btnAddAppointment_Click);
             // 
             // ctrlLocalLicenseApplicationCard1
             // 

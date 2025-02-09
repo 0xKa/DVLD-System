@@ -152,6 +152,34 @@ namespace DVLD_DataAccessLayer
 
             return dtTests;
         }
+
+        public static bool IsPassedTest(int LocalLicenseApplicationID, int TestTypeID)
+        {
+            bool IsPassed = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM Test 
+                            JOIN TestAppointment ON TestAppointment.ID = Test.TestAppointmentID
+                            WHERE LocalLicenseApplicationID = @LocalLicenseApplicationID AND TestTypeID = @TestTypeID AND Result = 1;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                connection.Open();
+                IsPassed = (command.ExecuteScalar() != null);
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return IsPassed;
+        }
+
+
     }
 
 }

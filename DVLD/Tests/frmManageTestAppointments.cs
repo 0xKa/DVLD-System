@@ -67,5 +67,30 @@ namespace DVLD.Tests
         {
             this.Close();
         }
+
+
+        private bool _IsAppointmentAllowed()
+        {
+            if (clsTest.IsPassedTest(_LLApplication.ID, _TestType))
+            { MessageBox.Show("This Person Already Passed This Test Type.", "Already Passed", MessageBoxButtons.OK, MessageBoxIcon.Error); return false; }
+            else if  (clsTestAppointment.DoesHasAnActiveAppointment(_LLApplication.ID, _TestType))
+            { MessageBox.Show("This Person Has An Active Test Appointment.", "Already Scheduled", MessageBoxButtons.OK, MessageBoxIcon.Error); return false; }
+            else
+                return true;
+        }
+        private void btnAddAppointment_Click(object sender, EventArgs e)
+        {
+            if (_IsAppointmentAllowed())
+            {
+                frmScheduleTest frmST = new frmScheduleTest();
+                frmST.FormClosed += Refresh_OnFormClosed;
+                frmST.ShowDialog();
+            }
+        }
+
+        private void Refresh_OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            _RefreshDGV();
+        }
     }
 }

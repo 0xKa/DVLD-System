@@ -121,6 +121,16 @@ ORDER BY ID DESC;
 SELECT ID, AppointmentDate, PaidFees, IsLocked FROM TestAppointment 
 WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1;
 
+--Check if the application has passed the test
+SELECT 1 FROM Test 
+JOIN TestAppointment ON TestAppointment.ID = Test.TestAppointmentID
+WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1 AND Result = 1;
+
+--Check if the application have any active test
+SELECT 1 FROM TestAppointment 
+WHERE TestTypeID = 111 AND IsLocked = 0  AND LocalLicenseApplicationID = 111
+
+
 SELECT * FROM [Country];
 SELECT * FROM [Person];
 SELECT * FROM [User];

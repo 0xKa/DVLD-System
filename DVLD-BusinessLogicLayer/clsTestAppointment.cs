@@ -134,6 +134,12 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsTestAppointmentData.GetApplicationTestAppointments(LocalLicenseApplicationID, (int)TestType);
         }
+
+        public static bool DoesHasAnActiveAppointment(int LocalLicenseApplicationID, clsTestType.enTestType TestType)
+        {
+            return clsTestAppointmentData.DoesHasAnActiveAppointment(LocalLicenseApplicationID, (int)TestType);
+        }
+
     }
 
 }
