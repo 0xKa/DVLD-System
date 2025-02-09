@@ -27,7 +27,7 @@ namespace DVLD.Application.LocalLicenseApplication
         private void frmLocalLicenseApplicationDetails_Load(object sender, EventArgs e)
         {
             this.Activated += FrmLocalLicenseApplicationDetails_Activated; ;
-            this.Text = $"Local License Application {_LLApplicationID} Details";
+            this.Text = $"Local License Application No. {_LLApplicationID} Details";
         }
 
         private void FrmLocalLicenseApplicationDetails_Activated(object sender, EventArgs e)

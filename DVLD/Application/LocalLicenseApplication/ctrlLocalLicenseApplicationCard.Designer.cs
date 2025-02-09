@@ -81,7 +81,7 @@
             // 
             this.llShowLicenseInfo.Enabled = false;
             this.llShowLicenseInfo.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.llShowLicenseInfo.Location = new System.Drawing.Point(526, 53);
+            this.llShowLicenseInfo.Location = new System.Drawing.Point(526, 60);
             this.llShowLicenseInfo.Name = "llShowLicenseInfo";
             this.llShowLicenseInfo.Size = new System.Drawing.Size(94, 28);
             this.llShowLicenseInfo.TabIndex = 54;
@@ -193,7 +193,6 @@
             // 
             // llViewPersonInfo
             // 
-            this.llViewPersonInfo.Enabled = false;
             this.llViewPersonInfo.Font = new System.Drawing.Font("Consolas", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.llViewPersonInfo.Location = new System.Drawing.Point(526, 186);
             this.llViewPersonInfo.Name = "llViewPersonInfo";

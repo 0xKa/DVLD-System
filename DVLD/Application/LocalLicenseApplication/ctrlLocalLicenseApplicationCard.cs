@@ -33,7 +33,7 @@ namespace DVLD.Application.LocalLicenseApplication
             lblApplicationID.Text = SelectedLLApplication.ApplicationID.ToString();
             lblApplicationStatus.Text = SelectedLLApplication.GetStatusString(); 
             lblApplicationFees.Text = SelectedLLApplication.Fees.ToString();
-            lblApplicationType.Text = SelectedLLApplication.Type.ToString();
+            lblApplicationType.Text = SelectedLLApplication.Type.Title;
             lblApplicantPerson.Text = SelectedLLApplication.ApplicantPerson.FullName;
             lblApplicationDate.Text = SelectedLLApplication.ApplicationDate.ToString("ddd, dd/MMM/yyyy");
             lblLastStatusDate.Text = SelectedLLApplication.LastStatusDate.ToString("ddd, dd/MMM/yyyy");

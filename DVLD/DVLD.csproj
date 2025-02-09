@@ -422,6 +422,35 @@
   <ItemGroup>
     <None Include="Resources\username-white.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="Resources\driving-license3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancel.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\driving-license2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Issue-license.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\international-driving-license.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\done.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\schedule.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\theory-test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\practical-test.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\vision-test.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

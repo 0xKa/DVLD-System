@@ -41,8 +41,11 @@ namespace DVLD_BusinessLogicLayer
             this.Fees = Fees;
             this.CreatedByUserID = CreatedByUserID;
             this.LicenseClassID = LicenseClassID;
-
+            
             this.LicenseClassInfo = clsLicenseClass.Find(this.LicenseClassID);
+            this.ApplicantPerson = clsPerson.Find(this.ApplicantPersonID);
+            this.Type = clsApplicationType.Find(this.TypeID);
+            this.CreatedByUser = clsUser.Find(this.CreatedByUserID);
         }
 
         private bool _AddNewLocalLicenseApplication()

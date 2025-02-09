@@ -28,17 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.ctrlLocalLicenseApplicationCard1 = new DVLD.Application.LocalLicenseApplication.ctrlLocalLicenseApplicationCard();
             this.btnClose = new System.Windows.Forms.Button();
+            this.ctrlLocalLicenseApplicationCard1 = new DVLD.Application.LocalLicenseApplication.ctrlLocalLicenseApplicationCard();
             this.SuspendLayout();
-            // 
-            // ctrlLocalLicenseApplicationCard1
-            // 
-            this.ctrlLocalLicenseApplicationCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ctrlLocalLicenseApplicationCard1.Location = new System.Drawing.Point(9, 8);
-            this.ctrlLocalLicenseApplicationCard1.Name = "ctrlLocalLicenseApplicationCard1";
-            this.ctrlLocalLicenseApplicationCard1.Size = new System.Drawing.Size(626, 314);
-            this.ctrlLocalLicenseApplicationCard1.TabIndex = 0;
             // 
             // btnClose
             // 
@@ -57,6 +49,14 @@
             this.btnClose.UseVisualStyleBackColor = false;
             this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
+            // ctrlLocalLicenseApplicationCard1
+            // 
+            this.ctrlLocalLicenseApplicationCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ctrlLocalLicenseApplicationCard1.Location = new System.Drawing.Point(9, 8);
+            this.ctrlLocalLicenseApplicationCard1.Name = "ctrlLocalLicenseApplicationCard1";
+            this.ctrlLocalLicenseApplicationCard1.Size = new System.Drawing.Size(626, 314);
+            this.ctrlLocalLicenseApplicationCard1.TabIndex = 0;
+            // 
             // frmLocalLicenseApplicationDetails
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -65,6 +65,7 @@
             this.ClientSize = new System.Drawing.Size(645, 365);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.ctrlLocalLicenseApplicationCard1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmLocalLicenseApplicationDetails";
