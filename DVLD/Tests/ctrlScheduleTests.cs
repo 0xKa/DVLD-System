@@ -145,8 +145,6 @@ namespace DVLD.Tests
 
 
         }
-
-
         private void btnSave_Click(object sender, EventArgs e)
         {
             _FillTestAppointmentObject();
@@ -164,6 +162,13 @@ namespace DVLD.Tests
 
             _Mode = clsGlobalSettings.enMode.Update;
 
+        }
+
+        public void LockTheAppointmentSave()
+        {
+            btnSave.Enabled = false;
+            dtpTestDateTime.Enabled = false;
+            lblAppointmentLockMessage.Visible = true;
         }
     }
 }

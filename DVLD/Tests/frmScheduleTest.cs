@@ -13,15 +13,18 @@ namespace DVLD.Tests
 {
     public partial class frmScheduleTest : Form
     {
-        public frmScheduleTest(clsTestType.enTestType TestType, int LocalLicenseApplicationID, int AppointmentID = -1)
+        public frmScheduleTest(clsTestType.enTestType TestType, int LocalLicenseApplicationID, int AppointmentID = -1, bool IsLocked = false)
         {
             InitializeComponent();
+            ctrlScheduleTests1.TestType = TestType;
             ctrlScheduleTests1.LoadInfo(LocalLicenseApplicationID, AppointmentID);
+            if (IsLocked)
+                ctrlScheduleTests1.LockTheAppointmentSave();
         }
 
-        private void frmScheduleTest_Load(object sender, EventArgs e)
+        private void btnClose_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
     }
 }

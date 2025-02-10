@@ -28,16 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvAppointmentsList = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.editToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.takeTestToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label1 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.btnAddAppointment = new System.Windows.Forms.Button();
-            this.ctrlLocalLicenseApplicationCard1 = new DVLD.Application.LocalLicenseApplication.ctrlLocalLicenseApplicationCard();
             this.lblNumberOfRecords = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.ctrlLocalLicenseApplicationCard1 = new DVLD.Application.LocalLicenseApplication.ctrlLocalLicenseApplicationCard();
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentsList)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,12 +57,39 @@
             this.dgvAppointmentsList.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvAppointmentsList.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.dgvAppointmentsList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvAppointmentsList.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvAppointmentsList.Location = new System.Drawing.Point(6, 445);
             this.dgvAppointmentsList.Name = "dgvAppointmentsList";
             this.dgvAppointmentsList.ReadOnly = true;
             this.dgvAppointmentsList.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvAppointmentsList.Size = new System.Drawing.Size(626, 85);
             this.dgvAppointmentsList.TabIndex = 38;
+            this.dgvAppointmentsList.DoubleClick += new System.EventHandler(this.dgvAppointmentsList_DoubleClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.editToolStripMenuItem,
+            this.takeTestToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(130, 48);
+            // 
+            // editToolStripMenuItem
+            // 
+            this.editToolStripMenuItem.Image = global::DVLD.Properties.Resources.edit;
+            this.editToolStripMenuItem.Name = "editToolStripMenuItem";
+            this.editToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.editToolStripMenuItem.Text = "Edit";
+            this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
+            // 
+            // takeTestToolStripMenuItem
+            // 
+            this.takeTestToolStripMenuItem.Image = global::DVLD.Properties.Resources.proceed;
+            this.takeTestToolStripMenuItem.Name = "takeTestToolStripMenuItem";
+            this.takeTestToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.takeTestToolStripMenuItem.Text = "Take Test";
+            this.takeTestToolStripMenuItem.Click += new System.EventHandler(this.takeTestToolStripMenuItem_Click);
             // 
             // label1
             // 
@@ -99,7 +131,7 @@
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnClose.ImageKey = "(none)";
-            this.btnClose.Location = new System.Drawing.Point(524, 533);
+            this.btnClose.Location = new System.Drawing.Point(524, 535);
             this.btnClose.Name = "btnClose";
             this.btnClose.Size = new System.Drawing.Size(108, 34);
             this.btnClose.TabIndex = 40;
@@ -123,19 +155,11 @@
             this.btnAddAppointment.UseVisualStyleBackColor = false;
             this.btnAddAppointment.Click += new System.EventHandler(this.btnAddAppointment_Click);
             // 
-            // ctrlLocalLicenseApplicationCard1
-            // 
-            this.ctrlLocalLicenseApplicationCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
-            this.ctrlLocalLicenseApplicationCard1.Location = new System.Drawing.Point(6, 88);
-            this.ctrlLocalLicenseApplicationCard1.Name = "ctrlLocalLicenseApplicationCard1";
-            this.ctrlLocalLicenseApplicationCard1.Size = new System.Drawing.Size(626, 314);
-            this.ctrlLocalLicenseApplicationCard1.TabIndex = 39;
-            // 
             // lblNumberOfRecords
             // 
             this.lblNumberOfRecords.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNumberOfRecords.ForeColor = System.Drawing.SystemColors.Control;
-            this.lblNumberOfRecords.Location = new System.Drawing.Point(206, 533);
+            this.lblNumberOfRecords.Location = new System.Drawing.Point(206, 535);
             this.lblNumberOfRecords.Name = "lblNumberOfRecords";
             this.lblNumberOfRecords.Size = new System.Drawing.Size(123, 34);
             this.lblNumberOfRecords.TabIndex = 43;
@@ -146,12 +170,20 @@
             // 
             this.label2.Font = new System.Drawing.Font("Constantia", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.Control;
-            this.label2.Location = new System.Drawing.Point(7, 533);
+            this.label2.Location = new System.Drawing.Point(7, 535);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(193, 34);
             this.label2.TabIndex = 42;
             this.label2.Text = "Number of Records: ";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ctrlLocalLicenseApplicationCard1
+            // 
+            this.ctrlLocalLicenseApplicationCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(25)))), ((int)(((byte)(25)))), ((int)(((byte)(25)))));
+            this.ctrlLocalLicenseApplicationCard1.Location = new System.Drawing.Point(6, 88);
+            this.ctrlLocalLicenseApplicationCard1.Name = "ctrlLocalLicenseApplicationCard1";
+            this.ctrlLocalLicenseApplicationCard1.Size = new System.Drawing.Size(626, 314);
+            this.ctrlLocalLicenseApplicationCard1.TabIndex = 39;
             // 
             // frmManageTestAppointments
             // 
@@ -178,6 +210,7 @@
             this.Text = "Manage Test Appointments";
             this.Load += new System.EventHandler(this.frmManageTestAppointments_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvAppointmentsList)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -194,5 +227,8 @@
         private System.Windows.Forms.Button btnAddAppointment;
         private System.Windows.Forms.Label lblNumberOfRecords;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem editToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem takeTestToolStripMenuItem;
     }
 }

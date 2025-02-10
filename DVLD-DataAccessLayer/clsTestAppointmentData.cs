@@ -184,7 +184,8 @@ namespace DVLD_DataAccessLayer
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
             string query = @"SELECT ID, AppointmentDate, PaidFees, IsLocked FROM TestAppointment 
-                                WHERE LocalLicenseApplicationID = @LocalLicenseApplicationID AND TestTypeID = @TestTypeID;";
+                                WHERE LocalLicenseApplicationID = @LocalLicenseApplicationID AND TestTypeID = @TestTypeID
+                                ORDER BY ID DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
@@ -253,6 +254,30 @@ WHERE TestTypeID = @TestTypeID AND IsLocked = 0  AND LocalLicenseApplicationID =
 
             return Trials;
         }
+
+        public static bool IsAppointmentLocked(int TestAppointmentID)
+        {
+            bool IsLocked = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM TestAppointment WHERE IsLocked = 1 AND ID = @ID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ID", TestAppointmentID);
+
+            try
+            {
+                connection.Open();
+                IsLocked = command.ExecuteScalar() != null;
+            }
+            catch { return false; }
+            finally { connection.Close(); }
+
+
+            return IsLocked;
+        }
+
 
     }
 

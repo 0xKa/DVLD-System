@@ -146,6 +146,10 @@ namespace DVLD_BusinessLogicLayer
             return clsTestAppointmentData.GetTestTrials(LocalLicenseApplicationID, (int)TestType);
         }
 
+        public static bool IsAppointmentLocked(int TestAppointmentID)
+        {
+            return clsTestAppointmentData.IsAppointmentLocked(TestAppointmentID);
+        }
 
     }
 

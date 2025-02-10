@@ -76,7 +76,7 @@ namespace DVLD.Tests
         }
 
 
-        private bool _IsAppointmentAllowed()
+        private bool _IsNewAppointmentAllowed()
         {
             if (clsTest.IsPassedTest(_LLApplication.ID, _TestType))
             { MessageBox.Show("This Person Already Passed This Test Type.", "Already Passed", MessageBoxButtons.OK, MessageBoxIcon.Error); return false; }
@@ -87,7 +87,7 @@ namespace DVLD.Tests
         }
         private void btnAddAppointment_Click(object sender, EventArgs e)
         {
-            if (_IsAppointmentAllowed())
+            if (_IsNewAppointmentAllowed())
             {
                 frmScheduleTest frmST = new frmScheduleTest(enTestType.VisionTest, _LLApplication.ID);
                 frmST.FormClosed += Refresh_OnFormClosed;
@@ -99,5 +99,29 @@ namespace DVLD.Tests
         {
             _RefreshDGV();
         }
+
+        private void editToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmScheduleTest frmST = null;
+
+            if (clsTest.IsPassedTest(_LLApplication.ID, _TestType) || clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
+                frmST = new frmScheduleTest(_TestType, _LLApplication.ID, (int)dgvAppointmentsList.CurrentRow.Cells[0].Value, true);
+            else
+                frmST = new frmScheduleTest(_TestType, _LLApplication.ID, (int)dgvAppointmentsList.CurrentRow.Cells[0].Value);
+
+            frmST.MdiParent = this.MdiParent;
+
+            frmST.FormClosed += Refresh_OnFormClosed;
+            frmST.Show();
+        }
+        private void dgvAppointmentsList_DoubleClick(object sender, EventArgs e)
+        {
+            editToolStripMenuItem.PerformClick();
+        }
+        private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }

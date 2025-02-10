@@ -119,7 +119,8 @@ ORDER BY ID DESC;
 
 --Get all/any Test Appointments for a cerain application 
 SELECT ID, AppointmentDate, PaidFees, IsLocked FROM TestAppointment 
-WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1;
+WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1
+ORDER BY ID DESC;
 
 --Check if the application has passed the test
 SELECT 1 FROM Test 
@@ -139,6 +140,9 @@ WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1 AND Result = 0;
 SELECT COUNT(*) FROM TestAppointment 
 WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1;
 
+--Check if Appointment is locked
+SELECT 1 FROM TestAppointment WHERE IsLocked = 1 AND ID = 2;
+
 SELECT * FROM [Country];
 SELECT * FROM [Person];
 SELECT * FROM [User];
@@ -154,5 +158,3 @@ SELECT * FROM [TestType];
 SELECT * FROM [TestAppointment];
 SELECT * FROM [Test];
 
-SELECT ID, AppointmentDate, PaidFees, IsLocked FROM TestAppointment 
-WHERE LocalLicenseApplicationID = 3 AND TestTypeID = 1;
