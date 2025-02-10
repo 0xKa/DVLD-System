@@ -18,14 +18,15 @@ namespace DVLD.Tests
         private enCreationMode _CreationMode = enCreationMode.FirstTimeTest;
         private clsGlobalSettings.enMode _Mode = clsGlobalSettings.enMode.AddNew;
 
+        private enTestType _TestType = enTestType.VisionTest;
         public enTestType TestType
         {
-            get { return TestType; }
+            get { return _TestType; }
             set
             {
-                TestType = value;
+                _TestType = value;
 
-                switch (TestType)
+                switch (_TestType)
                 {
                     case enTestType.VisionTest:
                         pictureBox1.Image = Properties.Resources.vision_test;
@@ -113,7 +114,7 @@ namespace DVLD.Tests
 
         private void _FillTestAppointmentObject()
         {
-            _TestAppointment.TestTypeID = (int)TestType;
+            _TestAppointment.TestTypeID = (int)_TestType;
             _TestAppointment.LocalLicenseApplicationID = _LLApplication.ID;
             _TestAppointment.AppointmentDate = dtpTestDateTime.Value;
             _TestAppointment.PaidFees = _TotalFees;

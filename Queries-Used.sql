@@ -153,3 +153,6 @@ SELECT * FROM [Driver];
 SELECT * FROM [TestType];
 SELECT * FROM [TestAppointment];
 SELECT * FROM [Test];
+
+SELECT ID, AppointmentDate, PaidFees, IsLocked FROM TestAppointment 
+WHERE LocalLicenseApplicationID = 3 AND TestTypeID = 1;

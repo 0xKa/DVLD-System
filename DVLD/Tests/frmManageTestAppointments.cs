@@ -32,7 +32,13 @@ namespace DVLD.Tests
             dgvAppointmentsList.DataSource = _dtAppointments;
             lblNumberOfRecords.Text = dgvAppointmentsList.RowCount.ToString();
         }
-
+        private void _EditDGV()
+        {
+            if (dgvAppointmentsList.RowCount > 0)
+            {
+                dgvAppointmentsList.Columns["AppointmentDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm:ss tt";
+            }
+        }
         private void _InitiateTitleAndImage()
         {
             switch (_TestType)
@@ -59,6 +65,7 @@ namespace DVLD.Tests
         private void frmManageTestAppointments_Load(object sender, EventArgs e)
         {
             _RefreshDGV();
+            _EditDGV();
             _InitiateTitleAndImage();
             ctrlLocalLicenseApplicationCard1.LoadApplicationInfo(_LLApplication.ID);
         }
@@ -82,7 +89,7 @@ namespace DVLD.Tests
         {
             if (_IsAppointmentAllowed())
             {
-                frmScheduleTest frmST = new frmScheduleTest();
+                frmScheduleTest frmST = new frmScheduleTest(enTestType.VisionTest, _LLApplication.ID);
                 frmST.FormClosed += Refresh_OnFormClosed;
                 frmST.ShowDialog();
             }

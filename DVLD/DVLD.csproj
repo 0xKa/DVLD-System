@@ -132,12 +132,6 @@
     <Compile Include="Tests\ctrlScheduleTests.Designer.cs">
       <DependentUpon>ctrlScheduleTests.cs</DependentUpon>
     </Compile>
-    <Compile Include="Tests\fffff.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Tests\fffff.Designer.cs">
-      <DependentUpon>fffff.cs</DependentUpon>
-    </Compile>
     <Compile Include="Tests\frmManageTestAppointments.cs">
       <SubType>Form</SubType>
     </Compile>
