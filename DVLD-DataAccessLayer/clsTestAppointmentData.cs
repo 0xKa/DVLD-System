@@ -230,6 +230,30 @@ WHERE TestTypeID = @TestTypeID AND IsLocked = 0  AND LocalLicenseApplicationID =
             return IsPassed;
         }
 
+        public static byte GetTestTrials(int LocalLicenseApplicationID, int TestTypeID)
+        {
+            byte Trials = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT COUNT(*) FROM TestAppointment WHERE LocalLicenseApplicationID = @LocalLicenseApplicationID AND TestTypeID = @TestTypeID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+
+            try
+            {
+                connection.Open();
+                Trials = Convert.ToByte(command.ExecuteScalar());
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return Trials;
+        }
+
     }
 
 }

@@ -178,6 +178,32 @@ namespace DVLD_DataAccessLayer
 
             return IsPassed;
         }
+        public static bool IsRetakeTest(int LocalLicenseApplicationID, int TestTypeID)
+        {
+            bool IsFailed = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM ConductedTests_View
+                             WHERE TestResult = 0
+                                AND TestTypeID = @TestTypeID 
+                                AND LocalLicenseApplicationID = @LocalLicenseApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
+            command.Parameters.AddWithValue("@LocalLicenseApplicationID", LocalLicenseApplicationID);
+
+            try
+            {
+                connection.Open();
+                IsFailed = (command.ExecuteScalar() != null);
+            }
+            catch { }
+            finally { connection.Close(); }
+
+
+            return IsFailed;
+        }
 
 
     }

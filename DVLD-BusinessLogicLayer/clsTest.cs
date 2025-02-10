@@ -99,6 +99,10 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsTestData.IsPassedTest(LocalLicenseApplication, (int)TestType);
         }
+        public static bool IsRetakeTest(int LocalLicenseApplicationID, clsTestType.enTestType TestType)
+        {
+            return clsTestData.IsRetakeTest(LocalLicenseApplicationID, (int) TestType);
+        }
     }
 
 }

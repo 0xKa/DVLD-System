@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -139,6 +140,12 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsTestAppointmentData.DoesHasAnActiveAppointment(LocalLicenseApplicationID, (int)TestType);
         }
+
+        public static byte GetTestTrials(int LocalLicenseApplicationID, clsTestType.enTestType TestType)
+        {
+            return clsTestAppointmentData.GetTestTrials(LocalLicenseApplicationID, (int)TestType);
+        }
+
 
     }
 

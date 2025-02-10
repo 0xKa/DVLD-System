@@ -130,6 +130,14 @@ WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1 AND Result = 1;
 SELECT 1 FROM TestAppointment 
 WHERE TestTypeID = 111 AND IsLocked = 0  AND LocalLicenseApplicationID = 111
 
+--check if the application last test was faild
+SELECT 1 FROM Test 
+JOIN TestAppointment ON TestAppointment.ID = Test.TestAppointmentID
+WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1 AND Result = 0;
+
+--Gets the test trials for a specific test type 
+SELECT COUNT(*) FROM TestAppointment 
+WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1;
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];
