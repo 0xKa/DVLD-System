@@ -189,10 +189,9 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT 1 FROM ConductedTests_View
-                             WHERE TestResult = 0
-                                AND TestTypeID = @TestTypeID 
-                                AND LocalLicenseApplicationID = @LocalLicenseApplicationID;";
+            string query = @"SELECT 1 FROM Test 
+                            JOIN TestAppointment ON TestAppointment.ID = Test.TestAppointmentID
+                            WHERE LocalLicenseApplicationID = @LocalLicenseApplicationID AND TestTypeID = @TestTypeID AND Result = 0;";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@TestTypeID", TestTypeID);
