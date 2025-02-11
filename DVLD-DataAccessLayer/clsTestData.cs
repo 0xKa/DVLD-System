@@ -42,6 +42,7 @@ namespace DVLD_DataAccessLayer
             return isFound;
         }
 
+        //adds new test and Locks the appointment linked with the new test
         public static int AddNewTest(int TestAppointmentID, bool Result, string Notes, int CreatedByUserID)
         {
             int ID = -1;
@@ -50,7 +51,11 @@ namespace DVLD_DataAccessLayer
 
             string query = @"INSERT INTO [dbo].[Test] 
                         ([TestAppointmentID], [Result], [Notes], [CreatedByUserID])
-                        VALUES (@TestAppointmentID, @Result, @Notes, @CreatedByUserID);
+                        VALUES (@TestAppointmentID, @Result, @Notes, @CreatedByUserID)
+
+                        UPDATE TestAppointment
+                        SET IsLocked = 1 WHERE ID = @TestAppointmentID
+
                         SELECT SCOPE_IDENTITY();";
 
             SqlCommand command = new SqlCommand(query, connection);

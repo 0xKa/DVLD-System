@@ -89,7 +89,7 @@ namespace DVLD.Tests
         {
             if (_IsNewAppointmentAllowed())
             {
-                frmScheduleTest frmST = new frmScheduleTest(enTestType.VisionTest, _LLApplication.ID);
+                frmScheduleTest frmST = new frmScheduleTest(_TestType, _LLApplication.ID);
                 frmST.FormClosed += Refresh_OnFormClosed;
                 frmST.ShowDialog();
             }
@@ -98,6 +98,7 @@ namespace DVLD.Tests
         private void Refresh_OnFormClosed(object sender, FormClosedEventArgs e)
         {
             _RefreshDGV();
+            ctrlLocalLicenseApplicationCard1.LoadApplicationInfo(_LLApplication.ID);
         }
 
         private void editToolStripMenuItem_Click(object sender, EventArgs e)
@@ -120,7 +121,20 @@ namespace DVLD.Tests
         }
         private void takeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (clsTest.IsPassedTest(_LLApplication.ID, _TestType))
+            {
+                MessageBox.Show("The Person Already Passed This Test.", "Already Passed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            else if (clsTestAppointment.IsAppointmentLocked((int)dgvAppointmentsList.CurrentRow.Cells[0].Value))
+            {
+                MessageBox.Show("This Appointment is Locked.", "Locked", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            frmTakeTest frmTT = new frmTakeTest(_TestType, _LLApplication.ID, (int)dgvAppointmentsList.CurrentRow.Cells[0].Value);
+            frmTT.FormClosed += Refresh_OnFormClosed;
+            frmTT.ShowDialog();
         }
 
     }

@@ -66,6 +66,7 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.lblUserLoogedIn = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -394,13 +395,26 @@
             this.lblUserLoogedIn.TabIndex = 14;
             this.lblUserLoogedIn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // label2
+            // 
+            this.label2.BackColor = System.Drawing.Color.Black;
+            this.label2.Font = new System.Drawing.Font("Poor Richard", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(600, 487);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(171, 40);
+            this.label2.TabIndex = 16;
+            this.label2.Text = "Reda Hilal - 2025";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1370, 749);
-            this.Controls.Add(this.lblUserLoogedIn);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.lblTitle);
+            this.Controls.Add(this.lblUserLoogedIn);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
@@ -460,5 +474,6 @@
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label lblUserLoogedIn;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -130,6 +130,10 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsLocalLicenseApplicationData.GetPassedTestCount(LocalLicenseApplicationID);
         }
+        public static bool IsPassedAllTests(int LocalLicenseApplicationID)
+        {
+            return GetPassedTestCount(LocalLicenseApplicationID) == 3;
+        }
     }
 
 }
