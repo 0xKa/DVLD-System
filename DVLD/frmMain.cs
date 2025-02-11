@@ -94,5 +94,10 @@ namespace DVLD
             _CurrentForm = new frmManageLocalLicenseApplications();
             _CurrentForm.ShowDialog();
         }
+
+        private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            localDrivingLicenseApplicationToolStripMenuItem.PerformClick();
+        }
     }
 }
