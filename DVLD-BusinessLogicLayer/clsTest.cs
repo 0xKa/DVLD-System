@@ -19,7 +19,7 @@ namespace DVLD_BusinessLogicLayer
         public int CreatedByUserID { get; set; }
 
         public clsTestAppointment TestAppointment = null;
-        public clsUser User = null;
+        public clsUser CreatedByUser = null;
 
         public clsTest()
         {
@@ -42,7 +42,7 @@ namespace DVLD_BusinessLogicLayer
             this.CreatedByUserID = CreatedByUserID;
 
             this.TestAppointment = clsTestAppointment.Find(TestAppointmentID);
-            this.User = clsUser.Find(CreatedByUserID);
+            this.CreatedByUser = clsUser.Find(CreatedByUserID);
         }
 
         private bool _AddNewTest()

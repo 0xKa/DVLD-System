@@ -30,7 +30,7 @@ namespace DVLD_BusinessLogicLayer
 
         public clsTestType TestType = null;
         public clsLocalLicenseApplication LocalLicenseApplication = null;
-        public clsUser User = null;
+        public clsUser CreatedByUser = null;
 
         public clsTestAppointment()
         {
@@ -59,7 +59,7 @@ namespace DVLD_BusinessLogicLayer
 
             this.TestType = clsTestType.Find(TestTypeID);
             this.LocalLicenseApplication = clsLocalLicenseApplication.FindByLLApplicationID(LocalLicenseApplicationID);
-            this.User = clsUser.Find(CreatedByUserID);
+            this.CreatedByUser = clsUser.Find(CreatedByUserID);
 
         }
 

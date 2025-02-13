@@ -143,6 +143,12 @@ WHERE LocalLicenseApplicationID = 1 AND TestTypeID = 1;
 --Check if Appointment is locked
 SELECT 1 FROM TestAppointment WHERE IsLocked = 1 AND ID = 2;
 
+--CREATE VIEW vDrivers AS
+SELECT Driver.ID, vPeople.ID AS PersonID, vPeople.NationalNo, vPeople.FullName, Driver.CreatedDate,
+(SELECT COUNT(License.ID) FROM License WHERE License.DriverID = Driver.ID AND License.IsActive = 1) AS ActiveLicense 
+FROM Driver
+JOIN  vPeople ON vPeople.ID = Driver.ID
+
 SELECT * FROM [Country];
 SELECT * FROM [Person];
 SELECT * FROM [User];
