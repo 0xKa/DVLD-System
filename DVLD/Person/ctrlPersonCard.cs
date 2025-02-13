@@ -31,7 +31,7 @@ namespace DVLD.People
             lblEmail.Text = SelectedPerson.Email;
             lblAddress.Text = SelectedPerson.Address;
             lblCountry.Text = SelectedPerson.CountryInfo.Name;
-            lblGender.Text = SelectedPerson.sGender;
+            lblGender.Text = SelectedPerson.GenderText;
 
             if (string.IsNullOrEmpty(SelectedPerson.ImagePath))
                 pbPersonImage.Image = SelectedPerson.enGender == clsPerson.enumGender.Male ? Properties.Resources.default_male : Properties.Resources.default_female;

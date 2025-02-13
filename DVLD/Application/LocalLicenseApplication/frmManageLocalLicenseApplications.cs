@@ -1,4 +1,5 @@
 ﻿using DVLD.License;
+using DVLD.License.Local_Licenses;
 using DVLD.Tests;
 using DVLD_BusinessLogicLayer;
 using System;
@@ -230,10 +231,16 @@ namespace DVLD.Application.LocalLicenseApplication
             frmILL.ShowDialog();
 
         }
-
         private void showLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicenseDetails frmLD = new frmLicenseDetails(clsLicense.FindByApplicationID(FindByLLApplicationID((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value).ApplicationID));
+            frmLD.FormClosed += Refresh_OnFormClosed;
+            frmLD.ShowDialog();
+        }
+        private void showLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }
+
     }
 }

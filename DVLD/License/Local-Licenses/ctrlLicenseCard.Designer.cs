@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             this.gbDriverLicenseInfo = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblIssueReason = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblIssueDate = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.lblFullName = new System.Windows.Forms.Label();
@@ -48,10 +52,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.lblNotes = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.lblIssueReason = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblIssueDate = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblGender = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -94,6 +94,50 @@
             this.gbDriverLicenseInfo.TabStop = false;
             this.gbDriverLicenseInfo.Text = "Driver License Info";
             // 
+            // label11
+            // 
+            this.label11.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.ForeColor = System.Drawing.Color.DarkGray;
+            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label11.Location = new System.Drawing.Point(347, 124);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(113, 20);
+            this.label11.TabIndex = 55;
+            this.label11.Text = "Issue Reason:";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblIssueReason
+            // 
+            this.lblIssueReason.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueReason.ForeColor = System.Drawing.Color.White;
+            this.lblIssueReason.Location = new System.Drawing.Point(466, 125);
+            this.lblIssueReason.Name = "lblIssueReason";
+            this.lblIssueReason.Size = new System.Drawing.Size(163, 43);
+            this.lblIssueReason.TabIndex = 54;
+            this.lblIssueReason.Text = "[????]";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.DarkGray;
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label9.Location = new System.Drawing.Point(347, 168);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(113, 20);
+            this.label9.TabIndex = 53;
+            this.label9.Text = "Issue Date:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // lblIssueDate
+            // 
+            this.lblIssueDate.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblIssueDate.ForeColor = System.Drawing.Color.White;
+            this.lblIssueDate.Location = new System.Drawing.Point(466, 168);
+            this.lblIssueDate.Name = "lblIssueDate";
+            this.lblIssueDate.Size = new System.Drawing.Size(157, 20);
+            this.lblIssueDate.TabIndex = 52;
+            this.lblIssueDate.Text = "[????]";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
@@ -127,7 +171,7 @@
             // 
             this.lblFullName.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblFullName.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblFullName.Location = new System.Drawing.Point(115, 57);
+            this.lblFullName.Location = new System.Drawing.Point(115, 59);
             this.lblFullName.Name = "lblFullName";
             this.lblFullName.Size = new System.Drawing.Size(335, 20);
             this.lblFullName.TabIndex = 42;
@@ -137,7 +181,7 @@
             // 
             this.lblLicenseClass.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblLicenseClass.ForeColor = System.Drawing.Color.White;
-            this.lblLicenseClass.Location = new System.Drawing.Point(115, 13);
+            this.lblLicenseClass.Location = new System.Drawing.Point(115, 15);
             this.lblLicenseClass.Name = "lblLicenseClass";
             this.lblLicenseClass.Size = new System.Drawing.Size(335, 20);
             this.lblLicenseClass.TabIndex = 43;
@@ -204,7 +248,7 @@
             this.label17.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label17.ForeColor = System.Drawing.Color.DarkGray;
             this.label17.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label17.Location = new System.Drawing.Point(321, 256);
+            this.label17.Location = new System.Drawing.Point(321, 257);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(139, 20);
             this.label17.TabIndex = 67;
@@ -226,7 +270,7 @@
             this.label15.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label15.ForeColor = System.Drawing.Color.DarkGray;
             this.label15.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label15.Location = new System.Drawing.Point(321, 212);
+            this.label15.Location = new System.Drawing.Point(321, 213);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(139, 20);
             this.label15.TabIndex = 65;
@@ -247,7 +291,7 @@
             // 
             this.lblIsActive.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblIsActive.ForeColor = System.Drawing.Color.Green;
-            this.lblIsActive.Location = new System.Drawing.Point(125, 258);
+            this.lblIsActive.Location = new System.Drawing.Point(123, 257);
             this.lblIsActive.Name = "lblIsActive";
             this.lblIsActive.Size = new System.Drawing.Size(157, 20);
             this.lblIsActive.TabIndex = 62;
@@ -269,7 +313,7 @@
             // 
             this.lblDateOfBirth.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblDateOfBirth.ForeColor = System.Drawing.Color.White;
-            this.lblDateOfBirth.Location = new System.Drawing.Point(125, 214);
+            this.lblDateOfBirth.Location = new System.Drawing.Point(125, 213);
             this.lblDateOfBirth.Name = "lblDateOfBirth";
             this.lblDateOfBirth.Size = new System.Drawing.Size(157, 20);
             this.lblDateOfBirth.TabIndex = 60;
@@ -280,7 +324,7 @@
             this.label4.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.DarkGray;
             this.label4.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label4.Location = new System.Drawing.Point(6, 257);
+            this.label4.Location = new System.Drawing.Point(14, 257);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(103, 20);
             this.label4.TabIndex = 59;
@@ -292,7 +336,7 @@
             this.label13.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.DarkGray;
             this.label13.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label13.Location = new System.Drawing.Point(6, 300);
+            this.label13.Location = new System.Drawing.Point(6, 299);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(113, 20);
             this.label13.TabIndex = 57;
@@ -308,50 +352,6 @@
             this.lblNotes.Size = new System.Drawing.Size(479, 38);
             this.lblNotes.TabIndex = 56;
             this.lblNotes.Text = "[????]";
-            // 
-            // label11
-            // 
-            this.label11.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.DarkGray;
-            this.label11.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label11.Location = new System.Drawing.Point(347, 124);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(113, 20);
-            this.label11.TabIndex = 55;
-            this.label11.Text = "Issue Reason:";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblIssueReason
-            // 
-            this.lblIssueReason.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueReason.ForeColor = System.Drawing.Color.White;
-            this.lblIssueReason.Location = new System.Drawing.Point(466, 124);
-            this.lblIssueReason.Name = "lblIssueReason";
-            this.lblIssueReason.Size = new System.Drawing.Size(163, 45);
-            this.lblIssueReason.TabIndex = 54;
-            this.lblIssueReason.Text = "[????]";
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.DarkGray;
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label9.Location = new System.Drawing.Point(347, 168);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(113, 20);
-            this.label9.TabIndex = 53;
-            this.label9.Text = "Issue Date:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // lblIssueDate
-            // 
-            this.lblIssueDate.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblIssueDate.ForeColor = System.Drawing.Color.White;
-            this.lblIssueDate.Location = new System.Drawing.Point(466, 169);
-            this.lblIssueDate.Name = "lblIssueDate";
-            this.lblIssueDate.Size = new System.Drawing.Size(157, 20);
-            this.lblIssueDate.TabIndex = 52;
-            this.lblIssueDate.Text = "[????]";
             // 
             // label7
             // 

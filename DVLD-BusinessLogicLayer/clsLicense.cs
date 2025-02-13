@@ -58,13 +58,13 @@ namespace DVLD_BusinessLogicLayer
 
         public bool IsDetained
         {
-            get { return false; }//call a method to check
+            get { return false; }//call a method to check //koko
         }
 
-        clsApplication ApplicationInfo = null;
-        clsDriver DriverInfo = null;
-        clsLicenseClass LicenseClass = null;
-        clsUser CreatedByUser = null;
+        public clsApplication ApplicationInfo = null;
+        public clsDriver DriverInfo = null;
+        public clsLicenseClass LicenseClass = null;
+        public clsUser CreatedByUser = null;
 
         public clsLicense()
         {
@@ -135,6 +135,28 @@ namespace DVLD_BusinessLogicLayer
             int CreatedByUserID = -1;
 
             if (clsLicenseData.GetLicenseInfo(ID, ref ApplicationID, ref DriverID, ref LicenseClassID,
+                ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive,
+                ref IssueReason, ref CreatedByUserID))
+                return new clsLicense(ID, ApplicationID, DriverID, LicenseClassID, IssueDate,
+                    ExpirationDate, Notes, PaidFees, IsActive, IssueReason, CreatedByUserID);
+            else
+                return null;
+        }
+        
+        public static clsLicense FindByApplicationID(int ApplicationID)
+        {
+            int ID = -1;
+            int DriverID = -1;
+            int LicenseClassID = -1;
+            DateTime IssueDate = DateTime.MinValue;
+            DateTime ExpirationDate = DateTime.MinValue;
+            string Notes = string.Empty;
+            decimal PaidFees = 0;
+            bool IsActive = true;
+            byte IssueReason = 0;
+            int CreatedByUserID = -1;
+
+            if (clsLicenseData.GetLicenseInfoByApplicationID(ApplicationID, ref ID, ref DriverID, ref LicenseClassID,
                 ref IssueDate, ref ExpirationDate, ref Notes, ref PaidFees, ref IsActive,
                 ref IssueReason, ref CreatedByUserID))
                 return new clsLicense(ID, ApplicationID, DriverID, LicenseClassID, IssueDate,

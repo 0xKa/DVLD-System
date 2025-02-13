@@ -17,8 +17,8 @@ namespace DVLD_BusinessLogicLayer
         public DateTime CreatedDate { get; set; }
         public int CreatedByUserID { get; set; }
 
-        clsPerson PersonInfo = null;
-        clsUser CreatedByUser = null;
+        public clsPerson PersonInfo = null;
+        public clsUser CreatedByUser = null;
 
         public clsDriver()
         {

@@ -41,7 +41,7 @@ namespace DVLD_BusinessLogicLayer
                 return Gender == 1 ? enumGender.Male : enumGender.Female;
             } 
         }
-        public string sGender
+        public string GenderText
         {
             get
             {

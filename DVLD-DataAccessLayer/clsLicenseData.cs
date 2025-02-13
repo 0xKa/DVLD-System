@@ -49,6 +49,46 @@ namespace DVLD_DataAccessLayer
 
             return isFound;
         }
+        
+        public static bool GetLicenseInfoByApplicationID(int ApplicationID, ref int ID, ref int DriverID, ref int LicenseClassID,
+            ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref decimal PaidFees,
+            ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM License WHERE ApplicationID = @ApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@ApplicationID", ApplicationID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ID = (int)reader["ID"];
+                    DriverID = (int)reader["DriverID"];
+                    LicenseClassID = (int)reader["LicenseClassID"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+                    Notes = reader["Notes"] as string; // Allow Null
+                    PaidFees = (decimal)reader["PaidFees"];
+                    IsActive = (bool)reader["IsActive"];
+                    IssueReason = (byte)reader["IssueReason"]; // Allow Null
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                }
+                reader.Close();
+            }
+            catch { isFound = false; }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
 
         public static int AddNewLicense(int ApplicationID, int DriverID, int LicenseClassID,
             DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees,
