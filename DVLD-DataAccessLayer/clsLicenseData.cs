@@ -12,7 +12,7 @@ namespace DVLD_DataAccessLayer
     {
         public static bool GetLicenseInfo(int ID, ref int ApplicationID, ref int DriverID, ref int LicenseClassID,
             ref DateTime IssueDate, ref DateTime ExpirationDate, ref string Notes, ref decimal PaidFees,
-            ref bool IsActive, ref string IssueReason, ref int CreatedByUserID)
+            ref bool IsActive, ref byte IssueReason, ref int CreatedByUserID)
         {
             bool isFound = false;
 
@@ -39,7 +39,7 @@ namespace DVLD_DataAccessLayer
                     Notes = reader["Notes"] as string; // Allow Null
                     PaidFees = (decimal)reader["PaidFees"];
                     IsActive = (bool)reader["IsActive"];
-                    IssueReason = reader["IssueReason"] as string; // Allow Null
+                    IssueReason = (byte)reader["IssueReason"]; // Allow Null
                     CreatedByUserID = (int)reader["CreatedByUserID"];
                 }
                 reader.Close();
@@ -52,7 +52,7 @@ namespace DVLD_DataAccessLayer
 
         public static int AddNewLicense(int ApplicationID, int DriverID, int LicenseClassID,
             DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees,
-            bool IsActive, string IssueReason, int CreatedByUserID)
+            bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int ID = -1;
 
@@ -74,7 +74,7 @@ namespace DVLD_DataAccessLayer
             command.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(Notes) ? (object)DBNull.Value : Notes);
             command.Parameters.AddWithValue("@PaidFees", PaidFees);
             command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@IssueReason", string.IsNullOrEmpty(IssueReason) ? (object)DBNull.Value : IssueReason);
+            command.Parameters.AddWithValue("@IssueReason", IssueReason);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
 
             try
@@ -96,7 +96,7 @@ namespace DVLD_DataAccessLayer
 
         public static bool UpdateLicense(int ID, int ApplicationID, int DriverID, int LicenseClassID,
             DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees,
-            bool IsActive, string IssueReason, int CreatedByUserID)
+            bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             int RowsAffected = 0;
 
@@ -124,7 +124,7 @@ namespace DVLD_DataAccessLayer
             command.Parameters.AddWithValue("@Notes", string.IsNullOrEmpty(Notes) ? (object)DBNull.Value : Notes);
             command.Parameters.AddWithValue("@PaidFees", PaidFees);
             command.Parameters.AddWithValue("@IsActive", IsActive);
-            command.Parameters.AddWithValue("@IssueReason", string.IsNullOrEmpty(IssueReason) ? (object)DBNull.Value : IssueReason);
+            command.Parameters.AddWithValue("@IssueReason", IssueReason);
             command.Parameters.AddWithValue("@CreatedByUserID", CreatedByUserID);
             command.Parameters.AddWithValue("@ID", ID);
 

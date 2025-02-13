@@ -147,7 +147,9 @@ SELECT 1 FROM TestAppointment WHERE IsLocked = 1 AND ID = 2;
 SELECT Driver.ID, vPeople.ID AS PersonID, vPeople.NationalNo, vPeople.FullName, Driver.CreatedDate,
 (SELECT COUNT(License.ID) FROM License WHERE License.DriverID = Driver.ID AND License.IsActive = 1) AS ActiveLicense 
 FROM Driver
-JOIN  vPeople ON vPeople.ID = Driver.ID
+JOIN vPeople ON vPeople.ID = Driver.PersonID
+
+SELECT * FROM vDrivers;
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];

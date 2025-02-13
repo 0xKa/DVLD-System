@@ -12,6 +12,13 @@ namespace DVLD_BusinessLogicLayer
     {
         clsGlobalSettings.enMode _Mode = clsGlobalSettings.enMode.AddNew;
 
+        public enum enIssueReason {
+            FirstTime = 1, 
+            Renew = 2,
+            ReplacementForDamaged = 3,
+            ReplacementForLost = 4
+        }
+
         public int ID { get; set; }
         public int ApplicationID { get; set; }
         public int DriverID { get; set; }
@@ -21,8 +28,43 @@ namespace DVLD_BusinessLogicLayer
         public string Notes { get; set; }
         public decimal PaidFees { get; set; }
         public bool IsActive { get; set; }
-        public string IssueReason { get; set; }
+        public byte IssueReason { get; set; }
         public int CreatedByUserID { get; set; }
+
+        public enIssueReason EnIssueReason
+        {
+            get { return (enIssueReason)IssueReason; }
+            set { IssueReason = (byte)value; }
+        }
+        public string IssueReasonText
+        {
+            get
+            {
+                switch (EnIssueReason)
+                {
+                    case enIssueReason.FirstTime:
+                        return "First Time License";
+                    case enIssueReason.Renew:
+                        return "Renew";
+                    case enIssueReason.ReplacementForDamaged:
+                        return "Replacement For Damaged License";
+                    case enIssueReason.ReplacementForLost:
+                        return "Replacement For Lost License";
+                    default:
+                        return "N\\A";
+                }
+            }
+        }
+
+        public bool IsDetained
+        {
+            get { return false; }//call a method to check
+        }
+
+        clsApplication ApplicationInfo = null;
+        clsDriver DriverInfo = null;
+        clsLicenseClass LicenseClass = null;
+        clsUser CreatedByUser = null;
 
         public clsLicense()
         {
@@ -37,13 +79,13 @@ namespace DVLD_BusinessLogicLayer
             Notes = string.Empty;
             PaidFees = 0;
             IsActive = true;
-            IssueReason = string.Empty;
+            IssueReason = 0;
             CreatedByUserID = -1;
         }
 
         private clsLicense(int ID, int ApplicationID, int DriverID, int LicenseClassID,
             DateTime IssueDate, DateTime ExpirationDate, string Notes, decimal PaidFees,
-            bool IsActive, string IssueReason, int CreatedByUserID)
+            bool IsActive, byte IssueReason, int CreatedByUserID)
         {
             _Mode = clsGlobalSettings.enMode.Update;
 
@@ -58,6 +100,11 @@ namespace DVLD_BusinessLogicLayer
             this.IsActive = IsActive;
             this.IssueReason = IssueReason;
             this.CreatedByUserID = CreatedByUserID;
+
+            this.ApplicationInfo = clsApplication.FindBase(ApplicationID);
+            this.DriverInfo = clsDriver.Find(DriverID);
+            this.LicenseClass = clsLicenseClass.Find(LicenseClassID);
+            this.CreatedByUser = clsUser.Find(CreatedByUserID);
         }
 
         private bool _AddNewLicense()
@@ -84,7 +131,7 @@ namespace DVLD_BusinessLogicLayer
             string Notes = string.Empty;
             decimal PaidFees = 0;
             bool IsActive = true;
-            string IssueReason = string.Empty;
+            byte IssueReason = 0;
             int CreatedByUserID = -1;
 
             if (clsLicenseData.GetLicenseInfo(ID, ref ApplicationID, ref DriverID, ref LicenseClassID,

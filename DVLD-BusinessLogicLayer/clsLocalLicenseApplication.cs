@@ -1,6 +1,7 @@
 ﻿using DVLD_DataAccessLayer;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Data;
 using System.Linq;
 using System.Text;
@@ -130,9 +131,49 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsLocalLicenseApplicationData.GetPassedTestCount(LocalLicenseApplicationID);
         }
-        public static bool IsPassedAllTests(int LocalLicenseApplicationID)
+        public bool IsPassedAllTests()
         {
-            return GetPassedTestCount(LocalLicenseApplicationID) == 3;
+            return GetPassedTestCount(ID) == 3;
+        }
+
+        //returns the new license id
+        public int IssueLicenseForTheFirstTime(string notes)
+        {
+            clsDriver driver = clsDriver.FindByPersonID(ApplicantPersonID);
+
+            if (driver == null)
+            {
+                driver = new clsDriver()
+                {
+                    PersonID = this.ApplicantPersonID,
+                    CreatedByUserID = clsGlobalSettings.LoggedInUser.ID,
+                    CreatedDate = DateTime.Now
+                };
+
+                if (!driver.Save())
+                    return -1;
+            }
+
+            clsLicense license = new clsLicense()
+            {
+                ApplicationID = this.ApplicationID,
+                DriverID = driver.ID,
+                LicenseClassID = this.LicenseClassID,
+                IssueDate = DateTime.Now,
+                ExpirationDate = DateTime.Now.AddYears(this.LicenseClassInfo.ValidityYears),
+                Notes = notes,
+                PaidFees = this.LicenseClassInfo.Fees,
+                IsActive = true,
+                EnIssueReason = clsLicense.enIssueReason.FirstTime,
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
+            };
+
+            if (license.Save() && this.ChangeApplicationStatus(enApplicationStatus.Completed))
+                return license.ID; 
+            else 
+                return -1;
+                
+
         }
     }
 

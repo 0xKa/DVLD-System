@@ -1,4 +1,5 @@
-﻿using DVLD.Tests;
+﻿using DVLD.License;
+using DVLD.Tests;
 using DVLD_BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
@@ -224,6 +225,9 @@ namespace DVLD.Application.LocalLicenseApplication
         }
         private void issueDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frmIssueLocalLicense frmILL = new frmIssueLocalLicense((int)dgvLLApplicationsList.CurrentRow.Cells[0].Value);
+            frmILL.FormClosed += Refresh_OnFormClosed;
+            frmILL.ShowDialog();
 
         }
 

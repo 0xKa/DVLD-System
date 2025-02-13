@@ -31,7 +31,7 @@ namespace DVLD.Application.LocalLicenseApplication
             lblLicenseClass.Text = SelectedLLApplication.LicenseClassInfo.Title;
 
             lblApplicationID.Text = SelectedLLApplication.ApplicationID.ToString();
-            lblApplicationStatus.Text = SelectedLLApplication.GetStatusString(); 
+            lblApplicationStatus.Text = SelectedLLApplication.StatusText; 
             lblApplicationFees.Text = SelectedLLApplication.Fees.ToString();
             lblApplicationType.Text = SelectedLLApplication.Type.Title;
             lblApplicantPerson.Text = SelectedLLApplication.ApplicantPerson.FullName;

@@ -32,6 +32,10 @@ namespace DVLD_BusinessLogicLayer
             get { return (enApplicationStatus)this.Status; } 
             set { this.Status = (byte)value; }
         }
+        public string StatusText
+        {
+            get { return this.Status == 1 ? "New" : this.Status == 2 ? "Canceled" : "Completed"; }
+        }
 
         public clsPerson ApplicantPerson = null;
         public clsApplicationType Type = null;
@@ -123,11 +127,12 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsApplicationData.ChangeApplicationStatus(ApplicationID, (byte)NewStatus);
         }
-     
-        public string GetStatusString()
+        public bool ChangeApplicationStatus(enApplicationStatus NewStatus)
         {
-            return this.Status == 1 ? "New" : this.Status == 2 ? "Canceled" : "Completed";
+            return clsApplicationData.ChangeApplicationStatus(ApplicationID, (byte)NewStatus);
         }
+     
+
     }
 
 }
