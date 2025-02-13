@@ -88,10 +88,16 @@
     <Compile Include="frmMain.Designer.cs">
       <DependentUpon>frmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="License\frmIssueLocalLicense.cs">
+    <Compile Include="License\Local-Licenses\ctrlLicenseCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="License\Local-Licenses\ctrlLicenseCard.Designer.cs">
+      <DependentUpon>ctrlLicenseCard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\Local-Licenses\frmIssueLocalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="License\frmIssueLocalLicense.Designer.cs">
+    <Compile Include="License\Local-Licenses\frmIssueLocalLicense.Designer.cs">
       <DependentUpon>frmIssueLocalLicense.cs</DependentUpon>
     </Compile>
     <Compile Include="Login\frmLogin.cs">
@@ -225,7 +231,10 @@
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="License\frmIssueLocalLicense.resx">
+    <EmbeddedResource Include="License\Local-Licenses\ctrlLicenseCard.resx">
+      <DependentUpon>ctrlLicenseCard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\Local-Licenses\frmIssueLocalLicense.resx">
       <DependentUpon>frmIssueLocalLicense.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login\frmLogin.resx">
