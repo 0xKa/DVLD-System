@@ -43,7 +43,7 @@ namespace DVLD.License.Local_Licenses
 
         private void _Find()
         {
-            string Filter = txbSearch.Text;
+            string Filter = txbSearch.Text.Trim();
 
             if (int.TryParse(Filter, out int LicenseID))
             {
@@ -84,5 +84,6 @@ namespace DVLD.License.Local_Licenses
         {
             txbSearch.Focus();
         }
+     
     }
 }

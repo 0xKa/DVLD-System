@@ -61,6 +61,11 @@ namespace DVLD_BusinessLogicLayer
             get { return false; }//call a method to check //koko
         }
 
+        public bool IsExpired
+        {
+            get { return DateTime.Today >= this.ExpirationDate.Date; } //ignore the time component
+        }
+
         public clsApplication ApplicationInfo = null;
         public clsDriver DriverInfo = null;
         public clsLicenseClass LicenseClass = null;
@@ -195,5 +200,53 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsLicenseData.IsLicenseExist(ID);
         }
+
+        public static bool DoesDriverHasActiveLicense(int DriverID, int LicenseClassID)
+        {
+            return clsLicenseData.DoesDriverHasActiveLicense(DriverID, LicenseClassID);
+        }
+
+        public bool DeactivateLicense()
+        {
+            return clsLicenseData.DeactivateLicense(this.ID);
+        }
+
+        public clsLicense Renew(string notes)
+        {
+            clsApplication RenewApplication = new clsApplication()
+            {
+                ApplicantPersonID = this.DriverInfo.PersonID,
+                ApplicationDate = DateTime.Now,
+                enType = clsApplicationType.enApplicationType.RenewDrivingLicense,
+                enStatus = clsApplication.enApplicationStatus.Completed,
+                LastStatusDate = DateTime.Now,
+                Fees = clsApplicationType.GetApplicationFees(clsApplicationType.enApplicationType.RenewDrivingLicense),
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
+            };
+            if (!RenewApplication.Save())
+                return null;
+
+            clsLicense NewLicense = new clsLicense()
+            {
+                ApplicationID = RenewApplication.ApplicationID,
+                DriverID = this.DriverID,
+                LicenseClassID = this.LicenseClassID,
+                IssueDate = DateTime.Now,
+                ExpirationDate = DateTime.Now.AddYears(this.LicenseClass.ValidityYears),
+                Notes = notes,
+                PaidFees = this.LicenseClass.Fees,
+                IsActive = true,
+                EnIssueReason = enIssueReason.Renew,
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
+            };
+            if (!NewLicense.Save())
+                return null;
+
+            this.DeactivateLicense();
+            return clsLicense.Find(NewLicense.ID); //i use find() to fill up composition members
+        }
+
+
+
     }
 }

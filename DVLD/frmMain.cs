@@ -1,6 +1,7 @@
 ﻿using DVLD.Application;
 using DVLD.Application.ApplicationTypes;
 using DVLD.Application.LocalLicenseApplication;
+using DVLD.License.Local_Licenses;
 using DVLD.People;
 using DVLD.Test;
 using DVLD.User;
@@ -98,6 +99,12 @@ namespace DVLD
         private void retakeTestToolStripMenuItem_Click(object sender, EventArgs e)
         {
             localDrivingLicenseApplicationToolStripMenuItem.PerformClick();
+        }
+
+        private void renewDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmRenewLicenseApplication();
+            _CurrentForm.ShowDialog();
         }
     }
 }

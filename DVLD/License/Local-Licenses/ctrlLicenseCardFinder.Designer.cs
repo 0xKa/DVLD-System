@@ -30,23 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ctrlLicenseCardFinder));
-            this.ctrlLicenseCard1 = new DVLD.License.ctrlLicenseCard();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pnlFinder = new System.Windows.Forms.Panel();
             this.btnFind = new System.Windows.Forms.Button();
             this.txbSearch = new System.Windows.Forms.TextBox();
             this.lbl1 = new System.Windows.Forms.Label();
+            this.ctrlLicenseCard1 = new DVLD.License.ctrlLicenseCard();
             this.pnlFinder.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // ctrlLicenseCard1
-            // 
-            this.ctrlLicenseCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
-            this.ctrlLicenseCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.ctrlLicenseCard1.Location = new System.Drawing.Point(0, 65);
-            this.ctrlLicenseCard1.Name = "ctrlLicenseCard1";
-            this.ctrlLicenseCard1.Size = new System.Drawing.Size(804, 341);
-            this.ctrlLicenseCard1.TabIndex = 0;
             // 
             // imageList1
             // 
@@ -82,6 +73,7 @@
             this.btnFind.Size = new System.Drawing.Size(65, 45);
             this.btnFind.TabIndex = 50;
             this.btnFind.UseVisualStyleBackColor = false;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
             // 
             // txbSearch
             // 
@@ -90,7 +82,9 @@
             this.txbSearch.Location = new System.Drawing.Point(153, 19);
             this.txbSearch.Name = "txbSearch";
             this.txbSearch.Size = new System.Drawing.Size(568, 20);
-            this.txbSearch.TabIndex = 48;
+            this.txbSearch.TabIndex = 0;
+            this.txbSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txbFilter_KeyDown);
+            this.txbSearch.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbFilter_KeyPress);
             // 
             // lbl1
             // 
@@ -104,6 +98,16 @@
             this.lbl1.TabIndex = 49;
             this.lbl1.Text = "Enter License ID: ";
             this.lbl1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // ctrlLicenseCard1
+            // 
+            this.ctrlLicenseCard1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
+            this.ctrlLicenseCard1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.ctrlLicenseCard1.Location = new System.Drawing.Point(0, 65);
+            this.ctrlLicenseCard1.Name = "ctrlLicenseCard1";
+            this.ctrlLicenseCard1.Size = new System.Drawing.Size(804, 341);
+            this.ctrlLicenseCard1.TabIndex = 0;
+            this.ctrlLicenseCard1.Load += new System.EventHandler(this.ctrlLicenseCardFinder_Load);
             // 
             // ctrlLicenseCardFinder
             // 

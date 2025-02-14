@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_DataAccessLayer
 {
@@ -238,6 +239,53 @@ namespace DVLD_DataAccessLayer
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@ID", ID);
+
+            try
+            {
+                connection.Open();
+                IsFound = (command.ExecuteScalar() != null);
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return IsFound;
+        }
+
+        public static bool DeactivateLicense(int LicenseID)
+        {
+            int RowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"UPDATE License SET IsActive = 0 WHERE ID = @LicenseID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+
+            try
+            {
+                connection.Open();
+                RowsAffected = command.ExecuteNonQuery();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return RowsAffected > 0;
+        }
+
+
+        public static bool DoesDriverHasActiveLicense(int DriverID,  int LicenseClassID)
+        {
+            bool IsFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT 1 FROM License WHERE IsActive = 1 AND DriverID = @DriverID AND LicenseClassID = @LicenseClassID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseClassID", LicenseClassID);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
 
             try
             {

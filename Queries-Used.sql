@@ -151,6 +151,9 @@ JOIN vPeople ON vPeople.ID = Driver.PersonID
 
 SELECT * FROM vDrivers;
 
+--check is a driver has an Active license of a certain class
+SELECT 1 FROM License WHERE IsActive = 1 AND DriverID = 2 AND LicenseClassID = 7;
+
 SELECT * FROM [Country];
 SELECT * FROM [Person];
 SELECT * FROM [User];
@@ -166,3 +169,5 @@ SELECT * FROM [TestType];
 SELECT * FROM [TestAppointment];
 SELECT * FROM [Test];
 
+
+DELETE FROM License WHERE License.ID >= 6

@@ -183,7 +183,7 @@
             this.lblLicenseClass.ForeColor = System.Drawing.Color.White;
             this.lblLicenseClass.Location = new System.Drawing.Point(115, 15);
             this.lblLicenseClass.Name = "lblLicenseClass";
-            this.lblLicenseClass.Size = new System.Drawing.Size(335, 20);
+            this.lblLicenseClass.Size = new System.Drawing.Size(373, 20);
             this.lblLicenseClass.TabIndex = 43;
             this.lblLicenseClass.Text = "[????]";
             // 
