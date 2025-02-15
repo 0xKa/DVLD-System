@@ -1,6 +1,7 @@
 ﻿using DVLD.Application;
 using DVLD.Application.ApplicationTypes;
 using DVLD.Application.LocalLicenseApplication;
+using DVLD.Driver;
 using DVLD.License.Local_Licenses;
 using DVLD.People;
 using DVLD.Test;
@@ -110,6 +111,12 @@ namespace DVLD
         private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             _CurrentForm = new frmLicenseReplacementApplication();
+            _CurrentForm.ShowDialog();
+        }
+
+        private void driversToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmManageDrivers();
             _CurrentForm.ShowDialog();
         }
     }

@@ -239,7 +239,7 @@ namespace DVLD.Application.LocalLicenseApplication
         }
         private void showLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            //koko
         }
 
     }

@@ -36,7 +36,7 @@ namespace DVLD.Tests
         {
             if (dgvAppointmentsList.RowCount > 0)
             {
-                dgvAppointmentsList.Columns["AppointmentDate"].DefaultCellStyle.Format = "MM/dd/yyyy hh:mm:ss tt";
+                dgvAppointmentsList.Columns["AppointmentDate"].DefaultCellStyle.Format = "dd/MM/yyyy hh:mm:ss tt";
             }
         }
         private void _InitiateTitleAndImage()

@@ -88,6 +88,12 @@
     <Compile Include="Application\LocalLicenseApplication\frmManageLocalLicenseApplications.Designer.cs">
       <DependentUpon>frmManageLocalLicenseApplications.cs</DependentUpon>
     </Compile>
+    <Compile Include="Driver\frmManageDrivers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Driver\frmManageDrivers.Designer.cs">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -254,6 +260,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Application\LocalLicenseApplication\frmManageLocalLicenseApplications.resx">
       <DependentUpon>frmManageLocalLicenseApplications.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Driver\frmManageDrivers.resx">
+      <DependentUpon>frmManageDrivers.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMain.resx">
       <DependentUpon>frmMain.cs</DependentUpon>

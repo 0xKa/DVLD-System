@@ -90,7 +90,6 @@ namespace DVLD.User
          
             _dtAllUsers.DefaultView.RowFilter = string.Empty;
         }
-
         private void txbSearch_TextChanged(object sender, EventArgs e)
         {
             string Search = txbSearch.Text.Trim();
@@ -115,7 +114,6 @@ namespace DVLD.User
 
             lblNumberOfRecords.Text = dgvUsersList.RowCount.ToString();
         }
-
         private void txbSearchBy_KeyPress(object sender, KeyPressEventArgs e)
         {
             if ((cbSearchOptions.SelectedIndex == 1 || cbSearchOptions.SelectedIndex == 2)

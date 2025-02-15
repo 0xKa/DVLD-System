@@ -53,7 +53,6 @@
             this.dgvUsersList = new System.Windows.Forms.DataGridView();
             this.lblTitle = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btnAddPerson = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.pnlSelectStatus.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
@@ -309,21 +308,6 @@
             this.pictureBox1.TabIndex = 19;
             this.pictureBox1.TabStop = false;
             // 
-            // btnAddPerson
-            // 
-            this.btnAddPerson.BackColor = System.Drawing.Color.LightGray;
-            this.btnAddPerson.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.btnAddPerson.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.btnAddPerson.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddPerson.Font = new System.Drawing.Font("Rockwell", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddPerson.ImageKey = "add.png";
-            this.btnAddPerson.ImageList = this.imageList1;
-            this.btnAddPerson.Location = new System.Drawing.Point(773, 116);
-            this.btnAddPerson.Name = "btnAddPerson";
-            this.btnAddPerson.Size = new System.Drawing.Size(73, 44);
-            this.btnAddPerson.TabIndex = 23;
-            this.btnAddPerson.UseVisualStyleBackColor = false;
-            // 
             // btnAdd
             // 
             this.btnAdd.BackColor = System.Drawing.Color.LightGray;
@@ -351,7 +335,6 @@
             this.Controls.Add(this.btnClearSearch);
             this.Controls.Add(this.cbSearchOptions);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnAddPerson);
             this.Controls.Add(this.txbSearch);
             this.Controls.Add(this.btnClose);
             this.Controls.Add(this.label2);
@@ -402,7 +385,6 @@
         private System.Windows.Forms.DataGridView dgvUsersList;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Button btnAddPerson;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.ToolStripMenuItem changePasswordToolStripMenuItem;
     }
