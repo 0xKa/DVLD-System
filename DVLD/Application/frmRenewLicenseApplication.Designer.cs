@@ -387,7 +387,7 @@
             this.ctrlCard.Location = new System.Drawing.Point(11, 12);
             this.ctrlCard.Name = "ctrlCard";
             this.ctrlCard.Size = new System.Drawing.Size(804, 406);
-            this.ctrlCard.TabIndex = 0;
+            this.ctrlCard.TabIndex = 1;
             // 
             // frmRenewLicenseApplication
             // 

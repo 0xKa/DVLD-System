@@ -223,7 +223,9 @@ namespace DVLD_BusinessLogicLayer
                 Fees = clsApplicationType.GetApplicationFees(clsApplicationType.enApplicationType.RenewDrivingLicense),
                 CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
             };
-            if (!RenewApplication.Save())
+            if (RenewApplication.Save())
+                clsLocalLicenseApplicationData.LinkApplicationWithLocalApplication(RenewApplication.ApplicationID, this.ApplicationID);
+            else
                 return null;
 
             clsLicense NewLicense = new clsLicense()
@@ -245,8 +247,43 @@ namespace DVLD_BusinessLogicLayer
             this.DeactivateLicense();
             return clsLicense.Find(NewLicense.ID); //i use find() to fill up composition members
         }
+        public clsLicense Replace(clsApplicationType.enApplicationType ReplacementType, string notes)
+        {
+            clsApplication ReplacementApplication = new clsApplication()
+            {
+                ApplicantPersonID = this.DriverInfo.PersonID,
+                ApplicationDate = DateTime.Now,
+                enType = ReplacementType,
+                enStatus = clsApplication.enApplicationStatus.Completed,
+                LastStatusDate = DateTime.Now,
+                Fees = clsApplicationType.GetApplicationFees(ReplacementType),
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
+            };
+            if (ReplacementApplication.Save())
+                clsLocalLicenseApplicationData.LinkApplicationWithLocalApplication(ReplacementApplication.ApplicationID, this.ApplicationID);
+            else
+                return null;
+
+            clsLicense NewLicense = new clsLicense()
+            {
+                ApplicationID = ReplacementApplication.ApplicationID,
+                DriverID = this.DriverID,
+                LicenseClassID = this.LicenseClassID,
+                IssueDate = DateTime.Now,
+                ExpirationDate = this.ExpirationDate, //exp. date can't be changed becasue it is a replacment not renew 
+                Notes = notes,
+                PaidFees = this.LicenseClass.Fees,
+                IsActive = true,
+                EnIssueReason = (enIssueReason)ReplacementType,
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
+            };
+            if (!NewLicense.Save())
+                return null;
 
 
+            this.DeactivateLicense();
+            return clsLicense.Find(NewLicense.ID); 
+        }
 
     }
 }

@@ -9,7 +9,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static DVLD_BusinessLogicLayer.clsApplicationType;
-using static DVLD_BusinessLogicLayer.clsLicenseClass;
 
 namespace DVLD.License.Local_Licenses
 {
@@ -89,7 +88,7 @@ namespace DVLD.License.Local_Licenses
 
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("...");
+            MessageBox.Show("..."); //koko
         }
         private void llShowNewLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

@@ -19,7 +19,7 @@ namespace DVLD.License
             InitializeComponent();
         }
 
-        public clsLicense License = new clsLicense();
+        public clsLicense License = null;
 
         private void _ChangeLabelsColor()
         {

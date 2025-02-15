@@ -58,6 +58,12 @@
     <Compile Include="Application\ApplicationTypes\frmManageApplicationTypes.Designer.cs">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
     </Compile>
+    <Compile Include="Application\frmLicenseReplacementApplication.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Application\frmLicenseReplacementApplication.Designer.cs">
+      <DependentUpon>frmLicenseReplacementApplication.cs</DependentUpon>
+    </Compile>
     <Compile Include="Application\LocalLicenseApplication\ctrlLocalLicenseApplicationCard.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -233,6 +239,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Application\ApplicationTypes\frmManageApplicationTypes.resx">
       <DependentUpon>frmManageApplicationTypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Application\frmLicenseReplacementApplication.resx">
+      <DependentUpon>frmLicenseReplacementApplication.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Application\LocalLicenseApplication\ctrlLocalLicenseApplicationCard.resx">
       <DependentUpon>ctrlLocalLicenseApplicationCard.cs</DependentUpon>

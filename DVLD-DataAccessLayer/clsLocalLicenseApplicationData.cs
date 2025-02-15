@@ -229,6 +229,29 @@ ORDER BY ApplicationDate DESC;";
             return PassedTestCount;
         }
 
+        public static bool LinkApplicationWithLocalApplication(int NewApplicationID, int OldApplicationID)
+        {
+            int RowsAffected = 0;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+            string query = @"UPDATE LocalLicenseApplication SET ApplicationID = @NewApplicationID WHERE ApplicationID = @OldApplicationID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@NewApplicationID", NewApplicationID);
+            command.Parameters.AddWithValue("@OldApplicationID", OldApplicationID);
+
+            try
+            {
+                connection.Open();
+                RowsAffected = command.ExecuteNonQuery();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return RowsAffected > 0;
+        }
+
+
     }
 
 }

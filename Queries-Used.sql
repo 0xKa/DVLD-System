@@ -151,8 +151,14 @@ JOIN vPeople ON vPeople.ID = Driver.PersonID
 
 SELECT * FROM vDrivers;
 
+--Deactivate a License
+UPDATE License SET IsActive = 0 WHERE ID = 5;
+
 --check is a driver has an Active license of a certain class
 SELECT 1 FROM License WHERE IsActive = 1 AND DriverID = 2 AND LicenseClassID = 7;
+
+--Link a new ApplicationID with LocalApplicationID (this for renew and replacement applications)
+UPDATE LocalLicenseApplication SET ApplicationID = 27 WHERE ApplicationID = 20;
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];
@@ -170,4 +176,3 @@ SELECT * FROM [TestAppointment];
 SELECT * FROM [Test];
 
 
-DELETE FROM License WHERE License.ID >= 6

@@ -106,5 +106,11 @@ namespace DVLD
             _CurrentForm = new frmRenewLicenseApplication();
             _CurrentForm.ShowDialog();
         }
+
+        private void replacementForLostOrDamagedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmLicenseReplacementApplication();
+            _CurrentForm.ShowDialog();
+        }
     }
 }

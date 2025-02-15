@@ -175,6 +175,11 @@ namespace DVLD_BusinessLogicLayer
                 
 
         }
+
+        public static bool LinkApplicationWithLocalApplication(int NewApplicationID, int OldApplicationID)
+        {
+            return clsLocalLicenseApplicationData.LinkApplicationWithLocalApplication(NewApplicationID, OldApplicationID);
+        }
     }
 
 }
