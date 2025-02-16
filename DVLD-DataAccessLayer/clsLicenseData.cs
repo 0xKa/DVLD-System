@@ -209,9 +209,9 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT License.ID, ApplicationID, LicenseClass.Title, IssueDate, ExpirationDate, IsActive
-                                FROM License JOIN LicenseClass ON LicenseClass.ID = License.LicenseClassID
-                                WHERE DriverID = @DriverID ORDER BY IsActive DESC, License.ID DESC;";
+            string query = @"SELECT License.ID, ApplicationID, LicenseClass.Title AS LicenseClass, IssueDate, ExpirationDate, IsActive
+FROM License JOIN LicenseClass ON LicenseClass.ID = License.LicenseClassID
+WHERE DriverID = 1 ORDER BY IsActive DESC, License.ID DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@DriverID", DriverID);

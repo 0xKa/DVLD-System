@@ -144,7 +144,7 @@
             this.sendEmailToolStripMenuItem,
             this.phoneCallToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 170);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 192);
             // 
             // showDetailsToolStripMenuItem
             // 
@@ -160,6 +160,7 @@
             this.showLicenseHistoryToolStripMenuItem.Name = "showLicenseHistoryToolStripMenuItem";
             this.showLicenseHistoryToolStripMenuItem.Size = new System.Drawing.Size(198, 22);
             this.showLicenseHistoryToolStripMenuItem.Text = "Show License History";
+            this.showLicenseHistoryToolStripMenuItem.Click += new System.EventHandler(this.showLicenseHistoryToolStripMenuItem_Click);
             // 
             // toolStripMenuItem1
             // 

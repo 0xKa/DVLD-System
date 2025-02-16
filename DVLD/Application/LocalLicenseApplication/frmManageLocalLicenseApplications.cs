@@ -239,7 +239,10 @@ namespace DVLD.Application.LocalLicenseApplication
         }
         private void showLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //koko
+            clsDriver driver = clsDriver.FindByPersonID(clsPerson.Find(dgvLLApplicationsList.CurrentRow.Cells[1].Value.ToString()).ID);
+            frmLicensesHistory frmPL = new frmLicensesHistory(driver);
+            frmPL.FormClosed += Refresh_OnFormClosed;
+            frmPL.ShowDialog();
         }
 
     }

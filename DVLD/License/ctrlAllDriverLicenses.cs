@@ -25,12 +25,34 @@ namespace DVLD.License
         private void _LoadLocalLicenseInfo()
         {
             dgvLocalLicenses.DataSource = clsLicense.GetDriverLocalLicenses(_Driver.ID);
-            lblNumberOfLocalLicenses.Text += dgvLocalLicenses.RowCount.ToString();
+            lblNumberOfLocalLicenses.Text = dgvLocalLicenses.RowCount.ToString();
+
+            if (dgvLocalLicenses.RowCount > 0)
+            {
+                dgvLocalLicenses.Columns["ID"].Width = 50;
+                dgvLocalLicenses.Columns["ApplicationID"].Width = 50;
+                dgvLocalLicenses.Columns["IssueDate"].Width = 55;
+                dgvLocalLicenses.Columns["IssueDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
+                dgvLocalLicenses.Columns["ExpirationDate"].Width = 55;
+                dgvLocalLicenses.Columns["ExpirationDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
+                dgvLocalLicenses.Columns["IsActive"].Width = 50;
+            }
         }
         private void _LoadInternationalLicenseInfo()
         {
-            dgvLocalLicenses.DataSource = clsLicense.GetDriverInternationalLicenses(_Driver.ID);
-            lblNumberOfInternationalLicenses.Text += dgvLocalLicenses.RowCount.ToString();
+            dgvInternationalLicenses.DataSource = clsLicense.GetDriverInternationalLicenses(_Driver.ID);
+            lblNumberOfInternationalLicenses.Text = dgvInternationalLicenses.RowCount.ToString();
+            
+            if (dgvInternationalLicenses.RowCount > 0)
+            {
+                dgvLocalLicenses.Columns["ID"].Width = 50;
+                dgvLocalLicenses.Columns["ApplicationID"].Width = 50;
+                dgvLocalLicenses.Columns["IssueDate"].Width = 55;
+                dgvLocalLicenses.Columns["IssueDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
+                dgvLocalLicenses.Columns["ExpirationDate"].Width = 55;
+                dgvLocalLicenses.Columns["ExpirationDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
+                dgvLocalLicenses.Columns["IsActive"].Width = 50;
+            }
         }
 
         public void LoadInfo(clsDriver driver)
@@ -63,13 +85,14 @@ namespace DVLD.License
         {
             //koko
         }
-        private void dgvLocalLicenses_DoubleClick(object sender, EventArgs e)
+        private void dgvLocalLicenses_DoubleClick_1(object sender, EventArgs e)
         {
             showLocalLicenseInfoToolStripMenuItem.PerformClick();
         }
-        private void dgvInternationalLicenses_DoubleClick(object sender, EventArgs e)
+        private void dgvInternationalLicenses_DoubleClick_1(object sender, EventArgs e)
         {
             showInternationalLicenseInfoToolStripMenuItem.PerformClick();
+
         }
     }
 }

@@ -161,7 +161,7 @@ SELECT 1 FROM License WHERE IsActive = 1 AND DriverID = 2 AND LicenseClassID = 7
 UPDATE LocalLicenseApplication SET ApplicationID = 27 WHERE ApplicationID = 20;
 
 --Get all local licenses of a certain driver
-SELECT License.ID, ApplicationID, LicenseClass.Title, IssueDate, ExpirationDate, IsActive
+SELECT License.ID, ApplicationID, LicenseClass.Title AS LicenseClass, IssueDate, ExpirationDate, IsActive
 FROM License JOIN LicenseClass ON LicenseClass.ID = License.LicenseClassID
 WHERE DriverID = 1 ORDER BY IsActive DESC, License.ID DESC;
 

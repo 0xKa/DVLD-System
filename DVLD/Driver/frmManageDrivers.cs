@@ -1,4 +1,5 @@
-﻿using DVLD.People;
+﻿using DVLD.License;
+using DVLD.People;
 using DVLD_BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
@@ -127,7 +128,10 @@ namespace DVLD.Driver
         }
         private void showLicensesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //koko
+            frmLicensesHistory frmLH = new frmLicensesHistory((int)dgvDriversList.CurrentRow.Cells[0].Value);
+            frmLH.FormClosed += Refresh_OnFormClosed;
+            frmLH.ShowDialog();
+
         }
     }
 }

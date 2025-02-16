@@ -1,4 +1,5 @@
-﻿using DVLD_BusinessLogicLayer;
+﻿using DVLD.License;
+using DVLD_BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -202,6 +203,19 @@ namespace DVLD.People
             if ((string)cbSearchOptions.SelectedItem == "ID" 
                 && !char.IsDigit(e.KeyChar) && e.KeyChar != (char)Keys.Back)
                 e.Handled = true;
+        }
+
+        private void showLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            clsDriver driver = clsDriver.FindByPersonID((int)dgvPeopleList.CurrentRow.Cells[0].Value);
+
+            if (driver != null)
+            {
+                frmLicensesHistory frmPL = new frmLicensesHistory(driver);
+                frmPL.ShowDialog();
+            }
+            else
+                MessageBox.Show("This Person is Not a Driver.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
 }

@@ -88,7 +88,8 @@ namespace DVLD.License.Local_Licenses
 
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            MessageBox.Show("..."); //koko
+            frmLicensesHistory frmPL = new frmLicensesHistory(ctrlCard.SelectedLicense.DriverInfo);
+            frmPL.ShowDialog();
         }
         private void llShowNewLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
