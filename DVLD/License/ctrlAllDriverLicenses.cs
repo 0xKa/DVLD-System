@@ -24,7 +24,7 @@ namespace DVLD.License
 
         private void _LoadLocalLicenseInfo()
         {
-            dgvLocalLicenses.DataSource = clsLicense.GetDriverLocalLicenses(_Driver.ID);
+            dgvLocalLicenses.DataSource = clsDriver.GetDriverLocalLicenses(_Driver.ID);
             lblNumberOfLocalLicenses.Text = dgvLocalLicenses.RowCount.ToString();
 
             if (dgvLocalLicenses.RowCount > 0)
@@ -40,7 +40,7 @@ namespace DVLD.License
         }
         private void _LoadInternationalLicenseInfo()
         {
-            dgvInternationalLicenses.DataSource = clsLicense.GetDriverInternationalLicenses(_Driver.ID);
+            dgvInternationalLicenses.DataSource = clsDriver.GetDriverInternationalLicenses(_Driver.ID);
             lblNumberOfInternationalLicenses.Text = dgvInternationalLicenses.RowCount.ToString();
             
             if (dgvInternationalLicenses.RowCount > 0)

@@ -22,6 +22,11 @@ namespace DVLD_BusinessLogicLayer
         public int? ReleasedByUserID { get; set; }
         public int? ReleaseApplicationID { get; set; }
 
+        public clsLicense LicenseInfo = null;
+        public clsUser CreatedByUser = null;
+        public clsUser ReleasedByUser = null;
+        public clsApplication ReleaseApplication = null;
+
         public clsDetainedLicense()
         {
             _Mode = clsGlobalSettings.enMode.AddNew;
@@ -51,6 +56,12 @@ namespace DVLD_BusinessLogicLayer
             this.ReleasedDate = ReleasedDate;
             this.ReleasedByUserID = ReleasedByUserID;
             this.ReleaseApplicationID = ReleaseApplicationID;
+
+            this.LicenseInfo = clsLicense.Find(LicenseID);
+            this.CreatedByUser = clsUser.Find(CreatedByUserID);
+            this.ReleasedByUser = ReleasedByUserID.HasValue ? clsUser.Find(ReleasedByUserID.Value) : null;
+            this.ReleaseApplication = ReleaseApplicationID.HasValue ? clsApplication.FindBase(ReleaseApplicationID.Value) : null;
+
         }
 
         private bool _AddNewDetainedLicense()

@@ -230,33 +230,6 @@ WHERE DriverID = 1 ORDER BY IsActive DESC, License.ID DESC;";
 
             return dtLicense;
         }
-        public static DataTable GetDriverInternationalLicenses(int DriverID)
-        {
-            DataTable dtLicense = new DataTable();
-
-            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
-
-            string query = @"SELECT ID, ApplicationID, LocalLicenseID, IssueDate, ExpirationDate, IsActive
-                                FROM InternationalLicense WHERE DriverID = @DriverID ORDER BY IsActive DESC, ID DESC;";
-
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@DriverID", DriverID);
-
-            try
-            {
-                connection.Open();
-                SqlDataReader reader = command.ExecuteReader();
-
-                if (reader.HasRows)
-                    dtLicense.Load(reader);
-
-                reader.Close();
-            }
-            catch { }
-            finally { connection.Close(); }
-
-            return dtLicense;
-        }
 
         public static bool IsLicenseExist(int ID)
         {

@@ -147,15 +147,17 @@ namespace DVLD_DataAccessLayer
             return RowsAffected > 0;
         }
 
-        public static DataTable GetAllInternationalLicenses()
+        public static DataTable GetDriverInternationalLicenses(int DriverID)
         {
-            DataTable dtInternationalLicense = new DataTable();
+            DataTable dtLicense = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM InternationalLicense;";
+            string query = @"SELECT ID, ApplicationID, LocalLicenseID, IssueDate, ExpirationDate, IsActive
+                                FROM InternationalLicense WHERE DriverID = @DriverID ORDER BY IsActive DESC, ID DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
 
             try
             {
@@ -163,14 +165,14 @@ namespace DVLD_DataAccessLayer
                 SqlDataReader reader = command.ExecuteReader();
 
                 if (reader.HasRows)
-                    dtInternationalLicense.Load(reader);
+                    dtLicense.Load(reader);
 
                 reader.Close();
             }
             catch { }
             finally { connection.Close(); }
 
-            return dtInternationalLicense;
+            return dtLicense;
         }
 
         public static bool IsInternationalLicenseExist(int ID)

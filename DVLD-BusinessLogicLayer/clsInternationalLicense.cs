@@ -21,6 +21,11 @@ namespace DVLD_BusinessLogicLayer
         public bool IsActive { get; set; }
         public int CreatedByUserID { get; set; }
 
+        public clsApplication ApplicationInfo = null;
+        public clsDriver DriverInfo = null;
+        public clsLicense LocalLicenseInfo = null;
+        public clsUser CreatedByUser = null;
+
         public clsInternationalLicense()
         {
             _Mode = clsGlobalSettings.enMode.AddNew;
@@ -48,6 +53,11 @@ namespace DVLD_BusinessLogicLayer
             this.ExpirationDate = ExpirationDate;
             this.IsActive = IsActive;
             this.CreatedByUserID = CreatedByUserID;
+
+            this.ApplicationInfo = clsApplication.FindBase(ApplicationID);
+            this.DriverInfo = clsDriver.Find(DriverID);
+            this.LocalLicenseInfo = clsLicense.Find(LocalLicenseID);
+            this.CreatedByUser = clsUser.Find(CreatedByUserID);
         }
 
         private bool _AddNewInternationalLicense()
@@ -103,10 +113,6 @@ namespace DVLD_BusinessLogicLayer
             return clsInternationalLicenseData.DeleteInternationalLicense(ID);
         }
 
-        public static DataTable GetAllInternationalLicenses()
-        {
-            return clsInternationalLicenseData.GetAllInternationalLicenses();
-        }
 
         public static bool IsInternationalLicenseExist(int ID)
         {
