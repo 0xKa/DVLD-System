@@ -203,15 +203,44 @@ namespace DVLD_DataAccessLayer
             return RowsAffected > 0;
         }
 
-        public static DataTable GetAllLicenses()
+        public static DataTable GetDriverLocalLicenses(int DriverID)
         {
             DataTable dtLicense = new DataTable();
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM License;";
+            string query = @"SELECT License.ID, ApplicationID, LicenseClass.Title, IssueDate, ExpirationDate, IsActive
+                                FROM License JOIN LicenseClass ON LicenseClass.ID = License.LicenseClassID
+                                WHERE DriverID = @DriverID ORDER BY IsActive DESC, License.ID DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    dtLicense.Load(reader);
+
+                reader.Close();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return dtLicense;
+        }
+        public static DataTable GetDriverInternationalLicenses(int DriverID)
+        {
+            DataTable dtLicense = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT ID, ApplicationID, LocalLicenseID, IssueDate, ExpirationDate, IsActive
+                                FROM InternationalLicense WHERE DriverID = @DriverID ORDER BY IsActive DESC, ID DESC;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
 
             try
             {
@@ -273,7 +302,6 @@ namespace DVLD_DataAccessLayer
 
             return RowsAffected > 0;
         }
-
 
         public static bool DoesDriverHasActiveLicense(int DriverID,  int LicenseClassID)
         {

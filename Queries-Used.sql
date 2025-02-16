@@ -145,7 +145,7 @@ SELECT 1 FROM TestAppointment WHERE IsLocked = 1 AND ID = 2;
 
 --CREATE VIEW vDrivers AS
 SELECT Driver.ID, vPeople.ID AS PersonID, vPeople.NationalNo, vPeople.FullName, Driver.CreatedDate,
-(SELECT COUNT(License.ID) FROM License WHERE License.DriverID = Driver.ID AND License.IsActive = 1) AS ActiveLicense 
+(SELECT COUNT(License.ID) FROM License WHERE License.DriverID = Driver.ID AND License.IsActive = 1) AS ActiveLicenses
 FROM Driver
 JOIN vPeople ON vPeople.ID = Driver.PersonID
 
@@ -159,6 +159,16 @@ SELECT 1 FROM License WHERE IsActive = 1 AND DriverID = 2 AND LicenseClassID = 7
 
 --Link a new ApplicationID with LocalApplicationID (this for renew and replacement applications)
 UPDATE LocalLicenseApplication SET ApplicationID = 27 WHERE ApplicationID = 20;
+
+--Get all local licenses of a certain driver
+SELECT License.ID, ApplicationID, LicenseClass.Title, IssueDate, ExpirationDate, IsActive
+FROM License JOIN LicenseClass ON LicenseClass.ID = License.LicenseClassID
+WHERE DriverID = 1 ORDER BY IsActive DESC, License.ID DESC;
+
+--Get all international licenses of a certain driver
+SELECT ID, ApplicationID, LocalLicenseID, IssueDate, ExpirationDate, IsActive
+FROM InternationalLicense WHERE DriverID = 1 ORDER BY IsActive DESC, ID DESC;
+
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];

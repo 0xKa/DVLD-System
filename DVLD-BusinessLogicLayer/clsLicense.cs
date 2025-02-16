@@ -191,9 +191,13 @@ namespace DVLD_BusinessLogicLayer
             return clsLicenseData.DeleteLicense(ID);
         }
 
-        public static DataTable GetAllLicenses()
+        public static DataTable GetDriverLocalLicenses(int DriverID)
         {
-            return clsLicenseData.GetAllLicenses();
+            return clsLicenseData.GetDriverLocalLicenses(DriverID);
+        }
+        public static DataTable GetDriverInternationalLicenses(int DriverID)
+        {
+            return clsLicenseData.GetDriverInternationalLicenses(DriverID);
         }
 
         public static bool IsLicenseExist(int ID)
