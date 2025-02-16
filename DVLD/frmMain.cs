@@ -1,6 +1,7 @@
 ﻿using DVLD.Application;
 using DVLD.Application.ApplicationTypes;
 using DVLD.Application.LocalLicenseApplication;
+using DVLD.Detain_Release_License;
 using DVLD.Driver;
 using DVLD.License.Local_Licenses;
 using DVLD.People;
@@ -120,6 +121,10 @@ namespace DVLD
             _CurrentForm.ShowDialog();
         }
 
-
+        private void manageDetainedLicensesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmManageDetainedLicenses();
+            _CurrentForm.ShowDialog();
+        }
     }
 }

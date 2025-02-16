@@ -157,7 +157,7 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM DetainedLicense;";
+            string query = @"SELECT * FROM vDetainedLicenses ORDER BY ID DESC;";
 
             SqlCommand command = new SqlCommand(query, connection);
 

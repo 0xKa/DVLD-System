@@ -170,6 +170,15 @@ SELECT ID, ApplicationID, LocalLicenseID, IssueDate, ExpirationDate, IsActive
 FROM InternationalLicense WHERE DriverID = 1 ORDER BY IsActive DESC, ID DESC;
 
 
+--CREATE VIEW vDetainedLicenses AS
+SELECT DetainedLicense.ID, LicenseID, DetainDate, FineFees, vDrivers.NationalNo, vDrivers.FullName,
+IsReleased, ReleaseApplicationID, ReleasedDate
+FROM DetainedLicense 
+JOIN License ON License.ID = DetainedLicense.LicenseID
+JOIN vDrivers ON vDrivers.ID = License.DriverID;
+
+SELECT * FROM vDetainedLicenses ORDER BY ID DESC;
+
 SELECT * FROM [Country];
 SELECT * FROM [Person];
 SELECT * FROM [User];
@@ -185,4 +194,5 @@ SELECT * FROM [TestType];
 SELECT * FROM [TestAppointment];
 SELECT * FROM [Test];
 
-
+INSERT INTO DetainedLicense
+VALUES (17, '2000-1-1', 10.10101, 'fake', 'no name', 0, NULL, NULL, NULLL)

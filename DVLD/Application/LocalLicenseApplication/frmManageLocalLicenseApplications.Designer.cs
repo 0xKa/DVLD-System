@@ -209,7 +209,7 @@
             this.showLicenseToolStripMenuItem,
             this.showLicenseHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 226);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(199, 204);
             this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // cancelApplicationToolStripMenuItem
@@ -332,7 +332,7 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::DVLD.Properties.Resources.local;
+            this.pictureBox1.Image = global::DVLD.Properties.Resources.manage_application;
             this.pictureBox1.Location = new System.Drawing.Point(533, 43);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(114, 114);
@@ -342,7 +342,7 @@
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::DVLD.Properties.Resources.manage_application;
+            this.pictureBox2.Image = global::DVLD.Properties.Resources.local;
             this.pictureBox2.Location = new System.Drawing.Point(633, 58);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(40, 40);
