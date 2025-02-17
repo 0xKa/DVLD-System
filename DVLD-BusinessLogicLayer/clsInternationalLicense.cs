@@ -21,7 +21,7 @@ namespace DVLD_BusinessLogicLayer
         public bool IsActive { get; set; }
         public int CreatedByUserID { get; set; }
 
-        public clsApplication ApplicationInfo = null;
+        public clsApplication ApplicationInfo = null; //I chose Application to be a Composition instead of Inheritance 
         public clsDriver DriverInfo = null;
         public clsLicense LocalLicenseInfo = null;
         public clsUser CreatedByUser = null;
@@ -91,6 +91,23 @@ namespace DVLD_BusinessLogicLayer
             else
                 return null;
         }
+        public static clsInternationalLicense FindActiveLicense(int DriverID)
+        {
+            int ApplicationID = -1;
+            int ID = -1;
+            int LocalLicenseID = -1;
+            DateTime IssueDate = DateTime.MinValue;
+            DateTime ExpirationDate = DateTime.MinValue;
+            bool IsActive = false;
+            int CreatedByUserID = -1;
+
+            if (clsInternationalLicenseData.GetActiveInternationalLicenseInfoByDriverID(DriverID, ref ApplicationID, ref ID, ref LocalLicenseID,
+                ref IssueDate, ref ExpirationDate, ref IsActive, ref CreatedByUserID))
+                return new clsInternationalLicense(ID, ApplicationID, DriverID, LocalLicenseID,
+                    IssueDate, ExpirationDate, IsActive, CreatedByUserID);
+            else
+                return null;
+        }
 
         public bool Save()
         {
@@ -113,6 +130,10 @@ namespace DVLD_BusinessLogicLayer
             return clsInternationalLicenseData.DeleteInternationalLicense(ID);
         }
 
+        public static DataTable GetAllInternationalLicenses()
+        {
+            return clsInternationalLicenseData.GetAllInternationalLicenses();
+        }
 
         public static bool IsInternationalLicenseExist(int ID)
         {

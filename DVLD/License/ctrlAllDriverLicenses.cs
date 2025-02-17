@@ -31,9 +31,9 @@ namespace DVLD.License
             {
                 dgvLocalLicenses.Columns["ID"].Width = 50;
                 dgvLocalLicenses.Columns["ApplicationID"].Width = 50;
-                dgvLocalLicenses.Columns["IssueDate"].Width = 55;
+                dgvLocalLicenses.Columns["IssueDate"].Width = 70;
                 dgvLocalLicenses.Columns["IssueDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
-                dgvLocalLicenses.Columns["ExpirationDate"].Width = 55;
+                dgvLocalLicenses.Columns["ExpirationDate"].Width = 70;
                 dgvLocalLicenses.Columns["ExpirationDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
                 dgvLocalLicenses.Columns["IsActive"].Width = 50;
             }
@@ -45,13 +45,8 @@ namespace DVLD.License
             
             if (dgvInternationalLicenses.RowCount > 0)
             {
-                dgvLocalLicenses.Columns["ID"].Width = 50;
-                dgvLocalLicenses.Columns["ApplicationID"].Width = 50;
-                dgvLocalLicenses.Columns["IssueDate"].Width = 55;
-                dgvLocalLicenses.Columns["IssueDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
-                dgvLocalLicenses.Columns["ExpirationDate"].Width = 55;
-                dgvLocalLicenses.Columns["ExpirationDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
-                dgvLocalLicenses.Columns["IsActive"].Width = 50;
+                dgvInternationalLicenses.Columns["IssueDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
+                dgvInternationalLicenses.Columns["ExpirationDate"].DefaultCellStyle.Format = "dd/MMM/yyyy";
             }
         }
 

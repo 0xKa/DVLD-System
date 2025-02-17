@@ -3,6 +3,7 @@ using DVLD.Application.ApplicationTypes;
 using DVLD.Application.LocalLicenseApplication;
 using DVLD.Detain_Release_License;
 using DVLD.Driver;
+using DVLD.License.International_License;
 using DVLD.License.Local_Licenses;
 using DVLD.People;
 using DVLD.Test;
@@ -142,6 +143,18 @@ namespace DVLD
         private void releaseDetainDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             releaseDetainedLicenseToolStripMenuItem.PerformClick();
+        }
+
+        private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmManageInternationalLicenses();
+            _CurrentForm.ShowDialog();
+        }
+
+        private void internationalDrivingLicenseApplicationsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmManageInternationalLicenses();
+            _CurrentForm.ShowDialog();
         }
     }
 }

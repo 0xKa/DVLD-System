@@ -45,6 +45,42 @@ namespace DVLD_DataAccessLayer
 
             return isFound;
         }
+        
+        public static bool GetActiveInternationalLicenseInfoByDriverID(int DriverID, ref int ID, ref int ApplicationID, ref int LocalLicenseID,
+            ref DateTime IssueDate, ref DateTime ExpirationDate, ref bool IsActive, ref int CreatedByUserID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM InternationalLicense WHERE DriverID = @DriverID AND IsActive = 1;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@DriverID", DriverID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ID = (int)reader["ID"];
+                    ApplicationID = (int)reader["ApplicationID"];
+                    LocalLicenseID = (int)reader["LocalLicenseID"];
+                    IssueDate = (DateTime)reader["IssueDate"];
+                    ExpirationDate = (DateTime)reader["ExpirationDate"];
+                    IsActive = (bool)reader["IsActive"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                }
+                reader.Close();
+            }
+            catch { isFound = false; }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
 
         public static int AddNewInternationalLicense(int ApplicationID, int DriverID, int LocalLicenseID,
             DateTime IssueDate, DateTime ExpirationDate, bool IsActive, int CreatedByUserID)
@@ -53,7 +89,11 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"INSERT INTO [dbo].[InternationalLicense]
+            //before adding a new international license we must disable the previous one
+            string query = @"
+                UPDATE [InternationalLicense] SET IsActive = 0 WHERE DriverID = @DriverID;
+
+                INSERT INTO [dbo].[InternationalLicense]
                     ([ApplicationID], [DriverID], [LocalLicenseID], [IssueDate], [ExpirationDate],
                      [IsActive], [CreatedByUserID])
                 VALUES (@ApplicationID, @DriverID, @LocalLicenseID, @IssueDate, @ExpirationDate,
@@ -158,6 +198,31 @@ namespace DVLD_DataAccessLayer
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@DriverID", DriverID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                    dtLicense.Load(reader);
+
+                reader.Close();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return dtLicense;
+        }
+        public static DataTable GetAllInternationalLicenses()
+        {
+            DataTable dtLicense = new DataTable();
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT ID, ApplicationID, DriverID, LocalLicenseID, IssueDate, ExpirationDate, IsActive AS 'Active Status' FROM [InternationalLicense];";
+
+            SqlCommand command = new SqlCommand(query, connection);
 
             try
             {
