@@ -145,5 +145,32 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
         }
+
+        public clsDetainedLicense Release()
+        {
+            clsApplication ReleaseApplication = new clsApplication()
+            {
+                ApplicantPersonID = this.LicenseInfo.DriverInfo.PersonID,
+                ApplicationDate = DateTime.Now,
+                enType = clsApplicationType.enApplicationType.ReleaseDetainedDrivingLicsense,
+                Status = 3,
+                LastStatusDate = DateTime.Now,
+                Fees = clsApplicationType.GetApplicationFees(clsApplicationType.enApplicationType.ReleaseDetainedDrivingLicsense),
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
+            };
+            if (!ReleaseApplication.Save())
+                return null;
+
+            this.IsReleased = true;
+            this.ReleasedDate = DateTime.Now;
+            this.ReleasedByUserID = clsGlobalSettings.LoggedInUser.ID;
+            this.ReleaseApplicationID = ReleaseApplication.ApplicationID;
+            this.LicenseInfo.ActivateLicense();
+
+            if (this.Save())
+                return clsDetainedLicense.Find(this.ID); //to fill the composition objects
+            else
+                return null;
+        }
     }
 }

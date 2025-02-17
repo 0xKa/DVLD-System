@@ -126,5 +126,22 @@ namespace DVLD
             _CurrentForm = new frmManageDetainedLicenses();
             _CurrentForm.ShowDialog();
         }
+
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmDetainLicense();
+            _CurrentForm.ShowDialog();
+        }
+
+        private void releaseDetainedLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            _CurrentForm = new frmReleaseDetainedLicense();
+            _CurrentForm.ShowDialog();
+        }
+
+        private void releaseDetainDrivingLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            releaseDetainedLicenseToolStripMenuItem.PerformClick();
+        }
     }
 }

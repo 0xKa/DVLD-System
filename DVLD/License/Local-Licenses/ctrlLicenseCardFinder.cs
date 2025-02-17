@@ -22,7 +22,7 @@ namespace DVLD.License.Local_Licenses
             InitializeComponent();
         }
 
-        public bool EnableFinder
+        public bool FinderEnabled
         {
             set { pnlFinder.Enabled = value; }
         }
@@ -37,7 +37,7 @@ namespace DVLD.License.Local_Licenses
 
         public void LoadLicenseInfo(int LicenseID)
         {
-            pnlFinder.Enabled = false;
+            FinderEnabled = false;
             ctrlLicenseCard1.LoadInfo(LicenseID);
         }
 

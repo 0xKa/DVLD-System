@@ -252,7 +252,29 @@ WHERE DriverID = @DriverID ORDER BY IsActive DESC, License.ID DESC;";
 
             return IsFound;
         }
+        public static bool ActivateLicense(int LicenseID)
+        {
+            int RowsAffected = 0;
 
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"UPDATE License SET IsActive = 1 WHERE ID = @LicenseID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+
+            try
+            {
+                connection.Open();
+                RowsAffected = command.ExecuteNonQuery();
+            }
+            catch { }
+            finally { connection.Close(); }
+
+            return RowsAffected > 0;
+        }
+        
         public static bool DeactivateLicense(int LicenseID)
         {
             int RowsAffected = 0;

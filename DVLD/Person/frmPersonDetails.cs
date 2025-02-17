@@ -12,11 +12,17 @@ namespace DVLD.People
 {
     public partial class frmPersonDetails : Form
     {
-        int _PersonID = -1;
+        private int _PersonID = -1;
+        private string _NationalNo = string.Empty;
         public frmPersonDetails(int PersonID)
         {
             InitializeComponent();
             _PersonID = PersonID;
+        }
+        public frmPersonDetails(string NationalNo)
+        {
+            InitializeComponent();
+            _NationalNo = NationalNo;
         }
 
         private void frmPersonDetails_Load(object sender, EventArgs e)
@@ -27,7 +33,10 @@ namespace DVLD.People
 
         private void FrmPersonDetails_GotFocus(object sender, EventArgs e)
         {
-            ctrlPersonCard1.LoadPersonInfo(_PersonID);
+            if (_PersonID != -1)
+                ctrlPersonCard1.LoadPersonInfo(_PersonID);
+            else
+                ctrlPersonCard1.LoadPersonInfo(_NationalNo);
         }
     }
 }

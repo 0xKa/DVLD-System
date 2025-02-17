@@ -46,6 +46,7 @@ namespace DVLD_DataAccessLayer
 
             return isFound;
         }
+        //this will return  a license where IsReleased =0
         public static bool GetDetainedLicenseInfoByLicenseID(int LicenseID, ref int ID, ref DateTime DetainDate, ref decimal FineFees,
             ref int CreatedByUserID, ref bool IsReleased, ref DateTime? ReleasedDate, ref int? ReleasedByUserID, ref int? ReleaseApplicationID)
         {
@@ -53,7 +54,7 @@ namespace DVLD_DataAccessLayer
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT * FROM DetainedLicense WHERE LicenseID = @LicenseID;";
+            string query = @"SELECT * FROM DetainedLicense WHERE LicenseID = @LicenseID AND IsReleased = 0; ";
 
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.AddWithValue("@LicenseID", LicenseID);

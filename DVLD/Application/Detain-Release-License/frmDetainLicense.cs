@@ -18,7 +18,15 @@ namespace DVLD.Detain_Release_License
         public frmDetainLicense()
         {
             InitializeComponent();
-            ctrlCard.LicenseSelected += CtrlCard_LicenseSelected; ;
+            ctrlCard.LicenseSelected += CtrlCard_LicenseSelected;
+        }
+         public frmDetainLicense(int LicenseID)
+        {
+            InitializeComponent();
+            ctrlCard.LoadLicenseInfo(LicenseID);
+            CtrlCard_LicenseSelected();
+            lblFilterDisabledTitle.Text = $"Detain License {LicenseID}";
+            lblFilterDisabledTitle.Visible = true;
         }
 
 
@@ -29,10 +37,10 @@ namespace DVLD.Detain_Release_License
             txbFineFees.Enabled = false;
             lblLicenseID.Text = "[????]";
 
-            if (!ctrlCard.SelectedLicense.IsActive || ctrlCard.SelectedLicense.IsExpired)
-                MessageBox.Show("This License Cannot be Detained Because It is Expired or Not Active", "License Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (ctrlCard.SelectedLicense.IsDetained)
+            if (ctrlCard.SelectedLicense.IsDetained)
                 MessageBox.Show("Selected License Already Detained", "License Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else if (!ctrlCard.SelectedLicense.IsActive || ctrlCard.SelectedLicense.IsExpired)
+                MessageBox.Show("This License Cannot be Detained Because It is Expired or Not Active", "License Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {
                 lblLicenseID.Text = ctrlCard.SelectedLicense.ID.ToString();
@@ -89,6 +97,9 @@ namespace DVLD.Detain_Release_License
         private clsDetainedLicense _DetainedLicense = null;
         private void btnDetain_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(txbFineFees.Text))
+            { MessageBox.Show("Enter the Fine Fees."); txbFineFees.Focus(); return; }
+
             _DetainedLicense = ctrlCard.SelectedLicense.Detain(_FineFees);
 
             if (_DetainedLicense != null)

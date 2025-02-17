@@ -207,6 +207,10 @@ namespace DVLD_BusinessLogicLayer
         {
             return clsLicenseData.DeactivateLicense(this.ID);
         }
+        public bool ActivateLicense()
+        {
+            return clsLicenseData.ActivateLicense(this.ID);
+        }
 
         public clsLicense Renew(string notes)
         {

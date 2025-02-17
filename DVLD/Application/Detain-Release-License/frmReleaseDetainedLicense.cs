@@ -1,4 +1,5 @@
 ﻿using DVLD.License;
+using DVLD.License.Local_Licenses;
 using DVLD_BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
@@ -19,6 +20,14 @@ namespace DVLD.Detain_Release_License
         {
             InitializeComponent();
             ctrlCard.LicenseSelected += CtrlCard_LicenseSelected;
+        }
+        public frmReleaseDetainedLicense(int LicenseID)
+        {
+            InitializeComponent();
+            ctrlCard.LoadLicenseInfo(LicenseID);
+            CtrlCard_LicenseSelected();
+            lblFilterDisabledTitle.Text = $"Release License {LicenseID}";
+            lblFilterDisabledTitle.Visible = true;
         }
 
         private clsDetainedLicense _DetainedLicense = null;
@@ -61,14 +70,31 @@ namespace DVLD.Detain_Release_License
         }
 
 
+        private void _UpdateFormControls()
+        {
+            btnRelease.Enabled = false;
+            llShowNewLicense.Enabled = true;
+            lblReleaseApplicationID.Text = _DetainedLicense.ReleaseApplicationID.ToString();
+        }
         private void btnRelease_Click(object sender, EventArgs e)
         {
+            clsDetainedLicense ReleasedLicense = _DetainedLicense.Release();
+
+            if (ReleasedLicense != null)
+            {
+                _DetainedLicense = ReleasedLicense;
+                _UpdateFormControls();
+                MessageBox.Show("License Released Successfully.", "Succeed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+                MessageBox.Show("Release License Failed.", "Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         }
 
         private void llShowNewLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            
+            frmLicenseDetails frmLD = new frmLicenseDetails(_DetainedLicense.LicenseInfo);
+            frmLD.ShowDialog();
         }
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

@@ -32,6 +32,9 @@
             this.lblCreatedByUsername = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblValidateFees = new System.Windows.Forms.Label();
+            this.txbFineFees = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblDetainDate = new System.Windows.Forms.Label();
             this.lblLicenseID = new System.Windows.Forms.Label();
@@ -42,10 +45,8 @@
             this.btnDetain = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.llShowNewLicense = new System.Windows.Forms.LinkLabel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.txbFineFees = new System.Windows.Forms.TextBox();
             this.ctrlCard = new DVLD.License.Local_Licenses.ctrlLicenseCardFinder();
-            this.lblValidateFees = new System.Windows.Forms.Label();
+            this.lblFilterDisabledTitle = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,6 +106,42 @@
             this.groupBox1.TabIndex = 96;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detain License Info";
+            // 
+            // lblValidateFees
+            // 
+            this.lblValidateFees.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblValidateFees.ForeColor = System.Drawing.Color.Firebrick;
+            this.lblValidateFees.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.lblValidateFees.Location = new System.Drawing.Point(50, 370);
+            this.lblValidateFees.Name = "lblValidateFees";
+            this.lblValidateFees.Size = new System.Drawing.Size(156, 20);
+            this.lblValidateFees.TabIndex = 92;
+            this.lblValidateFees.Text = "Enter a Valid Fine Fees!";
+            this.lblValidateFees.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblValidateFees.Visible = false;
+            // 
+            // txbFineFees
+            // 
+            this.txbFineFees.Enabled = false;
+            this.txbFineFees.Location = new System.Drawing.Point(9, 344);
+            this.txbFineFees.MaxLength = 10;
+            this.txbFineFees.Name = "txbFineFees";
+            this.txbFineFees.Size = new System.Drawing.Size(238, 23);
+            this.txbFineFees.TabIndex = 91;
+            this.txbFineFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbFineFees_KeyPress);
+            this.txbFineFees.Leave += new System.EventHandler(this.txbFineFees_Leave);
+            // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Firebrick;
+            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label1.Location = new System.Drawing.Point(6, 321);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(147, 20);
+            this.label1.TabIndex = 90;
+            this.label1.Text = "Enter Fine Fees:";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // label7
             // 
@@ -233,29 +270,6 @@
             this.llShowNewLicense.Text = "Show License New Info";
             this.llShowNewLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowNewLicense_LinkClicked);
             // 
-            // label1
-            // 
-            this.label1.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Firebrick;
-            this.label1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Location = new System.Drawing.Point(6, 321);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(147, 20);
-            this.label1.TabIndex = 90;
-            this.label1.Text = "Enter Fine Fees:";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            // 
-            // txbFineFees
-            // 
-            this.txbFineFees.Enabled = false;
-            this.txbFineFees.Location = new System.Drawing.Point(9, 344);
-            this.txbFineFees.MaxLength = 10;
-            this.txbFineFees.Name = "txbFineFees";
-            this.txbFineFees.Size = new System.Drawing.Size(238, 23);
-            this.txbFineFees.TabIndex = 91;
-            this.txbFineFees.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txbFineFees_KeyPress);
-            this.txbFineFees.Leave += new System.EventHandler(this.txbFineFees_Leave);
-            // 
             // ctrlCard
             // 
             this.ctrlCard.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
@@ -264,18 +278,17 @@
             this.ctrlCard.Size = new System.Drawing.Size(804, 406);
             this.ctrlCard.TabIndex = 94;
             // 
-            // lblValidateFees
+            // lblFilterDisabledTitle
             // 
-            this.lblValidateFees.Font = new System.Drawing.Font("Consolas", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblValidateFees.ForeColor = System.Drawing.Color.Firebrick;
-            this.lblValidateFees.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.lblValidateFees.Location = new System.Drawing.Point(50, 370);
-            this.lblValidateFees.Name = "lblValidateFees";
-            this.lblValidateFees.Size = new System.Drawing.Size(156, 20);
-            this.lblValidateFees.TabIndex = 92;
-            this.lblValidateFees.Text = "Enter a Valid Fine Fees!";
-            this.lblValidateFees.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblValidateFees.Visible = false;
+            this.lblFilterDisabledTitle.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilterDisabledTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblFilterDisabledTitle.Location = new System.Drawing.Point(16, 9);
+            this.lblFilterDisabledTitle.Name = "lblFilterDisabledTitle";
+            this.lblFilterDisabledTitle.Size = new System.Drawing.Size(807, 60);
+            this.lblFilterDisabledTitle.TabIndex = 109;
+            this.lblFilterDisabledTitle.Text = "Detain License ";
+            this.lblFilterDisabledTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFilterDisabledTitle.Visible = false;
             // 
             // frmDetainLicense
             // 
@@ -283,6 +296,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1086, 473);
+            this.Controls.Add(this.lblFilterDisabledTitle);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.llShowLicenseHistory);
@@ -326,5 +340,6 @@
         private System.Windows.Forms.TextBox txbFineFees;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblValidateFees;
+        private System.Windows.Forms.Label lblFilterDisabledTitle;
     }
 }

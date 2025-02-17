@@ -53,6 +53,7 @@
             this.lblSelectedLicenseID = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.btnRelease = new System.Windows.Forms.Button();
+            this.lblFilterDisabledTitle = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -365,12 +366,25 @@
             this.btnRelease.UseVisualStyleBackColor = false;
             this.btnRelease.Click += new System.EventHandler(this.btnRelease_Click);
             // 
+            // lblFilterDisabledTitle
+            // 
+            this.lblFilterDisabledTitle.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFilterDisabledTitle.ForeColor = System.Drawing.Color.Red;
+            this.lblFilterDisabledTitle.Location = new System.Drawing.Point(14, 9);
+            this.lblFilterDisabledTitle.Name = "lblFilterDisabledTitle";
+            this.lblFilterDisabledTitle.Size = new System.Drawing.Size(804, 65);
+            this.lblFilterDisabledTitle.TabIndex = 108;
+            this.lblFilterDisabledTitle.Text = "Release License ";
+            this.lblFilterDisabledTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblFilterDisabledTitle.Visible = false;
+            // 
             // frmReleaseDetainedLicense
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.ClientSize = new System.Drawing.Size(1185, 473);
+            this.Controls.Add(this.lblFilterDisabledTitle);
             this.Controls.Add(this.lblTitle);
             this.Controls.Add(this.ctrlCard);
             this.Controls.Add(this.btnClose);
@@ -419,5 +433,6 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lblReleaseDate;
+        private System.Windows.Forms.Label lblFilterDisabledTitle;
     }
 }

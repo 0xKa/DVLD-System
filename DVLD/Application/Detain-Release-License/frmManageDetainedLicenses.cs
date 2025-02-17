@@ -1,4 +1,7 @@
-﻿using DVLD_BusinessLogicLayer;
+﻿using DVLD.License;
+using DVLD.License.Local_Licenses;
+using DVLD.People;
+using DVLD_BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -142,6 +145,51 @@ namespace DVLD.Detain_Release_License
             frmReleaseDetainedLicense frmRDL = new frmReleaseDetainedLicense();
             frmRDL.FormClosed += Refresh_OnFormClosed;
             frmRDL.ShowDialog();
+        }
+
+        private void showPersonDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPersonDetails frmPD = new frmPersonDetails(dgvDetainedLicensesList.CurrentRow.Cells[4].Value.ToString());
+            frmPD.FormClosed += Refresh_OnFormClosed;
+            frmPD.ShowDialog();
+        }
+        private void showLicenseDetailsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicenseDetails frmLD = new frmLicenseDetails(null, (int)dgvDetainedLicensesList.CurrentRow.Cells[1].Value);
+            frmLD.FormClosed += Refresh_OnFormClosed;
+            frmLD.ShowDialog();
+        }
+        private void showPersonsLicenseHistoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLicensesHistory frmLH = new frmLicensesHistory(clsLicense.Find((int)dgvDetainedLicensesList.CurrentRow.Cells[1].Value).DriverInfo);
+            frmLH.FormClosed += Refresh_OnFormClosed;
+            frmLH.ShowDialog();
+        }
+        private void detainLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDetainLicense frmDL = new frmDetainLicense((int)dgvDetainedLicensesList.CurrentRow.Cells[1].Value);
+            frmDL.FormClosed += Refresh_OnFormClosed;
+            frmDL.ShowDialog();
+        }
+        private void releaseLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmReleaseDetainedLicense frmRDL = new frmReleaseDetainedLicense((int)dgvDetainedLicensesList.CurrentRow.Cells[1].Value);
+            frmRDL.FormClosed += Refresh_OnFormClosed;
+            frmRDL.ShowDialog();
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            if ((bool)dgvDetainedLicensesList.CurrentRow.Cells[6].Value)
+            {
+                detainLicenseToolStripMenuItem.Enabled = true;
+                releaseLicenseToolStripMenuItem.Enabled = false;
+            }
+            else
+            {
+                detainLicenseToolStripMenuItem.Enabled = false;
+                releaseLicenseToolStripMenuItem.Enabled = true;
+            }
         }
     }
 }
