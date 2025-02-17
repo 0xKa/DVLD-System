@@ -31,6 +31,7 @@ namespace DVLD_v1._0
                 lblLicenseID.Text = ctrlLicenseCardWithFilter1.License.ID.ToString();
                 txbFineFees.Enabled = true;
                 btnDetain.Enabled = true;
+                txbFineFees.Focus();
             }
             else if (clsDetainedLicense.IsLicenseDetained(ctrlLicenseCardWithFilter1.License.ID))
             {

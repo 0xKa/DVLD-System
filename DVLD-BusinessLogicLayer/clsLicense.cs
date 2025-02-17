@@ -281,6 +281,26 @@ namespace DVLD_BusinessLogicLayer
             this.DeactivateLicense();
             return clsLicense.Find(NewLicense.ID); 
         }
+        public clsDetainedLicense Detain(decimal fineFees)
+        {
+            clsDetainedLicense DetainedLicense = new clsDetainedLicense()
+            {
+                LicenseID = this.ID,
+                DetainDate = DateTime.Now,
+                FineFees = fineFees,
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID,
+                IsReleased = false,
 
+                ReleasedDate = null,
+                ReleaseApplicationID = null,
+                ReleasedByUserID = null
+
+            };
+
+            this.DeactivateLicense();
+
+            DetainedLicense.Save();
+            return clsDetainedLicense.Find(DetainedLicense.ID);
+        }
     }
 }

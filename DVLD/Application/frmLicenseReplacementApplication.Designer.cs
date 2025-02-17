@@ -303,7 +303,7 @@
             this.groupBox1.Size = new System.Drawing.Size(334, 406);
             this.groupBox1.TabIndex = 89;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Renew License Application Info";
+            this.groupBox1.Text = "Replacement License Application Info";
             // 
             // gbReplacementType
             // 
@@ -349,11 +349,11 @@
             // 
             this.lblTitle.Font = new System.Drawing.Font("Copperplate Gothic Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.Red;
-            this.lblTitle.Location = new System.Drawing.Point(289, 4);
+            this.lblTitle.Location = new System.Drawing.Point(242, 4);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(252, 34);
+            this.lblTitle.Size = new System.Drawing.Size(346, 34);
             this.lblTitle.TabIndex = 88;
-            this.lblTitle.Text = "Select a License to Renew";
+            this.lblTitle.Text = "Select a License to Replace";
             this.lblTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // frmLicenseReplacementApplication

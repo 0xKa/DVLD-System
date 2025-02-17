@@ -177,16 +177,16 @@ namespace DVLD_DataAccessLayer
             return dtDetainedLicense;
         }
 
-        public static bool IsDetainedLicenseExist(int ID)
+        public static bool IsLicenseDetained(int LicenseID)
         {
             bool IsFound = false;
 
             SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
 
-            string query = @"SELECT 1 FROM DetainedLicense WHERE ID = @ID;";
+            string query = @"SELECT 1 FROM DetainedLicense WHERE LicenseID = @LicenseID AND IsReleased = 0;";
 
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.AddWithValue("@ID", ID);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
 
             try
             {
@@ -198,5 +198,6 @@ namespace DVLD_DataAccessLayer
 
             return IsFound;
         }
+
     }
 }

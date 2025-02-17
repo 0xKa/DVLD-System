@@ -126,13 +126,20 @@ namespace DVLD.Detain_Release_License
             _dtDetainedLicensesList.DefaultView.RowFilter = "[IsReleased] = 1";
         }
 
+
+        private void Refresh_OnFormClosed(object sender, FormClosedEventArgs e)
+        {
+            _RefreshDGV();
+        }
         private void btnDetainLicense_Click(object sender, EventArgs e)
         {
-            //here
+            frmDetainLicense frmDL = new frmDetainLicense();
+            frmDL.FormClosed += Refresh_OnFormClosed; ;
+            frmDL.ShowDialog();
         }
         private void btnReleaseLicense_Click(object sender, EventArgs e)
         {
-
+            //koko
         }
     }
 }

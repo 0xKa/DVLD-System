@@ -179,6 +179,11 @@ JOIN vDrivers ON vDrivers.ID = License.DriverID;
 
 SELECT * FROM vDetainedLicenses ORDER BY ID DESC;
 
+--check if license is detained
+SELECT 1 FROM DetainedLicense WHERE LicenseID = 17 AND IsReleased = 0;
+
+
+
 SELECT * FROM [Country];
 SELECT * FROM [Person];
 SELECT * FROM [User];
@@ -194,5 +199,3 @@ SELECT * FROM [TestType];
 SELECT * FROM [TestAppointment];
 SELECT * FROM [Test];
 
-INSERT INTO DetainedLicense
-VALUES (17, '2000-1-1', 10.10101, 'fake', 'no name', 0, NULL, NULL, NULLL)

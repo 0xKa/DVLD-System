@@ -123,9 +123,9 @@ namespace DVLD_BusinessLogicLayer
             return clsDetainedLicenseData.GetAllDetainedLicenses();
         }
 
-        public static bool IsDetainedLicenseExist(int ID)
+        public static bool IsLicenseDetained(int LicenseID)
         {
-            return clsDetainedLicenseData.IsDetainedLicenseExist(ID);
+            return clsDetainedLicenseData.IsLicenseDetained(LicenseID);
         }
     }
 }
