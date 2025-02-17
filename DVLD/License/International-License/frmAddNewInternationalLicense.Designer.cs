@@ -37,6 +37,8 @@
             this.lblTitle = new System.Windows.Forms.Label();
             this.llShowLicenseHistory = new System.Windows.Forms.LinkLabel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblCreatedByUsername = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblIssueDate = new System.Windows.Forms.Label();
             this.lblInternationalLicenseID = new System.Windows.Forms.Label();
@@ -46,8 +48,6 @@
             this.btnIssue = new System.Windows.Forms.Button();
             this.btnClose = new System.Windows.Forms.Button();
             this.llShowNewInternationalLicense = new System.Windows.Forms.LinkLabel();
-            this.lblCreatedByUsername = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.ctrlCard = new DVLD.License.Local_Licenses.ctrlLicenseCardFinder();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -170,6 +170,28 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "International License Info";
             // 
+            // lblCreatedByUsername
+            // 
+            this.lblCreatedByUsername.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCreatedByUsername.ForeColor = System.Drawing.Color.White;
+            this.lblCreatedByUsername.Location = new System.Drawing.Point(190, 294);
+            this.lblCreatedByUsername.Name = "lblCreatedByUsername";
+            this.lblCreatedByUsername.Size = new System.Drawing.Size(125, 20);
+            this.lblCreatedByUsername.TabIndex = 66;
+            this.lblCreatedByUsername.Text = "[????]";
+            // 
+            // label9
+            // 
+            this.label9.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Silver;
+            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.label9.Location = new System.Drawing.Point(6, 294);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(178, 20);
+            this.label9.TabIndex = 67;
+            this.label9.Text = "Created By:";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -282,28 +304,6 @@
             this.llShowNewInternationalLicense.TabStop = true;
             this.llShowNewInternationalLicense.Text = "Show International License Info";
             this.llShowNewInternationalLicense.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.llShowNewInternationalLicense_LinkClicked);
-            // 
-            // lblCreatedByUsername
-            // 
-            this.lblCreatedByUsername.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCreatedByUsername.ForeColor = System.Drawing.Color.White;
-            this.lblCreatedByUsername.Location = new System.Drawing.Point(190, 294);
-            this.lblCreatedByUsername.Name = "lblCreatedByUsername";
-            this.lblCreatedByUsername.Size = new System.Drawing.Size(125, 20);
-            this.lblCreatedByUsername.TabIndex = 66;
-            this.lblCreatedByUsername.Text = "[????]";
-            // 
-            // label9
-            // 
-            this.label9.Font = new System.Drawing.Font("Consolas", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Silver;
-            this.label9.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label9.Location = new System.Drawing.Point(6, 294);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(178, 20);
-            this.label9.TabIndex = 67;
-            this.label9.Text = "Created By:";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // ctrlCard
             // 

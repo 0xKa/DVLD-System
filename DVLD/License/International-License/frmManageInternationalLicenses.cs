@@ -143,7 +143,8 @@ namespace DVLD.License.International_License
         }
         private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //koko
+            frmInternationalLicenseDetails frmILD = new frmInternationalLicenseDetails(null ,(int)dgvInternationalLicenses.CurrentRow.Cells[0].Value);
+            frmILD.ShowDialog();
         }
         private void showLicensesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {

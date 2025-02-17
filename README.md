@@ -60,20 +60,24 @@ The DVLD System includes the following functionalities:
 ## **Screenshots**
 
 ### login screen
-![login screen](screenshots/login-screen.jpg)
+![login screen](screenshots/v2/login-screen.jpg)
 ### main screen
-![main screen](screenshots/main-screen.jpg)
-### features
-![features](screenshots/features.jpg)
+![main screen](screenshots/v2/main-menu.jpg)
+
 ### manage local licenses screen
-![manage local licenses screen](screenshots/manage-local-licenses.jpg)
-### manage international licenses screen
-![manage international licenses screen](screenshots/manage-international-licenses.jpg)
+![manage local licenses screen](screenshots/v2/manage-local-license-applications-screen.jpg)
+### local-license-application
+![local-license-application](screenshots/v2/local-license-application.jpg)
+### issue-local-license
+![issue-local-license](screenshots/v2/issue-local-license.jpg)
+
 ### change password screen
-![change password screen](screenshots/change-password-screen.jpg)
-### add new person
-![add new person](screenshots/add-new-person-screen.jpg)
-### add new user
-![add new user](screenshots/add-new-user-screen.jpg)
+![change password screen](screenshots//v2/change-password.jpg)
+### manage-drivers-screen
+![manage-drivers-screen](screenshots/v2/manage-driver-screen.jpg)
+### manage-detained-licenses-screen
+![manage-detained-licenses-screen](screenshots/v2/manage-detained-licenses-screen.jpg)
+### international license card
+![international license card](screenshots/v2/international-license-card.jpg)
 ---
 

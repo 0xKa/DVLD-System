@@ -1,4 +1,5 @@
-﻿using DVLD.License.Local_Licenses;
+﻿using DVLD.License.International_License;
+using DVLD.License.Local_Licenses;
 using DVLD_BusinessLogicLayer;
 using System;
 using System.Collections.Generic;
@@ -78,7 +79,9 @@ namespace DVLD.License
         }
         private void showInternationalLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //koko
+            frmInternationalLicenseDetails frmILD = new frmInternationalLicenseDetails(null, (int)dgvInternationalLicenses.CurrentRow.Cells[0].Value);
+            frmILD.ShowDialog();
+
         }
         private void dgvLocalLicenses_DoubleClick_1(object sender, EventArgs e)
         {

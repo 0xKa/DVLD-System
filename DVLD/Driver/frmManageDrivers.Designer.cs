@@ -35,7 +35,6 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.showPersonalInfoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
-            this.issueInternationalLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripSeparator();
             this.showLicensesHistoryToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblTitle = new System.Windows.Forms.Label();
@@ -45,6 +44,7 @@
             this.cbSearchOptions = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.issueInternationalLicenseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDriversList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -107,7 +107,7 @@
             this.toolStripMenuItem2,
             this.showLicensesHistoryToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(228, 82);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(228, 104);
             // 
             // showPersonalInfoToolStripMenuItem
             // 
@@ -121,14 +121,6 @@
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(224, 6);
-            // 
-            // issueInternationalLicenseToolStripMenuItem
-            // 
-            this.issueInternationalLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.international;
-            this.issueInternationalLicenseToolStripMenuItem.Name = "issueInternationalLicenseToolStripMenuItem";
-            this.issueInternationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.issueInternationalLicenseToolStripMenuItem.Text = "Issue International License";
-            this.issueInternationalLicenseToolStripMenuItem.Click += new System.EventHandler(this.issueInternationalLicenseToolStripMenuItem_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -225,6 +217,14 @@
             this.pictureBox1.TabIndex = 32;
             this.pictureBox1.TabStop = false;
             // 
+            // issueInternationalLicenseToolStripMenuItem
+            // 
+            this.issueInternationalLicenseToolStripMenuItem.Image = global::DVLD.Properties.Resources.international;
+            this.issueInternationalLicenseToolStripMenuItem.Name = "issueInternationalLicenseToolStripMenuItem";
+            this.issueInternationalLicenseToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.issueInternationalLicenseToolStripMenuItem.Text = "Issue International License";
+            this.issueInternationalLicenseToolStripMenuItem.Click += new System.EventHandler(this.issueInternationalLicenseToolStripMenuItem_Click);
+            // 
             // frmManageDrivers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -272,8 +272,8 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ToolStripMenuItem showPersonalInfoToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem issueInternationalLicenseToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem showLicensesHistoryToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem issueInternationalLicenseToolStripMenuItem;
     }
 }

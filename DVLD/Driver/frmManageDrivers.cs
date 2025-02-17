@@ -1,4 +1,5 @@
 ﻿using DVLD.License;
+using DVLD.License.International_License;
 using DVLD.People;
 using DVLD_BusinessLogicLayer;
 using System;
@@ -122,16 +123,19 @@ namespace DVLD.Driver
             frmPD.FormClosed += Refresh_OnFormClosed;
             frmPD.ShowDialog();
         }
-        private void issueInternationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //koko
-        }
         private void showLicensesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmLicensesHistory frmLH = new frmLicensesHistory((int)dgvDriversList.CurrentRow.Cells[0].Value);
             frmLH.FormClosed += Refresh_OnFormClosed;
             frmLH.ShowDialog();
 
+        }
+
+        private void issueInternationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAddNewInternationalLicense frmANIL = new frmAddNewInternationalLicense();
+            frmANIL.FormClosed += Refresh_OnFormClosed;
+            frmANIL.ShowDialog();
         }
     }
 }

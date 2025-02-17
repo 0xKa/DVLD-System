@@ -21,6 +21,7 @@ namespace DVLD.License.International_License
 
         }
 
+
         private void CtrlCard_LicenseSelected()
         {
             llShowLicenseHistory.Enabled = true;
@@ -76,7 +77,11 @@ namespace DVLD.License.International_License
 
         private void llShowNewInternationalLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //koko
+            if (_InternationalLicense == null)
+                _InternationalLicense = clsInternationalLicense.FindActiveLicense(ctrlCard.SelectedLicense.DriverID);
+            frmInternationalLicenseDetails frmILD = new frmInternationalLicenseDetails(_InternationalLicense);
+            frmILD.ShowDialog();
+            
         }
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
