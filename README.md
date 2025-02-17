@@ -13,7 +13,7 @@ The application follows a **Three-Tier Architecture**:
 
 ---
 ## **Database ERD**
-![Database Diagram](<screenshots/DVLD Database Diagram.png>)
+![Database Diagram](screenshots/DVLD%20Database%20Diagram.png)
 
 ---
 
