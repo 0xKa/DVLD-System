@@ -186,7 +186,7 @@ SELECT 1 FROM DetainedLicense WHERE LicenseID = 17 AND IsReleased = 0;
 SELECT * FROM DetainedLicense WHERE LicenseID = 17 AND IsReleased = 0;
 
 --check if driver has an active international license
-
+SELECT 1 FROM InternationalLicense WHERE DriverID = 1 AND IsActive = 1;
 
 SELECT * FROM [Country];
 SELECT * FROM [Person];
