@@ -130,11 +130,23 @@
     <Compile Include="License\frmLicensesHistory.Designer.cs">
       <DependentUpon>frmLicensesHistory.cs</DependentUpon>
     </Compile>
+    <Compile Include="License\International-License\ctrlInternationalLicenseCard.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="License\International-License\ctrlInternationalLicenseCard.Designer.cs">
+      <DependentUpon>ctrlInternationalLicenseCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="License\International-License\frmAddNewInternationalLicense.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="License\International-License\frmAddNewInternationalLicense.Designer.cs">
       <DependentUpon>frmAddNewInternationalLicense.cs</DependentUpon>
+    </Compile>
+    <Compile Include="License\International-License\frmInternationalLicenseDetails.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="License\International-License\frmInternationalLicenseDetails.Designer.cs">
+      <DependentUpon>frmInternationalLicenseDetails.cs</DependentUpon>
     </Compile>
     <Compile Include="License\International-License\frmManageInternationalLicenses.cs">
       <SubType>Form</SubType>
@@ -324,8 +336,14 @@
     <EmbeddedResource Include="License\frmLicensesHistory.resx">
       <DependentUpon>frmLicensesHistory.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="License\International-License\ctrlInternationalLicenseCard.resx">
+      <DependentUpon>ctrlInternationalLicenseCard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="License\International-License\frmAddNewInternationalLicense.resx">
       <DependentUpon>frmAddNewInternationalLicense.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="License\International-License\frmInternationalLicenseDetails.resx">
+      <DependentUpon>frmInternationalLicenseDetails.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="License\International-License\frmManageInternationalLicenses.resx">
       <DependentUpon>frmManageInternationalLicenses.cs</DependentUpon>

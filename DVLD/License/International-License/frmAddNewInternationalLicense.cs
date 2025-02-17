@@ -76,7 +76,7 @@ namespace DVLD.License.International_License
 
         private void llShowNewInternationalLicense_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            //kokos
+            //koko
         }
         private void llShowLicenseHistory_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {

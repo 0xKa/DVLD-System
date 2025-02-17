@@ -20,6 +20,27 @@ namespace DVLD_v1._0
 
         public clsInternationalLicense License = null;
 
+        private void _ChangeLabelsColor()
+        {
+            lblIsActive.ForeColor = License.IsActive ? Color.Green : Color.Firebrick;
+            lblIsDetained.ForeColor = License.IsDetained ? Color.Firebrick : Color.Green;
+            lblExpirationDate.ForeColor = License.ExpirationDate <= DateTime.Now ? Color.Firebrick : Color.Green;
+        }
+        private void _LoadImage()
+        {
+            //handle image
+            if (string.IsNullOrEmpty(License.DriverInfo.PersonInfo.ImagePath))
+            {
+                pbPersonImage.Image = License.DriverInfo.PersonInfo.enGender == clsPerson.enumGender.Male ? Properties.Resources.default_male : Properties.Resources.default_female;
+            }
+            else
+            {
+                if (File.Exists(License.DriverInfo.PersonInfo.ImagePath))
+                    pbPersonImage.ImageLocation = License.DriverInfo.PersonInfo.ImagePath;
+                else
+                    MessageBox.Show($"Could Not Find the Image: {License.DriverInfo.PersonInfo.ImagePath}");
+            }
+        }
         public void LoadInfo(int InternationalLicenseID)
         {
             License = clsInternationalLicense.Find(InternationalLicenseID);
@@ -41,6 +62,8 @@ namespace DVLD_v1._0
             lblDateOfBirth.Text = LicenseOwner.DateOfBirth.ToString("dd/MMM/yyyy");
             pbPersonImage.ImageLocation = LicenseOwner.ImagePath;
 
+            _LoadImage();
+            _ChangeLabelsColor();
         }
         
     }
