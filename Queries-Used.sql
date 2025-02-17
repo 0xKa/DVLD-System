@@ -185,6 +185,9 @@ SELECT 1 FROM DetainedLicense WHERE LicenseID = 17 AND IsReleased = 0;
 --Find a detained license
 SELECT * FROM DetainedLicense WHERE LicenseID = 17 AND IsReleased = 0;
 
+--check if driver has an active international license
+
+
 SELECT * FROM [Country];
 SELECT * FROM [Person];
 SELECT * FROM [User];
@@ -200,4 +203,3 @@ SELECT * FROM [TestType];
 SELECT * FROM [TestAppointment];
 SELECT * FROM [Test];
 
-SELECT ID, ApplicationID, DriverID, LocalLicenseID, IssueDate, ExpirationDate, IsActive FROM [InternationalLicense];

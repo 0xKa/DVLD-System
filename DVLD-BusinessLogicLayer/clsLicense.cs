@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace DVLD_BusinessLogicLayer
 {
@@ -59,6 +60,11 @@ namespace DVLD_BusinessLogicLayer
         public bool IsDetained
         {
             get { return clsDetainedLicense.IsLicenseDetained(this.ID); }
+        }
+
+        public clsLicenseClass.enLicenseClass EnLicenseClass
+        {
+            get { return (clsLicenseClass.enLicenseClass)LicenseClassID; }
         }
 
         public bool IsExpired
@@ -305,6 +311,39 @@ namespace DVLD_BusinessLogicLayer
 
             DetainedLicense.Save();
             return clsDetainedLicense.Find(DetainedLicense.ID);
+        }
+        public clsInternationalLicense IssueInternationlLicense()
+        {
+            clsApplication NewInternationalLicenseApplication = new clsApplication()
+            {
+                ApplicantPersonID = this.DriverInfo.PersonID,
+                ApplicationDate = DateTime.Now,
+                LastStatusDate = DateTime.Now,
+                enType = clsApplicationType.enApplicationType.NewInternationalLicense,
+                enStatus = clsApplication.enApplicationStatus.Completed,
+                Fees = clsApplicationType.GetApplicationFees(clsApplicationType.enApplicationType.NewInternationalLicense),
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
+            };
+
+            if (!NewInternationalLicenseApplication.Save())
+                return null;
+
+            clsInternationalLicense InternationalLicense = new clsInternationalLicense()
+            {
+                ApplicationID = NewInternationalLicenseApplication.ApplicationID,
+                DriverID = this.DriverID,
+                LocalLicenseID = this.ID,
+                IssueDate = DateTime.Now,
+                ExpirationDate = DateTime.Now.AddYears(clsInternationalLicense.InternationalLicenseValidityYears),
+                IsActive = true,
+                CreatedByUserID = clsGlobalSettings.LoggedInUser.ID
+
+            };
+
+            if (!InternationalLicense.Save())
+                return null;
+
+            return clsInternationalLicense.Find(InternationalLicense.ID);
         }
     }
 }

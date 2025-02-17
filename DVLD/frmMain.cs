@@ -147,7 +147,7 @@ namespace DVLD
 
         private void internationalLicenseToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            _CurrentForm = new frmManageInternationalLicenses();
+            _CurrentForm = new frmAddNewInternationalLicense();
             _CurrentForm.ShowDialog();
         }
 

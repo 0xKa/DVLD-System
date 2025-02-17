@@ -126,7 +126,9 @@ namespace DVLD.License.International_License
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-
+            frmAddNewInternationalLicense frmANIL = new frmAddNewInternationalLicense();
+            frmANIL.FormClosed += Refresh_OnFormClosed;
+            frmANIL.ShowDialog();
         }
 
         private void Refresh_OnFormClosed(object sender, FormClosedEventArgs e)
@@ -141,7 +143,7 @@ namespace DVLD.License.International_License
         }
         private void showLicenseInfoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            //koko
         }
         private void showLicensesHistoryToolStripMenuItem_Click(object sender, EventArgs e)
         {

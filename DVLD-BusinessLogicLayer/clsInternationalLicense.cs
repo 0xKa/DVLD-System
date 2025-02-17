@@ -21,6 +21,11 @@ namespace DVLD_BusinessLogicLayer
         public bool IsActive { get; set; }
         public int CreatedByUserID { get; set; }
 
+        public static byte InternationalLicenseValidityYears
+        {
+            get { return (byte)(clsLicenseClass.GetLicenseValidityYears(clsLicenseClass.enLicenseClass.OrdinaryDrivingLicense) * 2); }
+        }
+
         public clsApplication ApplicationInfo = null; //I chose Application to be a Composition instead of Inheritance 
         public clsDriver DriverInfo = null;
         public clsLicense LocalLicenseInfo = null;
