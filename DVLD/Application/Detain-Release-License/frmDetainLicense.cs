@@ -31,7 +31,7 @@ namespace DVLD.Detain_Release_License
 
             if (!ctrlCard.SelectedLicense.IsActive || ctrlCard.SelectedLicense.IsExpired)
                 MessageBox.Show("This License Cannot be Detained Because It is Expired or Not Active", "License Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (clsDetainedLicense.IsLicenseDetained(ctrlCard.SelectedLicense.ID))
+            else if (ctrlCard.SelectedLicense.IsDetained)
                 MessageBox.Show("Selected License Already Detained", "License Invalid", MessageBoxButtons.OK, MessageBoxIcon.Error);
             else
             {

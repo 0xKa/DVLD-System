@@ -58,7 +58,7 @@ namespace DVLD_BusinessLogicLayer
 
         public bool IsDetained
         {
-            get { return false; }//call a method to check //koko
+            get { return clsDetainedLicense.IsLicenseDetained(this.ID); }
         }
 
         public bool IsExpired

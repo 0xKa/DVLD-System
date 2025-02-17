@@ -46,6 +46,42 @@ namespace DVLD_DataAccessLayer
 
             return isFound;
         }
+        public static bool GetDetainedLicenseInfoByLicenseID(int LicenseID, ref int ID, ref DateTime DetainDate, ref decimal FineFees,
+            ref int CreatedByUserID, ref bool IsReleased, ref DateTime? ReleasedDate, ref int? ReleasedByUserID, ref int? ReleaseApplicationID)
+        {
+            bool isFound = false;
+
+            SqlConnection connection = new SqlConnection(clsDataAccessSettings.ConnectionString);
+
+            string query = @"SELECT * FROM DetainedLicense WHERE LicenseID = @LicenseID;";
+
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.AddWithValue("@LicenseID", LicenseID);
+
+            try
+            {
+                connection.Open();
+                SqlDataReader reader = command.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    isFound = true;
+                    ID = (int)reader["ID"];
+                    DetainDate = (DateTime)reader["DetainDate"];
+                    FineFees = (decimal)reader["FineFees"];
+                    CreatedByUserID = (int)reader["CreatedByUserID"];
+                    IsReleased = (bool)reader["IsReleased"];
+                    ReleasedDate = reader["ReleasedDate"] as DateTime?; // Allow Null
+                    ReleasedByUserID = reader["ReleasedByUserID"] as int?; // Allow Null
+                    ReleaseApplicationID = reader["ReleaseApplicationID"] as int?; // Allow Null
+                }
+                reader.Close();
+            }
+            catch { isFound = false; }
+            finally { connection.Close(); }
+
+            return isFound;
+        }
 
         public static int AddNewDetainedLicense(int LicenseID, DateTime DetainDate, decimal FineFees, int CreatedByUserID,
             bool IsReleased, DateTime? ReleasedDate, int? ReleasedByUserID, int? ReleaseApplicationID)

@@ -139,7 +139,9 @@ namespace DVLD.Detain_Release_License
         }
         private void btnReleaseLicense_Click(object sender, EventArgs e)
         {
-            //koko
+            frmReleaseDetainedLicense frmRDL = new frmReleaseDetainedLicense();
+            frmRDL.FormClosed += Refresh_OnFormClosed;
+            frmRDL.ShowDialog();
         }
     }
 }

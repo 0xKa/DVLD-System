@@ -96,6 +96,24 @@ namespace DVLD_BusinessLogicLayer
             else
                 return null;
         }
+        public static clsDetainedLicense FindByLicenseID(int LicenseID)
+        {
+            int ID = -1;
+            DateTime DetainDate = DateTime.MinValue;
+            decimal FineFees = 0;
+            int CreatedByUserID = -1;
+            bool IsReleased = false;
+            DateTime? ReleasedDate = null;
+            int? ReleasedByUserID = null;
+            int? ReleaseApplicationID = null;
+
+            if (clsDetainedLicenseData.GetDetainedLicenseInfoByLicenseID(LicenseID, ref ID, ref DetainDate, ref FineFees,
+                ref CreatedByUserID, ref IsReleased, ref ReleasedDate, ref ReleasedByUserID, ref ReleaseApplicationID))
+                return new clsDetainedLicense(ID, LicenseID, DetainDate, FineFees, CreatedByUserID,
+                    IsReleased, ReleasedDate, ReleasedByUserID, ReleaseApplicationID);
+            else
+                return null;
+        }
 
         public bool Save()
         {
