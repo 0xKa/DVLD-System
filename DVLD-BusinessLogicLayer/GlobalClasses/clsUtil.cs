@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -38,6 +39,86 @@ namespace DVLD_BusinessLogicLayer.GlobalClasses
         {
             if (File.Exists(clsGlobalSettings.RememberMeFilePath))
                 File.Delete(clsGlobalSettings.RememberMeFilePath);
+        }
+
+
+        public static void WritetoRegistry(string keyPath, string valueName, string valueData)
+        {
+
+            try
+            {
+                Registry.SetValue(keyPath, valueName, valueData, RegistryValueKind.String);
+
+                Console.WriteLine($"Value {valueName} successfully written to the Registry.");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+        }
+        public static string ReadFromRegistry(string keyPath, string valueName)
+        {
+
+            string result = null;
+
+            try
+            {
+                result = Registry.GetValue(keyPath, valueName, null) as string;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return result;
+
+        }
+        public static void DeleteFromRegistry(string keyPath, string valueName)
+        {
+            try
+            {
+                // Ensure we're using a relative path under HKCU
+                string relativeKeyPath = keyPath.Replace(@"HKEY_CURRENT_USER\", "");
+
+                using (RegistryKey key = Registry.CurrentUser.OpenSubKey(relativeKeyPath, writable: true))
+                {
+                    if (key != null)
+                    {
+                        key.DeleteValue(valueName, throwOnMissingValue: false);
+                        Console.WriteLine($"Value '{valueName}' deleted successfully from '{keyPath}'.");
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Registry key '{keyPath}' not found.");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+        }
+
+
+        public static void SaveLoginCredentialsToWinRegistry(string username, string password)
+        {
+            WritetoRegistry(clsGlobalSettings.RememberMeWinRegistryPath, "username", username);
+            WritetoRegistry(clsGlobalSettings.RememberMeWinRegistryPath, "password", password);
+        }
+        public static void ClearLoginCredentialsFromWinRegistry()
+        {
+            DeleteFromRegistry(clsGlobalSettings.RememberMeWinRegistryPath, "username");
+            DeleteFromRegistry(clsGlobalSettings.RememberMeWinRegistryPath, "password");
+        }
+        public static string GetUsernameFromWinRegistry()
+        {
+            return ReadFromRegistry(clsGlobalSettings.RememberMeWinRegistryPath, "username");
+        }
+        public static string GetPasswordFromWinRegistry()
+        {
+            return ReadFromRegistry(clsGlobalSettings.RememberMeWinRegistryPath, "password");
+
         }
     }
 }

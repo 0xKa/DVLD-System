@@ -15,6 +15,7 @@ namespace DVLD_BusinessLogicLayer
 
         public static string PeopleImagesFolder = @"..\..\People-Images";
         public static string RememberMeFilePath = @"..\..\RememberMeLoginInfo.txt";
+        public static string RememberMeWinRegistryPath = @"HKEY_CURRENT_USER\SOFTWARE\DVLD";
 
 
 

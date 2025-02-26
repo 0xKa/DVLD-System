@@ -34,9 +34,9 @@ namespace DVLD
                 if (User.IsActive)
                 {
                     if (chkRememberMe.Checked)
-                        clsUtil.SaveLoginCredentialsToFile(txbUsername.Text, txbPassword.Text);
+                        clsUtil.SaveLoginCredentialsToWinRegistry(txbUsername.Text, txbPassword.Text);
                     else
-                        clsUtil.ClearLoginCredentialsFromFile();
+                        clsUtil.ClearLoginCredentialsFromWinRegistry();
 
                     clsGlobalSettings.LoggedInUser = User;
                     this.DialogResult = DialogResult.OK;
@@ -53,17 +53,14 @@ namespace DVLD
 
         private void frmLogin_Load(object sender, EventArgs e)
         {
-            if (File.Exists(clsGlobalSettings.RememberMeFilePath))
+            string username = clsUtil.GetUsernameFromWinRegistry();
+            string password = clsUtil.GetPasswordFromWinRegistry();
+
+            if (!string.IsNullOrWhiteSpace(username) && !string.IsNullOrWhiteSpace(password))
             {
-                string[] lines = File.ReadAllLines(clsGlobalSettings.RememberMeFilePath);
-
-                if (lines.Length > 0)
-                {
-                    txbUsername.Text = lines[0];
-                    txbPassword.Text = lines[1];
-                    chkRememberMe.Checked = true;
-                }
-
+                txbUsername.Text = username;
+                txbPassword.Text = password;
+                chkRememberMe.Checked = true;
             }
         }
     }
