@@ -1,10 +1,12 @@
-﻿using DVLD_DataAccessLayer;
+﻿using DVLD_BusinessLogicLayer.GlobalClasses;
+using DVLD_DataAccessLayer;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 namespace DVLD_BusinessLogicLayer
 {
@@ -45,14 +47,15 @@ namespace DVLD_BusinessLogicLayer
 
         private bool _AddNewUser()
         {
-            this.ID = clsUserData.AddNewUser(PersonID, Username, Password, IsActive);
+            
+            this.ID = clsUserData.AddNewUser(PersonID, Username, GlobalClasses.clsUtil.ComputeSHA256(Password), IsActive);
 
             return ID != -1;
         }
 
         private bool _UpdateUser()
         {
-            return clsUserData.UpdateUser(ID, PersonID, Username, Password, IsActive);
+            return clsUserData.UpdateUser(ID, PersonID, Username, GlobalClasses.clsUtil.ComputeSHA256(Password), IsActive);
         }
 
         public static clsUser Find(int ID)
@@ -85,7 +88,7 @@ namespace DVLD_BusinessLogicLayer
             int PersonID = -1;
             bool IsActive = true;
 
-            if (clsUserData.GetUserInfoByUsernameAndPassword(Username, Password, ref ID, ref PersonID, ref IsActive))
+            if (clsUserData.GetUserInfoByUsernameAndPassword(Username, clsUtil.ComputeSHA256(Password), ref ID, ref PersonID, ref IsActive))
                 return new clsUser(ID, PersonID, Username, Password, IsActive);
             else
                 return null;
@@ -130,11 +133,11 @@ namespace DVLD_BusinessLogicLayer
 
         public bool ChangePassword(string NewPassword)
         {
-            return clsUserData.ChangePassword(this.Username, NewPassword);
+            return clsUserData.ChangePassword(this.Username, clsUtil.ComputeSHA256(NewPassword));
         }
         public static bool ChangePassword(string Username, string Password)
         {
-            return clsUserData.ChangePassword(Username, Password);
+            return clsUserData.ChangePassword(Username, clsUtil.ComputeSHA256(Password));
         }
     }
 

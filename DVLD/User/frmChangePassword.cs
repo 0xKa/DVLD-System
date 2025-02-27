@@ -1,4 +1,5 @@
 ﻿using DVLD_BusinessLogicLayer;
+using DVLD_BusinessLogicLayer.GlobalClasses;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -56,11 +57,11 @@ namespace DVLD.User
             bool IsValid = false;
             if (!_IsRequiredDataFilled())
                 MessageBox.Show("Please Fill Required Information", "Info Missing!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            else if (txbCurrentPassword.Text != _User.Password)
+            else if (clsUtil.ComputeSHA256(txbCurrentPassword.Text) != _User.Password)
             { MessageBox.Show("Current Password is Wrong!", "Password Wrong!", MessageBoxButtons.OK, MessageBoxIcon.Error); txbCurrentPassword.Focus(); }
             else if (txbNewPassword.Text != txbConfirmPassword.Text)
             { MessageBox.Show("Password Confirmation does not match the New Password!", "Confirm Password", MessageBoxButtons.OK, MessageBoxIcon.Error); txbConfirmPassword.Focus(); }
-            else if (txbNewPassword.Text == _User.Password)
+            else if (clsUtil.ComputeSHA256(txbNewPassword.Text) == _User.Password)
             { MessageBox.Show("Enter a New Password, You cannot use the same Password!", "Enter New Password", MessageBoxButtons.OK, MessageBoxIcon.Error); txbNewPassword.Focus(); }
             else
                 IsValid = true;
