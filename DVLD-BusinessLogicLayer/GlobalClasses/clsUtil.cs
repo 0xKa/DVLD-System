@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Diagnostics;
 
 namespace DVLD_BusinessLogicLayer.GlobalClasses
 {
@@ -120,5 +121,18 @@ namespace DVLD_BusinessLogicLayer.GlobalClasses
             return ReadFromRegistry(clsGlobalSettings.RememberMeWinRegistryPath, "password");
 
         }
+
+        //logs error in windows event viewer
+        public static void LogError(string message, EventLogEntryType LogType)
+        {
+            string SourceName = "DVLD";
+
+            if (!EventLog.SourceExists(SourceName))
+                EventLog.CreateEventSource(SourceName, "Application"); //save in application log
+
+            EventLog.WriteEntry(SourceName, message, LogType);
+
+        }
+
     }
 }

@@ -25,6 +25,7 @@ namespace DVLD
             this.Close();
         }
 
+        byte LoginFailedTrials = 0;
         private void btnLogin_Click(object sender, EventArgs e)
         {
             clsUser User = clsUser.FindByUsernameAndPassword(txbUsername.Text, txbPassword.Text);
@@ -47,7 +48,22 @@ namespace DVLD
 
             }
             else
-            { MessageBox.Show("Invalid Username/Password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); txbUsername.Focus(); }
+            { 
+                MessageBox.Show("Invalid Username/Password.", "Login Failed", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                txbUsername.Focus();
+
+                if (LoginFailedTrials == 2)
+                {
+                    btnLogin.Enabled = false;
+                    txbUsername.Enabled = false;
+                    txbPassword.Enabled = false;
+                    chkRememberMe.Enabled = false;
+                    MessageBox.Show("Login Locked, Invalid Username/Password was entered 3 times", "Locked", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    clsUtil.LogError($"Invalid username/password was entered 3 times. username={txbUsername.Text}, password={txbPassword.Text}", System.Diagnostics.EventLogEntryType.Warning);
+                }
+                else
+                    LoginFailedTrials++; 
+            }
 
         }
 
